@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col items-center justify-center min-h-screen bg-neutral-light dark:bg-neutral-dark text-gray-800 dark:text-white">
+    <div class="flex flex-col items-center justify-center min-h-screen   text-gray-800 dark:text-white">
   <p class="text-gray-400 mb-2 group">Want something like this?</p>
-  <a href="#" class="flex items-center text-black text-4xl font-bold group text-gray-800 dark:text-white">
+  <a href="/about" class="flex items-center text-black text-4xl font-bold group text-gray-800 dark:text-white">
     Get In Touch 
     <IconArrowLeft class="ml-4 group-hover:rotate-180 ease-in duration-300 delay-100"/>
   </a>

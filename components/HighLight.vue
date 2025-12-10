@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col justify-center antialiased bg-neutral-light dark:bg-neutral-dark text-gray-800 dark:text-white min-h-screen">
+    <section class="flex flex-col justify-center antialiased   text-gray-800 dark:text-white min-h-screen">
         <div class="mx-auto max-w-2xl text-center mb-6">
             <TextGradient>Hight Light Project</TextGradient>
             <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">

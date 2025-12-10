@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-neutral-light dark:bg-neutral-dark text-neutral-dark dark:text-neutral-light flex flex-wrap justify-center items-center w-full pt-20 md:pt-36 lg:pt-40 pb-18">
+  <div class="min-h-screen   text-neutral-dark dark:text-neutral-light flex flex-wrap justify-center items-center w-full pt-20 md:pt-36 lg:pt-40 pb-18">
     <div class="grid gap-10 lg:grid-cols-2 max-w-screen-lg mx-auto">
       <!-- Bagian Gambar -->
       <div class="order-1 lg:order-2 flex items-center justify-center -mx-4 lg:pl-8">

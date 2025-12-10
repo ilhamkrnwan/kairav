@@ -1,9 +1,9 @@
 <template>
   <!-- <MenuTab /> -->
 
-  <div class="min-h-screen bg-neutral-light dark:bg-neutral-dark text-white dark:text-black flex flex-wrap justify-center items-center w-full ">
+  <div class="min-h-screen   text-white dark:text-black flex flex-wrap justify-center items-center w-full ">
     <!-- Hero div -->
-    <div class="bg-neutral-light dark:bg-neutral-dark text-gray-800 mt-20 ">
+    <div class="  text-gray-800 mt-20 ">
     <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
       <!-- Gambar -->
       <div class="relative flex items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 order-1 lg:order-2">
@@ -40,9 +40,9 @@
 </div>
 
   </div>
-  <div class="min-h-screen bg-neutral-light dark:bg-neutral-dark text-white dark:text-black flex flex-wrap justify-center items-center w-full ">
+  <div class="min-h-screen   text-white dark:text-black flex flex-wrap justify-center items-center w-full ">
     <!-- Hero div -->
-    <div class="bg-neutral-light dark:bg-neutral-dark text-gray-800 mt-10 ">
+    <div class="  text-gray-800 mt-10 ">
     <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-14 lg:flex-row lg:justify-between">
         <!-- Teks -->
         <div class="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left order-2 lg:order-1 z-10 text-neutral-dark dark:text-neutral-light">

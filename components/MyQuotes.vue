@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-neutral-light dark:bg-neutral-dark text-gray-800 dark:text-white px-4 py-16 mx-auto md:px-24 lg:px-8 lg:py-20">
+  <div class="  text-gray-800 dark:text-white px-4 py-16 mx-auto md:px-24 lg:px-8 lg:py-20">
     <div class="max-w-xl mb-10 mx-auto text-center lg:max-w-2xl md:mb-12">
       <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 dark:text-white sm:text-4xl mx-auto">
         <span class="relative inline-block">

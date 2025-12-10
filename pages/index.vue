@@ -1,8 +1,9 @@
 <template>
 
-  <div class="min-h-screen bg-neutral-light dark:bg-neutral-dark text-neutral-dark dark:text-neutral-light flex flex-wrap justify-center items-center w-full ">
+  <div class="min-h-screen  text-neutral-dark dark:text-neutral-light flex flex-wrap justify-center items-center w-full ">
     <!-- Hero div -->
-    <div class="bg-neutral-light dark:bg-neutral-dark text-gray-800 mt-20 ">
+   
+    <div class=" text-gray-800 mt-20 ">
     <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
       <!-- Gambar -->
       <div class="relative flex items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 order-1 lg:order-2">

@@ -1,226 +1,212 @@
+<script setup lang="ts">
+  interface Project {
+    id: string
+    title: string
+    description: string
+    year: string
+    date: string
+    image: string
+    link: string
+    previewLink: string
+    tags: string[]
+    author: string
+    authorImage: string
+  }
+  
+  const projects: Project[] = [
+    {
+      id: 'jurutani',
+      title: 'Jurutani - Digital Agriculture Platform',
+      description: 'A comprehensive digital platform for agriculture management with IoT integration, helping farmers monitor and optimize their crop production in real-time.',
+      year: '2024',
+      date: 'Jan 15, 2024',
+      image: '/project/jurutani/1.png',
+      link: '/project/jurutani',
+      previewLink: 'https://jurutani.com',
+      tags: ['Nuxt Js', 'Supabase', 'Agriculture'],
+      author: 'Kairav',
+      authorImage: '/profile-blck.png'
+    },
+    {
+      id: 'ruangnu',
+      title: 'RuangNu - Co-working Space Management',
+      description: 'An efficient management system for co-working spaces that streamlines booking, resource allocation, and community engagement.',
+      year: '2024',
+      date: 'Mar 22, 2024',
+      image: '/project/ruangnu/3.png',
+      link: '/project/ruangnu',
+      previewLink: 'https://ruangnu.vercel.app',
+      tags: ['PHP', 'Booking', 'Management'],
+      author: 'Kairav',
+      authorImage: '/profile-blck.png'
+    },
+    {
+      id: 'agrinuclear',
+      title: 'AgriNuclear - Nuclear Agriculture Research',
+      description: 'Research platform for nuclear agriculture applications, exploring innovative techniques for crop improvement and sustainable farming practices.',
+      year: '2024',
+      date: 'May 10, 2024',
+      image: '/project/agrinuklir/2.png',
+      link: '/project/agrinuclear',
+      previewLink: 'https://agrinuklir.netlify.app/',
+      tags: ['React', 'Data Science', 'Research'],
+      author: 'Kairav',
+      authorImage: '/profile-blck.png'
+    }
+  ]
+
+  const getTagColor = (tag: string) => {
+    const colors: Record<string, string> = {
+      'Vue.js': 'bg-green-600 hover:bg-green-700',
+      'React': 'bg-blue-500 hover:bg-blue-600',
+      'Node.js': 'bg-green-700 hover:bg-green-800',
+      'IoT': 'bg-purple-600 hover:bg-purple-700',
+      'Python': 'bg-yellow-600 hover:bg-yellow-700',
+      'Agriculture': 'bg-emerald-600 hover:bg-emerald-700',
+      'Management': 'bg-indigo-600 hover:bg-indigo-700',
+      'Data Science': 'bg-pink-600 hover:bg-pink-700',
+      'Research': 'bg-cyan-600 hover:bg-cyan-700'
+    }
+    return colors[tag] || 'bg-gray-600 hover:bg-gray-700'
+  }
+</script>
+
 <template>
-  <div>
-    <!-- Hero Section -->
-    <div class="px-4 py-16 mx-auto md:px-24 lg:px-32 lg:py-20 bg-neutral-light dark:bg-neutral-dark text-gray-800 dark:text-white">
-      <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-        <div class="mb-16 lg:mb-0 lg:pr-5">
-          <div class="mb-6">
-            <div>
-              <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                Portfolio
-              </p>
-            </div>
-            <h1 class="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent text-4xl lg:text-6xl font-bold mb-6">
-              My Projects
-            </h1>
-            <p class="text-base text-gray-700 dark:text-gray-300 md:text-lg max-w-xl">
-              A collection of my IT accomplishments, showcasing innovative solutions and technical expertise across various domains.
-            </p>
-          </div>
-          <div class="flex items-center space-x-3">
-            <button class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
-              Explore Projects
-            </button>
+  <div class="px-4 py-16 mx-auto md:px-24 lg:px-32 lg:py-20   text-gray-800 dark:text-white">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div class="flex flex-col justify-center md:pr-8 xl:pr-0">
+        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
+          <div class="flex lg:justify-start items-center justify-center mb-4">
+            <img src="../../public/kairav.png" alt="Logo" class="h-10 mr-2" />
           </div>
         </div>
-        <div class="flex items-center justify-center lg:w-1/2">
-          <div class="w-2/5">
-            <img class="object-cover rounded-lg shadow-2xl" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Development" />
-          </div>
-          <div class="w-5/12 -ml-16 lg:-ml-32">
-            <img class="object-cover rounded-lg shadow-2xl" src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400" alt="Technology" />
-          </div>
+        <div class="mb-6">
+          <TextGradient>
+            My Projects<br class="hidden md:block" />
+            <span class="inline-block text-deep-purple-accent-400">Showcase</span>
+          </TextGradient>
+          <p class="text-base text-gray-700 dark:text-gray-400 md:text-lg">
+            "Here are some of the projects I've worked on, showcasing my skills and passion for creating innovative solutions."
+          </p>
+        </div>
+        <div>
+          <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
+            Learn more
+            <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
+              <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
+            </svg>
+          </a>
         </div>
       </div>
-      
-      <!-- Scroll Down Arrow -->
-      <a
-        href="#projects"
-        aria-label="Scroll down"
-        class="flex items-center justify-center w-12 h-12 mx-auto text-gray-600 dark:text-gray-400 duration-300 transform border-2 border-gray-400 dark:border-gray-500 rounded-full hover:text-blue-600 hover:border-blue-600 hover:shadow-lg hover:scale-110"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 12 12" fill="currentColor">
-          <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"></path>
-        </svg>
-      </a>
-    </div>
-
-    <!-- Projects Grid Section -->
-    <div id="projects" class="mx-auto px-6 lg:px-32 py-16 bg-white dark:bg-gray-900">
-      <div class="mx-auto text-center mb-12">
-        <h2 class="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent text-3xl lg:text-5xl font-bold mb-4">
-          Featured Projects
-        </h2>
-        <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Take a look at some of the projects I've crafted, highlighting my skills, creativity, and commitment to quality solutions.
-        </p>
-      </div>
-
-      <div class="mx-auto mt-12 grid auto-rows-fr grid-cols-1 gap-8 lg:grid-cols-3">
-        
-        <!-- Jurutani Project -->
-        <article class="group relative isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-900 dark:bg-gray-800 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600" alt="Jurutani" class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-          <div class="absolute inset-0 -z-10 rounded-3xl ring-1 ring-inset ring-gray-900/10"></div>
-          
-          <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-            <time datetime="2024" class="mr-8 bg-blue-600/20 px-2 py-1 rounded-full">2024</time>
-            <div class="-ml-4 flex items-center gap-x-4">
-              <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
-                <circle cx="1" cy="1" r="1"></circle>
-              </svg>
-              <div class="flex gap-x-2.5 items-center">
-                <div class="h-6 w-6 flex-none rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">K</div>
-                <span class="text-sm font-medium">Kairav</span>
-              </div>
-            </div>
-          </div>
-          
-          <h3 class="mt-3 text-xl font-bold leading-6 text-white group-hover:text-blue-300 transition-colors">
-            <NuxtLink :to="`/project/jurutani`">
-              <span class="absolute inset-0"></span>
-              Jurutani - Digital Agriculture Platform
-            </NuxtLink>
-          </h3>
-          
-          <p class="mt-2 text-sm text-gray-300 line-clamp-2">
-            Innovative agricultural management system with IoT integration and real-time monitoring capabilities.
-          </p>
-          
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-green-600/20 text-green-300 text-xs px-2 py-1 rounded-full">Vue.js</span>
-            <span class="bg-blue-600/20 text-blue-300 text-xs px-2 py-1 rounded-full">IoT</span>
-            <span class="bg-purple-600/20 text-purple-300 text-xs px-2 py-1 rounded-full">Agriculture</span>
-          </div>
-          
-          <div class="flex gap-2 mt-4">
-            <button type="button" class="flex-1 bg-blue-600/20 border border-blue-400/30 text-blue-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-blue-600/40 hover:border-blue-400">
-              Live Demo
-            </button>
-            <button type="button" class="flex-1 bg-gray-600/20 border border-gray-400/30 text-gray-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-gray-600/40 hover:border-gray-400">
-              GitHub
-            </button>
-          </div>
-        </article>
-
-        <!-- RuangNu Project -->
-        <article class="group relative isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-900 dark:bg-gray-800 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600" alt="RuangNu" class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-          <div class="absolute inset-0 -z-10 rounded-3xl ring-1 ring-inset ring-gray-900/10"></div>
-          
-          <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-            <time datetime="2024" class="mr-8 bg-purple-600/20 px-2 py-1 rounded-full">2024</time>
-            <div class="-ml-4 flex items-center gap-x-4">
-              <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
-                <circle cx="1" cy="1" r="1"></circle>
-              </svg>
-              <div class="flex gap-x-2.5 items-center">
-                <div class="h-6 w-6 flex-none rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">K</div>
-                <span class="text-sm font-medium">Kairav</span>
-              </div>
-            </div>
-          </div>
-          
-          <h3 class="mt-3 text-xl font-bold leading-6 text-white group-hover:text-purple-300 transition-colors">
-            <NuxtLink :to="`/project/ruangnu`">
-              <span class="absolute inset-0"></span>
-              RuangNu - Co-working Space Management
-            </NuxtLink>
-          </h3>
-          
-          <p class="mt-2 text-sm text-gray-300 line-clamp-2">
-            Modern workspace booking and management system with integrated payment and scheduling features.
-          </p>
-          
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-orange-600/20 text-orange-300 text-xs px-2 py-1 rounded-full">React</span>
-            <span class="bg-green-600/20 text-green-300 text-xs px-2 py-1 rounded-full">Node.js</span>
-            <span class="bg-blue-600/20 text-blue-300 text-xs px-2 py-1 rounded-full">Management</span>
-          </div>
-          
-          <div class="flex gap-2 mt-4">
-            <button type="button" class="flex-1 bg-purple-600/20 border border-purple-400/30 text-purple-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-purple-600/40 hover:border-purple-400">
-              Live Demo
-            </button>
-            <button type="button" class="flex-1 bg-gray-600/20 border border-gray-400/30 text-gray-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-gray-600/40 hover:border-gray-400">
-              GitHub
-            </button>
-          </div>
-        </article>
-
-        <!-- AgriNuclear Project -->
-        <article class="group relative isolate flex flex-col justify-end overflow-hidden rounded-3xl bg-gray-900 dark:bg-gray-800 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600" alt="AgriNuclear" class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-          <div class="absolute inset-0 -z-10 rounded-3xl ring-1 ring-inset ring-gray-900/10"></div>
-          
-          <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-            <time datetime="2024" class="mr-8 bg-green-600/20 px-2 py-1 rounded-full">2024</time>
-            <div class="-ml-4 flex items-center gap-x-4">
-              <svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
-                <circle cx="1" cy="1" r="1"></circle>
-              </svg>
-              <div class="flex gap-x-2.5 items-center">
-                <div class="h-6 w-6 flex-none rounded-full bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center text-white text-xs font-bold">K</div>
-                <span class="text-sm font-medium">Kairav</span>
-              </div>
-            </div>
-          </div>
-          
-          <h3 class="mt-3 text-xl font-bold leading-6 text-white group-hover:text-green-300 transition-colors">
-            <NuxtLink :to="`/project/agrinuclear`">
-              <span class="absolute inset-0"></span>
-              AgriNuclear - Nuclear Agriculture Research
-            </NuxtLink>
-          </h3>
-          
-          <p class="mt-2 text-sm text-gray-300 line-clamp-2">
-            Advanced research platform for nuclear techniques in agriculture with data visualization and analysis tools.
-          </p>
-          
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-red-600/20 text-red-300 text-xs px-2 py-1 rounded-full">Python</span>
-            <span class="bg-blue-600/20 text-blue-300 text-xs px-2 py-1 rounded-full">Data Science</span>
-            <span class="bg-green-600/20 text-green-300 text-xs px-2 py-1 rounded-full">Research</span>
-          </div>
-          
-          <div class="flex gap-2 mt-4">
-            <button type="button" class="flex-1 bg-green-600/20 border border-green-400/30 text-green-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-green-600/40 hover:border-green-400">
-              Live Demo
-            </button>
-            <button type="button" class="flex-1 bg-gray-600/20 border border-gray-400/30 text-gray-300 rounded-lg px-3 py-2 text-sm transition-all duration-300 hover:bg-gray-600/40 hover:border-gray-400">
-              GitHub
-            </button>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 py-16">
-      <div class="max-w-4xl mx-auto text-center px-6">
-        <h3 class="text-3xl font-bold text-white mb-4">
-          Interested in Working Together?
-        </h3>
-        <p class="text-blue-100 text-lg mb-8">
-          Let's discuss how we can bring your ideas to life with innovative technology solutions.
-        </p>
-        <button class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-          Get In Touch
-        </button>
+      <div class="flex items-center justify-center -mx-4 lg:pl-8">
+        <div class="flex flex-col items-end px-3">
+          <img
+            class="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
+            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400"
+            alt=""
+          />
+          <img class="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40" src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400" alt="" />
+        </div>
+        <div class="px-3">
+          <img class="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80" src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600" alt="" />
+        </div>
       </div>
     </div>
   </div>
-</template>
 
-<script setup>
-// SEO Meta
-useHead({
-  title: 'My Projects - Portfolio',
-  meta: [
-    { name: 'description', content: 'Explore my collection of innovative IT projects showcasing technical expertise across various domains including agriculture, workspace management, and research platforms.' }
-  ]
-})
-</script>
+  <div class="mx-auto px-6 lg:px-32 pt-8 pb-16   text-gray-800 dark:text-white">
+    <div class="mx-auto text-center mb-12">
+      <TextGradient>My Work</TextGradient>
+      <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
+        A collection of my projects, showcasing my skills in creating innovative and effective solutions.
+      </p>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="space-y-16">
+      <article 
+        v-for="(project, index) in projects" 
+        :key="project.id"
+        class="max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center"
+        :class="{ 'md:grid-flow-dense': index % 2 !== 0 }"
+      >
+        <a class="relative block group" :href="project.link" :class="{ 'md:col-start-2': index % 2 !== 0 }">
+          <div 
+            class="absolute inset-0 bg-gray-800 dark:bg-gray-600 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none" 
+            aria-hidden="true"
+          ></div>
+          <figure class="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
+            <img 
+              class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" 
+              :src="project.image" 
+              :alt="project.title"
+              width="540" 
+              height="303"
+            >
+          </figure>
+        </a>
+        <div :class="{ 'md:col-start-1 md:row-start-1': index % 2 !== 0 }">
+          <header>
+            <div class="mb-3">
+              <ul class="flex flex-wrap text-xs font-medium -m-1">
+                <li v-for="tag in project.tags" :key="tag" class="m-1">
+                  <a 
+                    class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full transition duration-150 ease-in-out" 
+                    :class="getTagColor(tag)"
+                    href="#0"
+                  >
+                    {{ tag }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold leading-tight mb-2">
+              <a 
+                class="hover:text-gray-600 dark:hover:text-gray-100 transition duration-150 ease-in-out" 
+                :href="project.link"
+              >
+                {{ project.title }}
+              </a>
+            </h3>
+          </header>
+          <p class="text-lg text-gray-600 dark:text-gray-400 flex-grow">
+            {{ project.description }}
+          </p>
+
+          <footer class="flex items-center mt-4">
+            <a :href="`/author/${project.author.toLowerCase()}`">
+              <img 
+                class="rounded-full flex-shrink-0 mr-4" 
+                :src="project.authorImage" 
+                width="40" 
+                height="40" 
+                :alt="project.author"
+              >
+            </a>
+            <div>
+              <a class="font-medium dark:text-gray-200" :href="`/author/${project.author.toLowerCase()}`">
+                {{ project.author }}
+              </a>
+              <span class="text-gray-500 dark:text-gray-600"> - </span>
+              <span class="text-gray-500">{{ project.date }}</span>
+            </div>
+          </footer>
+          <div class="flex justify-start mt-4 space-x-4"> 
+            <StyleButton>
+              <a :href="project.link">
+                More
+              </a>
+            </StyleButton>
+            <StyleButton>
+              <a :href="project.previewLink" target="_blank">
+                Preview
+              </a>
+            </StyleButton>
+          </div> 
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <GetinTouch />
+</template>

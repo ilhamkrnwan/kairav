@@ -11,7 +11,7 @@ technologies:
   - "Tailwind CSS"
   - "Google Gemini"
   - "Supabase"
-demo_url: "https://jurutani.vercel.app"
+demo_url: "https://jurutani.com"
 github_url: "https://github.com/ilhammmsf/jurutani"
 carousel_images:
   - "/project/jurutani/1.png"

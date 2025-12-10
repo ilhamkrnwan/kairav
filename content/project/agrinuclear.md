@@ -9,7 +9,7 @@ technologies:
   - "React"
   - "MySQL"
   - "Tailwind css"
-demo_url: "https://agrinuclear.brin.go.id"
+demo_url: "https://agrinuklir.netlify.app"
 carousel_images:
   - "/project/agrinuklir/1.png"
   - "/project/agrinuklir/2.png"

@@ -2,7 +2,7 @@
   <div
     class="min-h-screen w-full flex flex-col items-center justify-center
            bg-white dark:bg-neutral-dark
-           text-neutral-dark dark:text-neutral-light"
+           text-neutral-dark dark:text-neutral-light px-4"
   >
     <!-- Header -->
     <div class="mt-20 mb-6 text-center">
@@ -14,7 +14,7 @@
 
     <!-- CV Container -->
     <div
-      class="w-full max-w-5xl h-[80vh]
+      class="w-full max-w-5xl h-[calc(100vh-10rem)]
              bg-gray-100 dark:bg-neutral-800
              rounded-xl shadow-lg overflow-hidden"
     >

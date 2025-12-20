@@ -34,12 +34,12 @@
             <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row space-y-2 sm:space-y-2 md:space-y-2 lg:space-y-0 lg:space-x-2">
    
       <StyleButton>
-        <a href="#">
-          About Me
+        <a href="/cv">
+          Download CV
         </a>
       </StyleButton>
       <StyleButton>
-        <a href="#">
+        <a href="/contact">
           Contact Me
         </a>
       </StyleButton>

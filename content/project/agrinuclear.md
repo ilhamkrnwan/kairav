@@ -1,27 +1,31 @@
 ---
-title: "Agrinuclear"
+title: "AgriNuclear"
 slug: "agrinuclear"
-description: "An educational platform dedicated to nuclear agriculture, providing comprehensive resources on radiation-induced mutation breeding and its applications."
+description: "An educational web platform introducing nuclear agriculture concepts, focusing on mutation breeding, radiation technology, and their applications in modern farming."
 year: "2024"
 role: "Lead Developer"
 duration: "6 Months"
 technologies:
   - "React"
-  - "MySQL"
-  - "Tailwind css"
+  - "Tailwind CSS"
+  - "Static Site Architecture"
 demo_url: "https://agrinuklir.netlify.app"
 carousel_images:
   - "/project/agrinuklir/1.png"
   - "/project/agrinuklir/2.png"
   - "/project/agrinuklir/3.png"
 key_features:
-  - "In-depth articles and research papers"
-  - "Interactive e-learning modules"
-  - "Case studies of successful mutant varieties"
-  - "Expert directory and community forum"
-  - "Glossary of technical terms"
+  - "Educational articles on nuclear agriculture and mutation breeding"
+  - "Clear explanations of radiation applications in plant development"
+  - "Visual learning content for students and general audiences"
+  - "Structured information suitable for academic introduction"
+  - "Responsive and lightweight user interface"
 ---
 
 ## Overview
 
-**Agrinuclear** is a specialized educational website that I developed for the National Research and Innovation Agency (BRIN). The platform focuses on the application of nuclear science in agriculture, particularly in the field of plant mutation breeding. It serves as a central hub for researchers, students, and enthusiasts to access reliable information, learn from interactive modules, and engage with a community of experts. The project was built using **Laravel** and **MySQL**.
+**AgriNuclear** is an educational web platform designed to introduce the fundamentals of **nuclear applications in agriculture**, with a primary focus on **radiation-induced mutation breeding**. The website presents scientific concepts in a structured and accessible manner, making it suitable for students, educators, and the general public interested in agricultural innovation.
+
+The platform highlights how nuclear techniques are used to develop improved crop varieties, increase resilience, and support sustainable farming practices. Content is delivered through informative articles and visual explanations that bridge the gap between academic research and practical understanding.
+
+Built using **React** and **Tailwind CSS**, AgriNuclear emphasizes simplicity, clarity, and performance. The static-site approach ensures fast loading times and broad accessibility, positioning the project as an effective educational reference and a strong demonstration of modern front-end development for scientific content.

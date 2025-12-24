@@ -15,6 +15,19 @@
   
   const projects: Project[] = [
     {
+      id: 'qinarian',
+      title: 'Qinarian - Technology Community & Digital Innovation',
+      description: 'Official website of Qinarian, a technology community focused on building digital solutions, open-source collaboration, and innovation in web, AI, and cybersecurity.',
+      year: '2024',
+      date: 'Dec 25, 2024',
+      image: '/project/qinarian/1.png',
+      link: '/project/qinarian',
+      previewLink: 'https://qinaryan.vercel.app/home',
+      tags: ['Nuxt Js', 'Community', 'Open Source', 'Technology'],
+      author: 'Kairav',
+      authorImage: '/profile-blck.png'
+    },
+    {
       id: 'jurutani',
       title: 'Jurutani - Digital Agriculture Platform',
       description: 'A comprehensive digital platform for agriculture management with IoT integration, helping farmers monitor and optimize their crop production in real-time.',

@@ -1,0 +1,19 @@
+{
+  "home": "Home",
+  "about": "About Us",
+  "nav": {
+    "home": "Home",
+    "project": "Project",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "theme": {
+    "toggle": "Toggle dark mode"
+  },
+  "language": {
+    "change": "Change language",
+    "english": "English",
+    "indonesia": "Indonesia"
+  }
+}

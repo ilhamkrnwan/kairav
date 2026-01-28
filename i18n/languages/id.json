@@ -1,0 +1,19 @@
+{
+  "home": "Beranda",
+  "about": "Tentang Kami",
+  "nav": {
+    "home": "Beranda",
+    "project": "Proyek",
+    "gallery": "Galeri",
+    "blog": "Blog",
+    "about": "Tentang"
+  },
+  "theme": {
+    "toggle": "Ganti mode gelap"
+  },
+  "language": {
+    "change": "Ganti bahasa",
+    "english": "English",
+    "indonesia": "Indonesia"
+  }
+}

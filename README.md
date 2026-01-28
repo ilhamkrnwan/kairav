@@ -1,130 +1,101 @@
-# Portfolio KAIRAV - Ilham Kurniawan
+# Portfolio Website
 
-## Ringkasan
+Welcome to my personal portfolio website. I am a **Fullstack Developer** with a strong interest in building complete digital products—from development to deployment.
 
-Selamat datang di portfolio digital **KAIRAV** milik **Ilham Kurniawan**, seorang Fullstack Developer berbakat dari Yogyakarta, Indonesia. Website ini menampilkan perjalanan, keterampilan, dan karya-karya kreatif Ilham di bidang teknologi dan pengembangan web.
-
-**Website:** https://kairav-portfolio.vercel.app/
+I enjoy working on new challenges and continuously improving my skills across **web, mobile, system development, and Web3**. I am open to **full-time opportunities** and **freelance projects**.
 
 ---
 
-## Profil Singkat
+## 👨‍💻 About Me
 
-**Ilham Kurniawan** adalah mahasiswa Teknik Informatika di Universitas Nahdlatul Ulama Yogyakarta yang passionate di bidang:
-- Frontend & Backend Development
-- Junior Fullstack Developer
-- Speaker & AI Enthusiast
-- UX/UI Design
-- Mobile Development
-- Game Development
-- Artificial Intelligence
+I am passionate about developing modern, scalable, and maintainable applications. I am comfortable working across the full software development lifecycle, including planning, development, testing, deployment, and maintenance.
 
-> *"Tech and Coding are more than just interests for me; they're my way of life."*
+My experience includes **web applications, Android mobile apps, system development, and blockchain-based solutions**. I value clean architecture, performance, and long-term maintainability.
 
 ---
 
-## Struktur Website
+## 🚀 Core Skills
 
-### 🏠 **Home**
-Halaman utama yang menyambut pengunjung dengan desain visual yang menarik dan modern, menampilkan:
-- Tagline profesional sebagai Frontend, Backend, dan Junior Fullstack Developer
-- Deskripsi singkat tentang fokus pada Web Development dengan minat pada UX/UI Design, Mobile, dan AI Development
-- Call-to-action untuk mengenal lebih lanjut dan menghubungi
+- **Fullstack Web Development**  
+  Building end-to-end web applications with modern frameworks and best practices.
 
-### 👤 **About Me**
-Halaman perkenalan lengkap yang berisi:
+- **Android Development**  
+  Developing mobile applications for the Android ecosystem, focusing on performance and usability.
 
-**Profil Personal:**
-- Nama: Ilham Kurniawan
-- Lokasi: Yogyakarta, Indonesia
-- Status: Mahasiswa Computer Science dan Information Technology
-- Filosofi: Continuous learning sebagai kunci untuk tetap unggul di era digital
+- **Web3 Development**  
+  Designing and implementing decentralized applications, smart contracts, and blockchain integrations.
 
-**Teknologi & Tools:**
-- **Language & Framework:** Vue.js, Nuxt.js, React.js, Next.js, Laravel, CodeIgniter
-- **Tools:** Visual Studio Code, Git & GitHub, Figma, Copilot
-
-**Layanan:**
-- Website Development
-- Mobile App Development
-- Information System
-- Chatbot Development
-- Automation Feature
-
-**Pendidikan:**
-- **Formal:**
-  - Universitas Nahdlatul Ulama Yogyakarta (2023 - Present) - Undergraduated in Informatics
-  - SMA N 1 Randublatung (2017 - 2020) - Graduated, fokus MIPA
-  
-- **Non-Formal:**
-  - Rumah Gemilang Indonesia Surabaya (2020 - 2021) - Software Engineering, Web Programming
-  - Graphic Design Training - DINPERINAKER Blora (2022) - CorelDRAW
-
-**Pengalaman:**
-- Fullstack Developer (2021 - Present) - Freelance
-- Menangani berbagai proyek untuk klien
-- Terbuka untuk posisi full-time dan kolaborasi berbasis proyek
-
-## Keunikan Website
-
-✨ **Design Visual:**
-- Desain modern dengan animasi SVG blob yang dinamis
-- Color scheme gradient orange-red yang eye-catching
-- Layout responsif dan user-friendly
-- Typography yang clean dan profesional
-
-🎨 **User Experience:**
-- Navigasi yang intuitif
-- Call-to-action yang jelas di setiap halaman
-- Konsistensi branding di seluruh website
-- Footer dengan multiple contact options
-
-📱 **Contact Options:**
-- Instagram
-- GitHub
-- LinkedIn
-- WhatsApp
-- Email
+- **System Development & Deployment**  
+  Handling backend systems, APIs, databases, server configuration, and deployment pipelines.
 
 ---
 
-## Filosofi & Nilai
+## 🛠️ Tech Stack
 
-Ilham Kurniawan menunjukkan komitmen tinggi terhadap:
-- **Continuous Learning:** Selalu eager untuk belajar hal-hal baru
-- **Innovation:** Menciptakan solusi yang inovatif dan efektif
-- **Quality:** Menghasilkan karya berkualitas tinggi
-- **Openness:** Terbuka untuk peluang dan kolaborasi
-- **Passion:** Menjalani tech dan coding sebagai way of life
+### 🌐 Web Development
+- HTML5, CSS3, JavaScript (ES6+)
+- TypeScript
+- Nuxt 3 / Nuxt 4
+- Vue.js
+- Tailwind CSS
+- Nuxt UI
+- REST API & API Integration
+
+### 📱 Mobile Development
+- Android (Kotlin)
+- Android Studio
+- REST API Integration
+- Firebase (Auth, Firestore, Cloud Messaging)
+
+### ⚙️ Backend & System
+- Node.js
+- Express.js
+- Supabase
+- PostgreSQL
+- Authentication & Authorization
+- System Architecture & API Design
+
+### 🔗 Web3 & Blockchain
+- Blockchain Fundamentals
+- Smart Contracts
+- Web3.js / Ethers.js
+- Decentralized Applications (dApps)
+- Wallet Integration
+
+### 🗄️ Database & Storage
+- PostgreSQL
+- MySQL
+- Firebase Firestore
+- Supabase Storage
+
+### 🚀 DevOps & Deployment
+- Git & GitHub
+- CI/CD Basics
+- Linux Server
+- Docker (Basic)
+- Vercel / Netlify
+- VPS Deployment
+
+### 🧩 Tools & Others
+- Git Flow
+- Figma (UI Collaboration)
+- Postman
+- Agile & Iterative Development
 
 ---
 
-## Target Audience
+## 📌 Status
 
-Website ini cocok untuk:
-- Klien potensial yang mencari developer freelance
-- Perusahaan yang mencari fullstack developer
-- Kolaborator proyek teknologi
-- Komunitas tech yang ingin networking
-- Siapa saja yang tertarik dengan karya dan expertise Ilham
+- ✅ Open to Work (Full-time / Contract)
+- ✅ Available for Freelance Projects
+- 🌱 Continuously learning new technologies
 
 ---
 
-## Call to Action
+## 📬 Contact
 
-Setiap halaman diakhiri dengan ajakan untuk:
-> **"Want something like this? Get In Touch"**
-
-Menunjukkan Ilham siap untuk:
-- Proyek kolaborasi
-- Full-time opportunities
-- Konsultasi teknologi
-- Project-based work
+Feel free to reach out for collaboration, project discussions, or job opportunities.
 
 ---
 
-## Kesimpulan
-
-Portfolio KAIRAV adalah representasi profesional dari perjalanan Ilham Kurniawan sebagai developer muda yang passionate, skilled, dan terus berkembang. Website ini tidak hanya menampilkan technical skills, tetapi juga personality, vision, dan dedication Ilham terhadap dunia teknologi.
-
-**Copyright © KAIRAV 2024**
+© 2026 – Built and maintained by Ilham Kurniawan

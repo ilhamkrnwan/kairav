@@ -1,19 +1,14 @@
 {
-  "home": "Home",
-  "about": "About Us",
-  "nav": {
-    "home": "Home",
-    "project": "Project",
-    "gallery": "Gallery",
-    "blog": "Blog",
-    "about": "About"
-  },
-  "theme": {
-    "toggle": "Toggle dark mode"
-  },
-  "language": {
-    "change": "Change language",
-    "english": "English",
-    "indonesia": "Indonesia"
-  }
+  "Home": "Home",
+  "About": "About",
+  "Project": "Project",
+  "Gallery": "Gallery",
+  "Blog": "Blog",
+  "Contact": "Contact",
+  "Download CV": "Download CV",
+  "Contact Me": "Contact Me",
+  "Hello my name is Ilham Kurniawan": "Hello my name is Ilham Kurniawan",
+  "Eager to learn new things and open to opportunities": "Eager to learn new things and open to opportunities",
+  "Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast": "Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast",
+  "2026 | Copyright © KAIRAV": "2026 | Copyright © KAIRAV"
 }

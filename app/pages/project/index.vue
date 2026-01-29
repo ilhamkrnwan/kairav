@@ -85,14 +85,9 @@
 </script>
 
 <template>
-  <div class="px-4 py-16 mx-auto md:px-24 lg:px-32 lg:py-20   text-gray-800 dark:text-white">
+  <div class="px-4 py-16 mx-auto md:px-24 lg:px-32 lg:py-20 text-gray-800 dark:text-white">
     <div class="grid gap-10 lg:grid-cols-2">
       <div class="flex flex-col justify-center md:pr-8 xl:pr-0">
-        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
-          <div class="flex lg:justify-start items-center justify-center mb-4">
-            <img src="/kairav.png" alt="Logo" class="h-10 mr-2" />
-          </div>
-        </div>
         <div class="mb-6">
           <TextGradient>
             My Projects<br class="hidden md:block" />
@@ -109,19 +104,6 @@
               <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
             </svg>
           </a>
-        </div>
-      </div>
-      <div class="flex items-center justify-center -mx-4 lg:pl-8">
-        <div class="flex flex-col items-end px-3">
-          <img
-            class="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
-            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400"
-            alt=""
-          />
-          <img class="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40" src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400" alt="" />
-        </div>
-        <div class="px-3">
-          <img class="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80" src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600" alt="" />
         </div>
       </div>
     </div>
@@ -205,21 +187,17 @@
             </div>
           </footer>
           <div class="flex justify-start mt-4 space-x-4"> 
-            <StyleButton>
-              <a :href="project.link">
-                More
-              </a>
-            </StyleButton>
-            <StyleButton>
-              <a :href="project.previewLink" target="_blank">
+              <UButton :to="project.link">
+                Detail
+              </UButton>
+              <UButton :to="project.previewLink" target="_blank">
                 Preview
-              </a>
-            </StyleButton>
+              </UButton>
           </div> 
         </div>
       </article>
     </div>
   </div>
-
   <GetinTouch />
+
 </template>

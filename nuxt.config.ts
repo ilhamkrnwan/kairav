@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.SITE_URL || "https://ilhamkrnwan.my.id",
+      siteUrl: process.env.BASE_URL || "https://ilhamkrnwan.my.id",
     },
   },
 
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     "@i18n": "./i18n",
   },
   modules: [
-    [
+   [
       "@nuxtjs/i18n",
       {
         locales: [
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         langDir: "languages/",
         defaultLocale: "id",
         strategy: "no_prefix",
-        baseUrl: process.env.SITE_URL,
+        baseUrl: process.env.BASE_URL || "https://ilhamkrnwan.my.id",
       },
     ],
     "@nuxt/image",

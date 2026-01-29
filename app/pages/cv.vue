@@ -31,23 +31,25 @@
       />
     </div>
 
-    <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row gap-3 mt-6">
-      <StyleButton>
-        <a
-          href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download"
-          target="_blank"
-        >
-          Download CV
-        </a>
-      </StyleButton>
 
-      <StyleButton>
-        <NuxtLink to="/">
-          Back to Home
-        </NuxtLink>
-      </StyleButton>
-    </div>
+     <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-300 mt-6">
+        <!-- Primary Button -->
+        <UiAnimatedButton href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download" variant="primary">
+          <template #default>Download CV</template>
+          <template #iconRight>
+            <Icon name="lucide:download" class="w-4 h-4" />
+          </template>
+        </UiAnimatedButton>
+
+        <!-- Secondary Button -->
+        <UiAnimatedButton href="/" variant="outline">
+          <template #default>Back to Home</template>
+          <template #iconRight>
+            <Icon name="lucide:home" class="w-4 h-4" />
+          </template>
+        </UiAnimatedButton>
+      </div>
 
     <!-- Footer -->
     <div class="mt-10 text-sm text-gray-400">

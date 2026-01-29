@@ -1,17 +1,17 @@
 <template>
   <!-- Toggle Button - hanya muncul di mobile -->
   <button
-    @click="toggleSidebar"
-    class="fixed top-1/2 left-0 transform -translate-y-1/2 z-30
-           w-8 h-16 bg-accent-light/20 dark:bg-accent-dark/20
-           hover:bg-accent-light/30 dark:hover:bg-accent-dark/30
-           rounded-r-lg flex items-center justify-center
-           transition-all duration-300 md:hidden"
-    :class="{ 'left-16': isOpen }"
+  class="fixed top-1/2 left-0 transform -translate-y-1/2 z-30
+  w-8 h-16 bg-accent-light/20 dark:bg-accent-dark/20
+  hover:bg-accent-light/30 dark:hover:bg-accent-dark/30
+  rounded-r-lg flex items-center justify-center
+  transition-all duration-300 md:hidden"
+  :class="{ 'left-16': isOpen }"
+  @click="toggleSidebar"
   >
     <Icon 
       :name="isOpen ? 'streamline-plump-color:arrow-right-circle-1-flat' : 'streamline-plump-color:arrow-right-circle-1-flat'" 
-      class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300" 
+      class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300 cursor-pointer" 
       :class="isOpen ? 'rotate-180' : ''"
     />
   </button>
@@ -33,18 +33,18 @@
              transition-transform duration-300
              hover:scale-125"
     >
-      <UButton
+      <a
         :href="sosmedItem.to"
         target="_blank"
         rel="noopener noreferrer"
-        variant="subtle"
         class="w-10 h-10 flex items-center justify-center
-               bg-accent-light/10 dark:bg-accent-dark/10
-               hover:bg-accent-light/20 dark:hover:bg-accent-dark/20
-               rounded-full p-0"  
+               bg-amber-100/30 dark:bg-yellow-400/10
+               hover:bg-amber-200/50 dark:hover:bg-yellow-400/20
+               rounded-full p-0 transition-all duration-300
+               ring-1 ring-amber-200/50 dark:ring-yellow-400/20"  
       >
         <Icon :name="sosmedItem.icon" class="w-6 h-6"/>
-      </UButton>
+      </a>
 
       <!-- Tooltip -->
       <span

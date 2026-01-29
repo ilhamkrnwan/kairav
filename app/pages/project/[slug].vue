@@ -1,3 +1,20 @@
+<script setup>
+  const route = useRoute()
+
+  // SEO Meta
+  useHead({
+    title: () => `${route.params.slug} - Project Details`,
+    meta: [
+      { name: 'description', content: 'Project details and case study.' }
+    ]
+  })
+
+  // Handle 404
+  const { data: page } = await useAsyncData(`project-${route.params.slug}`, () => queryContent("project", route.params.slug).findOne())
+  if (!page.value) {
+    throw createError({ statusCode: 404, statusMessage: 'Project not found' })
+  }
+</script>
 
 <template>
   <div class="  text-gray-800 dark:text-white">
@@ -30,7 +47,7 @@
 
       <!-- Carousel Section -->
       <div v-if="doc.carousel_images && doc.carousel_images.length" class="max-w-5xl mx-auto px-6 lg:px-8 pb-16">
-        <Carousel :images="doc.carousel_images" />
+        <UiCarousel :images="doc.carousel_images" />
       </div>
 
       <!-- Content Renderer for markdown body -->
@@ -44,7 +61,8 @@
        <!-- Action Buttons -->
       <div v-if="doc.demo_url || doc.github_url" class="max-w-4xl mx-auto px-6 lg:px-8 pb-16 text-center">
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink v-if="doc.demo_url"
+            <NuxtLink 
+              v-if="doc.demo_url"
               :href="doc.demo_url"
               target="_blank">
               <StyleButton
@@ -67,25 +85,6 @@
     </ContentDoc>
   </div>
 </template>
-
-<script setup>
-  import Carousel from '~/components/Carousel.vue';
-  const route = useRoute()
-
-  // SEO Meta
-  useHead({
-    title: () => `${route.params.slug} - Project Details`,
-    meta: [
-      { name: 'description', content: 'Project details and case study.' }
-    ]
-  })
-
-  // Handle 404
-  const { data: page } = await useAsyncData(`project-${route.params.slug}`, () => queryContent("project", route.params.slug).findOne())
-  if (!page.value) {
-    throw createError({ statusCode: 404, statusMessage: 'Project not found' })
-  }
-</script>
 
 <style>
 /* Better Prose Styles */

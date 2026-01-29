@@ -59,8 +59,7 @@ import { Icon } from "#components";
 
       <!-- Main Heading -->
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-        Eager to learn new things<br />
-        and open to <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">opportunities.</span>
+        Eager to learn <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">new things</span> and open to <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">opportunities.</span>
       </h1>
 
       <!-- Subtitle/Role -->

@@ -3,16 +3,13 @@
     <!-- Theme Switcher - Left Side -->
     <AppThemeSwitcher />
     
-    <!-- Logo - Left Side -->
-    <AppLogo />
-    
     <!-- Language Switcher - Left Side -->
     <AppLangSwitcher />
     
     <!-- Full Screen Menu - Right Side -->
     <AppFullScreenMenu />
     
-    <main class="relative min-h-screen">
+    <UMain class="relative min-h-screen">
         <!-- Fixed background pattern dengan opacity lebih tinggi -->
         <div class="fixed inset-0 -z-10 overflow-hidden bg-neutral-light dark:bg-neutral-dark">
             <UiAnimatedGridPattern
@@ -25,8 +22,8 @@
         </div>
         
         <!-- Content -->
-        <slot/>
-    </main>
+        <slot />
+    </UMain>
     <AppButtonSosmed />
   </div>
 </template>

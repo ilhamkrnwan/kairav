@@ -11,7 +11,7 @@ const { t } = useI18n()
                 <Icon name="lucide:arrow-right-circle" class="w-8 h-8 ml-2 transform transition-transform duration-300 group-hover:translate-x-2"/>
             </a>
             <footer class="mt-8 text-center text-gray-500 dark:text-gray-400"> 
-                {{ t('2026 | Copyright © KAIRAV') }}
+                {{ new Date().getFullYear() }} | Copyright © KAIRAV
             </footer>
         </div>
     </section>

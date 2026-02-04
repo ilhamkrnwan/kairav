@@ -24,44 +24,27 @@ _path: /portofolio/jurutani
 
 # Jurutani
 
-**Menjembatani Pertanian Tradisional dengan Inovasi Digital**
-
-Jurutani adalah **ekosistem pertanian digital** yang lengkap banget, langsung ngasih power teknologi modern ke tangan petani. Kita ngomong tentang data cuaca real-time, harga pasar, konsultasi tanaman pake AI, forum komunitas, sumber edukasi, bahkan marketplace — semua terintegrasi dalam satu platform yang seamless.
-
-## Services
-- Full-Stack Development
-- Mobile App Development
-- Integrasi AI
-- Arsitektur Sistem
-
-### Status Proyek
-Live
-
-### Industri
-Pertanian & Teknologi
+Platform pertanian digital all-in-one yang nge-support petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan marketplace access.
 
 ![Interface Platform Jurutani](/portofolio/jurutani/preview.png)
 
 ## Tantangan
 
-Petani Indonesia hadapi cuaca unpredictable, harga pasar fluktuatif, akses terbatas ke ahli, dan teknik outdated. Solusi digital yang ada terlalu ribet, mahal, atau ga ngerti kebutuhan sehari-hari petani.
+Petani Indonesia hadapi cuaca unpredictable, harga pasar fluktuatif, akses ahli terbatas, dan teknik outdated. Solusi digital yang ada terlalu ribet atau ga ngerti kebutuhan harian.
 
 ## Solusi
 
-- **Real-Time Agricultural Intelligence** — Data cuaca live, tracking harga komoditas, dan market trends
-- **Konsultasi Bertenaga AI** — Google Gemini AI untuk diagnosa tanaman dan rekomendasi personalized
-- **Community-Driven Learning** — Forum interaktif untuk sharing pengalaman dan knowledge
-- **Marketplace Built-In** — Jual hasil panen dan beli supplies langsung, cutting out middlemen
-- **Mobile-First Design** — Offline capabilities untuk akses di daerah remote
-- **Tools Praktis** — Kalkulator pupuk, estimator panen, budget planner, dan lebih banyak lagi
-
-## Tech Stack
-
-Nuxt.js, Capacitor, Tailwind CSS, Supabase, Google Gemini AI, PostgreSQL, PWA
+- **Real-Time Intelligence** – Update cuaca live, harga komoditas, market trends, dan crop calendar
+- **Konsultasi AI** – Google Gemini AI untuk instant farming advice dan diagnosa tanaman
+- **Expert Network** – Chat langsung dengan agricultural officers dan Q&A terjadwal
+- **Community Forum** – Diskusi interaktif untuk sharing pengalaman petani
+- **Educational Library** – Tutorial farming step-by-step dan best practices
+- **Integrated Marketplace** – Platform jual-beli langsung, potong middlemen
+- **Mobile-First Design** – Offline capabilities untuk daerah remote
 
 ## Hasil
 
-Platform mobile-first yang comprehensive, ngasih power teknologi modern langsung ke tangan petani. Enable keputusan data-driven, akses expert, dan naikin profitabilitas lewat direct market access.
+Platform mobile-first comprehensive yang ngasih power teknologi modern ke tangan petani, enable keputusan data-driven dan naikin profitabilitas.
 
 ![Jurutani Mockup 1](/portofolio/jurutani/1.png)
 ![Jurutani Mockup 2](/portofolio/jurutani/2.png)

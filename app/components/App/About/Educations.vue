@@ -4,7 +4,7 @@ const { t } = useI18n()
 const educationItems = computed(() => [
   { 
     title: t('Nahdlatul Ulama University Yogyakarta (UNUYO)'), 
-    date: t('2023 - Present | Undergraduated'), 
+    date: t('2023 - Present | Undergraduate'), 
     description: t('Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development. Engaged in various projects and research activities.'),
     type: t('Formal')
   },

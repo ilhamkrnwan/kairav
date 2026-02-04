@@ -64,7 +64,7 @@
 
       <!-- Subtitle/Role -->
       <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
-        {{ t('Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast') }}
+        {{ t('Junior Fullstack Developer') }} | {{ t('AI Enthusiast') }} | {{ t('Undergraduate Student') }} | {{ t('Web3 Enthusiast') }}
       </p>
 
       <!-- CTA Buttons -->

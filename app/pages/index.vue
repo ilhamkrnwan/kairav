@@ -71,7 +71,7 @@ useDynamicSeo({
 
           <!-- Description -->
           <p class="lg:text-lg text-base text-muted-foreground mb-8">
-            {{ t('Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast') }}
+            {{ t('Junior Fullstack Developer') }} | {{ t('AI Enthusiast') }} | {{ t('Undergraduate Student') }} | {{ t('Web3 Enthusiast') }}
           </p>
           
           <!-- CTA Buttons -->
@@ -95,7 +95,7 @@ useDynamicSeo({
 
         <!-- Copyright Footer -->
         <div class="absolute top-20 left-4 md:left-20 xl:left-20 lg:left-20 text-sm text-muted-foreground font-mono">
-          {{ t('2026 | Copyright © KAIRAV') }}
+            {{ new Date().getFullYear() }} | Copyright © KAIRAV
         </div>
       </div>
     </div>

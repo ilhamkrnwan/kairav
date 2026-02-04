@@ -20,12 +20,12 @@
   "seo.cv.description": "Download CV saya untuk mengetahui lebih lanjut tentang keahlian, pengalaman, dan pencapaian saya sebagai fullstack developer.",
 
   "Hello my name is Ilham Kurniawan": "Halo, saya Ilham Kurniawan",
-  "Eager to learn": "Selalu pengen belajar",
+  "Eager to learn": "Selalu ingin belajar",
   "new things": "hal baru",
   "and open to": "dan terbuka untuk",
   "opportunities": "peluang",
   "opportunities.": "peluang.",
-  "Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast": "Junior Fullstack Developer | AI Enthusiast | Mahasiswa | Web3 Enthusiast",
+  "Junior Fullstack Developer | AI Enthusiast | Undergraduate Student | Web3 Enthusiast": "Junior Fullstack Developer | AI Enthusiast | Mahasiswa | Web3 Enthusiast",
   "See More": "Lihat Lebih",
   "2026 | Copyright © KAIRAV": "2026 | Hak Cipta © KAIRAV",
 
@@ -86,8 +86,6 @@
   "Fullstack Web & Android Developer at Jurutani": "Fullstack Web & Android Developer di Jurutani",
   "2025 - Present": "2025 - Sekarang",
   "Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.": "Mengembangkan dan memaintain aplikasi web dan Android untuk klien menggunakan teknologi modern. Membangun interface yang responsif dan user-friendly dengan Vue.js dan Nuxt.js untuk aplikasi web. Membuat aplikasi Android menggunakan Kotlin, memastikan performa optimal dan user experience. Berkolaborasi dengan klien untuk mengumpulkan requirement dan memberikan solusi yang disesuaikan.",
-  "Interested in collaborating?": "Tertarik untuk berkolaborasi?",
-  "Get In Touch": "Hubungi Saya",
 
   "There are no limits to what you can accomplish except the limits you place on your own thinking.": "Tidak ada batasan untuk apa yang bisa kamu capai kecuali batasan yang kamu tempatkan pada pikiranmu sendiri.",
   "Brian Tracy": "Brian Tracy",
@@ -177,5 +175,6 @@
   "Go to Home": "Ke Beranda",
   "Go Back": "Kembali",
   "If you think this is a mistake, please contact support": "Jika Anda pikir ini kesalahan, silakan hubungi support",
-  "Continuously learning and expanding skillset with emerging technologies": "Terus belajar dan memperluas keahlian dengan teknologi baru"
+  "Continuously learning and expanding skillset with emerging technologies": "Terus belajar dan memperluas keahlian dengan teknologi baru",
+  "Project Gallery": "Galeri Proyek"
 }

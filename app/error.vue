@@ -69,24 +69,18 @@ const errorInfo = computed(() => {
 
       <!-- Decorative Line -->
       <div class="flex items-center justify-center gap-2 mb-8">
-        <div class="w-12 h-0.5 bg-gradient-to-r from-transparent to-amber-400 rounded-full"></div>
+        <div class="w-12 h-0.5 bg-linear-to-r from-transparent to-amber-400 rounded-full"></div>
         <Icon name="lucide:sparkles" class="w-4 h-4 text-amber-400" />
-        <div class="w-12 h-0.5 bg-gradient-to-l from-transparent to-amber-400 rounded-full"></div>
+        <div class="w-12 h-0.5 bg-linear-to-l from-transparent to-amber-400 rounded-full"></div>
       </div>
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
         <UiAnimatedButton href="/" variant="primary">
-          <template #iconLeft>
-            <Icon name="lucide:home" class="w-4 h-4" />
-          </template>
           <template #default>{{ t('Go to Home') }}</template>
         </UiAnimatedButton>
 
         <UiAnimatedButton @click="() => $router.back()" variant="outline">
-          <template #iconLeft>
-            <Icon name="lucide:arrow-left" class="w-4 h-4" />
-          </template>
           <template #default>{{ t('Go Back') }}</template>
         </UiAnimatedButton>
       </div>

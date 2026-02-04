@@ -57,7 +57,7 @@ useDynamicSeo({
 
     <!-- Footer -->
     <div class="mt-10 text-sm text-gray-400">
-      {{ t('© 2026 KAIRAV Portfolio') }}
+     {{ new Date().getFullYear() }} | Copyright © KAIRAV
     </div>
   </section>
 </template>

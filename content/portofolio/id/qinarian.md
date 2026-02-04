@@ -23,44 +23,28 @@ _path: /portofolio/qinarian
 
 # Qinarian
 
-**Where Innovation Meets Collaboration**
-
-Qinarian lebih dari sekadar portfolio atau showcase — ini adalah **platform teknologi community-driven** yang dibangun untuk koneksi developer, innovator, dan tech enthusiast. Sebuah space di mana ide di-share, project jadi kenyataan, dan kolaborasi open-source berkembang.
-
-## Services
-- Web Development
-- UI/UX Design
-- Platform Komunitas
-- Content Management System
-
-### Status Proyek
-Berlangsung
-
-### Industri
-Teknologi & Komunitas
+Platform komunitas tech yang dibangun buat innovators, di mana kolaborasi open-source ketemu sama solusi digital cutting-edge.
 
 ![Platform Qinarian](/portofolio/qinarian/preview.png)
 
 ## Tantangan
 
-Tech communities butuh space yang modern, open, dan collaborative. Kebanyakan platform terlalu corporate atau cluttered, ga feels like home buat developer yang pengen create, share, dan grow together.
+Tech communities butuh space yang feels modern, open, dan collaborative. Kebanyakan platform terlalu corporate atau cluttered, kurang welcoming buat developer.
 
 ## Solusi
 
-- **Community-First Design** — Prioritize kebutuhan komunitas dari showcase sampai resource sharing
-- **Open-Source Philosophy** — Built dengan transparency, encourage contributions dan knowledge exchange
-- **Modern Architecture** — Nuxt 4 untuk performance, SEO, dan developer experience terbaik
-- **Content-Driven** — Markdown-based CMS yang bikin update dan contributions jadi gampang
-- **Multi-Language Support** — Built-in i18n untuk aksesibilitas global
-- **SEO Optimized** — Dibangun dengan discoverability dalam pikiran
+- **Project Showcase** – Display clean dengan case study detail dan tech stack
+- **Community Hub** – Space untuk developer connect dan collaborate
+- **Resource Library** – Tools, tutorials, dan resources yang curated
+- **Multi-Language Support** – Built-in i18n untuk global accessibility
+- **Content-Driven CMS** – Markdown-based untuk update gampang
+- **Modern UI/UX** – Interface clean yang put content first
+- **SEO Optimized** – Built untuk discoverability dan reach
 
-## Tech Stack
-
-Nuxt 4, TypeScript, Tailwind CSS, Nuxt Content, Vue i18n, Vercel, SSG
 
 ## Hasil
 
-Platform yang scalable dan modern yang brings tech communities together dengan fast performance, clean design, dan filosofi open-source — bikin gampang buat share project, insights, dan expertise.
+Platform scalable dan modern yang brings tech communities together dengan fast performance, clean design, dan filosofi open-source.
 
 ![Qinarian Mockup 1](/portofolio/qinarian/1.png)
 ![Qinarian Mockup 2](/portofolio/qinarian/2.png)

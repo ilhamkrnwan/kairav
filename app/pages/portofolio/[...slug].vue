@@ -70,6 +70,27 @@ if (error.value || !current.value) {
   })
 }
 
+// Extract all images from markdown content for carousel
+const projectImages = computed(() => {
+  if (!current.value) return []
+  
+  // Get the slug from the current project path
+  const projectSlug = slug.value
+  
+  // Most portfolio projects have 3 mockup images numbered 1.png, 2.png, 3.png
+  // Extract the project folder name from the image path
+  const imagePath = current.value.image?.replace(/\/[^/]+\.png$/, '') || ''
+  
+  if (!imagePath) return []
+  
+  // Generate array of mockup image paths
+  return [
+    `${imagePath}/1.png`,
+    `${imagePath}/2.png`,
+    `${imagePath}/3.png`
+  ]
+})
+
 // Dynamic SEO with project data
 useDynamicSeo({
   title: current.value?.title,
@@ -148,9 +169,16 @@ useDynamicSeo({
       </section>
 
       <!-- Content Section with Grid Layout -->
-      <section class="py-8 md:py-12">
+      <section class="py-8 md:py-12 overflow-x-hidden">
+        <UiGlobalSpotlight
+          container-selector=".content-container"
+          card-selector=".animated-card"
+          :glow-color="'251, 191, 36'"
+          :spotlight-radius="400"
+          :enabled="true"
+        />
         <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-6xl">
+          <div class="mx-auto max-w-6xl content-container">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
               <!-- Main Content -->
               <div 
@@ -160,7 +188,7 @@ useDynamicSeo({
                 class="lg:col-span-8"
               >
                 <!-- Content Renderer -->
-                <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="prose prose-lg dark:prose-invert max-w-none [&_img]:hidden">
                   <ContentRenderer :value="current" />
                 </div>
               </div>
@@ -174,8 +202,17 @@ useDynamicSeo({
               >
                 <div class="sticky top-24 space-y-6">
                   <!-- Project Info Card -->
-                  <div class="p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50">
-                    <h3 class="text-lg font-heading font-bold mb-4">{{ t('Project Info') }}</h3>
+                  <UiAnimatedCard
+                    :glow-color="'251, 191, 36'"
+                    :particle-count="8"
+                    :enable-particles="true"
+                    :enable-tilt="false"
+                    :enable-magnetism="false"
+                    :enable-border-glow="false"
+                    :click-effect="true"
+                  >
+                    <div class="p-6 rounded-2xl bg-background/50 backdrop-blur-sm border border-border/50">
+                      <h3 class="text-lg font-heading font-bold mb-4">{{ t('Project Info') }}</h3>
                     
                     <div class="space-y-4">
                       <!-- Client -->
@@ -232,18 +269,47 @@ useDynamicSeo({
                         </div>
                       </div>
                     </div>
-                  </div>
+                    </div>
+                  </UiAnimatedCard>
 
                   <!-- Back to Projects -->
-                  <NuxtLink
-                    to="/portofolio"
-                    class="block p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-amber-400/50 transition-all group text-center"
+                  <UiAnimatedCard
+                    :glow-color="'251, 191, 36'"
+                    :particle-count="8"
+                    :enable-particles="true"
+                    :enable-tilt="false"
+                    :enable-magnetism="false"
+                    :enable-border-glow="false"
+                    :click-effect="true"
                   >
-                    <span class="text-sm font-medium">{{ t('Back to Projects') }}</span>
-                  </NuxtLink>
+                    <NuxtLink
+                      to="/portofolio"
+                      class="block p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-amber-400/50 transition-all group text-center"
+                    >
+                      <span class="text-sm font-medium">{{ t('Back to Projects') }}</span>
+                    </NuxtLink>
+                  </UiAnimatedCard>
                 </div>
               </aside>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Images Carousel -->
+      <section 
+        v-if="projectImages.length > 0"
+        v-motion
+        :initial="{ opacity: 0, y: 30 }"
+        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 450 } }"
+        class="py-8 md:py-12 overflow-x-hidden"
+      >
+        <div class="container mx-auto px-4 max-w-6xl">
+          <h2 class="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
+            {{ t('Project Gallery') }}
+          </h2>
+          <div class="relative rounded-2xl overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm p-4 md:p-6">
+            <UiCarousel :images="projectImages" />
           </div>
         </div>
       </section>
@@ -252,55 +318,82 @@ useDynamicSeo({
       <section 
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 400 } }"
-        class="py-12 px-4 border-t border-border/50"
+        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 500 } }"
+        class="py-12 px-4 border-t border-border/50 overflow-x-hidden"
       >
-        <div class="container mx-auto max-w-6xl">
+        <UiGlobalSpotlight
+          container-selector=".navigation-container"
+          card-selector=".animated-card"
+          :glow-color="'251, 191, 36'"
+          :spotlight-radius="400"
+          :enabled="true"
+        />
+        <div class="container mx-auto max-w-6xl navigation-container">
           <h2 class="text-2xl font-heading font-bold mb-8 text-center">{{ t('More Projects') }}</h2>
           <div class="grid md:grid-cols-2 gap-6">
             <!-- Previous Project -->
-            <NuxtLink 
-              v-if="prevProject" 
-              :to="getPortofolioLink(prevProject.path)"
-              class="group p-6 rounded-2xl border border-border/50 hover:border-amber-400/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-lg hover:shadow-amber-400/10"
+            <UiAnimatedCard
+              v-if="prevProject"
+              :glow-color="'251, 191, 36'"
+              :particle-count="8"
+              :enable-particles="true"
+              :enable-tilt="false"
+              :enable-magnetism="false"
+              :enable-border-glow="false"
+              :click-effect="true"
             >
-              <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                <Icon name="lucide:arrow-left" class="w-4 h-4" />
-                <span>{{ t('Previous Project') }}</span>
-              </div>
-              <div v-if="prevProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
-                <img :src="prevProject.image" :alt="prevProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <h3 class="font-bold text-lg mb-2 group-hover:text-amber-400 transition-colors">{{ prevProject.title }}</h3>
-              <p v-if="prevProject.description" class="text-sm text-muted-foreground line-clamp-2">{{ prevProject.description }}</p>
-              <div v-if="prevProject.category" class="mt-3">
-                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
-                  {{ prevProject.category }}
-                </span>
-              </div>
-            </NuxtLink>
+              <NuxtLink 
+                :to="getPortofolioLink(prevProject.path)"
+                class="block group p-6 rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm transition-all h-full"
+              >
+                <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  <Icon name="lucide:arrow-left" class="w-4 h-4" />
+                  <span>{{ t('Previous Project') }}</span>
+                </div>
+                <div v-if="prevProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
+                  <img :src="prevProject.image" :alt="prevProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-amber-400 transition-colors">{{ prevProject.title }}</h3>
+                <p v-if="prevProject.description" class="text-sm text-muted-foreground line-clamp-2">{{ prevProject.description }}</p>
+                <div v-if="prevProject.category" class="mt-3">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                    {{ prevProject.category }}
+                  </span>
+                </div>
+              </NuxtLink>
+            </UiAnimatedCard>
 
             <!-- Next Project -->
-            <NuxtLink 
-              v-if="nextProject" 
-              :to="getPortofolioLink(nextProject.path)"
-              class="group p-6 rounded-2xl border border-border/50 hover:border-amber-400/50 bg-card/50 backdrop-blur-sm transition-all hover:shadow-lg hover:shadow-amber-400/10"
+            <UiAnimatedCard
+              v-if="nextProject"
+              :glow-color="'251, 191, 36'"
+              :particle-count="8"
+              :enable-particles="true"
+              :enable-tilt="false"
+              :enable-magnetism="false"
+              :enable-border-glow="false"
+              :click-effect="true"
             >
-              <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-3">
-                <span>{{ t('Next Project') }}</span>
-                <Icon name="lucide:arrow-right" class="w-4 h-4" />
-              </div>
-              <div v-if="nextProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
-                <img :src="nextProject.image" :alt="nextProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <h3 class="font-bold text-lg mb-2 text-right group-hover:text-amber-400 transition-colors">{{ nextProject.title }}</h3>
-              <p v-if="nextProject.description" class="text-sm text-muted-foreground text-right line-clamp-2">{{ nextProject.description }}</p>
-              <div v-if="nextProject.category" class="mt-3 flex justify-end">
-                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
-                  {{ nextProject.category }}
-                </span>
-              </div>
-            </NuxtLink>
+              <NuxtLink 
+                :to="getPortofolioLink(nextProject.path)"
+                class="block group p-6 rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm transition-all h-full"
+              >
+                <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-3">
+                  <span>{{ t('Next Project') }}</span>
+                  <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                </div>
+                <div v-if="nextProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
+                  <img :src="nextProject.image" :alt="nextProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h3 class="font-bold text-lg mb-2 text-right group-hover:text-amber-400 transition-colors">{{ nextProject.title }}</h3>
+                <p v-if="nextProject.description" class="text-sm text-muted-foreground text-right line-clamp-2">{{ nextProject.description }}</p>
+                <div v-if="nextProject.category" class="mt-3 flex justify-end">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                    {{ nextProject.category }}
+                  </span>
+                </div>
+              </NuxtLink>
+            </UiAnimatedCard>
           </div>
         </div>
       </section>

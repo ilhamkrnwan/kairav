@@ -21,59 +21,26 @@ _path: /portofolio/agrinuclear
 
 # AgriNuclear
 
-An educational web platform that breaks down complex nuclear agriculture concepts into bite-sized, easy-to-understand content — making advanced farming science accessible for everyone.
+An educational web platform that breaks down complex nuclear agriculture concepts into bite-sized, easy-to-understand content.
 
 ![AgriNuclear Preview](/portofolio/agrinuklir/preview.png)
 
 ## Challenge
 
-Nuclear agriculture sounds intimidating. Students, educators, and curious minds want to learn about how nuclear technology creates better crops and sustainable farming solutions, but most resources are either too academic or too vague. We needed a platform that makes complex scientific concepts actually understandable while staying lightweight and fast.
+Nuclear agriculture sounds intimidating. Students and educators need accessible resources about how nuclear technology creates better crops, but most content is either too academic or too vague.
 
 ## Solution
 
-We created an educational platform that transforms dense academic research into clear, engaging content:
-
-- **Visual-First Learning** – Infographics, diagrams, and visual guides that make complex processes easy to grasp
-- **Educational Articles** – Deep dives into mutation breeding, radiation applications, and nuclear agriculture techniques in plain language
-- **Structured Content** – Information organized by difficulty level and topic for self-paced or classroom learning
-- **Academic References** – Properly cited sources and research links for deeper exploration
-- **Responsive Design** – Clean interface that works seamlessly on any device
-
-## Tech Stack
-
-**Frontend:** React, Tailwind CSS  
-**Type:** Static Site
+- **Visual-First Learning** – Infographics and diagrams that make complex processes easy to grasp
+- **Educational Articles** – Mutation breeding and radiation applications explained in plain language
+- **Structured Content** – Organized by difficulty level for self-paced or classroom learning
+- **Academic References** – Properly cited sources for deeper exploration
+- **Static Site Architecture** – Lightning-fast loading with SEO optimization
 
 ## Results
 
-Made advanced agricultural science approachable for students, educators, and the public. Transformed dry scientific content into an engaging learning journey with fast loading and smooth navigation.
+Made advanced agricultural science approachable for students, educators, and the public with fast loading and smooth navigation.
 
 ![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.png)
 ![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.png)
 ![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.png)
-
-### Future-Ready Platform
-Modular design makes it easy to add new content and features as the field evolves.
-
----
-
-## Tech Stack
-
-### Frontend
-- **React** — Component-based architecture for reusable content blocks
-- **Tailwind CSS** — Utility-first styling for rapid, consistent design
-- **Static Site Generator** — Lightning-fast loading with SEO optimization
-
-### Content Management
-- Markdown-based content system for easy updates
-- Dynamic routing for scalable content structure
-
----
-
-## Visual Showcase
-
-![AgriNuclear Content Page](/portofolio/agrinuklir/3.png)
-
----
-
-> Proving that even the most complex science can be made accessible, one article at a time.

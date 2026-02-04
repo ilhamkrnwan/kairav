@@ -23,44 +23,26 @@ _path: /portofolio/ruangnu
 
 # RuangNU
 
-**Sanctuary Digital buat Ilmu Islam & Komunitas**
-
-RuangNU adalah platform digital yang comprehensive banget, dibangun buat serve kebutuhan spiritual, edukatif, dan komunitas anggota Nahdlatul Ulama (NU). Lebih dari sekadar website — ini ekosistem lengkap yang ngegabungin Islamic resources, practical tools, dan community features dalam satu space yang accessible.
-
-## Services
-- Web Development
-- UI/UX Design
-- Database Design
-- Platform Konten Islami
-
-### Status Proyek
-Dalam Pengembangan (Private)
-
-### Industri
-Agama & Komunitas
+Platform digital terintegrasi buat support anggota Nahdlatul Ulama dengan Islamic resources, community services, dan educational content.
 
 ![Preview Platform RuangNU](/portofolio/ruangnu/preview.png)
 
 ## Tantangan
 
-Anggota Nahdlatul Ulama butuh platform digital terpusat untuk kebutuhan religious dan komunitas. Solusi yang ada terfragmentasi — app doa di sini, konten Islami di sana, forum di tempat lain. Ga ada yang cohesive dan purpose-built buat identitas unik NU.
+Anggota NU butuh platform terpusat untuk kebutuhan religious dan komunitas. Solusi yang ada terfragmentasi di berbagai app dan website.
 
 ## Solusi
 
-- **Spiritually Centered Design** — Setiap fitur di-design dengan Islamic principles dan tradisi NU
-- **Islamic Resource Library** — Doa harian, dzikir, tasbih, shalawat dalam satu tempat
-- **Prayer & Worship Tools** — Jadwal sholat accurate, qibla finder, Islamic calendar, Hijri converter
-- **Digital Islamic Library** — Buku Islami, artikel scholarly, research paper dengan reading interface yang accessible
-- **Community Features** — Forum diskusi, event calendar, info cabang NU lokal, news dan updates
-- **Future Marketplace** — Platform untuk produk afiliasi NU, donation management, secure transactions
-
-## Tech Stack
-
-PHP Native, MySQL, Tailwind CSS, Custom JavaScript, Role-based Access Control
+- **Islamic Resource Library** – Koleksi lengkap doa harian, dzikir, tasbih, dan shalawat
+- **Prayer & Worship Tools** – Jadwal sholat accurate, qibla finder, Islamic calendar, dan Hijri converter
+- **Digital Islamic Library** – Buku Islami curated, artikel scholarly, dan research paper dari perspektif NU
+- **Community Features** – Forum diskusi, event calendar, dan info cabang NU lokal
+- **Educational Content** – Resources accessible untuk Islamic learning
+- **Future Marketplace** – Fitur planned untuk produk afiliasi NU dan donation management
 
 ## Hasil
 
-Platform yang spiritually centered, strengthen bonds antara member, ngasih practical daily tools, dan support Islamic education — designed dengan tradisi NU dalam pikiran dan built buat future growth.
+Platform spiritually centered yang strengthen bonds antara member, ngasih practical daily tools, dan support Islamic education.
 
 ![RuangNU Mockup 1](/portofolio/ruangnu/1.png)
 ![RuangNU Mockup 2](/portofolio/ruangnu/2.png)

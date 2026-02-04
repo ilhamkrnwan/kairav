@@ -44,11 +44,6 @@ We built an integrated information system that serves as the official hub for me
 - **Gallery** – Responsive photo albums with lightbox preview
 - **Admin Dashboard** – Statistics, quick actions, and data management
 
-## Tech Stack
-
-**Frontend:** Nuxt 4, Nuxt UI v4, Shadcn UI, Tailwind CSS  
-**Backend:** MySQL, REST API, RBAC
-
 ## Results
 
 A scalable, modern platform with integrated data management, responsive design, and robust security—ready to grow with the organization's future needs.

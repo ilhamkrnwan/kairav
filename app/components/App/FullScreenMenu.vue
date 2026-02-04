@@ -1,13 +1,13 @@
 <script setup>
+const { t } = useI18n()
 const isOpen = ref(false)
 
-const menuItems = [
-  { name: 'Home', route: '/' },
-  { name: 'Project', route: '/project' },
-  { name: 'Gallery', route: '/gallery' },
-  { name: 'Blog', route: '/blog' },
-  { name: 'About', route: '/about' }
-]
+const menuItems = computed(() => [
+  { name: t('Home'), route: '/' },
+  { name: t('Portofolio'), route: '/portofolio' },
+  { name: t('Gallery'), route: '/gallery' },
+  { name: t('About'), route: '/about' }
+])
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
@@ -38,11 +38,11 @@ const closeMenu = () => {
     <div class="wrapper" :class="{ open: isOpen }">
       <ul class="text-4xl text-white space-y-4">
         <li v-for="(menuItem, index) in menuItems" :key="index">
-          <StyleButton class="style-button">
+          <UiStyleButton class="style-button">
             <NuxtLink :to="menuItem.route" @click="closeMenu">
               {{ menuItem.name }}
             </NuxtLink>
-          </StyleButton>
+          </UiStyleButton>
         </li>
       </ul>
     </div>
@@ -50,7 +50,7 @@ const closeMenu = () => {
 </template>
 
 <style>
-/* Menu button - Right Side */
+/* Menu button - Right Side - Blob Style */
 .menu-btn {
   position: fixed;
   z-index: 10001;
@@ -58,17 +58,35 @@ const closeMenu = () => {
   top: 20px;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
-  background: linear-gradient(-135deg, #e28408, #e9ff1f);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+}
+
+.menu-btn::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background-image: url('/blob-lb.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: all 0.3s ease;
 }
 
 .menu-btn:hover {
   transform: scale(1.1);
+}
+
+.menu-btn:hover::before {
+  transform: rotate(10deg);
 }
 
 /* Wrapper animation - Full Screen Behind Button */

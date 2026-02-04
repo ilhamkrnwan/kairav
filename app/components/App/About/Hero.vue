@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Icon } from "#components";
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -54,24 +56,24 @@ import { Icon } from "#components";
 
       <!-- Greeting Text -->
       <p class="text-sm md:text-base text-muted-foreground mb-4 font-mono animate-fade-in-up">
-        Hello my name is Ilham Kurniawan
+        {{ t('Hello my name is Ilham Kurniawan') }}
       </p>
 
       <!-- Main Heading -->
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-        Eager to learn <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">new things</span> and open to <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">opportunities.</span>
+        {{ t('Eager to learn') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('new things') }}</span> {{ t('and open to') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('opportunities.') }}</span>
       </h1>
 
       <!-- Subtitle/Role -->
       <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
-        Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast
+        {{ t('Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast') }}
       </p>
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-300">
         <!-- Primary Button -->
         <UiAnimatedButton href="#contact" variant="primary">
-          <template #default>Get in touch</template>
+          <template #default>{{ t('Get in touch') }}</template>
           <template #iconRight>
             <Icon name="lucide:arrow-right" class="w-4 h-4" />
           </template>
@@ -79,7 +81,7 @@ import { Icon } from "#components";
 
         <!-- Secondary Button -->
         <UiAnimatedButton href="#works" variant="outline">
-          <template #default>View works</template>
+          <template #default>{{ t('View works') }}</template>
           <template #iconRight>
             <Icon name="lucide:arrow-right" class="w-4 h-4" />
           </template>

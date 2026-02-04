@@ -1,3 +1,27 @@
+<script setup>
+const { t } = useI18n()
+
+const quotes = computed(() => [
+  { text: t('There are no limits to what you can accomplish except the limits you place on your own thinking.'), author: t('Brian Tracy') },
+  { text: t('The only way to do great work is to love what you do.'), author: t('Steve Jobs') },
+  { text: t('Believe you can and you\'re halfway there.'), author: t('Theodore Roosevelt') },
+  { text: t('Don\'t watch the clock; do what it does. Keep going.'), author: t('Sam Levenson') },
+  { text: t('Success is not final, failure is not fatal: it is the courage to continue that counts.'), author: t('Winston Churchill') },
+  { text: t('It\'s never too late to become whatever you want to be.'), author: t('George Eliot') }
+])
+
+const currentQuote = ref({ text: '', author: '' })
+
+const getRandomQuote = () => {
+  const randomIndex = Math.floor(Math.random() * quotes.value.length)
+  currentQuote.value = quotes.value[randomIndex]
+}
+
+onMounted(() => {
+  getRandomQuote()
+})
+</script>
+
 <template>
   <section class="w-full flex items-center justify-center min-h-screen text-gray-800 dark:text-white px-4 md:px-24 lg:px-8">
     <div class="max-w-xl mx-auto text-center lg:max-w-2xl">
@@ -20,34 +44,3 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      quotes: [
-        { text: "There are no limits to what you can accomplish except the limits you place on your own thinking.", author: "Brian Tracy" },
-        { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-        { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-        { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
-        { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-        { text: "It's never too late to become whatever you want to be.", author: "George Eliot" }
-      ],
-      currentQuote: { text: "", author: "" }
-    };
-  },
-  mounted() {
-    this.getRandomQuote();
-  },
-  methods: {
-    getRandomQuote() {
-      const randomIndex = Math.floor(Math.random() * this.quotes.length);
-      this.currentQuote = this.quotes[randomIndex];
-    }
-  }
-};
-</script>
-
-<style scoped>
-/* Add any custom styles here if needed */
-</style>

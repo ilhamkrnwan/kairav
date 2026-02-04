@@ -1,32 +1,34 @@
 <script setup lang="ts">
 import { Icon } from "#components";
 
-const features = [
+const { t } = useI18n()
+
+const features = computed(() => [
   {
     icon: "lucide:database",
-    title: "Backend Development",
-    description: "Integrating data and APIs to build robust and scalable backend systems.",
+    title: t('Backend Development'),
+    description: t('Integrating data and APIs to build robust and scalable backend systems.'),
     rating: 4.9,
   },
   {
     icon: "lucide:code-2",
-    title: "Frontend Development",
-    description: "Building dynamic and interactive web applications with modern frameworks.",
+    title: t('Frontend Development'),
+    description: t('Building dynamic and interactive web applications with modern frameworks.'),
     rating: 4.6,
   },
   {
     icon: "lucide:smartphone",
-    title: "Web & Mobile App",
-    description: "Transforming ideas into exceptional web and mobile app experiences.",
+    title: t('Web & Mobile App'),
+    description: t('Transforming ideas into exceptional web and mobile app experiences.'),
     rating: 4.4,
   },
   {
     icon: "lucide:palette",
-    title: "UI/UX Design",
-    description: "Crafting visually stunning user interfaces that captivate and engage users.",
+    title: t('UI/UX Design'),
+    description: t('Crafting visually stunning user interfaces that captivate and engage users.'),
     rating: 4.9,
   },
-];
+])
 </script>
 
 <template>
@@ -36,10 +38,10 @@ const features = [
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            What I <span class="text-amber-400">Do</span>
+            {{ t('What I') }} <span class="text-amber-400">{{ t('Do') }}</span>
           </h2>
           <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Specialized expertise across the full development spectrum
+            {{ t('Specialized expertise across the full development spectrum') }}
           </p>
         </div>
 
@@ -96,7 +98,7 @@ const features = [
               <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
             <span class="font-medium text-gray-600 dark:text-gray-200">
-              Delivering excellence across all aspects of software development
+              {{ t('Delivering excellence across all aspects of software development') }}
             </span>
           </span>
         </div>

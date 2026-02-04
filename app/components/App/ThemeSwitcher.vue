@@ -78,24 +78,41 @@ onMounted(() => {
   z-index: 100;
 }
 
-/* Theme Toggle Button - Circular Style like FullMenu */
+/* Theme Toggle Button - Blob Style */
 .theme-toggle-btn {
   position: relative;
   z-index: 10001;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
-  background: linear-gradient(-135deg, #e28408, #e9ff1f);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
+  background: transparent;
+}
+
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background-image: url('/blob-hero.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle-btn:hover {
   transform: scale(1.1);
+}
+
+.theme-toggle-btn:hover::before {
+  transform: rotate(5deg);
 }
 
 /* Splash Effect Wrapper - Behind Button */

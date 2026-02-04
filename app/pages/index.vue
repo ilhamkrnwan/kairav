@@ -1,3 +1,7 @@
+<script setup>
+const { t } = useI18n()
+</script>
+
 <template>
   <div class="min-h-screen text-gray-800 dark:text-white flex flex-wrap justify-center items-center w-full">
     <!-- Hero Section -->
@@ -44,37 +48,37 @@
           
           <!-- Greeting -->
           <p class="text-sm md:text-base text-muted-foreground mb-4 font-mono">
-            Hello my name is Ilham Kurniawan
+            {{ t('Hello my name is Ilham Kurniawan') }}
           </p>
 
           <!-- Main Heading -->
           <h1 class="lg:text-4xl text-2xl font-heading mb-6 leading-tight">
-            Eager to learn 
+            {{ t('Eager to learn') }}
             <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">
-              new things
+              {{ t('new things') }}
             </span>
-            and open to 
+            {{ t('and open to') }}
             <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">
-              opportunities
+              {{ t('opportunities') }}
             </span>
           </h1>
 
           <!-- Description -->
           <p class="lg:text-lg text-base text-muted-foreground mb-8">
-            Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast
+            {{ t('Junior Fullstack Developer | AI Enthusiast | Undergraduated Student | Web3 Enthusiast') }}
           </p>
           
           <!-- CTA Buttons -->
           <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row space-y-4 sm:space-y-4 md:space-y-4 lg:space-y-0 lg:space-x-4">
             <UiAnimatedButton href="/cv" variant="primary">
-              <template #default>Download CV</template>
+              <template #default>{{ t('Download CV') }}</template>
               <template #iconRight>
                 <Icon name="lucide:download" class="w-4 h-4" />
               </template>
             </UiAnimatedButton>
             
             <UiAnimatedButton href="/about" variant="outline">
-              <template #default>See More</template>
+              <template #default>{{ t('See More') }}</template>
               <template #iconRight>
                 <Icon name="lucide:arrow-right" class="w-4 h-4" />
               </template>
@@ -85,7 +89,7 @@
 
         <!-- Copyright Footer -->
         <div class="absolute top-20 left-4 md:left-20 xl:left-20 lg:left-20 text-sm text-muted-foreground font-mono">
-          2026 | Copyright © KAIRAV
+          {{ t('2026 | Copyright © KAIRAV') }}
         </div>
       </div>
     </div>

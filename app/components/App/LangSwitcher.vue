@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const { locale } = useI18n()
+const { locale, setLocale } = useI18n()
 
 const languages = [
   {
@@ -20,9 +20,17 @@ const currentLanguage = computed(() => {
   return languages.find(l => l.code === locale.value) || languages[0]
 })
 
-const selectLanguage = (lang) => {
+const selectLanguage = async (lang) => {
   if (locale.value !== lang.code) {
-    locale.value = lang.code
+    try {
+      await setLocale(lang.code)
+      // Simpan preferensi bahasa ke localStorage
+      if (process.client) {
+        localStorage.setItem('user-locale', lang.code)
+      }
+    } catch (error) {
+      console.error('Failed to change language:', error)
+    }
   }
 }
 
@@ -30,8 +38,7 @@ const items = computed(() => {
   return [languages.map(lang => ({
     label: lang.label,
     icon: lang.icon,
-    click: () => selectLanguage(lang),
-    // Highlight active language
+    onSelect: () => selectLanguage(lang),
     class: locale.value === lang.code ? 'text-amber-600 dark:text-yellow-400 bg-amber-50 dark:bg-yellow-400/10' : ''
   }))]
 })
@@ -78,25 +85,41 @@ const dropdownUi = {
   z-index: 100;
 }
 
-/* Language Toggle Button - Circular Style */
+/* Language Toggle Button - Blob Style */
 .lang-toggle-btn {
   position: relative;
   z-index: 10001;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
-  background: linear-gradient(-135deg, #e28408, #e9ff1f);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: transparent;
+}
+
+.lang-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background-image: url('/blob-lb2.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: all 0.3s ease;
 }
 
 .lang-toggle-btn:hover {
   transform: scale(1.1);
+}
+
+.lang-toggle-btn:hover::before {
+  transform: rotate(-5deg);
 }
 
 /* Icon Styles */

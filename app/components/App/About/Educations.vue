@@ -1,11 +1,36 @@
+<script setup>
+const { t } = useI18n()
+
+const educationItems = computed(() => [
+  { 
+    title: t('Nahdlatul Ulama University Yogyakarta (UNUYO)'), 
+    date: t('2023 - Present | Undergraduated'), 
+    description: t('Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development.'),
+    type: t('Formal')
+  },
+  { 
+    title: t('Rumah Gemilang Indonesia Surabaya (RGI Surabaya)'), 
+    date: t('2020 - 2021 | Graduated'), 
+    description: t('Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development.'),
+    type: t('Non-Formal')
+  },
+  { 
+    title: t('Graphic Design Training - DINPERINAKER Blora'), 
+    date: t('2022 | Graduated'), 
+    description: t('Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials.'),
+    type: t('Non-Formal')
+  }
+])
+</script>
+
 <template>
 	<section class="  text-gray-800 dark:text-white">
 		<div class="container max-w-5xl px-4 py-12 mx-auto">
 			<div class="grid gap-4 mx-4 sm:grid-cols-12">
 				<div class="col-span-12 sm:col-span-3">
 					<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-gradient-to-br from-yellow-400 to-orange-500">
-						<h3 class="text-3xl font-semibold">Education & <span class="text-amber-400">Training</span></h3>
-						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">Formal and Non Formal</span>
+						<h3 class="text-3xl font-semibold">{{ t('Education &') }} <span class="text-amber-400">{{ t('Training') }}</span></h3>
+						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">{{ t('Formal and Non Formal') }}</span>
 					</div>
 				</div>
 				<div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
@@ -30,31 +55,3 @@
 		</div>
 	</section>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        educationItems: [
-          { 
-			title: 'Nahdlatul Ulama University Yogyakarta (UNUYO)', 
-            date: '2023 - Present | Undergraduated', 
-            description: 'Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development.',
-            type: 'Formal'
-          },
-          { 
-			title: 'Rumah Gemilang Indonesia Surabaya (RGI Surabaya)', 
-            date: '2020 - 2021 | Graduated', 
-            description: 'Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development.',
-            type: 'Non-Formal'
-          },
-          { 
-			title: 'Graphic Design Training - DINPERINAKER Blora', 
-            date: '2022 | Graduated', 
-            description: 'Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials.',
-            type: 'Non-Formal'
-          }
-        ]
-      };
-    }
-  };
-  </script>

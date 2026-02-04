@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "#components";
 
+const { t } = useI18n()
+
 const techStacks = {
   row1: [
     { name: "Vue.js", icon: "logos:vue" },
@@ -42,10 +44,10 @@ const techStacks = {
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            Skills & <span class="text-amber-400">Technologies</span>
+            {{ t('Skills &') }} <span class="text-amber-400">{{ t('Technologies') }}</span>
           </h2>
           <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Modern tech stack for building scalable and performant applications
+            {{ t('Modern tech stack for building scalable and performant applications') }}
           </p>
         </div>
 

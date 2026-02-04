@@ -1,11 +1,36 @@
+<script setup>
+const { t } = useI18n()
+
+const workItems = computed(() => [
+  { 
+    type: t('Open for Work'),
+    title: t('Fullstack Developer'), 
+    date: t('2021 - Present'), 
+    description: t('Experienced full-stack developer with a strong foundation in programming concepts, data structures, and algorithms. Currently working as a freelance developer, successfully delivering various projects for clients. Open to both full-time positions and project-based collaborations.')
+  },
+  {
+    type: t('Internship'),
+    title: t('Junior Developer at Sekeco'), 
+    date: t('January 2025 - Present'), 
+    description: t('Assisted in developing Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.')
+  },
+  { 
+    type: t('Freelance'),
+    title: t('Fullstack Web & Android Developer at Jurutani'), 
+    date: t('2025 - Present'), 
+    description: t('Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.')
+  }
+])
+</script>
+
 <template>
 	<section class="text-gray-800 dark:text-white">
 		<div class="container max-w-5xl px-4 py-12 mx-auto">
 			<div class="grid gap-4 mx-4 sm:grid-cols-12">
 				<div class="col-span-12 sm:col-span-3">
 					<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-linear-to-br from-yellow-400 to-orange-500">
-						<h3 class="text-3xl font-semibold">Work & <span class="text-amber-400">Experience</span></h3>
-						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">Professional Journey</span>
+						<h3 class="text-3xl font-semibold">{{ t('Work &') }} <span class="text-amber-400">{{ t('Experience') }}</span></h3>
+						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">{{ t('Professional Journey') }}</span>
 					</div>
 				</div>
 				<div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
@@ -30,20 +55,4 @@
 		</div>
 	</section>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        workItems: [
-        { 
-          type: 'Open for Work',
-          title: 'Fullstack Developer', 
-          date: '2021 - Present', 
-          description: 'Experienced full-stack developer with a strong foundation in programming concepts, data structures, and algorithms. Currently working as a freelance developer, successfully delivering various projects for clients. Open to both full-time positions and project-based collaborations.'
-        }
-        ]
-      };
-    }
-  };
-  </script>
   

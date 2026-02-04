@@ -53,16 +53,16 @@
               </div>
             </footer>
             <div class="flex justify-start mt-4 space-x-4"> 
-                <StyleButton>
+                <UiStyleButton>
                     <a href="#">
                     More
                     </a>
-                </StyleButton>
-                <StyleButton>
+                </UiStyleButton>
+                <UiStyleButton>
                     <a href="#">
                     Preview
                     </a>
-                </StyleButton>
+                </UiStyleButton>
             </div> 
           </div>
         </article>

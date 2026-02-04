@@ -32,7 +32,7 @@ const features = computed(() => [
 </script>
 
 <template>
-  <section id="features" class="section py-6">
+  <section id="features" class="section py-6 px-2">
     <UiGlobalSpotlight
       container-selector=".features-container"
       card-selector=".animated-card"

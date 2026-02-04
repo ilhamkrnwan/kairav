@@ -5,19 +5,19 @@ const educationItems = computed(() => [
   { 
     title: t('Nahdlatul Ulama University Yogyakarta (UNUYO)'), 
     date: t('2023 - Present | Undergraduated'), 
-    description: t('Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development.'),
+    description: t('Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development. Engaged in various projects and research activities.'),
     type: t('Formal')
   },
   { 
     title: t('Rumah Gemilang Indonesia Surabaya (RGI Surabaya)'), 
     date: t('2020 - 2021 | Graduated'), 
-    description: t('Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development.'),
+    description: t('Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development. Participated in hands-on projects to build web applications.'),
     type: t('Non-Formal')
   },
   { 
     title: t('Graphic Design Training - DINPERINAKER Blora'), 
     date: t('2022 | Graduated'), 
-    description: t('Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials.'),
+    description: t('Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.'),
     type: t('Non-Formal')
   }
 ])
@@ -28,7 +28,7 @@ const educationItems = computed(() => [
 		<div class="container max-w-5xl px-4 py-12 mx-auto">
 			<div class="grid gap-4 mx-4 sm:grid-cols-12">
 				<div class="col-span-12 sm:col-span-3">
-					<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-gradient-to-br from-yellow-400 to-orange-500">
+					<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-linear-to-br from-yellow-400 to-orange-500">
 						<h3 class="text-3xl font-semibold">{{ t('Education &') }} <span class="text-amber-400">{{ t('Training') }}</span></h3>
 						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">{{ t('Formal and Non Formal') }}</span>
 					</div>

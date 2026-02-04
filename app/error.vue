@@ -6,18 +6,18 @@ const { t } = useI18n()
 
 const errorMessages: Record<number, { title: string; description: string; icon: string }> = {
   404: {
-    title: "Page Not Found",
-    description: "Sorry, the page you're looking for doesn't exist.",
+    title: t('Page Not Found'),
+    description: t('Sorry, the page you\'re looking for doesn\'t exist.'),
     icon: "lucide:search-x"
   },
   500: {
-    title: "Server Error",
-    description: "Something went wrong on our end. Please try again later.",
+    title: t('Server Error'),
+    description: t('Something went wrong on our end. Please try again later.'),
     icon: "lucide:server-crash"
   },
   403: {
-    title: "Access Forbidden",
-    description: "You don't have permission to access this resource.",
+    title: t('Access Forbidden'),
+    description: t('You don\'t have permission to access this resource.'),
     icon: "lucide:shield-alert"
   },
 };
@@ -26,8 +26,8 @@ const errorInfo = computed(() => {
   const statusCode = props.error.statusCode || 500;
   return (
     errorMessages[statusCode] || {
-      title: `Error ${statusCode}`,
-      description: props.error.message || "An unexpected error occurred.",
+      title: `${t('Error')} ${statusCode}`,
+      description: props.error.message || t('An unexpected error occurred.'),
       icon: "lucide:alert-triangle"
     }
   );
@@ -52,7 +52,7 @@ const errorInfo = computed(() => {
           <!-- Status Code Badge -->
           <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg">
             <span class="text-sm font-mono font-bold text-amber-400">
-              {{ error.statusCode || "ERROR" }}
+              {{ error.statusCode || t('ERROR') }}
             </span>
           </div>
       </div>

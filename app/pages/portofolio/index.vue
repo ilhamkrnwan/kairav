@@ -123,12 +123,12 @@
 
         <!-- Main Heading -->
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-          Innovative <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">Projects</span> <br class="hidden md:block" />& <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">Solutions</span>
+          {{ t('Innovative') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('Projects') }}</span> <br class="hidden md:block" />& <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('Solutions') }}</span>
         </h1>
 
         <!-- Subtitle -->
         <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
-          Here are some of the projects I've worked on, showcasing my skills and passion for creating innovative solutions that make a real impact.
+          {{ t('Here are some of the projects I\'ve worked on, showcasing my skills and passion for creating innovative solutions that make a real impact.') }}
         </p>
 
         <!-- CTA Buttons -->
@@ -156,10 +156,10 @@
         <!-- Section Title -->
         <div class="text-center mb-12">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            Featured <span class="text-amber-400">Work</span>
+            {{ t('Featured Work') }}
           </h2>
           <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A collection of my projects, showcasing my skills in creating innovative and effective solutions across different domains.
+            {{ t('A collection of my projects, showcasing my skills in creating innovative and effective solutions across different domains.') }}
           </p>
         </div>
 

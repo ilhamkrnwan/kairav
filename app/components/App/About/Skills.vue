@@ -165,7 +165,7 @@ const techStacks = {
               <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
             <span class="font-medium text-gray-600 dark:text-gray-200">
-              Continuously learning and expanding skillset with emerging technologies
+              {{ t('Continuously learning and expanding skillset with emerging technologies') }}
             </span>
           </span>
         </div>

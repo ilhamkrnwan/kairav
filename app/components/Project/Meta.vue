@@ -15,9 +15,9 @@ defineProps<Props>()
   <div class="max-w-4xl mx-auto px-4 md:px-24 lg:px-32">
     <!-- Key Info -->
     <div v-if="year || role || duration" class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-600 dark:text-gray-400">
-      <span v-if="year"><strong>Year:</strong> {{ year }}</span>
-      <span v-if="role"><strong>Role:</strong> {{ role }}</span>
-      <span v-if="duration"><strong>Duration:</strong> {{ duration }}</span>
+      <span v-if="year"><strong>{{ t('Year') }}:</strong> {{ year }}</span>
+      <span v-if="role"><strong>{{ t('Role') }}:</strong> {{ role }}</span>
+      <span v-if="duration"><strong>{{ t('Duration') }}:</strong> {{ duration }}</span>
     </div>
     
     <!-- Technologies -->

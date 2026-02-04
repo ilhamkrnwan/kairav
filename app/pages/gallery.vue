@@ -9,59 +9,59 @@ useDynamicSeo({
 })
 
 // Gallery items configuration
-const galleryItems = [
+const galleryItems = computed(() => [
   {
-    title: 'Portrait Photography',
-    description: 'Capturing emotions and personality in every frame',
+    title: t('Portrait Photography'),
+    description: t('Capturing emotions and personality in every frame'),
     image: '/ilham02.jpg',
     icon: 'lucide:user',
-    badge: 'Featured',
+    badge: t('Featured'),
     class: 'md:col-span-2 md:row-span-2',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   },
   {
-    title: 'Urban Exploration',
-    description: 'Discovering beauty in city landscapes',
+    title: t('Urban Exploration'),
+    description: t('Discovering beauty in city landscapes'),
     image: '/ilham04.jpg',
     icon: 'lucide:building-2',
-    badge: 'Recent',
+    badge: t('Recent'),
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   },
   {
-    title: 'Nature Vibes',
-    description: 'Finding peace in natural scenery',
+    title: t('Nature Vibes'),
+    description: t('Finding peace in natural scenery'),
     image: '/ilham05.jpg',
     icon: 'lucide:trees',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   },
   {
-    title: 'Street Photography',
-    description: 'Life moments in everyday scenes',
+    title: t('Street Photography'),
+    description: t('Life moments in everyday scenes'),
     image: '/ilham02.jpg',
     icon: 'lucide:camera',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   },
   {
-    title: 'Professional Shoots',
-    description: 'Commercial and editorial photography',
+    title: t('Professional Shoots'),
+    description: t('Commercial and editorial photography'),
     image: '/profile-blck.png',
     icon: 'lucide:briefcase',
-    badge: 'Portfolio',
+    badge: t('Portfolio'),
     class: 'md:col-span-2 aspect-video',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   },
   {
-    title: 'Creative Experiments',
-    description: 'Pushing boundaries with new techniques',
+    title: t('Creative Experiments'),
+    description: t('Pushing boundaries with new techniques'),
     image: '/ilham04.jpg',
     icon: 'lucide:palette',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
   }
-]
+])
 </script>
 
 <template>

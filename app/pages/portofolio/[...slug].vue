@@ -239,7 +239,6 @@ useDynamicSeo({
                     to="/portofolio"
                     class="block p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-amber-400/50 transition-all group text-center"
                   >
-                    <Icon name="lucide:arrow-left" class="w-5 h-5 mx-auto mb-2 group-hover:-translate-x-1 transition-transform" />
                     <span class="text-sm font-medium">{{ t('Back to Projects') }}</span>
                   </NuxtLink>
                 </div>

@@ -36,13 +36,13 @@ const closeMenu = () => {
 
     <!-- Menu Wrapper -->
     <div class="wrapper" :class="{ open: isOpen }">
-      <ul class="text-4xl text-white space-y-4">
+      <ul class="menu-list text-white">
         <li v-for="(menuItem, index) in menuItems" :key="index">
-          <UiStyleButton class="style-button">
-            <NuxtLink :to="menuItem.route" @click="closeMenu">
+          <NuxtLink :to="menuItem.route" @click="closeMenu" class="menu-link-wrapper">
+            <UiStyleButton class="style-button">
               {{ menuItem.name }}
-            </NuxtLink>
-          </UiStyleButton>
+            </UiStyleButton>
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -117,6 +117,12 @@ const closeMenu = () => {
   justify-content: center;
   align-items: center;
   list-style: none;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: 2rem clamp(1rem, 5vw, 2rem);
+}
+
+.menu-list {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
 }
 
 /* Stagger animation */
@@ -124,6 +130,42 @@ const closeMenu = () => {
   opacity: 0;
   transform: translateX(50px);
   transition: all 0.3s ease;
+  width: clamp(280px, 90%, 500px);
+  margin: 0 auto;
+}
+
+.wrapper ul li .menu-link-wrapper {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.wrapper ul li .style-button {
+  width: 100%;
+}
+
+.wrapper ul li .style-button :deep(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(45px, 10vw, 60px);
+  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1.5rem, 4vw, 3rem);
+  font-size: inherit;
+}
+
+.wrapper ul li .style-button :deep(span) {
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  color: #1a1a1a !important;
+  opacity: 1 !important;
+}
+
+.wrapper ul li .style-button :deep(button:hover span) {
+  -webkit-text-fill-color: white !important;
+  color: white !important;
 }
 
 .wrapper.open ul li {
@@ -140,26 +182,24 @@ const closeMenu = () => {
 /* Responsive */
 @media (max-width: 640px) {
   .menu-btn {
-    right: 15px;
-    top: 15px;
-    height: 45px;
-    width: 45px;
+    right: clamp(10px, 3vw, 15px);
+    top: clamp(10px, 3vw, 15px);
+    height: clamp(40px, 10vw, 45px);
+    width: clamp(40px, 10vw, 45px);
   }
   
   .wrapper {
     clip-path: circle(0px at calc(100% - 37px) 37px);
   }
-}
 
-@media (min-width: 768px) {
-  .wrapper {
-    clip-path: circle(0px at calc(100% - 45px) 45px);
+  .wrapper ul li {
+    width: 95%;
   }
 }
 
-@media (min-width: 1024px) {
-  .wrapper {
-    clip-path: circle(0px at calc(100% - 45px) 45px);
+@media (min-width: 641px) and (max-width: 1023px) {
+  .wrapper ul li {
+    width: 85%;
   }
 }
 </style>

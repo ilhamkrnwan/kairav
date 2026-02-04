@@ -115,50 +115,6 @@
     <!-- Hero Section -->
     <section class="w-full flex items-center justify-center min-h-screen text-gray-800 dark:text-white px-4 md:px-8 lg:px-12">
       <div class="max-w-4xl mx-auto text-center">
-        <!-- Icon with ALL decorative blobs -->
-        <div class="relative inline-block mb-8 group mt-8">
-          <!-- Main background glow -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] rounded-full bg-linear-to-tr from-amber-400/20 to-orange-500/20 blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700"></div>
-          
-          <!-- Rotating ring -->
-          <div class="absolute inset-0 rounded-full border border-amber-400/20 scale-[1.3] animate-spin-slow -z-10 border-dashed"></div>
-
-          <!-- Blob Hero (Behind) -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] -z-10 opacity-60 animate-float">
-              <img src="/blob-hero.svg" alt="" class="w-full h-full object-contain" />
-          </div>
-
-          <!-- Icon Container -->
-          <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto z-10">
-            <div class="w-full h-full rounded-full bg-linear-to-br from-amber-400/20 to-orange-500/20 flex items-center justify-center border-4 border-amber-400/30 shadow-2xl shadow-amber-400/20 transition-transform duration-500 group-hover:scale-105">
-              <Icon name="lucide:rocket" class="w-12 h-12 md:w-16 md:h-16 text-amber-400" />
-            </div>
-            
-            <!-- Blob Left Top -->
-            <div class="absolute -top-8 -left-8 w-14 h-14 animate-float z-20 delay-100">
-              <img src="/blob-left.svg" alt="" class="w-full h-full object-contain drop-shadow-md" />
-            </div>
-
-            <!-- Blob Right Top -->
-            <div class="absolute -top-10 -right-6 w-12 h-12 animate-float2 z-0 delay-300">
-               <img src="/blob-rb.svg" alt="" class="w-full h-full object-contain opacity-80" />
-            </div>
-
-            <!-- Blob Left Bottom -->
-            <div class="absolute -bottom-4 -left-10 w-16 h-16 animate-float2 z-20 delay-500">
-               <img src="/blob-lb.svg" alt="" class="w-full h-full object-contain drop-shadow-md" />
-            </div>
-
-            <!-- Blob Right Bottom -->
-            <div class="absolute -bottom-6 -right-8 w-14 h-14 animate-float z-20 delay-700">
-              <div class="relative w-full h-full">
-                  <img src="/blob-right.svg" alt="" class="w-full h-full object-contain drop-shadow-md absolute inset-0" />
-                  <img src="/blob-lb2.svg" alt="" class="w-full h-full object-contain drop-shadow-md absolute inset-0" />
-              </div>
-            </div>
-
-          </div>
-        </div>
 
         <!-- Greeting Text -->
         <p class="text-sm md:text-base text-muted-foreground mb-4 font-mono animate-fade-in-up">

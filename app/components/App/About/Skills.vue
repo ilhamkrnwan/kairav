@@ -39,8 +39,15 @@ const techStacks = {
 
 <template>
   <section id="skills" class="section overflow-hidden">
+    <UiGlobalSpotlight
+      container-selector=".skills-container"
+      card-selector=".animated-card"
+      :glow-color="'251, 191, 36'"
+      :spotlight-radius="400"
+      :enabled="true"
+    />
     <div class="container">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-6xl mx-auto skills-container">
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
@@ -61,16 +68,26 @@ const techStacks = {
                 :key="`row1-${i}`"
                 class="marquee-content flex gap-6 animate-scroll-right"
               >
-                <div
+                <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row1"
                   :key="`row1-tech-${i}-${index}`"
-                  class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 hover:border-amber-400/30 transition-all duration-300 min-w-35 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/10"
+                  :glow-color="'251, 191, 36'"
+                  :particle-count="6"
+                  :enable-particles="true"
+                  :enable-tilt="false"
+                  :enable-magnetism="false"
+                  :enable-border-glow="false"
+                  :click-effect="true"
                 >
-                  <Icon :name="tech.icon" class="w-12 h-12" />
-                  <span class="text-xs font-mono text-muted-foreground whitespace-nowrap group-hover:text-foreground">
-                    {{ tech.name }}
-                  </span>
-                </div>
+                  <div
+                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                  >
+                    <Icon :name="tech.icon" class="w-12 h-12" />
+                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                      {{ tech.name }}
+                    </span>
+                  </div>
+                </UiAnimatedCard>
               </div>
             </div>
           </div>
@@ -83,16 +100,26 @@ const techStacks = {
                 :key="`row2-${i}`"
                 class="marquee-content flex gap-6 animate-scroll-left"
               >
-                <div
+                <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row2"
                   :key="`row2-tech-${i}-${index}`"
-                  class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 hover:border-amber-400/30 transition-all duration-300 min-w-35 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/10"
+                  :glow-color="'251, 191, 36'"
+                  :particle-count="6"
+                  :enable-particles="true"
+                  :enable-tilt="false"
+                  :enable-magnetism="false"
+                  :enable-border-glow="false"
+                  :click-effect="true"
                 >
-                  <Icon :name="tech.icon" class="w-12 h-12" />
-                  <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
-                    {{ tech.name }}
-                  </span>
-                </div>
+                  <div
+                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                  >
+                    <Icon :name="tech.icon" class="w-12 h-12" />
+                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                      {{ tech.name }}
+                    </span>
+                  </div>
+                </UiAnimatedCard>
               </div>
             </div>
           </div>
@@ -105,16 +132,26 @@ const techStacks = {
                 :key="`row3-${i}`"
                 class="marquee-content flex gap-6 animate-scroll-right"
               >
-                <div
+                <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row3"
                   :key="`row3-tech-${i}-${index}`"
-                  class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 hover:border-amber-400/30 transition-all duration-300 min-w-35 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/10"
+                  :glow-color="'251, 191, 36'"
+                  :particle-count="6"
+                  :enable-particles="true"
+                  :enable-tilt="false"
+                  :enable-magnetism="false"
+                  :enable-border-glow="false"
+                  :click-effect="true"
                 >
-                  <Icon :name="tech.icon" class="w-12 h-12" />
-                  <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
-                    {{ tech.name }}
-                  </span>
-                </div>
+                  <div
+                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                  >
+                    <Icon :name="tech.icon" class="w-12 h-12" />
+                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                      {{ tech.name }}
+                    </span>
+                  </div>
+                </UiAnimatedCard>
               </div>
             </div>
           </div>

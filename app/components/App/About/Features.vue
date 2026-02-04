@@ -33,8 +33,15 @@ const features = computed(() => [
 
 <template>
   <section id="features" class="section py-6">
+    <UiGlobalSpotlight
+      container-selector=".features-container"
+      card-selector=".animated-card"
+      :glow-color="'251, 191, 36'"
+      :spotlight-radius="400"
+      :enabled="true"
+    />
     <div class="container">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-6xl mx-auto features-container">
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
@@ -47,52 +54,57 @@ const features = computed(() => [
 
         <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
+          <UiAnimatedCard
             v-for="(feature, index) in features"
             :key="index"
-            class="group relative p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 hover:border-amber-400/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/10"
+            :glow-color="'251, 191, 36'"
+            :particle-count="8"
+            :enable-particles="true"
+            :enable-tilt="false"
+            :enable-magnetism="false"
+            :enable-border-glow="false"
+            :click-effect="true"
           >
-            <!-- Icon -->
             <div
-              class="w-16 h-16 mb-4 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300"
+              class="group relative p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full"
             >
-              <Icon
-                :name="feature.icon"
-                class="w-8 h-8 text-amber-400"
-              />
+              <!-- Icon -->
+              <div
+                class="w-16 h-16 mb-4 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300"
+              >
+                <Icon
+                  :name="feature.icon"
+                  class="w-8 h-8 text-amber-400"
+                />
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl font-semibold mb-2 text-foreground">
+                {{ feature.title }}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-sm text-muted-foreground mb-4 leading-relaxed">
+                {{ feature.description }}
+              </p>
+
+              <!-- Rating -->
+              <div class="flex items-center gap-2">
+                <Icon
+                  name="lucide:star"
+                  class="w-4 h-4 text-amber-400 fill-amber-400"
+                />
+                <span class="text-sm font-mono font-semibold text-foreground">
+                  {{ feature.rating }}
+                </span>
+              </div>
             </div>
-
-            <!-- Title -->
-            <h3 class="text-xl font-semibold mb-2 text-foreground">
-              {{ feature.title }}
-            </h3>
-
-            <!-- Description -->
-            <p class="text-sm text-muted-foreground mb-4 leading-relaxed">
-              {{ feature.description }}
-            </p>
-
-            <!-- Rating -->
-            <div class="flex items-center gap-2">
-              <Icon
-                name="lucide:star"
-                class="w-4 h-4 text-amber-400 fill-amber-400"
-              />
-              <span class="text-sm font-mono font-semibold text-foreground">
-                {{ feature.rating }}
-              </span>
-            </div>
-
-            <!-- Hover Effect Border -->
-            <div
-              class="absolute inset-0 rounded-xl bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/5 group-hover:to-orange-500/5 transition-all duration-300 pointer-events-none"
-            ></div>
-          </div>
+          </UiAnimatedCard>
         </div>
 
         <!-- Additional Note -->
         <div class="mt-16 text-center">
-          <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm dark:border-gray-700 dark:bg-zinc-800/50 hover:border-amber-400/30 transition-colors duration-300">
+          <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm dark:border-gray-700 dark:bg-zinc-800/50 transition-colors duration-300">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>

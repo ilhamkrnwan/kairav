@@ -23,7 +23,7 @@ const { t } = useI18n()
         <!-- Avatar Image Container -->
         <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto z-10">
           <img 
-            src="/ilham-hero.png" 
+            src="/profile-blck.png" 
             alt="Ilham Kurniawan" 
             class="w-full h-full rounded-full object-cover border-4 border-amber-400/30 shadow-2xl shadow-amber-400/20 transition-transform duration-500 group-hover:scale-105"
           />
@@ -72,15 +72,15 @@ const { t } = useI18n()
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-300">
         <!-- Primary Button -->
-        <UiAnimatedButton href="#contact" variant="primary">
-          <template #default>{{ t('Get in touch') }}</template>
+        <UiAnimatedButton href="/cv" variant="primary">
+          <template #default>{{ t('Download CV') }}</template>
           <template #iconRight>
             <Icon name="lucide:arrow-right" class="w-4 h-4" />
           </template>
         </UiAnimatedButton>
 
         <!-- Secondary Button -->
-        <UiAnimatedButton href="#works" variant="outline">
+        <UiAnimatedButton href="/portofolio" variant="outline">
           <template #default>{{ t('View works') }}</template>
           <template #iconRight>
             <Icon name="lucide:arrow-right" class="w-4 h-4" />

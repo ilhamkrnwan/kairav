@@ -7,6 +7,7 @@ interface BentoCardProps {
   title?: string;
   description?: string;
   label?: string;
+  image?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -33,39 +34,52 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: '#000C00',
-    title: 'Analytics',
-    description: 'Track user behavior',
-    label: 'Insights'
+    title: 'Gallery Photo 1',
+    description: 'Captured moments',
+    label: 'Photo',
+    image: '/gallery/1.jpg'
   },
   {
     color: '#000C00',
-    title: 'Dashboard',
-    description: 'Centralized data view',
-    label: 'Overview'
+    title: 'Gallery Photo 2',
+    description: 'Memories in frame',
+    label: 'Photo',
+    image: '/gallery/2.jpg'
   },
   {
     color: '#000C00',
-    title: 'Collaboration',
-    description: 'Work together seamlessly',
-    label: 'Teamwork'
+    title: 'Gallery Photo 3',
+    description: 'Visual stories',
+    label: 'Photo',
+    image: '/gallery/3.jpg'
   },
   {
     color: '#000C00',
-    title: 'Automation',
-    description: 'Streamline workflows',
-    label: 'Efficiency'
+    title: 'Gallery Photo 4',
+    description: 'Frozen in time',
+    label: 'Photo',
+    image: '/gallery/4.jpg'
   },
   {
     color: '#000C00',
-    title: 'Integration',
-    description: 'Connect favorite tools',
-    label: 'Connectivity'
+    title: 'Gallery Photo 5',
+    description: 'Life through lens',
+    label: 'Photo',
+    image: '/gallery/5.jpg'
   },
   {
     color: '#000C00',
-    title: 'Security',
-    description: 'Enterprise-grade protection',
-    label: 'Protection'
+    title: 'Gallery Photo 6',
+    description: 'Beautiful moments',
+    label: 'Photo',
+    image: '/gallery/6.jpg'
+  },
+  {
+    color: '#000C00',
+    title: 'Gallery Photo 7',
+    description: 'Artistic vision',
+    label: 'Photo',
+    image: '/gallery/7.jpg'
   }
 ];
 
@@ -764,10 +778,20 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
           :click-effect="clickEffect"
           :enable-magnetism="enableMagnetism"
         >
-          <div class="relative flex justify-between gap-3 text-white card__header">
+          <!-- Background Image -->
+          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-[20px]">
+            <img
+              :src="card.image"
+              :alt="card.title"
+              class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          
+          <div class="relative flex justify-between gap-3 text-white card__header z-10">
             <span class="text-base card__label">{{ card.label }}</span>
           </div>
-          <div class="relative flex flex-col text-white card__content">
+          <div class="relative flex flex-col text-white card__content z-10">
             <h3 :class="`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`">
               {{ card.title }}
             </h3>
@@ -783,10 +807,20 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
           :style="getCardStyle(card)"
           :ref="el => setupCardRef(el as HTMLDivElement, index)"
         >
-          <div class="relative flex justify-between gap-3 text-white card__header">
+          <!-- Background Image -->
+          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-[20px]">
+            <img
+              :src="card.image"
+              :alt="card.title"
+              class="w-full h-full object-cover opacity-40 hover:opacity-60 transition-opacity duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          
+          <div class="relative flex justify-between gap-3 text-white card__header z-10">
             <span class="text-base card__label">{{ card.label }}</span>
           </div>
-          <div class="relative flex flex-col text-white card__content">
+          <div class="relative flex flex-col text-white card__content z-10">
             <h3 :class="`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`">
               {{ card.title }}
             </h3>

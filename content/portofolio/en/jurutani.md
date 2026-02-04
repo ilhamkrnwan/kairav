@@ -24,80 +24,40 @@ _path: /portofolio/jurutani
 
 # Jurutani
 
-**Bridging Traditional Farming with Digital Innovation**
+The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and marketplace access — bridging traditional farming with digital innovation.
 
-Jurutani is a comprehensive **digital agriculture ecosystem** that puts the power of modern technology directly in farmers' hands. We're talking real-time weather data, market prices, AI-powered crop consultations, community forums, educational resources, and even a marketplace — all integrated into one seamless platform.
+![Jurutani Preview](/portofolio/jurutani/preview.png)
 
-## Services
-- Full-Stack Development
-- Mobile App Development
-- AI Integration
-- System Architecture
+## Challenge
 
-### Project Status
-Live
+Indonesian farmers face unpredictable weather, fluctuating market prices, limited expert access, and outdated farming techniques. Most digital solutions are too complicated, expensive, or don't understand farmers' daily needs. We needed a comprehensive platform that delivers actionable data and works seamlessly on mobile devices, even with limited connectivity.
 
-### Industry
-Agriculture & Technology
+## Solution
 
-![Jurutani Platform Interface](/portofolio/jurutani/2.png)
+We built a complete digital agriculture ecosystem with everything farmers need:
 
----
+- **Real-Time Intelligence** – Live weather updates, commodity prices, market trends, and crop calendars
+- **AI-Powered Consultation** – Google Gemini AI for instant farming advice, crop diagnosis, and personalized recommendations
+- **Expert Network** – Direct chat with agricultural extension officers and scheduled Q&A sessions
+- **Community Forum** – Interactive discussions for farmers to share experiences and solve problems together
+- **Educational Library** – Step-by-step farming tutorials and best practices
+- **Integrated Marketplace** – Direct platform for selling produce and buying supplies, cutting out middlemen
+- **Mobile-First Design** – Offline capabilities ensuring access even in remote areas
 
-## The Problem
+## Tech Stack
 
-Indonesian farmers face real challenges: unpredictable weather, fluctuating market prices, limited access to expert advice, and outdated farming techniques. Most digital solutions are either too complicated, too expensive, or just don't understand what farmers actually need in their day-to-day work.
+**Frontend:** Nuxt.js, Tailwind CSS  
+**Mobile:** Capacitor  
+**AI:** Google Gemini AI  
+**Backend:** Supabase
 
-We needed a platform that:
-- Delivers **real-time, actionable data** that farmers can use immediately
-- Connects farmers with **experts and each other** for knowledge sharing
-- Provides **practical tools** for crop management and decision-making
-- Works seamlessly on mobile devices, even with limited connectivity
-- Includes a marketplace to help farmers sell directly and buy supplies
+## Results
 
----
+A comprehensive mobile-first platform that puts modern agricultural technology directly in farmers' hands, enabling data-driven decisions, expert access, and increased profitability through direct market access.
 
-## Our Solution
-
-### Real-Time Agricultural Intelligence
-Live weather updates, commodity price tracking, and market trends — all the data farmers need to make smart decisions.
-
-### AI-Powered Consultation
-Integrated Google Gemini AI that can answer farming questions, diagnose crop issues, and provide personalized recommendations instantly.
-
-### Community-Driven Learning
-Interactive forums where farmers share experiences, ask questions, and learn from each other's successes and challenges.
-
-### Built-In Marketplace
-Direct platform for farmers to sell their produce and buy supplies, cutting out middlemen and increasing profit margins.
-
-### Mobile-First Design
-Optimized for mobile use with offline capabilities, ensuring farmers can access critical information even in remote areas.
-
----
-
-## Key Features
-
-### Real-Time Information Hub
-- Live weather forecasts and alerts
-- Current commodity prices across markets
-- Crop calendars and planting schedules
-- Pest and disease outbreak tracking
-
-### Expert Consultation System
-- Direct chat with agricultural extension officers
-- AI-powered crop advice via Google Gemini
-- Video consultation capabilities
-- Scheduled expert Q&A sessions
-
-### Interactive Community Forum
-- Category-based discussion boards
-- Success story sharing
-- Problem-solving threads
-- Local farmer groups
-
-### Educational Content Library
-- Step-by-step farming tutorials
+![Jurutani Mockup 1](/portofolio/jurutani/1.png)
+![Jurutani Mockup 2](/portofolio/jurutani/2.png)
+![Jurutani Mockup 3](/portofolio/jurutani/3.png)
 - Video courses on modern techniques
 - Pest management guides
 - Soil health resources

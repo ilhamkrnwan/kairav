@@ -23,81 +23,38 @@ _path: /portofolio/ruangnu
 
 # RuangNU
 
-**A Digital Sanctuary for Islamic Knowledge & Community**
+An integrated digital platform designed to support Nahdlatul Ulama members with Islamic resources, community services, and educational content — bringing spiritual guidance and practical tools together in one accessible space.
 
-RuangNU is a comprehensive digital platform built to serve the spiritual, educational, and community needs of Nahdlatul Ulama (NU) members. More than just a website — it's a complete ecosystem bringing Islamic resources, practical tools, and community features together in one accessible space.
+![RuangNU Preview](/portofolio/ruangnu/preview.png)
 
-## Services
-- Web Development
-- UI/UX Design
-- Database Design
-- Islamic Content Platform
+## Challenge
 
-### Project Status
-In Development (Private)
+Nahdlatul Ulama members needed a centralized digital platform for their daily religious and community needs. Most solutions are fragmented — prayer apps here, Islamic content there, forums elsewhere. Nothing brings it all together in a way that feels cohesive and purpose-built for NU's unique identity.
 
-### Industry
-Religion & Community
+## Solution
 
-![RuangNU Platform Preview](/portofolio/ruangnu/2.png)
+We created a comprehensive Islamic platform that serves spiritual, educational, and community needs:
 
----
+- **Islamic Resource Library** – Complete collection of daily prayers (doa), dzikir, tasbih guides, and shalawat
+- **Prayer & Worship Tools** – Accurate prayer times, Qibla finder, Islamic calendar, Hijri converter, and Ramadan schedules
+- **Digital Islamic Library** – Curated Islamic books, scholarly articles, and research papers from NU perspectives
+- **Community Features** – Discussion forums, event calendar, local NU branch information, and news updates
+- **Educational Content** – Accessible resources for Islamic learning and spiritual growth
+- **Future Marketplace** – Planned feature for NU-affiliated products and services
 
-## The Need
+## Tech Stack
 
-Nahdlatul Ulama members needed a centralized digital platform that truly serves their daily religious and community needs. Most existing solutions are fragmented — prayer apps here, Islamic content there, community forums somewhere else. Nothing brings it all together in a way that feels cohesive and purpose-built for NU's unique identity.
+**Frontend:** PHP Native, Tailwind CSS  
+**Backend:** MySQL  
+**Type:** Community System
 
-The platform needed to:
-- Provide **comprehensive Islamic resources** in one place
-- Include **practical daily tools** like prayer times and Qibla direction
-- Foster **community connection** through forums and events
-- Support **Islamic education** with accessible content
-- Eventually include a **marketplace** for NU-affiliated initiatives
+## Results
 
----
+A spiritually centered platform that strengthens bonds between members, provides practical daily tools, and supports Islamic education — designed with NU traditions in mind and built for future growth.
 
-## Our Approach
-
-### Spiritually Centered Design
-Every feature is designed with Islamic principles and NU traditions in mind.
-
-### Community-Focused
-Built to strengthen bonds between members and facilitate knowledge sharing.
-
-### Practical & Accessible
-Combining spiritual resources with practical tools that members use daily.
-
-### Scalable Foundation
-Starting with core features, designed to grow into a full community ecosystem.
-
----
-
-## Key Features
-
-### Islamic Resource Library
-- Complete collection of daily prayers (doa)
-- Comprehensive dzikir and tasbih guides
-- Shalawat collections with proper recitation
-- Categorized by occasions and needs
-
-### Prayer & Worship Tools
-- Accurate prayer time schedules based on location
-- Qibla direction finder
-- Islamic calendar with important religious dates
-- Hijri date converter
-- Ramadan and fasting schedules
-
-### Digital Islamic Library
-- Curated collection of Islamic books
-- Scholarly articles from NU perspectives
-- Research papers and academic content
-- Accessible digital reading interface
-
-### Community Features
-- Discussion forums for members
-- Event calendar and announcements
-- Local NU branch information
-- Community news and updates
+![RuangNU Mockup 1](/portofolio/ruangnu/1.png)
+![RuangNU Mockup 2](/portofolio/ruangnu/2.png)
+![RuangNU Mockup 3](/portofolio/ruangnu/3.png)
 
 ### Future Marketplace (Planned)
 - Platform for NU-affiliated products

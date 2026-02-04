@@ -24,128 +24,35 @@ _path: /portofolio/kamaba-yogyakarta
 
 # Kamaba Yogyakarta
 
-**Web-Based Organization Information System**
-
-The Kamaba Yogyakarta website was built as a **centralized digital platform** to manage organizational info, membership, activities, and both internal and external communications in a modern, secure, and user-friendly way.
-
-## Services
-- Web Development  
-- UI/UX Design  
-- Organization Information System  
-
-### Project Status
-Coming soon
-
-### Industry
-Education & Organization
+A centralized digital platform to manage organizational information, membership, activities, and communications for Kamaba Yogyakarta in a modern and user-friendly way.
 
 ![Kamaba Yogyakarta Preview](/portofolio/kamaba-yogyakarta/preview.png)
 
----
+## Challenge
 
-## Client Needs & Challenges
+Kamaba Yogyakarta needed a digital system beyond a simple profile website—one that could manage member and board data, provide real-time event and news updates, and allow admins to manage content easily without technical skills.
 
-Kamaba Yogyakarta needed a digital system that goes beyond just a profile website. They wanted something that could:
+## Solution
 
-- Manage **member and board data** in a structured way  
-- Provide **up-to-date event and news info**  
-- Make it easy for admins to **manage content without technical skills**  
-- Serve as the official information hub for members and the public  
+We built an integrated information system that serves as the official hub for members and the public, featuring:
 
----
-
-## Development Goals
-
-### Organization Digitalization
-Build an information system that truly represents Kamaba Yogyakarta's identity, vision, and professionalism.
-
-### Centralized Data Management
-Integrate member data, events, news, and org structure into one secure and controlled system.
-
-### Optimal User Experience
-A modern, responsive, fast, and easy-to-use interface across all devices.
-
----
-
-## Key Features
-
-### Authentication & User Management
-- Member registration & login
-- Role management (Admin, Board, Member)
-- User profile management
-
-### Membership Management
-- Centralized member data
-- Membership details & history
-- Member activation and deactivation
-
-### Organization Structure
-- Visual org chart display
-- Position & division management
-- Board history per period
-
-### Events & Activities
-- Organization event calendar
-- Member event registration
-- Event documentation and archives
-
-### News & Articles
-- Organization news publication
-- Article categories & details
-- Dynamic content-based CMS
-
-### Gallery
-- Photo albums of events
-- Responsive gallery display
-- Lightbox for media preview
-
-### Admin Dashboard
-- Member & activity statistics
-- Quick actions for data management
-- Key information summary
-
----
-
-## What We Achieved
-
-### Integrated System
-All organizational needs are managed in one consistent platform that's easy to expand.
-
-### Modern & Responsive Design
-Using a modern UI approach with a clean and intuitive user experience.
-
-### Performance & Security
-Fast, stable, and built with modern web security standards.
-
-### Scalable for the Future
-Modular and scalable code structure for long-term needs.
-
----
+- **Authentication & User Management** – Member registration, login, and role-based access control
+- **Membership Management** – Centralized member database with activation controls
+- **Organization Structure** – Visual org chart with position and board history
+- **Events & Activities** – Event calendar, registration, and documentation
+- **News & Content** – Dynamic CMS for publishing articles and updates
+- **Gallery** – Responsive photo albums with lightbox preview
+- **Admin Dashboard** – Statistics, quick actions, and data management
 
 ## Tech Stack
 
-### Frontend
- 
+**Frontend:** Nuxt 4, Nuxt UI v4, Shadcn UI, Tailwind CSS  
+**Backend:** MySQL, REST API, RBAC
 
+## Results
 
-- **Nuxt 4**
-- **Nuxt UI v4**
-- **Shadcn UI**
-- **Tailwind CSS**
-
-### Backend & Database
-- **MySQL**
-- REST API
-- Role Based Access Control (RBAC)
-
----
-
-## Visual Documentation
+A scalable, modern platform with integrated data management, responsive design, and robust security—ready to grow with the organization's future needs.
 
 ![Kamaba Yogyakarta Mockup 1](/portofolio/kamaba-yogyakarta/1.png)
 ![Kamaba Yogyakarta Mockup 2](/portofolio/kamaba-yogyakarta/2.png)
 ![Kamaba Yogyakarta Mockup 3](/portofolio/kamaba-yogyakarta/3.png)
-
----
-
-> This website is designed as the digital foundation for Kamaba Yogyakarta, ready to scale up in the future.

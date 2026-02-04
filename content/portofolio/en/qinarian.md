@@ -23,80 +23,38 @@ _path: /portofolio/qinarian
 
 # Qinarian
 
-**Where Innovation Meets Collaboration**
+A tech community platform built for innovators, where open-source collaboration meets cutting-edge digital solutions — connecting developers, creators, and tech enthusiasts in a modern, accessible space.
 
-Qinarian is more than just a portfolio or showcase — it's a **community-driven technology platform** built to connect developers, innovators, and tech enthusiasts. A space where ideas are shared, projects come to life, and open-source collaboration thrives.
+![Qinarian Preview](/portofolio/qinarian/preview.png)
 
-## Services
-- Web Development
-- UI/UX Design
-- Community Platform
-- Content Management System
+## Challenge
 
-### Project Status
-Ongoing
+Tech communities need spaces that reflect who they are — modern, open, collaborative, and evolving. Most platforms are either too corporate, too cluttered, or don't feel like home for developers who want to create, share, and grow together. We needed a platform that showcases innovation clearly while promoting open-source collaboration.
 
-### Industry
-Technology & Community
+## Solution
 
-![Qinarian Platform](/portofolio/qinarian/2.png)
+We created a community-driven technology platform with modern architecture:
 
----
+- **Project Showcase** – Clean displays of digital projects with detailed case studies, tech stacks, and outcomes
+- **Community Hub** – Space for developers to connect, collaborate, and share insights
+- **Resource Library** – Curated tools, tutorials, and resources for the tech community
+- **Multi-Language Support** – Built-in i18n for global accessibility
+- **Content-Driven CMS** – Markdown-based for easy updates and contributions
+- **Modern UI/UX** – Clean, intuitive interface that puts content first
+- **SEO Optimized** – Built for discoverability and reach
 
-## The Vision
+## Tech Stack
 
-Tech communities need spaces that reflect who they are — modern, open, collaborative, and always evolving. Most platforms are either too corporate, too cluttered, or just don't feel like home for developers who want to create, share, and grow together.
+**Frontend:** Nuxt.js, Tailwind CSS, TypeScript  
+**Features:** i18n, Content-Driven
 
-We needed a platform that:
-- **Showcases digital innovation** in a clean, engaging way
-- Promotes **open-source mindset** and collaboration
-- Provides a **scalable foundation** for future community features
-- Reflects **modern design principles** that developers actually appreciate
-- Makes it easy to share projects, insights, and expertise
+## Results
 
----
+A scalable, modern platform that brings tech communities together with fast performance, clean design, and an open-source philosophy — making it easy to share projects, insights, and expertise.
 
-## Our Approach
-
-### Community-First Design
-Every design decision prioritizes community needs — from project showcases to resource sharing.
-
-### Open-Source Philosophy
-Built with transparency and collaboration in mind, encouraging contributions and knowledge exchange.
-
-### Modern Architecture
-Leveraging Nuxt 4's power for performance, SEO, and developer experience.
-
-### Content-Driven
-Using Markdown for easy content management, making updates and contributions straightforward.
-
----
-
-## Key Features
-
-### Project Showcase
-A clean, organized display of digital projects with detailed case studies, tech stacks, and outcomes.
-
-### Community Hub
-Space for developers and innovators to connect, collaborate, and share insights.
-
-### Resource Library
-Curated collection of tools, tutorials, and resources for the tech community.
-
-### Multi-Language Support
-Built-in i18n for global accessibility and wider reach.
-
-### Modern UI/UX
-Clean, intuitive interface that puts content first while maintaining visual appeal.
-
-### Responsive Design
-Seamlessly adapts to any device — from mobile to ultrawide monitors.
-
-### Fast Performance
-Optimized loading times and smooth interactions powered by Nuxt 4.
-
-### SEO Optimized
-Built with discoverability in mind for better reach and visibility.
+![Qinarian Mockup 1](/portofolio/qinarian/1.png)
+![Qinarian Mockup 2](/portofolio/qinarian/2.png)
+![Qinarian Mockup 3](/portofolio/qinarian/3.png)
 
 ---
 

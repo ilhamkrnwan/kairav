@@ -1,7 +1,6 @@
 <script setup>
 const { t } = useI18n()
 
-// Dynamic SEO
 useDynamicSeo({
   titleKey: 'seo.home.title',
   descriptionKey: 'seo.home.description',

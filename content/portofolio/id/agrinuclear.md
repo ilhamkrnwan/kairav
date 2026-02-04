@@ -36,67 +36,31 @@ Live
 ### Industri
 Pertanian & Edukasi
 
-![Preview Platform AgriNuclear](/portofolio/agrinuklir/2.png)
+![Preview Platform AgriNuclear](/portofolio/agrinuklir/preview.png)
 
----
+## Tantangan
 
-## Tantangannya
+Pertanian nuklir kedengerannya menakutkan, padahal teknologi ini bisa merevolusi pertanian modern. Masalahnya? Kebanyakan sumber informasi terlalu akademis atau terlalu samar, bikin pelajar, pendidik, dan masyarakat umum susah memahami konsep kompleks ini.
 
-Pertanian nuklir kedengerannya menakutkan, kan? Nah itu dia masalahnya. Pelajar, pendidik, dan orang-orang yang penasaran pengen belajar gimana teknologi nuklir bisa bikin tanaman lebih baik dan pertanian lebih sustainable, tapi kebanyakan sumber informasinya terlalu akademis atau terlalu samar.
+## Solusi
 
-Kita butuh platform yang:
-- Bikin konsep sains yang kompleks jadi **beneran bisa dipahami**
-- Ngasih **konten visual** yang nempel di otak
-- Menyampaikan informasi secara terstruktur tapi tetep engaging
-- Tetep ringan dan cepat buat user dengan internet apapun
+- **Sains yang Disederhanakan** — Transform riset akademis jadi konten yang jelas tanpa dumbing down
+- **Visual-First Learning** — Infografis dan diagram yang bikin konsep kompleks mudah dipahami
+- **Konten Terstruktur** — Informasi diorganisir berdasarkan tingkat kesulitan dan topik
+- **Static Site Architecture** — Loading instant di semua koneksi
+- **Referensi Akademik** — Sumber riset yang properly cited buat yang pengen dive deeper
 
----
+## Tech Stack
 
-## Pendekatan Kami
+React, Tailwind CSS, Static Site Generation, Optimized Assets
 
-### Sains yang Disederhanakan
-Kita transform riset akademis yang berat jadi konten yang jelas dan engaging yang siapa aja bisa ngerti — tanpa dumbing down.
+## Hasil
 
-### Visual-First Learning
-Setiap konsep didukung sama penjelasan visual, infografis, dan contoh real-world yang bikin sains jadi hidup.
+Bikin sains pertanian tingkat advanced jadi approachable buat pelajar, pendidik, dan masyarakat umum. Transform konten saintifik yang kering jadi learning journey yang engaging dengan loading instant dan navigasi smooth.
 
-### Dibangun untuk Kecepatan
-Menggunakan arsitektur static site modern buat memastikan platform loading-nya instant, di mana aja.
-
----
-
-## Fitur Utama
-
-### Artikel Edukatif
-Deep dive ke pertanian nuklir, teknik pemuliaan mutasi, dan aplikasi radiasi — semua ditulis dengan bahasa yang mudah dipahami.
-
-### Konten Pembelajaran Visual
-Infografis, diagram, dan panduan visual yang dirancang buat bikin proses kompleks jadi mudah dipahami.
-
-### Informasi Terstruktur
-Konten diorganisir berdasarkan tingkat kesulitan dan topik, cocok banget buat belajar mandiri atau dipakai di kelas.
-
-### Penjelasan Teknologi Radiasi
-Breakdown yang jelas tentang gimana radiasi digunakan dengan aman untuk mengembangkan varietas tanaman yang lebih kuat dan resilient.
-
-### Interface Responsif
-Desain modern yang clean, works seamlessly di device apapun — dari HP sampai desktop.
-
-### Referensi Akademik
-Sumber dan link riset yang properly cited buat yang pengen dive deeper.
-
----
-
-## Yang Kami Capai
-
-### Edukasi yang Accessible
-Bikin sains pertanian tingkat advanced jadi approachable buat pelajar, pendidik, dan masyarakat umum.
-
-### Pengalaman yang Engaging
-Transform konten saintifik yang kering jadi learning journey yang engaging dengan UX modern.
-
-### Cepat & Ringan
-Performa yang optimal memastikan loading instant dan navigasi smooth, bahkan di koneksi yang lambat.
+![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.png)
+![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.png)
+![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.png)
 
 ### Platform yang Future-Ready
 Desain modular bikin gampang buat nambahin konten dan fitur baru seiring perkembangan bidang ini.

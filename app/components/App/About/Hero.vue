@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { Icon } from "#components";
-
-const { t } = useI18n()
+  const { t } = useI18n()
 </script>
 
 <template>

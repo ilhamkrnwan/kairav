@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "eslint": "^9.39.1",
+    "gsap": "^3.14.2",
     "nuxt": "^4.2.1",
     "nuxt-og-image": "^5.1.12",
     "tailwind-merge": "^3.4.0",

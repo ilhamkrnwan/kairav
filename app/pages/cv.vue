@@ -59,5 +59,10 @@
 </template>
 
 <script setup>
-// no logic needed
+// Dynamic SEO
+useDynamicSeo({
+  titleKey: 'seo.cv.title',
+  descriptionKey: 'seo.cv.description',
+  image: '/og-image.jpg'
+})
 </script>

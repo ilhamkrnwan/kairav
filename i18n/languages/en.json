@@ -118,5 +118,45 @@
   "blog.next": "Next Article",
   "project.notFound": "Project not found",
   "project.previous": "Previous Project",
-  "project.next": "Next Project"
+  "project.next": "Next Project",
+  "seo": {
+    "default": {
+      "title": "Portfolio & Projects",
+      "description": "Explore the portfolio of Ilham Kurniawan - Junior Fullstack Developer specializing in modern web development, AI, and Web3 technologies."
+    },
+    "home": {
+      "title": "Home",
+      "description": "Welcome to Kairav - The portfolio of Ilham Kurniawan, a Junior Fullstack Developer passionate about web development, AI, and innovative digital solutions."
+    },
+    "about": {
+      "title": "About Me",
+      "description": "Learn more about Ilham Kurniawan - my skills, experience, education, and journey as a Fullstack Developer. Discover my expertise in modern web technologies."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Browse through my portfolio of web development projects. See my work in Nuxt.js, Vue.js, React, and other modern frameworks."
+    },
+    "gallery": {
+      "title": "Photo Gallery",
+      "description": "Explore my photography gallery - a collection of moments captured through my lens, showcasing adventures, projects, and creative expressions."
+    },
+    "cv": {
+      "title": "Curriculum Vitae",
+      "description": "View and download the CV of Ilham Kurniawan - Fullstack Developer with experience in web development, mobile apps, and modern technologies."
+    }
+  },
+  "Portofolio": "Portfolio",
+  "Lihat hasil karya dan proyek yang telah kami kerjakan": "View my portfolio and completed projects",
+  "Portfolio not found": "Portfolio not found",
+  "View project details and portfolio": "View project details and portfolio",
+  "Project Info": "Project Info",
+  "Client": "Client",
+  "Status": "Status",
+  "Industry": "Industry",
+  "Date": "Date",
+  "Services": "Services",
+  "Back to Projects": "Back to Projects",
+  "More Projects": "More Projects",
+  "Previous Project": "Previous Project",
+  "Next Project": "Next Project"
 }

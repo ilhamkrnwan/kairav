@@ -1,5 +1,67 @@
 <script setup>
 const { t } = useI18n()
+
+// Dynamic SEO
+useDynamicSeo({
+  titleKey: 'seo.gallery.title',
+  descriptionKey: 'seo.gallery.description',
+  image: '/og-image.jpg'
+})
+
+// Gallery items configuration
+const galleryItems = [
+  {
+    title: 'Portrait Photography',
+    description: 'Capturing emotions and personality in every frame',
+    image: '/ilham02.jpg',
+    icon: 'lucide:user',
+    badge: 'Featured',
+    class: 'md:col-span-2 md:row-span-2',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  },
+  {
+    title: 'Urban Exploration',
+    description: 'Discovering beauty in city landscapes',
+    image: '/ilham04.jpg',
+    icon: 'lucide:building-2',
+    badge: 'Recent',
+    class: 'aspect-square',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  },
+  {
+    title: 'Nature Vibes',
+    description: 'Finding peace in natural scenery',
+    image: '/ilham05.jpg',
+    icon: 'lucide:trees',
+    class: 'aspect-square',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  },
+  {
+    title: 'Street Photography',
+    description: 'Life moments in everyday scenes',
+    image: '/ilham02.jpg',
+    icon: 'lucide:camera',
+    class: 'aspect-square',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  },
+  {
+    title: 'Professional Shoots',
+    description: 'Commercial and editorial photography',
+    image: '/profile-blck.png',
+    icon: 'lucide:briefcase',
+    badge: 'Portfolio',
+    class: 'md:col-span-2 aspect-video',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  },
+  {
+    title: 'Creative Experiments',
+    description: 'Pushing boundaries with new techniques',
+    image: '/ilham04.jpg',
+    icon: 'lucide:palette',
+    class: 'aspect-square',
+    imageClass: 'filter grayscale group-hover:grayscale-0'
+  }
+]
 </script>
 
 <template>
@@ -99,68 +161,19 @@ const { t } = useI18n()
           </p>
         </div>
 
-        <!-- Gallery Grid - Masonry Layout -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          <!-- Photo 1 - Large -->
-          <div class="col-span-2 md:col-span-2 row-span-2 group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500">
-            <img
-              src="/ilham02.jpg"
-              alt="Gallery Photo 1"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-
-          <!-- Photo 2 -->
-          <div class="group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500 aspect-square">
-            <img
-              src="/ilham04.jpg"
-              alt="Gallery Photo 2"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-
-          <!-- Photo 3 -->
-          <div class="group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500 aspect-square">
-            <img
-              src="/ilham05.jpg"
-              alt="Gallery Photo 3"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-
-          <!-- Photo 4 -->
-          <div class="group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500 aspect-square">
-            <img
-              src="/ilham02.jpg"
-              alt="Gallery Photo 4"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-
-          <!-- Photo 5 - Wide -->
-          <div class="col-span-2 group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500 aspect-video">
-            <img
-              src="/profile-blck.png"
-              alt="Gallery Photo 5"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-
-          <!-- Photo 6 -->
-          <div class="group relative overflow-hidden rounded-2xl border border-border/50 hover:border-amber-400/30 transition-all duration-500 aspect-square">
-            <img
-              src="/ilham04.jpg"
-              alt="Gallery Photo 6"
-              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-            />
-            <div class="absolute inset-0 bg-linear-to-br from-amber-400/0 to-orange-500/0 group-hover:from-amber-400/10 group-hover:to-orange-500/10 transition-all duration-500"></div>
-          </div>
-        </div>
+        <!-- Magic Bento Gallery -->
+        <UiMagicBento
+          :text-auto-hide="true"
+          :enable-stars="true"
+          :enable-spotlight="true"
+          :enable-border-glow="true"
+          :enable-tilt="true"
+          :enable-magnetism="true"
+          :click-effect="true"
+          :spotlight-radius="300"
+          :particle-count="12"
+          glow-color="132, 0, 255"
+        />
 
         <!-- Instagram CTA -->
         <div class="text-center mt-16">
@@ -179,36 +192,3 @@ const { t } = useI18n()
   </div>
 </template>
 
-<style scoped>
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
-}
-
-@keyframes float2 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(10px) rotate(-5deg); }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg) scale(1.3); }
-  to { transform: rotate(360deg) scale(1.3); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float2 {
-  animation: float2 6s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-700 { animation-delay: 0.7s; }
-</style>

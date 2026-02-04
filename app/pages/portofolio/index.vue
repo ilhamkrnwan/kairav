@@ -69,12 +69,14 @@
   }
 
   const handleLearnMoreClick = () => {
-    navigateTo('/home#about')
+    navigateTo('/#about')
   }
 
-  useSeoMeta({
-    title: () => t('Portofolio - NataKarsa'),
-    description: () => t('Lihat hasil karya dan proyek yang telah kami kerjakan'),
+  // Dynamic SEO
+  useDynamicSeo({
+    titleKey: 'seo.portfolio.title',
+    descriptionKey: 'seo.portfolio.description',
+    image: '/og-image.jpg'
   })
 
 

@@ -70,10 +70,14 @@ if (error.value || !current.value) {
   })
 }
 
-// SEO Meta
-useSeoMeta({
-  title: () => `${current.value?.title || 'Project'} - NataKarsa`,
-  description: () => current.value?.description || t('View project details and portfolio'),
+// Dynamic SEO with project data
+useDynamicSeo({
+  title: current.value?.title,
+  description: current.value?.description || t('View project details and portfolio'),
+  image: current.value?.image,
+  type: 'article',
+  publishedTime: current.value?.date,
+  tags: current.value?.tags
 })
 
 </script>

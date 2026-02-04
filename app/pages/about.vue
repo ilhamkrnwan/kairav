@@ -1,4 +1,10 @@
 <script setup lang="ts">
+// Dynamic SEO
+useDynamicSeo({
+  titleKey: 'seo.about.title',
+  descriptionKey: 'seo.about.description',
+  image: '/og-image.jpg'
+})
 </script>
 
 <template>

@@ -118,5 +118,45 @@
   "blog.next": "Artikel Berikutnya",
   "project.notFound": "Proyek tidak ditemukan",
   "project.previous": "Proyek Sebelumnya",
-  "project.next": "Proyek Berikutnya"
+  "project.next": "Proyek Berikutnya",
+  "seo": {
+    "default": {
+      "title": "Portofolio & Proyek",
+      "description": "Jelajahi portofolio Ilham Kurniawan - Junior Fullstack Developer yang berspesialisasi dalam pengembangan web modern, AI, dan teknologi Web3."
+    },
+    "home": {
+      "title": "Beranda",
+      "description": "Selamat datang di Kairav - Portofolio Ilham Kurniawan, seorang Junior Fullstack Developer yang passionate tentang pengembangan web, AI, dan solusi digital inovatif."
+    },
+    "about": {
+      "title": "Tentang Saya",
+      "description": "Pelajari lebih lanjut tentang Ilham Kurniawan - keahlian, pengalaman, pendidikan, dan perjalanan saya sebagai Fullstack Developer. Temukan expertise saya dalam teknologi web modern."
+    },
+    "portfolio": {
+      "title": "Portofolio",
+      "description": "Telusuri portofolio proyek pengembangan web saya. Lihat karya saya dalam Nuxt.js, Vue.js, React, dan framework modern lainnya."
+    },
+    "gallery": {
+      "title": "Galeri Foto",
+      "description": "Jelajahi galeri fotografi saya - koleksi momen yang diabadikan melalui lensa saya, menampilkan petualangan, proyek, dan ekspresi kreatif."
+    },
+    "cv": {
+      "title": "Curriculum Vitae",
+      "description": "Lihat dan unduh CV Ilham Kurniawan - Fullstack Developer dengan pengalaman dalam pengembangan web, aplikasi mobile, dan teknologi modern."
+    }
+  },
+  "Portofolio": "Portofolio",
+  "Lihat hasil karya dan proyek yang telah kami kerjakan": "Lihat hasil karya dan proyek yang telah saya kerjakan",
+  "Portfolio not found": "Portofolio tidak ditemukan",
+  "View project details and portfolio": "Lihat detail proyek dan portofolio",
+  "Project Info": "Info Proyek",
+  "Client": "Klien",
+  "Status": "Status",
+  "Industry": "Industri",
+  "Date": "Tanggal",
+  "Services": "Layanan",
+  "Back to Projects": "Kembali ke Proyek",
+  "More Projects": "Proyek Lainnya",
+  "Previous Project": "Proyek Sebelumnya",
+  "Next Project": "Proyek Berikutnya"
 }

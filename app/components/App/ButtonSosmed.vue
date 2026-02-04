@@ -1,3 +1,41 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const isOpen = ref(false);
+
+const toggleSidebar = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const sosmedItems = [
+  {
+    name: 'Instagram',
+    icon: 'streamline-ultimate-color:instagram-logo',
+    to: 'https://www.instagram.com/ilhamkrnwan__'
+  },
+  {
+    name: 'GitHub',
+    icon: 'streamline-ultimate-color:github-logo-1',
+    to: 'https://github.com/IlhamKurniawanBlora'
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'streamline-ultimate-color:linkedin-logo',
+    to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/'
+  },
+  {
+    name: 'WhatsApp',
+    icon: 'streamline-color:whatsapp',
+    to: 'https://wa.me/6287761296676?text=Hello%20friend%2C%20how%20can%20I%20help%20you%20today%3F%20😊'
+  },
+  {
+    name: 'Email',
+    icon: 'streamline-stickies-color:mail-duo',
+    to: 'mailto:ilhamkurniawanjateng@gmail.com'
+  }
+];
+</script>
+
 <template>
   <!-- Toggle Button - hanya muncul di mobile -->
   <button
@@ -60,40 +98,3 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const isOpen = ref(false);
-
-const toggleSidebar = () => {
-  isOpen.value = !isOpen.value;
-};
-
-const sosmedItems = [
-  {
-    name: 'Instagram',
-    icon: 'streamline-ultimate-color:instagram-logo',
-    to: 'https://www.instagram.com/ilhamkrnwan__'
-  },
-  {
-    name: 'GitHub',
-    icon: 'streamline-ultimate-color:github-logo-1',
-    to: 'https://github.com/IlhamKurniawanBlora'
-  },
-  {
-    name: 'LinkedIn',
-    icon: 'streamline-ultimate-color:linkedin-logo',
-    to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/'
-  },
-  {
-    name: 'WhatsApp',
-    icon: 'streamline-color:whatsapp',
-    to: 'https://wa.me/6287761296676?text=Hello%20friend%2C%20how%20can%20I%20help%20you%20today%3F%20😊'
-  },
-  {
-    name: 'Email',
-    icon: 'streamline-stickies-color:mail-duo',
-    to: 'mailto:ilhamkurniawanjateng@gmail.com'
-  }
-];
-</script>

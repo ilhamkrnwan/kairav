@@ -1,7 +1,7 @@
 ---
 title: Qinarian
 description: Platform komunitas tech yang dibangun buat innovators, di mana kolaborasi open-source ketemu sama solusi digital cutting-edge
-image: /portofolio/qinarian/1.png
+image: /portofolio/qinarian/1.webp
 category: Website & Platform Komunitas
 services:
   - Web Development
@@ -25,7 +25,7 @@ _path: /portofolio/qinarian
 
 Platform komunitas tech yang dibangun buat innovators, di mana kolaborasi open-source ketemu sama solusi digital cutting-edge.
 
-![Platform Qinarian](/portofolio/qinarian/preview.png)
+![Platform Qinarian](/portofolio/qinarian/preview.webp)
 
 ## Tantangan
 
@@ -46,6 +46,6 @@ Tech communities butuh space yang feels modern, open, dan collaborative. Kebanya
 
 Platform scalable dan modern yang brings tech communities together dengan fast performance, clean design, dan filosofi open-source.
 
-![Qinarian Mockup 1](/portofolio/qinarian/1.png)
-![Qinarian Mockup 2](/portofolio/qinarian/2.png)
-![Qinarian Mockup 3](/portofolio/qinarian/3.png)
+![Qinarian Mockup 1](/portofolio/qinarian/1.webp)
+![Qinarian Mockup 2](/portofolio/qinarian/2.webp)
+![Qinarian Mockup 3](/portofolio/qinarian/3.webp)

@@ -77,17 +77,17 @@ const projectImages = computed(() => {
   // Get the slug from the current project path
   const projectSlug = slug.value
   
-  // Most portfolio projects have 3 mockup images numbered 1.png, 2.png, 3.png
+  // Most portfolio projects have 3 mockup images numbered 1.webp, 2.webp, 3.webp
   // Extract the project folder name from the image path
-  const imagePath = current.value.image?.replace(/\/[^/]+\.png$/, '') || ''
+  const imagePath = current.value.image?.replace(/\/[^/]+\.webp$/, '') || ''
   
   if (!imagePath) return []
   
   // Generate array of mockup image paths
   return [
-    `${imagePath}/1.png`,
-    `${imagePath}/2.png`,
-    `${imagePath}/3.png`
+    `${imagePath}/1.webp`,
+    `${imagePath}/2.webp`,
+    `${imagePath}/3.webp`
   ]
 })
 

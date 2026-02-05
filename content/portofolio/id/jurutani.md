@@ -1,7 +1,7 @@
 ---
 title: Jurutani
 description: Platform pertanian digital all-in-one yang nge-support petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan akses marketplace
-image: /portofolio/jurutani/1.png
+image: /portofolio/jurutani/1.webp
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -26,7 +26,7 @@ _path: /portofolio/jurutani
 
 Platform pertanian digital all-in-one yang nge-support petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan marketplace access.
 
-![Interface Platform Jurutani](/portofolio/jurutani/preview.png)
+![Interface Platform Jurutani](/portofolio/jurutani/preview.webp)
 
 ## Tantangan
 
@@ -46,6 +46,6 @@ Petani Indonesia hadapi cuaca unpredictable, harga pasar fluktuatif, akses ahli 
 
 Platform mobile-first comprehensive yang ngasih power teknologi modern ke tangan petani, enable keputusan data-driven dan naikin profitabilitas.
 
-![Jurutani Mockup 1](/portofolio/jurutani/1.png)
-![Jurutani Mockup 2](/portofolio/jurutani/2.png)
-![Jurutani Mockup 3](/portofolio/jurutani/3.png)
+![Jurutani Mockup 1](/portofolio/jurutani/1.webp)
+![Jurutani Mockup 2](/portofolio/jurutani/2.webp)
+![Jurutani Mockup 3](/portofolio/jurutani/3.webp)

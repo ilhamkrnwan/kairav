@@ -1,7 +1,7 @@
 ---
 title: Kamaba Yogyakarta
 description: A web-based organization information system for Kamaba Yogyakarta featuring member management, events, news, and an integrated dashboard
-image: /portofolio/kamaba-yogyakarta/1.png
+image: /portofolio/kamaba-yogyakarta/1.webp
 category: Website
 services:
   - Web Development
@@ -26,7 +26,7 @@ _path: /portofolio/kamaba-yogyakarta
 
 A centralized digital platform to manage organizational information, membership, activities, and communications for Kamaba Yogyakarta in a modern and user-friendly way.
 
-![Kamaba Yogyakarta Preview](/portofolio/kamaba-yogyakarta/preview.png)
+![Kamaba Yogyakarta Preview](/portofolio/kamaba-yogyakarta/preview.webp)
 
 ## Challenge
 
@@ -48,6 +48,6 @@ We built an integrated information system that serves as the official hub for me
 
 A scalable, modern platform with integrated data management, responsive design, and robust security—ready to grow with the organization's future needs.
 
-![Kamaba Yogyakarta Mockup 1](/portofolio/kamaba-yogyakarta/1.png)
-![Kamaba Yogyakarta Mockup 2](/portofolio/kamaba-yogyakarta/2.png)
-![Kamaba Yogyakarta Mockup 3](/portofolio/kamaba-yogyakarta/3.png)
+![Kamaba Yogyakarta Mockup 1](/portofolio/kamaba-yogyakarta/1.webp)
+![Kamaba Yogyakarta Mockup 2](/portofolio/kamaba-yogyakarta/2.webp)
+![Kamaba Yogyakarta Mockup 3](/portofolio/kamaba-yogyakarta/3.webp)

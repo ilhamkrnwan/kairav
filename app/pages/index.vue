@@ -40,7 +40,7 @@ useDynamicSeo({
           </span>
           
           <!-- Main Hero Image -->
-          <img src="/ilham-hero.png" alt="Ilham Kurniawan" class="relative object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+          <img src="/ilham-hero.webp" alt="Ilham Kurniawan" class="relative object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
         </div>
 
         <!-- Text Content Section -->
@@ -48,7 +48,7 @@ useDynamicSeo({
           
           <!-- Logo -->
           <div class="flex lg:justify-start items-center justify-center mb-4">
-            <img src="/kairav.png" alt="Kairav Logo" class="h-10 mr-2" />
+            <img src="/kairav.webp" alt="Kairav Logo" class="h-10 mr-2" />
             <h1 class="text-sm uppercase tracking-wider text-muted-foreground">kairav</h1>
           </div>
           

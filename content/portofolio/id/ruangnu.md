@@ -1,7 +1,7 @@
 ---
 title: RuangNU
 description: Platform digital terintegrasi yang designed buat support anggota Nahdlatul Ulama dengan resources Islami, layanan komunitas, dan konten edukatif
-image: /portofolio/ruangnu/1.png
+image: /portofolio/ruangnu/1.webp
 category: Platform Web
 services:
   - Web Development
@@ -25,7 +25,7 @@ _path: /portofolio/ruangnu
 
 Platform digital terintegrasi buat support anggota Nahdlatul Ulama dengan Islamic resources, community services, dan educational content.
 
-![Preview Platform RuangNU](/portofolio/ruangnu/preview.png)
+![Preview Platform RuangNU](/portofolio/ruangnu/preview.webp)
 
 ## Tantangan
 
@@ -44,6 +44,6 @@ Anggota NU butuh platform terpusat untuk kebutuhan religious dan komunitas. Solu
 
 Platform spiritually centered yang strengthen bonds antara member, ngasih practical daily tools, dan support Islamic education.
 
-![RuangNU Mockup 1](/portofolio/ruangnu/1.png)
-![RuangNU Mockup 2](/portofolio/ruangnu/2.png)
-![RuangNU Mockup 3](/portofolio/ruangnu/3.png)
+![RuangNU Mockup 1](/portofolio/ruangnu/1.webp)
+![RuangNU Mockup 2](/portofolio/ruangnu/2.webp)
+![RuangNU Mockup 3](/portofolio/ruangnu/3.webp)

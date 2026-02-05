@@ -1,7 +1,7 @@
 ---
 title: AgriNuclear
 description: An educational web platform that makes nuclear agriculture concepts accessible and engaging, bridging the gap between advanced science and everyday farming innovation
-image: /portofolio/agrinuklir/1.png
+image: /portofolio/agrinuklir/1.webp
 category: Website
 services:
   - Web Development
@@ -23,7 +23,7 @@ _path: /portofolio/agrinuclear
 
 An educational web platform that breaks down complex nuclear agriculture concepts into bite-sized, easy-to-understand content.
 
-![AgriNuclear Preview](/portofolio/agrinuklir/preview.png)
+![AgriNuclear Preview](/portofolio/agrinuklir/preview.webp)
 
 ## Challenge
 
@@ -41,6 +41,6 @@ Nuclear agriculture sounds intimidating. Students and educators need accessible 
 
 Made advanced agricultural science approachable for students, educators, and the public with fast loading and smooth navigation.
 
-![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.png)
-![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.png)
-![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.png)
+![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.webp)
+![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.webp)
+![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.webp)

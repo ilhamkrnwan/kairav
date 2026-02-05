@@ -1,7 +1,7 @@
 ---
 title: Qinarian
 description: A tech community platform built for innovators, where open-source collaboration meets cutting-edge digital solutions
-image: /portofolio/qinarian/1.png
+image: /portofolio/qinarian/1.webp
 category: Website & Community Platform
 services:
   - Web Development
@@ -25,7 +25,7 @@ _path: /portofolio/qinarian
 
 A tech community platform built for innovators, where open-source collaboration meets cutting-edge digital solutions.
 
-![Qinarian Preview](/portofolio/qinarian/preview.png)
+![Qinarian Preview](/portofolio/qinarian/preview.webp)
 
 ## Challenge
 
@@ -45,6 +45,6 @@ Tech communities need spaces that feel modern, open, and collaborative. Most pla
 
 A scalable, modern platform bringing tech communities together with fast performance, clean design, and open-source philosophy.
 
-![Qinarian Mockup 1](/portofolio/qinarian/1.png)
-![Qinarian Mockup 2](/portofolio/qinarian/2.png)
-![Qinarian Mockup 3](/portofolio/qinarian/3.png)
+![Qinarian Mockup 1](/portofolio/qinarian/1.webp)
+![Qinarian Mockup 2](/portofolio/qinarian/2.webp)
+![Qinarian Mockup 3](/portofolio/qinarian/3.webp)

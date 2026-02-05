@@ -218,7 +218,7 @@
               <figure class="relative aspect-video overflow-hidden">
                 <img 
                   class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out" 
-                  :src="project.image || '/placeholder.png'" 
+                  :src="project.image || '/placeholder.webp'" 
                   :alt="project.title"
                 >
               </figure>

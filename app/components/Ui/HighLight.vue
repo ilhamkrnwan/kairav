@@ -16,7 +16,7 @@
               aria-hidden="true"
             ></div>
             <figure class="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
-              <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="/profile-blck.png" width="540" height="303" alt="Blog post">
+              <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="/profile-blck.webp" width="540" height="303" alt="Blog post">
             </figure>
           </a>
           <div>
@@ -44,7 +44,7 @@
     
             <footer class="flex items-center mt-4">
               <a href="#0">
-                <img class="rounded-full flex-shrink-0 mr-4" src="/profile-blck.png" width="40" height="40" alt="Author 04">
+                <img class="rounded-full flex-shrink-0 mr-4" src="/profile-blck.webp" width="40" height="40" alt="Author 04">
               </a>
               <div>
                 <a class="font-medium" href="#0">Kairav</a>

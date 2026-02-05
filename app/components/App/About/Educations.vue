@@ -4,20 +4,26 @@ const { t } = useI18n()
 const educationItems = computed(() => [
   { 
     title: t('Nahdlatul Ulama University Yogyakarta (UNUYO)'), 
-    date: t('2023 - Present | Undergraduate'), 
-    description: t('Currently pursuing a Bachelor\'s degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development. Engaged in various projects and research activities.'),
+    date: '2023 - ' + t('Present') + ' | ' + t('Undergraduated'),
+    description: t(
+      "Currently pursuing a Bachelor's degree in Informatics, focusing on programming concepts, data structures, algorithms, and software development. Engaged in various projects and research activities."
+    ),
     type: t('Formal')
   },
   { 
     title: t('Rumah Gemilang Indonesia Surabaya (RGI Surabaya)'), 
-    date: t('2020 - 2021 | Graduated'), 
-    description: t('Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development. Participated in hands-on projects to build web applications.'),
+    date: '2020 - 2021 | ' + t('Graduated'),
+    description: t(
+      'Completed a Software Engineering training program specializing in Web Programming, covering HTML, CSS, JavaScript, and general web development. Participated in hands-on projects to build web applications.'
+    ),
     type: t('Non-Formal')
   },
   { 
     title: t('Graphic Design Training - DINPERINAKER Blora'), 
-    date: t('2022 | Graduated'), 
-    description: t('Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.'),
+    date: '2022 | ' + t('Graduated'),
+    description: t(
+      'Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.'
+    ),
     type: t('Non-Formal')
   }
 ])

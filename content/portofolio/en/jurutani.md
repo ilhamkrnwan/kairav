@@ -1,7 +1,7 @@
 ---
 title: Jurutani
 description: The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and marketplace access
-image: /portofolio/jurutani/1.png
+image: /portofolio/jurutani/1.webp
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -26,7 +26,7 @@ _path: /portofolio/jurutani
 
 The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and marketplace access.
 
-![Jurutani Preview](/portofolio/jurutani/preview.png)
+![Jurutani Preview](/portofolio/jurutani/preview.webp)
 
 ## Challenge
 
@@ -46,6 +46,6 @@ Indonesian farmers face unpredictable weather, fluctuating market prices, limite
 
 A comprehensive mobile-first platform putting modern agricultural technology in farmers' hands, enabling data-driven decisions and increased profitability through direct market access.
 
-![Jurutani Mockup 1](/portofolio/jurutani/1.png)
-![Jurutani Mockup 2](/portofolio/jurutani/2.png)
-![Jurutani Mockup 3](/portofolio/jurutani/3.png)
+![Jurutani Mockup 1](/portofolio/jurutani/1.webp)
+![Jurutani Mockup 2](/portofolio/jurutani/2.webp)
+![Jurutani Mockup 3](/portofolio/jurutani/3.webp)

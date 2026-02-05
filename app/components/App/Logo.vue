@@ -3,7 +3,7 @@
     <NuxtLink to="/" class="logo-link">
       <!-- Logo Image -->
       <img 
-        src="/kairav.png" 
+        src="/kairav.webp" 
         alt="Kairav Logo" 
         class="logo-image"
       />

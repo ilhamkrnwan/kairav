@@ -66,7 +66,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
   const config = useRuntimeConfig()
   
   // Get base site URL from runtime config
-  const siteUrl = config.public.siteUrl || 'https://ilhamkrnwan.my.id'
+  const siteUrl = config.public.siteUrl || 'https://ilhamkrnwan.vercel.app'
   const siteName = 'Ilham Kurniawan | Kairav'
   
   // Resolve title

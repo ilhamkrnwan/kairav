@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.BASE_URL || "https://ilhamkrnwan.my.id",
+      siteUrl: process.env.BASE_URL || "https://ilhamkrnwan.vercel.app",
     },
   },
 
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         langDir: "languages/",
         defaultLocale: "id",
         strategy: "no_prefix",
-        baseUrl: process.env.BASE_URL || "https://ilhamkrnwan.my.id",
+        baseUrl: process.env.BASE_URL || "https://ilhamkrnwan.vercel.app",
       },
     ],
     "@nuxt/image",

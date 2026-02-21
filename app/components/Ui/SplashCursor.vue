@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, withDefaults, useTemplateRef } from 'vue';
+import { onMounted, useTemplateRef } from 'vue';
 
 /* ---------- types ---------- */
 interface ColorRGB {

@@ -48,7 +48,6 @@ useDynamicSeo({
           
           <!-- Logo -->
           <div class="flex lg:justify-start items-center justify-center mb-4">
-            <img src="/kairav.webp" alt="Kairav Logo" class="h-10 mr-2" />
             <h1 class="text-sm uppercase tracking-wider text-muted-foreground">kairav</h1>
           </div>
           

@@ -5,13 +5,13 @@ const { t } = useI18n()
 <template>
     <section class="w-full flex flex-col mx-auto items-center justify-center min-h-screen text-gray-800 dark:text-white">
         <div class="text-center">
-            <p class="text-gray-400 mb-2">{{ t('Interested in collaborating?') }}</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">{{ t('Interested in collaborating?') }}</p>
             <a href="/cv" class="flex items-center justify-center text-gray-800 text-4xl font-bold group dark:text-white">
                 {{ t('Get In Touch') }}
                 <Icon name="lucide:arrow-right-circle" class="w-8 h-8 ml-2 transform transition-transform duration-300 group-hover:translate-x-2"/>
             </a>
-            <footer class="mt-8 text-center text-gray-500 dark:text-gray-400"> 
-                {{ new Date().getFullYear() }} | Copyright © KAIRAV
+            <footer class="mt-8 text-center text-gray-500 dark:text-gray-400">
+                {{ new Date().getFullYear() }} | Copyright (c) KAIRAV
             </footer>
         </div>
     </section>

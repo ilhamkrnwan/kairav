@@ -62,7 +62,7 @@ const getTagColor = (tag: string) => {
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-heading">
-          {{ t('Recent') }} <span class="text-amber-400">{{ t('Projects') }}</span>
+          {{ t('Recent') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Projects') }}</span>
         </h2>
         <p class="mt-4 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {{ t('A collection of digital executions where') }}

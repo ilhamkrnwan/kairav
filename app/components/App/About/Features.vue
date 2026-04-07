@@ -41,7 +41,7 @@ const features = computed(() => [
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('End-to-End') }} <span class="text-amber-400">{{ t('Development Capabilities') }}</span>
+            {{ t('End-to-End') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Development Capabilities') }}</span>
           </h2>
           <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             {{ t('Building a digital ecosystem from the') }}

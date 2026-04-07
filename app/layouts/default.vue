@@ -1,14 +1,8 @@
-<script setup lang="ts">
-const route = useRoute()
-const isHomePage = computed(() => route.path === '/')
-</script>
-
 <template>
   <div>
     <!-- Splash Cursor Effect -->
     <ClientOnly>
       <LazyUiSplashCursor
-        v-if="isHomePage"
         :hydrate-on-interaction="['mousemove', 'touchstart']"
         :SIM_RESOLUTION="128"
         :DYE_RESOLUTION="1440"

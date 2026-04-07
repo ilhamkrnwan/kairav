@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BlogCollectionItem } from '~/types'
-
 const { t, locale } = useI18n()
 
 const { data: blogs } = await useAsyncData(
@@ -50,7 +48,7 @@ const getBlogLink = (path?: string) => {
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-heading mb-4">
-          {{ t('Latest') }} <span class="text-amber-400">{{ t('Articles') }}</span>
+          {{ t('Latest') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Articles') }}</span>
         </h2>
         <p class="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {{ t('My recent') }} 

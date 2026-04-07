@@ -22,24 +22,32 @@ const closeMenu = () => {
 <template>
   <div>
     <!-- Toggle Button -->
-    <button class="menu-btn" @click="toggleMenu">
+    <button
+      class="menu-btn"
+      :aria-label="isOpen ? 'Close navigation menu' : 'Open navigation menu'"
+      :aria-expanded="isOpen"
+      aria-controls="site-fullscreen-menu"
+      @click="toggleMenu"
+    >
       <Icon
         v-if="!isOpen"
         name="streamline-ultimate-color:navigation-menu-1"
         class="w-6 h-6"
+        aria-hidden="true"
       />
       <Icon
         v-else
         name="streamline-stickies-color:cancel-2-duo"
         class="w-8 h-8"
+        aria-hidden="true"
       />
     </button>
 
     <!-- Menu Wrapper -->
-    <div class="wrapper" :class="{ open: isOpen }">
+    <div id="site-fullscreen-menu" class="wrapper" :class="{ open: isOpen }">
       <ul class="menu-list text-white">
         <li v-for="(menuItem, index) in menuItems" :key="index">
-          <NuxtLink :to="menuItem.route" @click="closeMenu" class="menu-link-wrapper">
+          <NuxtLink :to="menuItem.route" class="menu-link-wrapper" @click="closeMenu">
             <UiStyleButton class="style-button">
               {{ menuItem.name }}
             </UiStyleButton>

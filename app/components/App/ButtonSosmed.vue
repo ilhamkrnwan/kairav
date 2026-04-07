@@ -7,6 +7,10 @@ const toggleSidebar = () => {
   isOpen.value = !isOpen.value;
 };
 
+const mobileToggleLabel = computed(() =>
+  isOpen.value ? 'Hide social media links' : 'Show social media links'
+);
+
 const sosmedItems = [
   {
     name: 'Instagram',
@@ -45,17 +49,22 @@ const sosmedItems = [
   rounded-r-lg flex items-center justify-center
   transition-all duration-300 md:hidden"
   :class="{ 'left-16': isOpen }"
+  :aria-label="mobileToggleLabel"
+  :aria-expanded="isOpen"
+  aria-controls="social-media-sidebar"
   @click="toggleSidebar"
   >
     <Icon 
       :name="isOpen ? 'streamline-plump-color:arrow-right-circle-1-flat' : 'streamline-plump-color:arrow-right-circle-1-flat'" 
       class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300 cursor-pointer" 
       :class="isOpen ? 'rotate-180' : ''"
+      aria-hidden="true"
     />
   </button>
 
   <!-- Social Media Floating Bar -->
   <div
+    id="social-media-sidebar"
     class="fixed top-1/2 transform -translate-y-1/2
            text-accent-light dark:text-accent-dark
            flex flex-col items-center space-y-4 p-2 z-20
@@ -75,17 +84,20 @@ const sosmedItems = [
         :href="sosmedItem.to"
         target="_blank"
         rel="noopener noreferrer"
+        :aria-label="sosmedItem.name"
+        :title="sosmedItem.name"
         class="w-10 h-10 flex items-center justify-center
                bg-amber-100/30 dark:bg-yellow-400/10
                hover:bg-amber-200/50 dark:hover:bg-yellow-400/20
                rounded-full p-0 transition-all duration-300
                ring-1 ring-amber-200/50 dark:ring-yellow-400/20"  
       >
-        <Icon :name="sosmedItem.icon" class="w-6 h-6"/>
+        <Icon :name="sosmedItem.icon" class="w-6 h-6" aria-hidden="true" />
       </a>
 
       <!-- Tooltip -->
       <span
+        aria-hidden="true"
         class="absolute left-full top-1/2 transform -translate-y-1/2 z-20
                mx-3 px-4 py-2 text-sm font-bold text-white
                bg-gray-900 rounded-lg shadow-lg

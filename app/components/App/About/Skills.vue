@@ -53,8 +53,16 @@ const techStacks = {
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
             {{ t('Skills &') }} <span class="text-amber-400">{{ t('Technologies') }}</span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {{ t('Modern tech stack for building scalable and performant applications') }}
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            {{ t('Technologies I currently rely on to') }}
+            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+              {{ t('execute ideas.') }}
+            </UiTextGradient>
+            <br class="hidden md:block" />
+            {{ t('As a tech-agnostic developer, I am always ready to adapt to') }}
+            <UiTextGradient :colors="['#A78BFA', '#8B5CF6', '#A78BFA']" :animation-speed="3">
+              {{ t('any ecosystem required.') }}
+            </UiTextGradient>
           </p>
         </div>
 

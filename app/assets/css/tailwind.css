@@ -62,3 +62,35 @@
 .text-web3-orange { color: var(--color-muted-orange); }
 .text-neon-blue { color: var(--color-muted-blue); }
 
+/* ===================================
+   CUSTOM SCROLLBAR
+   =================================== */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d97706; /* amber-600 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #f59e0b; /* amber-500 */
+}

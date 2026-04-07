@@ -81,8 +81,15 @@ const galleryItems = computed(() => [
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
-          {{ t('Welcome to my photo gallery! Here, you\'ll find a collection of moments captured through my lens, showcasing my adventures, projects, and everyday life.') }}
+        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200 leading-relaxed">
+          {{ t('Welcome to my photo gallery! Here, you\'ll find a collection of moments captured through my lens, showcasing my') }}
+          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+            {{ t('adventures, projects,') }}
+          </UiTextGradient>
+          {{ t('and') }}
+          <UiTextGradient :colors="['#A78BFA', '#8B5CF6', '#A78BFA']" :animation-speed="3">
+            {{ t('everyday life.') }}
+          </UiTextGradient>
         </p>
 
         <!-- CTA Buttons -->

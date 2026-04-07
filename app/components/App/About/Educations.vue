@@ -39,10 +39,11 @@ const educationItems = computed(() => [
 						<span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600">{{ t('Formal and Non Formal') }}</span>
 					</div>
 				</div>
-				<div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
-					<div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-300">
-						<div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-gradient-to-br from-yellow-400 to-orange-500" v-for="item in educationItems" :key="item.title">
-							<div class="flex items-center justify-between space-x-4 dark:text-gray-600">
+				<div class="relative col-span-12 px-2 sm:col-span-9 sm:px-0">
+					<AppUiTimelineRail>
+						<div class="relative flex flex-col sm:pl-12" v-for="item in educationItems" :key="item.title">
+							<AppUiTimelineNode />
+							<div class="flex items-center justify-between space-x-4 text-muted-foreground">
 								<span class="inline-flex items-center px-3 py-1 my-1 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm dark:border-gray-700 dark:bg-zinc-800/50 hover:border-amber-400/30 transition-colors duration-300">
 									<span class="relative flex h-2 w-2">
 										<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -51,11 +52,13 @@ const educationItems = computed(() => [
 									<span class="font-medium text-gray-600 dark:text-gray-200">{{ item.type }}</span>
 								</span>
 							</div>
-							<h3 class="text-xl font-semibold tracking-wide">{{ item.title }}</h3>
-							<time class="text-xs tracking-wide uppercase dark:text-gray-600">{{ item.date }}</time>
-							<p class="mt-3">{{ item.description }}</p>
+							<div class="rounded-2xl border border-border/50 bg-background/50 p-5 backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-900/45">
+								<h3 class="text-xl font-semibold tracking-wide text-foreground">{{ item.title }}</h3>
+								<time class="text-xs tracking-wide uppercase text-muted-foreground">{{ item.date }}</time>
+								<p class="mt-3 text-base leading-relaxed text-muted-foreground">{{ item.description }}</p>
+							</div>
 						</div>
-					</div>
+					</AppUiTimelineRail>
 				</div>
 			</div>
 		</div>

@@ -19,7 +19,13 @@ useDynamicSeo({
             {{ t('CURRICULUM') }} <span class="text-amber-400">{{ t('VITAE') }}</span>
           </h2>
           <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {{ t('Ilham Kurniawan · Software Developer') }}
+            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+              {{ t('Ilham Kurniawan') }}
+            </UiTextGradient>
+             · 
+            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+              {{ t('Software Developer') }}
+            </UiTextGradient>
           </p>
         </div>
 

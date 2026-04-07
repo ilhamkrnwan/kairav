@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
-
 import type { PortofolioCollectionItem } from '~/types'
+
+const { t, locale } = useI18n()
 
 const route = useRoute()
 
@@ -75,8 +75,7 @@ const projectImages = computed(() => {
   if (!current.value) return []
   
   // Get the slug from the current project path
-  const projectSlug = slug.value
-  
+  // Get the slug from the current project path
   // Most portfolio projects have 3 mockup images numbered 1.webp, 2.webp, 3.webp
   // Extract the project folder name from the image path
   const imagePath = current.value.image?.replace(/\/[^/]+\.webp$/, '') || ''
@@ -262,7 +261,7 @@ useDynamicSeo({
                           <span 
                             v-for="tag in current.tags" 
                             :key="tag"
-                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r from-amber-500 to-orange-500"
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white bg-linear-to-r from-amber-500 to-orange-500"
                           >
                             {{ tag }}
                           </span>
@@ -308,7 +307,7 @@ useDynamicSeo({
           <h2 class="text-2xl md:text-3xl font-heading font-bold mb-8 text-center">
             {{ t('Project Gallery') }}
           </h2>
-          <div class="relative rounded-2xl overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm p-4 md:p-6">
+          <div class="relative rounded-2xl overflow-hidden w-full">
             <UiCarousel :images="projectImages" />
           </div>
         </div>
@@ -344,21 +343,59 @@ useDynamicSeo({
             >
               <NuxtLink 
                 :to="getPortofolioLink(prevProject.path)"
-                class="block group p-6 rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm transition-all h-full"
+                class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
               >
-                <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                  <Icon name="lucide:arrow-left" class="w-4 h-4" />
-                  <span>{{ t('Previous Project') }}</span>
+                <!-- ── Image layer (visible on hover) ── -->
+                <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <img
+                    :src="prevProject.image || '/placeholder.webp'"
+                    :alt="prevProject.title"
+                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                  <!-- Direction indicator top -->
+                  <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 text-amber-300 font-mono text-xs font-semibold translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                    <Icon name="lucide:arrow-left" class="w-4 h-4" />
+                    {{ t('Previous') }}
+                  </div>
+                  <!-- Info bottom -->
+                  <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                      {{ prevProject.category }}
+                    </span>
+                    <h3 class="text-lg font-heading text-white font-semibold leading-snug">
+                      {{ prevProject.title }}
+                    </h3>
+                  </div>
                 </div>
-                <div v-if="prevProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
-                  <img :src="prevProject.image" :alt="prevProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 class="font-bold text-lg mb-2 group-hover:text-amber-400 transition-colors">{{ prevProject.title }}</h3>
-                <p v-if="prevProject.description" class="text-sm text-muted-foreground line-clamp-2">{{ prevProject.description }}</p>
-                <div v-if="prevProject.category" class="mt-3">
-                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
-                    {{ prevProject.category }}
-                  </span>
+
+                <!-- ── Default content layer (hidden on hover) ── -->
+                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground font-mono mb-4">
+                    <Icon name="lucide:arrow-left" class="w-4 h-4" />
+                    <span>{{ t('Previous Project') }}</span>
+                  </div>
+
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center transition-all duration-300">
+                      <Icon name="lucide:folder-open" class="w-7 h-7 text-amber-400" />
+                    </div>
+                  </div>
+
+                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug">
+                    {{ prevProject.title }}
+                  </h3>
+
+                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1">
+                    {{ prevProject.description }}
+                  </p>
+
+                  <div class="flex flex-wrap gap-1.5 mt-auto">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                      {{ prevProject.category }}
+                    </span>
+                  </div>
                 </div>
               </NuxtLink>
             </UiAnimatedCard>
@@ -376,21 +413,59 @@ useDynamicSeo({
             >
               <NuxtLink 
                 :to="getPortofolioLink(nextProject.path)"
-                class="block group p-6 rounded-2xl border border-border/50 bg-background/50 backdrop-blur-sm transition-all h-full"
+                class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
               >
-                <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-3">
-                  <span>{{ t('Next Project') }}</span>
-                  <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                <!-- ── Image layer (visible on hover) ── -->
+                <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <img
+                    :src="nextProject.image || '/placeholder.webp'"
+                    :alt="nextProject.title"
+                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                  <!-- Direction indicator top-right -->
+                  <div class="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 text-amber-300 font-mono text-xs font-semibold -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                    {{ t('Next') }}
+                    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                  </div>
+                  <!-- Info bottom -->
+                  <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-right">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                      {{ nextProject.category }}
+                    </span>
+                    <h3 class="text-lg font-heading text-white font-semibold leading-snug">
+                      {{ nextProject.title }}
+                    </h3>
+                  </div>
                 </div>
-                <div v-if="nextProject.image" class="mb-4 aspect-video rounded-lg overflow-hidden">
-                  <img :src="nextProject.image" :alt="nextProject.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 class="font-bold text-lg mb-2 text-right group-hover:text-amber-400 transition-colors">{{ nextProject.title }}</h3>
-                <p v-if="nextProject.description" class="text-sm text-muted-foreground text-right line-clamp-2">{{ nextProject.description }}</p>
-                <div v-if="nextProject.category" class="mt-3 flex justify-end">
-                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-400/10 text-amber-400 border border-amber-400/30">
-                    {{ nextProject.category }}
-                  </span>
+
+                <!-- ── Default content layer (hidden on hover) ── -->
+                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300 items-end text-right">
+                  <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground font-mono mb-4 w-full">
+                    <span>{{ t('Next Project') }}</span>
+                    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                  </div>
+
+                  <div class="flex items-center justify-end mb-4 w-full">
+                    <div class="w-14 h-14 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center transition-all duration-300">
+                      <Icon name="lucide:folder-open" class="w-7 h-7 text-amber-400" />
+                    </div>
+                  </div>
+
+                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug w-full">
+                    {{ nextProject.title }}
+                  </h3>
+
+                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1 w-full text-right">
+                    {{ nextProject.description }}
+                  </p>
+
+                  <div class="flex flex-wrap justify-end gap-1.5 mt-auto w-full">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                      {{ nextProject.category }}
+                    </span>
+                  </div>
                 </div>
               </NuxtLink>
             </UiAnimatedCard>

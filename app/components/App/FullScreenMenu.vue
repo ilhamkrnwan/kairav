@@ -5,6 +5,7 @@ const isOpen = ref(false)
 const menuItems = computed(() => [
   { name: t('Home'), route: '/' },
   { name: t('Portofolio'), route: '/portofolio' },
+  { name: t('Blogs'), route: '/blogs' },
   { name: t('Gallery'), route: '/gallery' },
   { name: t('About'), route: '/about' }
 ])

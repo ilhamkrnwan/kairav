@@ -23,6 +23,7 @@ export interface PortofolioCollectionItem {
 }
 
 export interface BlogCollectionItem {
+  _path?: string
   path?: string
   title?: string
   description?: string

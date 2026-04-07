@@ -1,5 +1,5 @@
 /**
- * Dynamic SEO Composable for Nuxt 3
+ * Dynamic SEO Composable for Nuxt 4
  * 
  * This composable provides a unified, dynamic way to manage SEO meta tags
  * across all pages with i18n support.
@@ -56,7 +56,7 @@ interface SeoOptions {
   twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player'
   /** Custom canonical URL (auto-generated if not provided) */
   canonical?: string
-  /** Disable auto-suffix for title (default: false) */
+  /** Disable auto-suffix for title (default: true) */
   noSuffix?: boolean
 }
 
@@ -81,8 +81,8 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
       title = t('seo.default.title')
     }
     
-    // Add site name suffix unless disabled
-    if (!options.noSuffix && !title.includes(siteName)) {
+    // Add site name suffix only when explicitly enabled with noSuffix: false
+    if (options.noSuffix === false && !title.includes(siteName)) {
       return `${title} - ${siteName}`
     }
     

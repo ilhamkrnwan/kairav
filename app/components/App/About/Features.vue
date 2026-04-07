@@ -6,27 +6,23 @@ const { t } = useI18n()
 const features = computed(() => [
   {
     icon: "lucide:database",
-    title: t('Backend Development'),
-    description: t('Integrating data and APIs to build robust and scalable backend systems.'),
-    rating: 4.9,
+    title: t('Backend & API Architecture'),
+    description: t('Not just storing data. Designing a secure, scalable backend foundation ready to support business growth.'),
   },
   {
-    icon: "lucide:code-2",
-    title: t('Frontend Development'),
-    description: t('Building dynamic and interactive web applications with modern frameworks.'),
-    rating: 4.6,
+    icon: "lucide:layout-template",
+    title: t('Web Application Development'),
+    description: t('Translating complex system logic into modern web applications that are responsive, fast, and easy to maintain.'),
   },
   {
-    icon: "lucide:smartphone",
-    title: t('Web & Mobile App'),
-    description: t('Transforming ideas into exceptional web and mobile app experiences.'),
-    rating: 4.4,
+    icon: "lucide:tablet-smartphone",
+    title: t('Mobile App Experiences'),
+    description: t('Bringing digital solutions right to the user\'s fingertips with smooth and seamless performance.'),
   },
   {
     icon: "lucide:palette",
-    title: t('UI/UX Design'),
-    description: t('Crafting visually stunning user interfaces that captivate and engage users.'),
-    rating: 4.9,
+    title: t('Functional UI/UX Design'),
+    description: t('Design driven by data and user psychology. Not just aesthetic, but focused on conversion ease and functionality.'),
   },
 ])
 </script>
@@ -45,10 +41,17 @@ const features = computed(() => [
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('What I') }} <span class="text-amber-400">{{ t('Do') }}</span>
+            {{ t('End-to-End') }} <span class="text-amber-400">{{ t('Development Capabilities') }}</span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {{ t('Specialized expertise across the full development spectrum') }}
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            {{ t('Building a digital ecosystem from the') }}
+            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+              {{ t('deepest data structure') }}
+            </UiTextGradient>
+            {{ t('to the') }}
+            <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3">
+              {{ t('foremost user interaction.') }}
+            </UiTextGradient>
           </p>
         </div>
 
@@ -87,17 +90,6 @@ const features = computed(() => [
               <p class="text-sm text-muted-foreground mb-4 leading-relaxed">
                 {{ feature.description }}
               </p>
-
-              <!-- Rating -->
-              <div class="flex items-center gap-2">
-                <Icon
-                  name="lucide:star"
-                  class="w-4 h-4 text-amber-400 fill-amber-400"
-                />
-                <span class="text-sm font-mono font-semibold text-foreground">
-                  {{ feature.rating }}
-                </span>
-              </div>
             </div>
           </UiAnimatedCard>
         </div>

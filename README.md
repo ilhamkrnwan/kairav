@@ -33,21 +33,24 @@ My experience includes **web applications, Android mobile apps, system developme
 ## 🛠️ Tech Stack
 
 ### 🌐 Web Development
+
 - HTML5, CSS3, JavaScript (ES6+)
 - TypeScript
-- Nuxt 3 / Nuxt 4
+- Nuxt 4 / Nuxt 4
 - Vue.js
 - Tailwind CSS
 - Nuxt UI
 - REST API & API Integration
 
 ### 📱 Mobile Development
+
 - Android (Kotlin)
 - Android Studio
 - REST API Integration
 - Firebase (Auth, Firestore, Cloud Messaging)
 
 ### ⚙️ Backend & System
+
 - Node.js
 - Express.js
 - Supabase
@@ -56,6 +59,7 @@ My experience includes **web applications, Android mobile apps, system developme
 - System Architecture & API Design
 
 ### 🔗 Web3 & Blockchain
+
 - Blockchain Fundamentals
 - Smart Contracts
 - Web3.js / Ethers.js
@@ -63,12 +67,14 @@ My experience includes **web applications, Android mobile apps, system developme
 - Wallet Integration
 
 ### 🗄️ Database & Storage
+
 - PostgreSQL
 - MySQL
 - Firebase Firestore
 - Supabase Storage
 
 ### 🚀 DevOps & Deployment
+
 - Git & GitHub
 - CI/CD Basics
 - Linux Server
@@ -77,6 +83,7 @@ My experience includes **web applications, Android mobile apps, system developme
 - VPS Deployment
 
 ### 🧩 Tools & Others
+
 - Git Flow
 - Figma (UI Collaboration)
 - Postman

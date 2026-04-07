@@ -57,15 +57,27 @@
         {{ t('Hello my name is Ilham Kurniawan') }}
       </p>
 
-      <!-- Main Heading -->
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-        {{ t('Eager to learn') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('new things') }}</span> {{ t('and open to') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('opportunities.') }}</span>
-      </h1>
+       <!-- Main Heading -->
+          <h1 class="lg:text-4xl text-2xl font-heading mb-6 leading-tight">
+            {{ t('Fullstack Developer') }} | {{ t('IT Student') }} | {{ t('Web3 & AI Enthusiast') }}
+          </h1>
 
-      <!-- Subtitle/Role -->
-      <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
-        {{ t('Junior Fullstack Developer') }} | {{ t('AI Enthusiast') }} | {{ t('Undergraduate Student') }} | {{ t('Web3 Enthusiast') }}
-      </p>
+          <!-- Description -->
+          <p class="lg:text-lg text-base text-muted-foreground mb-8">
+            {{ t('Bridging the gap between') }}
+            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+              {{ t('complex ideas') }}
+            </UiTextGradient>
+            {{ t('and') }}
+            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+              {{ t('seamless digital experiences.') }}
+            </UiTextGradient>
+            {{ t('Agnostic in tools, precise in execution.') }}
+            {{ t('Designed for users,') }}
+            <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3">
+              {{ t('built for impact.') }}
+            </UiTextGradient>
+          </p>
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-300">

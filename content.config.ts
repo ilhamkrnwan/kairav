@@ -22,6 +22,21 @@ export default defineContentConfig({
         tags: z.array(z.string()).optional(),
         _path: z.string().optional(),
       })
+    }),
+    blog: defineCollection({
+      type: 'page',
+      source: 'blog/**/*.md',
+      schema: z.object({
+        title: z.string().optional(),
+        description: z.string().optional(),
+        coverImage: z.string().optional(),
+        author: z.string().optional(),
+        date: z.string().optional(),
+        category: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        readTime: z.string().optional(),
+        _path: z.string().optional(),
+      })
     })
   }
 })

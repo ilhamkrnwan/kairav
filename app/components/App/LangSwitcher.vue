@@ -7,7 +7,7 @@ const languages = [
   {
     code: 'en',
     label: 'English',
-    icon: 'twemoji:flag-united-states'
+    icon: 'twemoji:flag-united-kingdom'//england
   },
   {
     code: 'id',

@@ -15,8 +15,12 @@ const slug = computed(() => {
 })
 
 // Helper function for consistent link generation
-const getPortofolioLink = (path?: string) => {
-  return path?.replace(`/portofolio/${locale.value}`, '/portofolio') || '#'
+const getPortofolioLink = (item?: PortofolioCollectionItem | null) => {
+  if (item?._path) {
+    return item._path
+  }
+
+  return item?.path?.replace(`/portofolio/${locale.value}`, '/portofolio') || '#'
 }
 
 // Fetch current portfolio item
@@ -36,8 +40,8 @@ const { data: portofolios } = await useAsyncData<PortofolioCollectionItem[]>(
   `portofolio-all-${locale.value}`,
   () =>
     queryCollection('portofolio')
-      .select('path', 'title', 'description', 'image', 'category', 'tags', 'date', 'status', 'services', 'client', 'industry')
-      .where('path', 'LIKE', `/portofolio/${locale.value}%`)
+      .select('path', '_path', 'title', 'description', 'image', 'category', 'tags', 'date', 'status', 'services', 'client', 'industry')
+      .where('stem', 'LIKE', `portofolio/${locale.value}/%`)
       .order('date', 'DESC')
       .all(),
   {
@@ -342,7 +346,7 @@ useDynamicSeo({
               :click-effect="true"
             >
               <NuxtLink 
-                :to="getPortofolioLink(prevProject.path)"
+                :to="getPortofolioLink(prevProject)"
                 class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
               >
                 <!-- ── Image layer (visible on hover) ── -->
@@ -412,7 +416,7 @@ useDynamicSeo({
               :click-effect="true"
             >
               <NuxtLink 
-                :to="getPortofolioLink(nextProject.path)"
+                :to="getPortofolioLink(nextProject)"
                 class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
               >
                 <!-- ── Image layer (visible on hover) ── -->

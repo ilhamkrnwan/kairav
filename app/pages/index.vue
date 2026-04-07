@@ -16,29 +16,44 @@ useDynamicSeo({
         <!-- Hero Image Section -->
         <div class="relative flex items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 order-1 lg:order-2">
           <!-- Background Blob -->
-          <div class="absolute mx-auto inset-0 items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 animate-float">
-            <img src="/blob-hero.svg" alt="Background decoration" class="max-w-md h-auto mx-auto object-contain object-center" />
+          <div
+            aria-hidden="true"
+            class="absolute mx-auto inset-0 items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 animate-float pointer-events-none"
+          >
+            <div class="hero-blob hero-blob-main max-w-md h-full mx-auto object-contain object-center" />
           </div>
 
           <!-- Decorative Blobs - Left -->
-          <span class="absolute left-0 top-0 w-24 z-10 animate-float">
-            <img src="/blob-left.svg" alt="Decoration" class="max-w-md h-auto object-contain object-center" />
+          <span aria-hidden="true" class="absolute left-0 top-0 w-24 z-10 animate-float pointer-events-none">
+            <span class="hero-blob hero-blob-left block w-full aspect-square" />
           </span>
-          <span class="absolute animate-float2 left-0 bottom-0 w-24 z-10">
-            <img src="/blob-lb.svg" alt="Decoration" class="max-w-md h-auto object-contain object-center" />
+          <span aria-hidden="true" class="absolute animate-float2 left-0 bottom-0 w-24 z-10 pointer-events-none">
+            <span class="hero-blob hero-blob-lb block w-full aspect-square" />
           </span>
 
           <!-- Decorative Blobs - Right -->
-          <span class="absolute animate-float2 right-0 bottom-0 w-24 z-10">
-            <img src="/blob-right.svg" alt="Decoration" class="max-w-sm h-auto object-contain object-center" />
-            <img src="/blob-lb2.svg" alt="Decoration" class="max-w-sm h-auto object-contain object-center" />
+          <span aria-hidden="true" class="absolute animate-float2 right-0 bottom-0 w-24 z-10 pointer-events-none">
+            <span class="hero-blob hero-blob-right block w-full aspect-square" />
+            <span class="hero-blob hero-blob-lb2 block w-full aspect-square" />
           </span>
-          <span class="absolute animate-float2 right-0 top-0 w-24 z-10">
-            <img src="/blob-rb.svg" alt="Decoration" class="max-w-sm h-auto object-contain object-center" />
+          <span aria-hidden="true" class="absolute animate-float2 right-0 top-0 w-24 z-10 pointer-events-none">
+            <span class="hero-blob hero-blob-rb block w-full aspect-square" />
           </span>
 
           <!-- Main Hero Image -->
-          <img src="/ilham-hero.webp" alt="Ilham Kurniawan" class="relative object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+          <NuxtImg
+            src="/ilham-hero.webp"
+            alt="Ilham Kurniawan"
+            width="640"
+            height="640"
+            sizes="288px sm:320px lg:384px xl:448px 2xl:512px"
+            format="webp"
+            preload
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="relative z-10 w-auto object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
+          />
         </div>
 
         <!-- Text Content Section -->
@@ -95,20 +110,51 @@ useDynamicSeo({
 
         <!-- Copyright Footer -->
         <div class="absolute top-20 left-4 md:left-20 xl:left-20 lg:left-20 text-sm text-muted-foreground font-mono">
-          {{ new Date().getFullYear() }} | Copyright © KAIRAV
+          {{ new Date().getFullYear() }} | Copyright (c) KAIRAV
         </div>
       </div>
     </div>
 
-    <AppAboutFeatures />
-    <AppAboutSkills />
-    <AppRecentProjects />
-    <AppAboutQuotes />
-    <GetinTouch />
+    <LazyAppAboutFeatures hydrate-on-visible />
+    <LazyAppAboutSkills hydrate-on-visible />
+    <LazyAppRecentProjects hydrate-on-visible />
+    <LazyAppAboutQuotes hydrate-on-visible />
+    <LazyGetinTouch hydrate-on-visible />
   </div>
 </template>
 
 <style scoped>
+.hero-blob {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero-blob-main {
+  background-image: url('/blob-hero.svg');
+}
+
+.hero-blob-left {
+  background-image: url('/blob-left.svg');
+}
+
+.hero-blob-lb {
+  background-image: url('/blob-lb.svg');
+}
+
+.hero-blob-right {
+  background-image: url('/blob-right.svg');
+}
+
+.hero-blob-lb2 {
+  background-image: url('/blob-lb2.svg');
+  margin-top: -100%;
+}
+
+.hero-blob-rb {
+  background-image: url('/blob-rb.svg');
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);

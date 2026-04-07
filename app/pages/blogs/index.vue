@@ -7,7 +7,7 @@ const { data: blogs } = await useAsyncData<BlogCollectionItem[]>(
   `blog-${locale.value}`,
   () =>
     queryCollection('blog')
-      .where('path', 'LIKE', `/blog/${locale.value}%`)
+      .where('stem', 'LIKE', `blog/${locale.value}/%`)
       .order('date', 'DESC')
       .all(),
   { watch: [locale] }

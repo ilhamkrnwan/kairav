@@ -7,7 +7,7 @@ const { data: blogs } = await useAsyncData(
   `recent-blogs-${locale.value}`,
   () =>
     queryCollection('blog')
-      .where('path', 'LIKE', `/blog/${locale.value}%`)
+      .where('stem', 'LIKE', `blog/${locale.value}/%`)
       .order('date', 'DESC')
       .limit(3)
       .all(),
@@ -68,7 +68,7 @@ const getBlogLink = (path?: string) => {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <UiAnimatedCard
           v-for="blog in displayedBlogs"
-          :key="blog._path"
+          :key="blog.path"
           :glow-color="'251, 191, 36'"
           :particle-count="8"
           :enable-particles="true"
@@ -86,6 +86,8 @@ const getBlogLink = (path?: string) => {
               <img
                 :src="blog.coverImage || '/placeholder.webp'"
                 :alt="blog.title"
+                loading="lazy"
+                decoding="async"
                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-10"
               />
               <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />

@@ -7,15 +7,19 @@ const { data: portofolios } = await useAsyncData<PortofolioCollectionItem[]>(
   `portofolio-${locale.value}`,
   () =>
     queryCollection('portofolio')
-      .select('path', 'title', 'description', 'image', 'category', 'tags', 'date', 'status', 'services', 'client', 'industry')
-      .where('path', 'LIKE', `/portofolio/${locale.value}%`)
+      .select('path', '_path', 'title', 'description', 'image', 'category', 'tags', 'date', 'status', 'services', 'client', 'industry')
+      .where('stem', 'LIKE', `portofolio/${locale.value}/%`)
       .order('date', 'DESC')
       .all(),
   { watch: [locale] }
 )
 
-const getPortofolioLink = (path?: string) => {
-  return path?.replace(`/portofolio/${locale.value}`, '/portofolio') || '#'
+const getPortofolioLink = (item?: PortofolioCollectionItem | null) => {
+  if (item?._path) {
+    return item._path
+  }
+
+  return item?.path?.replace(`/portofolio/${locale.value}`, '/portofolio') || '#'
 }
 
 const searchQuery = ref('')
@@ -228,7 +232,7 @@ const getTagColor = (tag: string) => {
             :click-effect="true"
           >
             <NuxtLink
-              :to="getPortofolioLink(project.path)"
+              :to="getPortofolioLink(project)"
               class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
             >
               <!-- ── Image layer (visible on hover) ── -->

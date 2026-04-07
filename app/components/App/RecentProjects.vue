@@ -5,7 +5,7 @@ const { data: projects } = await useAsyncData(
   `recent-projects-${locale.value}`,
   () =>
     queryCollection('portofolio')
-      .where('path', 'LIKE', `/portofolio/${locale.value}%`)
+      .where('stem', 'LIKE', `portofolio/${locale.value}/%`)
       .order('date', 'DESC')
       .limit(3)
       .all(),
@@ -103,6 +103,8 @@ const getTagColor = (tag: string) => {
               <img
                 :src="project.image"
                 :alt="project.title"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"
               />
               <!-- Amber gradient overlay on top of image -->

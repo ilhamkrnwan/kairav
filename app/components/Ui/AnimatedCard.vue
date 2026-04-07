@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
 interface Props {
   glowColor?: string;
@@ -30,7 +30,26 @@ const timeoutsRef = ref<ReturnType<typeof setTimeout>[]>([]);
 const isHoveredRef = ref(false);
 const memoizedParticles = ref<HTMLDivElement[]>([]);
 const particlesInitialized = ref(false);
-const magnetismAnimationRef = ref<gsap.core.Tween | null>(null);
+const cardBoundsRef = ref<DOMRect | null>(null);
+const pointerPositionRef = ref<{ clientX: number; clientY: number } | null>(null);
+
+let mouseMoveFrame: number | null = null;
+let resizeObserver: ResizeObserver | null = null;
+let animateCardX: ((value: number) => gsap.core.Tween) | null = null;
+let animateCardY: ((value: number) => gsap.core.Tween) | null = null;
+
+const syncCardBounds = (resetParticles = false) => {
+  if (!cardRef.value) return null;
+
+  cardBoundsRef.value = cardRef.value.getBoundingClientRect();
+
+  if (resetParticles) {
+    memoizedParticles.value = [];
+    particlesInitialized.value = false;
+  }
+
+  return cardBoundsRef.value;
+};
 
 const createParticleElement = (x: number, y: number): HTMLDivElement => {
   const el = document.createElement('div');
@@ -53,7 +72,10 @@ const createParticleElement = (x: number, y: number): HTMLDivElement => {
 const initializeParticles = () => {
   if (particlesInitialized.value || !cardRef.value || !props.enableParticles) return;
 
-  const { width, height } = cardRef.value.getBoundingClientRect();
+  const bounds = cardBoundsRef.value || syncCardBounds();
+  if (!bounds) return;
+
+  const { width, height } = bounds;
   memoizedParticles.value = Array.from({ length: props.particleCount }, () =>
     createParticleElement(Math.random() * width, Math.random() * height)
   );
@@ -63,7 +85,6 @@ const initializeParticles = () => {
 const clearAllParticles = () => {
   timeoutsRef.value.forEach(clearTimeout);
   timeoutsRef.value = [];
-  magnetismAnimationRef.value?.kill();
 
   particlesRef.value.forEach(particle => {
     gsap.to(particle, {
@@ -123,10 +144,11 @@ const handleMouseEnter = () => {
   if (props.disableAnimations) return;
 
   isHoveredRef.value = true;
+  syncCardBounds();
   animateParticles();
 
-  if (cardRef.value) {
-    gsap.to(cardRef.value, { y: -2, duration: 0.3, ease: 'power2.out' });
+  if (animateCardY) {
+    animateCardY(-2);
   }
 };
 
@@ -135,49 +157,63 @@ const handleMouseLeave = () => {
 
   isHoveredRef.value = false;
   clearAllParticles();
+  pointerPositionRef.value = null;
 
-  if (cardRef.value) {
-    gsap.to(cardRef.value, {
-      x: 0,
-      y: 0,
-      duration: 0.3,
-      ease: 'power2.out'
-    });
+  if (mouseMoveFrame !== null) {
+    cancelAnimationFrame(mouseMoveFrame);
+    mouseMoveFrame = null;
+  }
+
+  animateCardX?.(0);
+  animateCardY?.(0);
+};
+
+const flushMouseMove = () => {
+  mouseMoveFrame = null;
+
+  if (props.disableAnimations || !cardRef.value || !pointerPositionRef.value) return;
+
+  const rect = cardBoundsRef.value || syncCardBounds();
+  if (!rect || !rect.width || !rect.height) return;
+
+  const { clientX, clientY } = pointerPositionRef.value;
+  const x = clientX - rect.left;
+  const y = clientY - rect.top;
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const relativeX = (x / rect.width) * 100;
+  const relativeY = (y / rect.height) * 100;
+  cardRef.value.style.setProperty('--glow-x', `${relativeX}%`);
+  cardRef.value.style.setProperty('--glow-y', `${relativeY}%`);
+
+  if (props.enableMagnetism && animateCardX && animateCardY) {
+    const magnetX = (x - centerX) * 0.05;
+    const magnetY = (y - centerY) * 0.05;
+
+    animateCardX(magnetX);
+    animateCardY(magnetY);
   }
 };
 
 const handleMouseMove = (e: MouseEvent) => {
   if (props.disableAnimations || !cardRef.value) return;
 
-  const rect = cardRef.value.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+  pointerPositionRef.value = {
+    clientX: e.clientX,
+    clientY: e.clientY
+  };
 
-  // Update glow position
-  const relativeX = (x / rect.width) * 100;
-  const relativeY = (y / rect.height) * 100;
-  cardRef.value.style.setProperty('--glow-x', `${relativeX}%`);
-  cardRef.value.style.setProperty('--glow-y', `${relativeY}%`);
-
-  if (props.enableMagnetism) {
-    const magnetX = (x - centerX) * 0.05;
-    const magnetY = (y - centerY) * 0.05;
-
-    magnetismAnimationRef.value = gsap.to(cardRef.value, {
-      x: magnetX,
-      y: magnetY,
-      duration: 0.3,
-      ease: 'power2.out'
-    });
-  }
+  if (mouseMoveFrame !== null) return;
+  mouseMoveFrame = requestAnimationFrame(flushMouseMove);
 };
 
 const handleClick = (e: MouseEvent) => {
   if (!props.clickEffect || props.disableAnimations || !cardRef.value) return;
 
-  const rect = cardRef.value.getBoundingClientRect();
+  const rect = cardBoundsRef.value || syncCardBounds();
+  if (!rect) return;
+
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
@@ -223,6 +259,15 @@ onMounted(() => {
   nextTick(() => {
     if (!cardRef.value || props.disableAnimations) return;
 
+    syncCardBounds(true);
+    resizeObserver = new ResizeObserver(() => {
+      syncCardBounds(true);
+    });
+    resizeObserver.observe(cardRef.value);
+
+    animateCardX = gsap.quickTo(cardRef.value, 'x', { duration: 0.3, ease: 'power2.out' });
+    animateCardY = gsap.quickTo(cardRef.value, 'y', { duration: 0.3, ease: 'power2.out' });
+
     cardRef.value.addEventListener('mouseenter', handleMouseEnter);
     cardRef.value.addEventListener('mouseleave', handleMouseLeave);
     cardRef.value.addEventListener('mousemove', handleMouseMove);
@@ -231,12 +276,18 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  if (mouseMoveFrame !== null) {
+    cancelAnimationFrame(mouseMoveFrame);
+  }
+
   if (cardRef.value) {
     cardRef.value.removeEventListener('mouseenter', handleMouseEnter);
     cardRef.value.removeEventListener('mouseleave', handleMouseLeave);
     cardRef.value.removeEventListener('mousemove', handleMouseMove);
     cardRef.value.removeEventListener('click', handleClick);
   }
+
+  resizeObserver?.disconnect();
   clearAllParticles();
 });
 </script>

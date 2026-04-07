@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, useTemplateRef } from 'vue';
+import { onMounted, onUnmounted, useTemplateRef } from 'vue';
 
 /* ---------- types ---------- */
 interface ColorRGB {
@@ -51,6 +51,7 @@ const props = withDefaults(defineProps<SplashCursorProps>(), {
 
 /* ---------- refs ---------- */
 const canvasRef = useTemplateRef<HTMLCanvasElement>('canvasRef');
+let disposeSplashCursor: (() => void) | null = null;
 
 /* ---------- helper types ---------- */
 interface Pointer {
@@ -87,6 +88,12 @@ onMounted(() => {
   if (!canvas) return;
 
   const pointers: Pointer[] = [pointerPrototype()];
+  let animationFrameId: number | null = null;
+  let resizeObserver: ResizeObserver | null = null;
+  let simulationStarted = false;
+  let pendingCanvasResize = true;
+  let cachedCanvasWidth = 0;
+  let cachedCanvasHeight = 0;
 
   const config = {
     SIM_RESOLUTION: props.SIM_RESOLUTION!,
@@ -842,20 +849,53 @@ onMounted(() => {
     return Math.floor(input * pixelRatio);
   }
 
+  function updateCanvasSize() {
+    const width = scaleByPixelRatio(canvas.clientWidth);
+    const height = scaleByPixelRatio(canvas.clientHeight);
+
+    pendingCanvasResize = false;
+
+    if (cachedCanvasWidth === width && cachedCanvasHeight === height) {
+      return false;
+    }
+
+    cachedCanvasWidth = width;
+    cachedCanvasHeight = height;
+    canvas.width = width;
+    canvas.height = height;
+    return true;
+  }
+
+  const scheduleCanvasResize = () => {
+    pendingCanvasResize = true;
+  };
+
   updateKeywords();
+  updateCanvasSize();
   initFramebuffers();
 
   let lastUpdateTime = Date.now();
   let colorUpdateTimer = 0.0;
 
+  function startSimulation() {
+    if (simulationStarted) return;
+
+    simulationStarted = true;
+    scheduleCanvasResize();
+    lastUpdateTime = Date.now();
+    animationFrameId = requestAnimationFrame(updateFrame);
+  }
+
   function updateFrame() {
+    if (!simulationStarted) return;
+
     const dt = calcDeltaTime();
-    if (resizeCanvas()) initFramebuffers();
+    if (pendingCanvasResize && updateCanvasSize()) initFramebuffers();
     updateColors(dt);
     applyInputs();
     step(dt);
     render(null);
-    requestAnimationFrame(updateFrame);
+    animationFrameId = requestAnimationFrame(updateFrame);
   }
 
   function calcDeltaTime() {
@@ -864,17 +904,6 @@ onMounted(() => {
     dt = Math.min(dt, 0.016666);
     lastUpdateTime = now;
     return dt;
-  }
-
-  function resizeCanvas() {
-    const width = scaleByPixelRatio(canvas!.clientWidth);
-    const height = scaleByPixelRatio(canvas!.clientHeight);
-    if (canvas!.width !== width || canvas!.height !== height) {
-      canvas!.width = width;
-      canvas!.height = height;
-      return true;
-    }
-    return false;
   }
 
   function updateColors(dt: number) {
@@ -1188,32 +1217,31 @@ onMounted(() => {
   }
 
   /* ---------- input events ---------- */
-  window.addEventListener('mousedown', e => {
+  const handleMouseDown = (e: MouseEvent) => {
+    startSimulation();
     const pointer = pointers[0];
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     updatePointerDownData(pointer, -1, posX, posY);
     clickSplat(pointer);
-  });
+  };
 
   function handleFirstMouseMove(e: MouseEvent) {
     const pointer = pointers[0];
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     const color = generateColor();
-    updateFrame();
+    startSimulation();
     updatePointerMoveData(pointer, posX, posY, color);
     document.body.removeEventListener('mousemove', handleFirstMouseMove);
   }
-  document.body.addEventListener('mousemove', handleFirstMouseMove);
-
-  window.addEventListener('mousemove', e => {
+  const handleMouseMove = (e: MouseEvent) => {
     const pointer = pointers[0];
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     const color = pointer.color;
     updatePointerMoveData(pointer, posX, posY, color);
-  });
+  };
 
   function handleFirstTouchStart(e: TouchEvent) {
     const touches = e.targetTouches;
@@ -1221,47 +1249,73 @@ onMounted(() => {
     for (let i = 0; i < touches.length; i++) {
       const posX = scaleByPixelRatio(touches[i].clientX);
       const posY = scaleByPixelRatio(touches[i].clientY);
-      updateFrame();
+      startSimulation();
       updatePointerDownData(pointer, touches[i].identifier, posX, posY);
     }
     document.body.removeEventListener('touchstart', handleFirstTouchStart);
   }
-  document.body.addEventListener('touchstart', handleFirstTouchStart);
 
-  window.addEventListener(
-    'touchstart',
-    e => {
-      const touches = e.targetTouches;
-      const pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
-        const posX = scaleByPixelRatio(touches[i].clientX);
-        const posY = scaleByPixelRatio(touches[i].clientY);
-        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-      }
-    },
-    false
-  );
+  const handleTouchStart = (e: TouchEvent) => {
+    const touches = e.targetTouches;
+    const pointer = pointers[0];
+    for (let i = 0; i < touches.length; i++) {
+      const posX = scaleByPixelRatio(touches[i].clientX);
+      const posY = scaleByPixelRatio(touches[i].clientY);
+      updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+    }
+  };
 
-  window.addEventListener(
-    'touchmove',
-    e => {
-      const touches = e.targetTouches;
-      const pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
-        const posX = scaleByPixelRatio(touches[i].clientX);
-        const posY = scaleByPixelRatio(touches[i].clientY);
-        updatePointerMoveData(pointer, posX, posY, pointer.color);
-      }
-    },
-    false
-  );
+  const handleTouchMove = (e: TouchEvent) => {
+    const touches = e.targetTouches;
+    const pointer = pointers[0];
+    for (let i = 0; i < touches.length; i++) {
+      const posX = scaleByPixelRatio(touches[i].clientX);
+      const posY = scaleByPixelRatio(touches[i].clientY);
+      updatePointerMoveData(pointer, posX, posY, pointer.color);
+    }
+  };
 
-  window.addEventListener('touchend', e => {
+  const handleTouchEnd = (e: TouchEvent) => {
     const touches = e.changedTouches;
     const pointer = pointers[0];
     for (let i = 0; i < touches.length; i++) {
       updatePointerUpData(pointer);
     }
-  });
+  };
+
+  resizeObserver = new ResizeObserver(scheduleCanvasResize);
+  resizeObserver.observe(canvas);
+
+  window.addEventListener('resize', scheduleCanvasResize, { passive: true });
+  window.addEventListener('mousedown', handleMouseDown, { passive: true });
+  document.body.addEventListener('mousemove', handleFirstMouseMove, { passive: true });
+  window.addEventListener('mousemove', handleMouseMove, { passive: true });
+  document.body.addEventListener('touchstart', handleFirstTouchStart, { passive: true });
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchmove', handleTouchMove, { passive: true });
+  window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+  disposeSplashCursor = () => {
+    simulationStarted = false;
+
+    if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId);
+    }
+
+    resizeObserver?.disconnect();
+    window.removeEventListener('resize', scheduleCanvasResize);
+    window.removeEventListener('mousedown', handleMouseDown);
+    document.body.removeEventListener('mousemove', handleFirstMouseMove);
+    window.removeEventListener('mousemove', handleMouseMove);
+    document.body.removeEventListener('touchstart', handleFirstTouchStart);
+    window.removeEventListener('touchstart', handleTouchStart);
+    window.removeEventListener('touchmove', handleTouchMove);
+    window.removeEventListener('touchend', handleTouchEnd);
+  };
+});
+
+onUnmounted(() => {
+  disposeSplashCursor?.();
+  disposeSplashCursor = null;
 });
 </script>

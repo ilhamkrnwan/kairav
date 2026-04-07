@@ -21,13 +21,20 @@ const props = withDefaults(defineProps<Props>(), {
 const spotlightRef = ref<HTMLDivElement | null>(null);
 const isInsideSection = ref(false);
 
+interface SpotlightCardMetrics {
+  element: HTMLElement;
+  rect: DOMRect;
+  centerX: number;
+  centerY: number;
+  radius: number;
+}
+
 const calculateSpotlightValues = (radius: number) => ({
   proximity: radius * 0.5,
   fadeDistance: radius * 0.75
 });
 
-const updateCardGlowProperties = (card: HTMLElement, mouseX: number, mouseY: number, glow: number) => {
-  const rect = card.getBoundingClientRect();
+const updateCardGlowProperties = (card: HTMLElement, rect: DOMRect, mouseX: number, mouseY: number, glow: number) => {
   const relativeX = ((mouseX - rect.left) / rect.width) * 100;
   const relativeY = ((mouseY - rect.top) / rect.height) * 100;
 
@@ -40,6 +47,56 @@ let cleanupEventListeners: (() => void) | null = null;
 
 const setupEventListeners = () => {
   if (!props.enabled) return;
+
+  let container: HTMLElement | null = null;
+  let containerRect: DOMRect | null = null;
+  let cardMetrics: SpotlightCardMetrics[] = [];
+  let resizeObserver: ResizeObserver | null = null;
+  let mutationObserver: MutationObserver | null = null;
+  let mouseMoveFrame: number | null = null;
+  let pendingPointer: { clientX: number; clientY: number } | null = null;
+  let metricsDirty = true;
+  let animateSpotlightX: ((value: number) => gsap.core.Tween) | null = null;
+  let animateSpotlightY: ((value: number) => gsap.core.Tween) | null = null;
+  let animateSpotlightOpacity: ((value: number) => gsap.core.Tween) | null = null;
+
+  const markMetricsDirty = () => {
+    metricsDirty = true;
+  };
+
+  const getCards = () => {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll(props.cardSelector)) as HTMLElement[];
+  };
+
+  const refreshMetrics = () => {
+    container = document.querySelector(props.containerSelector);
+    if (!container) {
+      containerRect = null;
+      cardMetrics = [];
+      metricsDirty = false;
+      return;
+    }
+
+    containerRect = container.getBoundingClientRect();
+    cardMetrics = getCards().map(card => {
+      const rect = card.getBoundingClientRect();
+      return {
+        element: card,
+        rect,
+        centerX: rect.left + rect.width / 2,
+        centerY: rect.top + rect.height / 2,
+        radius: Math.max(rect.width, rect.height) / 2
+      };
+    });
+    metricsDirty = false;
+  };
+
+  const resetCardGlow = () => {
+    cardMetrics.forEach(({ element }) => {
+      element.style.setProperty('--glow-intensity', '0');
+    });
+  };
 
   const spotlight = document.createElement('div');
   spotlight.className = 'global-spotlight';
@@ -64,44 +121,59 @@ const setupEventListeners = () => {
   `;
   document.body.appendChild(spotlight);
   spotlightRef.value = spotlight;
+  animateSpotlightX = gsap.quickTo(spotlight, 'left', { duration: 0.1, ease: 'power2.out' });
+  animateSpotlightY = gsap.quickTo(spotlight, 'top', { duration: 0.1, ease: 'power2.out' });
+  animateSpotlightOpacity = gsap.quickTo(spotlight, 'opacity', { duration: 0.2, ease: 'power2.out' });
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!spotlightRef.value) return;
+  refreshMetrics();
 
-    const container = document.querySelector(props.containerSelector);
-    if (!container) return;
+  if (container) {
+    resizeObserver = new ResizeObserver(markMetricsDirty);
+    resizeObserver.observe(container);
+    getCards().forEach(card => resizeObserver?.observe(card));
 
-    const rect = container.getBoundingClientRect();
+    mutationObserver = new MutationObserver(() => {
+      markMetricsDirty();
+      if (!container) return;
+      resizeObserver?.disconnect();
+      resizeObserver?.observe(container);
+      getCards().forEach(card => resizeObserver?.observe(card));
+    });
+    mutationObserver.observe(container, { childList: true, subtree: true });
+  }
+
+  const flushMouseMove = () => {
+    mouseMoveFrame = null;
+
+    if (!spotlightRef.value || !pendingPointer) return;
+
+    if (metricsDirty) {
+      refreshMetrics();
+    }
+
+    if (!containerRect) return;
+
+    const { clientX, clientY } = pendingPointer;
     const mouseInside =
-      e.clientX >= rect.left &&
-      e.clientX <= rect.right &&
-      e.clientY >= rect.top &&
-      e.clientY <= rect.bottom;
+      clientX >= containerRect.left &&
+      clientX <= containerRect.right &&
+      clientY >= containerRect.top &&
+      clientY <= containerRect.bottom;
 
     isInsideSection.value = mouseInside;
-    const cards = document.querySelectorAll(props.cardSelector) as NodeListOf<HTMLElement>;
 
     if (!mouseInside) {
-      gsap.to(spotlightRef.value, {
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-      cards.forEach(card => {
-        card.style.setProperty('--glow-intensity', '0');
-      });
+      animateSpotlightOpacity?.(0);
+      resetCardGlow();
       return;
     }
 
     const { proximity, fadeDistance } = calculateSpotlightValues(props.spotlightRadius);
     let minDistance = Infinity;
 
-    cards.forEach(card => {
-      const cardRect = card.getBoundingClientRect();
-      const centerX = cardRect.left + cardRect.width / 2;
-      const centerY = cardRect.top + cardRect.height / 2;
+    cardMetrics.forEach(({ element, rect, centerX, centerY, radius }) => {
       const distance =
-        Math.hypot(e.clientX - centerX, e.clientY - centerY) - Math.max(cardRect.width, cardRect.height) / 2;
+        Math.hypot(clientX - centerX, clientY - centerY) - radius;
       const effectiveDistance = Math.max(0, distance);
 
       minDistance = Math.min(minDistance, effectiveDistance);
@@ -113,15 +185,11 @@ const setupEventListeners = () => {
         glowIntensity = (fadeDistance - effectiveDistance) / (fadeDistance - proximity);
       }
 
-      updateCardGlowProperties(card, e.clientX, e.clientY, glowIntensity);
+      updateCardGlowProperties(element, rect, clientX, clientY, glowIntensity);
     });
 
-    gsap.to(spotlightRef.value, {
-      left: e.clientX,
-      top: e.clientY,
-      duration: 0.1,
-      ease: 'power2.out'
-    });
+    animateSpotlightX?.(clientX);
+    animateSpotlightY?.(clientY);
 
     const targetOpacity =
       minDistance <= proximity
@@ -130,33 +198,48 @@ const setupEventListeners = () => {
           ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8
           : 0;
 
-    gsap.to(spotlightRef.value, {
-      opacity: targetOpacity,
-      duration: targetOpacity > 0 ? 0.2 : 0.5,
-      ease: 'power2.out'
-    });
+    animateSpotlightOpacity?.(targetOpacity);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    pendingPointer = {
+      clientX: e.clientX,
+      clientY: e.clientY
+    };
+
+    if (mouseMoveFrame !== null) return;
+    mouseMoveFrame = requestAnimationFrame(flushMouseMove);
   };
 
   const handleMouseLeave = () => {
     isInsideSection.value = false;
-    (document.querySelectorAll(props.cardSelector) as NodeListOf<HTMLElement>).forEach(card => {
-      card.style.setProperty('--glow-intensity', '0');
-    });
-    if (spotlightRef.value) {
-      gsap.to(spotlightRef.value, {
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
+    pendingPointer = null;
+    resetCardGlow();
+    animateSpotlightOpacity?.(0);
+
+    if (mouseMoveFrame !== null) {
+      cancelAnimationFrame(mouseMoveFrame);
+      mouseMoveFrame = null;
     }
   };
 
-  document.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('mousemove', handleMouseMove, { passive: true });
   document.addEventListener('mouseleave', handleMouseLeave);
+  window.addEventListener('resize', markMetricsDirty, { passive: true });
+  window.addEventListener('scroll', markMetricsDirty, { passive: true });
 
   cleanupEventListeners = () => {
     document.removeEventListener('mousemove', handleMouseMove);
     document.removeEventListener('mouseleave', handleMouseLeave);
+    window.removeEventListener('resize', markMetricsDirty);
+    window.removeEventListener('scroll', markMetricsDirty);
+
+    if (mouseMoveFrame !== null) {
+      cancelAnimationFrame(mouseMoveFrame);
+    }
+
+    resizeObserver?.disconnect();
+    mutationObserver?.disconnect();
     spotlightRef.value?.parentNode?.removeChild(spotlightRef.value);
     spotlightRef.value = null;
   };

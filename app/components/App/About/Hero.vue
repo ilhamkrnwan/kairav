@@ -31,11 +31,29 @@ const getImageSrc = (mode: string) => {
 
 const prevImageSrc = computed(() => getImageSrc(prevMode.value))
 const currentImageSrc = computed(() => getImageSrc(activeMode.value))
+
+const activeLogoSrc = computed(() => {
+  if (activeMode.value === 'aot') return '/aot2.webp'
+  if (activeMode.value === 'jojo') return '/jojo.png'
+  return null
+})
 </script>
 
 <template>
-  <section class="w-full flex items-center justify-center min-h-screen text-gray-800 dark:text-white px-4 md:px-8 lg:px-12">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="relative w-full flex items-center justify-center min-h-screen text-gray-800 dark:text-white px-4 md:px-8 lg:px-12 overflow-hidden">
+    
+    <!-- Dynamic Section Background Logo -->
+    <transition name="fade">
+      <div 
+        v-if="activeLogoSrc"
+        :key="activeLogoSrc"
+        class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-10 dark:opacity-15 mix-blend-multiply dark:mix-blend-screen"
+      >
+        <img :src="activeLogoSrc" alt="Background Logo" class="w-full h-full object-contain scale-[1.2] md:scale-100 blur-[2px]" />
+      </div>
+    </transition>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
       <!-- Avatar with ALL decorative blobs -->
       <div class="relative inline-block mb-8 group mt-8">
         <!-- Main background glow -->
@@ -306,5 +324,12 @@ const currentImageSrc = computed(() => getImageSrc(activeMode.value))
 @keyframes wipeDown {
   0% { clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
   100% { clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>

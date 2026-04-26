@@ -1,4 +1,6 @@
 <script setup>
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+
 const { t } = useI18n()
 
 useDynamicSeo({
@@ -6,13 +8,51 @@ useDynamicSeo({
   descriptionKey: 'seo.home.description',
   image: '/og-image.jpg'
 })
+
+// === Image Reveal Logic ===
+const heroImageRef = ref(null)
+const isHovered = ref(false)
+const mousePos = reactive({ x: 0, y: 0 })
+const smoothMousePos = reactive({ x: 0, y: 0 })
+let animationFrame = null
+
+const updateSmoothPosition = () => {
+  smoothMousePos.x += (mousePos.x - smoothMousePos.x) * 0.15
+  smoothMousePos.y += (mousePos.y - smoothMousePos.y) * 0.15
+  animationFrame = requestAnimationFrame(updateSmoothPosition)
+}
+
+onMounted(() => {
+  animationFrame = requestAnimationFrame(updateSmoothPosition)
+})
+
+onUnmounted(() => {
+  if (animationFrame) cancelAnimationFrame(animationFrame)
+})
+
+const handleMouseMove = (event) => {
+  if (!heroImageRef.value) return
+  const rect = heroImageRef.value.getBoundingClientRect()
+  mousePos.x = event.clientX - rect.left
+  mousePos.y = event.clientY - rect.top
+}
+
+const maskStyle = computed(() => {
+  const radius = isHovered.value ? 150 : 0
+  return {
+    opacity: isHovered.value ? 1 : 0,
+    maskImage: `radial-gradient(${radius}px circle at ${smoothMousePos.x}px ${smoothMousePos.y}px, black 0%, transparent 100%)`,
+    WebkitMaskImage: `radial-gradient(${radius}px circle at ${smoothMousePos.x}px ${smoothMousePos.y}px, black 0%, transparent 100%)`
+  }
+})
 </script>
 
 <template>
-  <div class="min-h-screen text-gray-800 dark:text-white flex flex-wrap justify-center items-center w-full">
+  <div class="min-h-screen text-gray-800 dark:text-white w-full overflow-hidden">
     <!-- Hero Section -->
-    <div class="mt-20">
-      <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+    <section class="section w-full py-6 px-2 lg:pt-20">
+      <div class="container mx-auto">
+        <div class="max-w-6xl mx-auto flex flex-col justify-center p-6 lg:flex-row lg:justify-between lg:items-center">
         <!-- Hero Image Section -->
         <div class="relative flex items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 order-1 lg:order-2">
           <!-- Background Blob -->
@@ -40,20 +80,70 @@ useDynamicSeo({
             <span class="hero-blob hero-blob-rb block w-full aspect-square" />
           </span>
 
-          <!-- Main Hero Image -->
-          <NuxtImg
-            src="/ilham-hero.webp"
-            alt="Ilham Kurniawan"
-            width="640"
-            height="640"
-            sizes="288px sm:320px lg:384px xl:448px 2xl:512px"
-            format="webp"
-            preload
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            class="relative z-10 w-auto object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
-          />
+          <!-- Main Hero Image & Interactive Frame -->
+          <div
+            ref="heroImageRef"
+            class="relative z-10 hero-img-wrap aspect-[4/5] h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 flex-shrink-0 cursor-crosshair group"
+            @mousemove="handleMouseMove"
+            @mouseenter="isHovered = true"
+            @mouseleave="isHovered = false"
+          >
+            <!-- Hero Orb Background -->
+            <div class="hero-orb"></div>
+
+            <!-- Layer 1: Default Image (ilham-hero.webp) -->
+            <div class="hero-img-inner absolute inset-0 rounded-lg overflow-hidden shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
+              <NuxtImg
+                src="/ilham-hero.webp"
+                alt="Ilham Kurniawan"
+                width="640"
+                height="640"
+                sizes="288px sm:320px lg:384px xl:448px 2xl:512px"
+                format="webp"
+                preload
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="w-full h-full object-cover object-top filter sepia-[0.15] contrast-105 brightness-95 dark:brightness-90"
+              />
+              <div class="absolute inset-0 hero-overlay pointer-events-none"></div>
+            </div>
+
+            <!-- Layer 2: Reveal Image (ilham-hero-2.webp) -->
+            <div
+              class="hero-img-inner absolute inset-0 rounded-lg overflow-hidden transition-all duration-300 ease-out pointer-events-none z-10 border border-amber-500/30 group-hover:scale-[1.02]"
+              :style="maskStyle"
+            >
+              <NuxtImg
+                src="/ilham-hero-2.webp"
+                alt="Ilham Kurniawan Reveal"
+                width="640"
+                height="640"
+                sizes="288px sm:320px lg:384px xl:448px 2xl:512px"
+                format="webp"
+                preload
+                loading="eager"
+                fetchpriority="high"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <!-- Corner brackets -->
+            <div class="cbr tl border-amber-500/80 dark:border-amber-400"></div>
+            <div class="cbr tr border-amber-500/80 dark:border-amber-400"></div>
+            <div class="cbr bl border-amber-500/80 dark:border-amber-400"></div>
+            <div class="cbr br border-amber-500/80 dark:border-amber-400"></div>
+
+            <!-- Floating stat chips -->
+            <div class="hero-chip c1 bg-white/95 dark:bg-[#141009]/95 border-amber-500/30 backdrop-blur-md shadow-lg hidden md:block">
+              <div class="chip-num text-amber-600 dark:text-amber-400 font-mono">50+</div>
+              <div class="chip-lbl text-gray-600 dark:text-gray-400 font-medium">Projects Done</div>
+            </div>
+            <div class="hero-chip c2 bg-white/95 dark:bg-[#141009]/95 border-amber-500/30 backdrop-blur-md shadow-lg hidden md:block">
+              <div class="chip-num text-amber-600 dark:text-amber-400 font-mono">3+</div>
+              <div class="chip-lbl text-gray-600 dark:text-gray-400 font-medium">Years Exp.</div>
+            </div>
+          </div>
         </div>
 
         <!-- Text Content Section -->
@@ -112,8 +202,9 @@ useDynamicSeo({
         <div class="absolute top-20 left-4 md:left-20 xl:left-20 lg:left-20 text-sm text-muted-foreground font-mono">
           {{ new Date().getFullYear() }} | Copyright (c) KAIRAV
         </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <LazyAppAboutFeatures hydrate-on-visible />
     <LazyAppAboutSkills hydrate-on-visible />
@@ -179,5 +270,49 @@ useDynamicSeo({
 
 .animate-float2 {
   animation: float2 5s ease-in-out infinite;
+}
+
+/* === Hero Frame & Masking Styles === */
+.hero-overlay {
+  background: linear-gradient(to bottom, transparent 45%, rgba(7,5,3,0.65) 100%);
+}
+
+.cbr {
+  position: absolute; width: 22px; height: 22px;
+  border-style: solid; z-index: 20;
+}
+.cbr.tl { top: -7px; left: -7px; border-width: 2px 0 0 2px; }
+.cbr.tr { top: -7px; right: -7px; border-width: 2px 2px 0 0; }
+.cbr.bl { bottom: -7px; left: -7px; border-width: 0 0 2px 2px; }
+.cbr.br { bottom: -7px; right: -7px; border-width: 0 2px 2px 0; }
+
+.hero-chip {
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 14px 18px;
+  z-index: 20;
+}
+.hero-chip.c1 { bottom: 32px; left: -36px; }
+.hero-chip.c2 { top: 48px; right: -36px; }
+.chip-num {
+  font-size: 26px; font-weight: 800; line-height: 1;
+}
+.chip-lbl { font-size: 11px; margin-top: 4px; }
+
+.hero-orb {
+  position: absolute; width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: orb-pulse 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  50%       { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
 }
 </style>

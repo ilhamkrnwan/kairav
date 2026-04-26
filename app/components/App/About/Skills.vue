@@ -38,7 +38,7 @@ const techStacks = {
 </script>
 
 <template>
-  <section id="skills" class="section overflow-hidden">
+  <section id="skills" class="section w-full overflow-hidden">
     <UiGlobalSpotlight
       container-selector=".skills-container"
       card-selector=".animated-card"
@@ -46,7 +46,7 @@ const techStacks = {
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="container">
+    <div class="container mx-auto">
       <div class="max-w-6xl mx-auto skills-container">
         <!-- Section Title -->
         <div class="text-center mb-16">

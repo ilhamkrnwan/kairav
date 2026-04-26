@@ -28,7 +28,7 @@ const features = computed(() => [
 </script>
 
 <template>
-  <section id="features" class="section py-6 px-2">
+  <section id="features" class="section w-full py-6 px-2">
     <UiGlobalSpotlight
       container-selector=".features-container"
       card-selector=".animated-card"
@@ -36,8 +36,9 @@ const features = computed(() => [
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="container">
+    <div class="container mx-auto">
       <div class="max-w-6xl mx-auto features-container">
+
         <!-- Section Title -->
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-heading mb-4">

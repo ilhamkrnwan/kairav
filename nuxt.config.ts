@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
+// Resolusi URL yang dinamis: prioritaskan domain kustom produksi,
+// lalu VERCEL_URL (preview/branch), lalu fallback ke domain default.
+const productionUrl = process.env.NUXT_PUBLIC_SITE_URL
+  || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
+  || (process.env.VERCEL_BRANCH_URL ? `https://${process.env.VERCEL_BRANCH_URL}` : null)
+  || "https://ilhamkrnwan.vercel.app";
+
 export default defineNuxtConfig({
   compatibilityDate: "2026-07-15",
   devtools: { enabled: true },
@@ -15,7 +22,22 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.BASE_URL || "https://ilhamkrnwan.vercel.app",
+      siteUrl: productionUrl,
+    },
+  },
+
+  // Diperlukan oleh @nuxt/site-config agar cocok dengan nilai baseUrl i18n
+  site: {
+    url: productionUrl,
+  },
+
+  // Nitro: lewati prerender rute optimasi gambar Vercel agar build tidak gagal
+  nitro: {
+    prerender: {
+      ignore: [
+        // Rute image optimization Vercel tidak dapat di-prerender
+        /^\/_vercel\/image/,
+      ],
     },
   },
 
@@ -33,22 +55,24 @@ export default defineNuxtConfig({
     "@pages": "./app/pages",
     "@i18n": "./i18n",
   },
-  modules: [
-   [
-      "@nuxtjs/i18n",
-      {
-        locales: [
-          { code: "id", file: "id.json", iso: "id-ID", language: "id" },
-          { code: "en", file: "en.json", iso: "en-US", language: "en" },
-        ],
-        seo: true,
-        lazy: true,
-        langDir: "languages/",
-        defaultLocale: "id",
-        strategy: "no_prefix",
-        baseUrl: process.env.BASE_URL || "https://ilhamkrnwan.vercel.app",
-      },
+  // Konfigurasi i18n sebagai properti top-level agar site-config module
+  // dapat membaca baseUrl dengan benar dan tidak terjadi konflik URL.
+  i18n: {
+    locales: [
+      { code: "id", file: "id.json", iso: "id-ID", language: "id" },
+      { code: "en", file: "en.json", iso: "en-US", language: "en" },
     ],
+    seo: true,
+    lazy: true,
+    langDir: "i18n/languages/",
+    defaultLocale: "id",
+    strategy: "no_prefix",
+    // baseUrl dinamis: mengikuti `site.url` di atas secara otomatis
+    baseUrl: productionUrl,
+  },
+
+  modules: [
+    "@nuxtjs/i18n",
     "@nuxt/image",
     "nuxt-og-image",
     "@nuxt/eslint",

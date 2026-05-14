@@ -104,6 +104,7 @@
   "As a tech-agnostic developer, I am always ready to adapt to": "Sebagai developer tech-agnostic, saya selalu siap beradaptasi dengan",
   "any ecosystem required.": "ekosistem apapun yang dibutuhkan.",
 
+  "Education": "Pendidikan",
   "Education &": "Pendidikan &",
   "Training": "Pelatihan",
   "Formal and Non Formal": "Formal dan Non Formal",
@@ -219,6 +220,7 @@
   "Services": "Layanan",
   "Technologies": "Teknologi",
   "Back to Projects": "Kembali ke Proyek",
+  "More": "Lainnya",
   "More Projects": "Proyek Lainnya",
   "Previous Project": "Proyek Sebelumnya",
   "Next Project": "Proyek Selanjutnya",
@@ -251,7 +253,10 @@
   "View article details": "Lihat detail artikel",
   "Tags:": "Tag:",
   "Back to Articles": "Kembali ke Artikel",
+  "To Read": "Untuk Dibaca",
   "Next to Read": "Selanjutnya untuk Dibaca",
+  "Previous": "Sebelumnya",
+  "Next": "Selanjutnya",
   "Previous Article": "Artikel Sebelumnya",
   "Next Article": "Artikel Selanjutnya",
   "Insights, tutorials, and my personal journey through": "Wawasan, tutorial, dan perjalanan pribadi saya melalui",
@@ -279,9 +284,11 @@
   "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a": "Baik saat membangun antarmuka responsif maupun backend yang tangguh, tujuan saya adalah memberikan produk yang membawa",
   "meaningful impact.": "dampak nyata.",
 
+  "FAQ": "FAQ",
   "Frequently Asked": "Pertanyaan yang",
   "Questions": "Sering Diajukan",
   "Things people usually ask about": "Hal yang biasa ditanyakan tentang",
+  "Things people usually ask about working with me": "Hal yang biasa ditanyakan tentang bekerja sama dengan saya",
   "working with me": "bekerja sama dengan saya",
   "Still have questions?": "Masih ada pertanyaan?",
 

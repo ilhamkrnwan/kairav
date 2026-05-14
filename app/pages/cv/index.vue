@@ -10,60 +10,166 @@ useDynamicSeo({
 </script>
 
 <template>
-  <section
-    class="min-h-screen w-full flex flex-col items-center justify-center
-           text-neutral-dark dark:text-neutral-light px-4 py-20"
-  >
-     <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('CURRICULUM') }} <span class="text-amber-400">{{ t('VITAE') }}</span>
-          </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
-              {{ t('Ilham Kurniawan') }}
-            </UiTextGradient>
-             · 
-            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
-              {{ t('Software Developer') }}
-            </UiTextGradient>
-          </p>
+  <div class="min-h-screen">
+
+    <!-- ═══════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════ -->
+    <section class="relative w-full flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-12 overflow-hidden">
+      <!-- Background decorative blobs -->
+      <div class="absolute top-1/4 -left-32 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8 animate-fade-in-up">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400" />
+          </span>
+          <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest">{{ t('Ilham Kurniawan') }} · {{ t('Software Developer') }}</span>
         </div>
 
-    <!-- CV Container -->
-    <div
-      class="w-full max-w-5xl min-h-screen h-[80vh]
-             rounded-xl shadow-lg overflow-hidden"
-    >
-      <iframe
-        src="https://drive.google.com/file/d/1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO/preview"
-        class="w-full h-full border-none"
-        loading="lazy"
-      />
-    </div>
+        <!-- Main Heading -->
+        <h1 class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
+          <span class="section-title-filled block">{{ t('Curriculum') }}</span>
+          <span class="section-title-outline text-foreground block">{{ t('Vitae') }}<span class="text-amber-400 !important">.</span></span>
+        </h1>
 
+        <!-- Subtitle -->
+        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-light">
+          {{ t('A snapshot of my') }}
+          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
+            {{ t('skills, experience,') }}
+          </UiTextGradient>
+          {{ t('and') }}
+          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3" class="font-medium">
+            {{ t('projects') }}
+          </UiTextGradient>
+          {{ t('that define my journey as a developer.') }}
+        </p>
 
-     <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-300 mt-6">
-        <!-- Primary Button -->
-        <UiAnimatedButton href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download" variant="primary">
-          <template #default>{{ t('Download CV') }}</template>
-          <template #iconRight>
-            <Icon name="lucide:download" class="w-4 h-4" />
-          </template>
-        </UiAnimatedButton>
-
-        <!-- Secondary Button -->
-        <UiAnimatedButton href="/" variant="outline">
-          <template #default>{{ t('Back to Home') }}</template>
-          <template #iconRight>
-            <Icon name="lucide:home" class="w-4 h-4" />
-          </template>
-        </UiAnimatedButton>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
+          <UiAnimatedButton href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download" variant="primary">
+            <template #default>{{ t('Download CV') }}</template>
+            <template #iconRight>
+              <Icon name="lucide:download" class="w-4 h-4" />
+            </template>
+          </UiAnimatedButton>
+          <UiAnimatedButton href="/" variant="outline">
+            <template #default>{{ t('Back to Home') }}</template>
+            <template #iconRight>
+              <Icon name="lucide:home" class="w-4 h-4" />
+            </template>
+          </UiAnimatedButton>
+        </div>
       </div>
 
-    <!-- Footer -->
-    <div class="mt-10 text-sm text-gray-400">
-     {{ new Date().getFullYear() }} | Copyright © KAIRAV
-    </div>
-  </section>
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span class="text-xs text-muted-foreground font-mono">{{ t('scroll') }}</span>
+        <Icon name="lucide:chevrons-down" class="w-4 h-4 text-amber-400/60" />
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CV VIEWER SECTION
+    ════════════════════════════════════════ -->
+    <section id="cv-viewer" class="section py-20">
+      <div class="container max-w-5xl mx-auto px-6 lg:px-8">
+
+        <!-- Section label -->
+        <div class="flex items-center gap-4 mb-10">
+          <div class="h-px flex-1 bg-border/40" />
+          <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest px-4">
+            {{ t('Preview') }}
+          </span>
+          <div class="h-px flex-1 bg-border/40" />
+        </div>
+
+        <!-- CV Embed Container -->
+        <div class="relative group/cv rounded-xl overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm shadow-2xl">
+          <!-- Glow effect -->
+          <div class="absolute -inset-0.5 bg-linear-to-br from-amber-400/20 via-transparent to-orange-500/10 rounded-xl opacity-0 group-hover/cv:opacity-100 transition-opacity duration-500 pointer-events-none blur-sm" />
+
+          <!-- Corner brackets -->
+          <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-amber-400/60 z-10" />
+          <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-amber-400/60 z-10" />
+          <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-amber-400/60 z-10" />
+          <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-amber-400/60 z-10" />
+
+          <!-- Header bar -->
+          <div class="relative z-10 flex items-center justify-between px-5 py-3 border-b border-border/40 bg-background/70 backdrop-blur-sm">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400/70" />
+              <span class="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+            </div>
+            <span class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+              cv_ilham_kurniawan.pdf
+            </span>
+            <a
+              href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download"
+              class="inline-flex items-center gap-1.5 text-[10px] font-mono text-amber-400 uppercase tracking-widest hover:text-amber-300 transition-colors duration-200"
+            >
+              <Icon name="lucide:download" class="w-3 h-3" />
+              {{ t('Download') }}
+            </a>
+          </div>
+
+          <!-- iFrame -->
+          <iframe
+            src="https://drive.google.com/file/d/1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO/preview"
+            class="relative z-10 w-full h-[80vh] border-none"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Bottom CTA row -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 animate-fade-in-up">
+          <UiAnimatedButton href="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download" variant="primary">
+            <template #default>{{ t('Download CV') }}</template>
+            <template #iconRight>
+              <Icon name="lucide:download" class="w-4 h-4" />
+            </template>
+          </UiAnimatedButton>
+          <UiAnimatedButton href="/about" variant="outline">
+            <template #default>{{ t('See More About Me') }}</template>
+            <template #iconRight>
+              <Icon name="lucide:user" class="w-4 h-4" />
+            </template>
+          </UiAnimatedButton>
+        </div>
+
+      </div>
+    </section>
+
+    <GetinTouch />
+  </div>
 </template>
+
+<style scoped>
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+</style>

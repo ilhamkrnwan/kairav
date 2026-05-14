@@ -55,9 +55,8 @@ const sosmedItems = [
   @click="toggleSidebar"
   >
     <Icon 
-      :name="isOpen ? 'streamline-plump-color:arrow-right-circle-1-flat' : 'streamline-plump-color:arrow-right-circle-1-flat'" 
-      class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300 cursor-pointer" 
-      :class="isOpen ? 'rotate-180' : ''"
+      :name="isOpen ? 'lucide:arrow-left-to-line' : 'lucide:arrow-right-to-line'" 
+      class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300 cursor-pointer"
       aria-hidden="true"
     />
   </button>

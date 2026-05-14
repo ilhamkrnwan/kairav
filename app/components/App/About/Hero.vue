@@ -33,8 +33,8 @@ const careerBadges = computed(() => [
 ])
 
 const stats = computed(() => [
-  { value: '4+', label: t('Years Coding') },
-  { value: '15+', label: t('Projects Built') },
+  { value: '3+', label: t('Years Coding') },
+  { value: '50+', label: t('Projects Built') },
   { value: '2', label: t('Companies') },
 ])
 </script>
@@ -66,11 +66,9 @@ const stats = computed(() => [
       <!-- ── Row 2: Giant Typography ── -->
       <div class="mb-8 entry-2">
         <h1 class="leading-[0.88] tracking-tight">
-          <!-- Line 1: CAREER — filled, ultra bold -->
           <span class="hero-title-filled block">
             {{ t('Career') }}
           </span>
-          <!-- Line 2: JOURNEY — outline, same scale -->
           <span class="hero-title-outline text-foreground block">
             {{ t('Journey') }}<span class="hero-dot">.</span>
           </span>
@@ -87,46 +85,66 @@ const stats = computed(() => [
       </div>
 
       <!-- ── Row 4: Main Grid ── -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end relative z-10">
 
         <!-- Left: Career Badge Grid 2×2 -->
         <div class="grid grid-cols-2 gap-3 entry-4">
-          <div
+          <UiAnimatedCard
             v-for="badge in careerBadges"
             :key="badge.label"
-            class="badge-card group relative p-4 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md hover:bg-background/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_0_15px_rgba(251,191,36,0.15)] shadow-xl shadow-black/5"
+            :glow-color="'251, 191, 36'"
+            :particle-count="3"
+            :enable-particles="false"
+            :enable-tilt="false"
+            :enable-magnetism="false"
+            :enable-border-glow="false"
+            :click-effect="false"
+            class="badge-card-container"
             :style="`animation-delay: ${badge.delay}; --accent: ${badge.color}`"
           >
-            <!-- Accent top line -->
-            <div class="badge-accent-line absolute top-0 left-0 right-0 h-px rounded-sm" />
+            <div class="group relative p-4 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 shadow-lg h-full overflow-hidden transition-all duration-300 hover:bg-background/60">
+              <!-- Accent top line -->
+              <div class="absolute top-0 left-0 right-0 h-px rounded-sm opacity-60 group-hover:opacity-100 transition-opacity duration-300" :style="`background: linear-gradient(to right, ${badge.color}, transparent);`" />
 
-            <div class="flex items-start gap-3">
-              <div class="mt-0.5 flex-shrink-0 w-8 h-8 rounded-sm flex items-center justify-center bg-background/80 border border-border/40 group-hover:border-amber-400/50 transition-colors duration-300">
-                <Icon :name="badge.icon" class="w-4 h-4" :style="`color: ${badge.color}`" />
-              </div>
-              <div class="min-w-0">
-                <p class="text-xs font-semibold text-foreground leading-tight">{{ badge.label }}</p>
-                <p class="text-[10px] font-mono text-muted-foreground mt-0.5 opacity-70">{{ badge.sub }}</p>
+              <div class="flex items-start gap-3 relative z-10">
+                <div class="mt-0.5 flex-shrink-0 w-8 h-8 rounded-sm flex items-center justify-center bg-background border border-border/40 group-hover:border-amber-400/40 transition-colors duration-300">
+                  <Icon :name="badge.icon" class="w-4 h-4" :style="`color: ${badge.color}`" />
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-semibold text-foreground leading-tight">{{ badge.label }}</p>
+                  <p class="text-[10px] font-mono text-muted-foreground mt-0.5 opacity-70">{{ badge.sub }}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </UiAnimatedCard>
         </div>
 
         <!-- Right: Stats + CTA -->
         <div class="entry-5">
 
           <!-- Stats row -->
-          <div class="grid grid-cols-3 gap-0 mb-10 border border-border/40 rounded-sm overflow-hidden bg-background/50 backdrop-blur-md shadow-xl shadow-black/5">
-            <div
-              v-for="(stat, i) in stats"
-              :key="stat.label"
-              class="stat-cell relative flex flex-col items-center justify-center py-5 px-3 hover:bg-background/80 transition-colors duration-300"
-              :class="i < stats.length - 1 ? 'border-r border-border/40' : ''"
-            >
-              <p class="stat-value font-heading font-black leading-none mb-1 text-foreground">{{ stat.value }}</p>
-              <span class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-70 text-center">{{ stat.label }}</span>
+          <UiAnimatedCard
+            :glow-color="'251, 191, 36'"
+            :particle-count="0"
+            :enable-particles="false"
+            :enable-tilt="false"
+            :enable-magnetism="false"
+            :enable-border-glow="false"
+            :click-effect="false"
+            class="mb-10"
+          >
+            <div class="grid grid-cols-3 gap-0 rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 shadow-lg relative group">
+              <div
+                v-for="(stat, i) in stats"
+                :key="stat.label"
+                class="relative flex flex-col items-center justify-center py-5 px-3 z-10 transition-colors duration-300 hover:bg-white/5"
+                :class="i < stats.length - 1 ? 'border-r border-border/20' : ''"
+              >
+                <p class="font-heading font-black leading-none mb-1 text-foreground text-2xl lg:text-3xl relative z-10">{{ stat.value }}</p>
+                <span class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-70 text-center relative z-10">{{ stat.label }}</span>
+              </div>
             </div>
-          </div>
+          </UiAnimatedCard>
 
           <!-- Tagline -->
           <p class="text-sm text-muted-foreground leading-relaxed mb-8 font-light">
@@ -201,26 +219,6 @@ const stats = computed(() => [
   opacity: 1 !important;
 }
 
-/* ── Badge Card ── */
-.badge-card {
-  animation: badge-in 0.5s ease-out both;
-}
-
-.badge-accent-line {
-  background: linear-gradient(to right, var(--accent), transparent);
-  opacity: 0.6;
-  transition: opacity 0.3s;
-}
-
-.badge-card:hover .badge-accent-line {
-  opacity: 1;
-}
-
-/* ── Stats ── */
-.stat-value {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-}
-
 /* ── Scroll Indicator ── */
 .scroll-line {
   width: 40px;
@@ -237,26 +235,8 @@ const stats = computed(() => [
 .entry-6 { animation: entry 0.6s ease-out 500ms both; }
 
 @keyframes entry {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes badge-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
 
 </style>

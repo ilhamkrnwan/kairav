@@ -69,6 +69,7 @@ const formatDate = (dateString?: string) => {
 
 <template>
   <div class="min-h-screen">
+
     <!-- HERO SECTION -->
     <section class="relative w-full flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-12 overflow-hidden">
       <!-- Background decorative blobs -->
@@ -128,15 +129,18 @@ const formatDate = (dateString?: string) => {
     </section>
 
     <!-- BLOG LIST SECTION -->
-    <section id="blog-list" class="section py-20 overflow-x-hidden">
-      <UiGlobalSpotlight
-        container-selector=".blogs-page-container"
-        card-selector=".animated-card"
-        :glow-color="'251, 191, 36'"
-        :spotlight-radius="400"
-        :enabled="true"
-      />
-      <div class="container max-w-6xl mx-auto px-6 lg:px-8 blogs-page-container">
+    <section id="blog-list" class="section py-20">
+      <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-heading mb-4">
+            {{ t('Latest') }} <span class="text-amber-400">{{ t('Articles') }}</span>
+          </h2>
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {{ t('A collection of my writings, sharing insights and experiences across technology, design, and software engineering.') }}
+          </p>
+        </div>
 
         <!-- Filters -->
         <div class="mb-12 space-y-5">
@@ -144,11 +148,14 @@ const formatDate = (dateString?: string) => {
           <div class="max-w-2xl mx-auto">
             <div class="relative group/search">
               <div class="absolute inset-0 rounded-xl bg-amber-400/5 opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-300 -m-0.5 blur-sm" />
-              <Icon name="lucide:search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within/search:text-amber-400 transition-colors duration-300 z-10" />
+              <Icon
+                name="lucide:search"
+                class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within/search:text-amber-400 transition-colors duration-300 z-10"
+              />
               <input
                 v-model="searchQuery"
                 type="text"
-                :placeholder="t('Search articles...')"
+                :placeholder="t('Search articles by title, description, or tags...')"
                 class="relative w-full pl-11 pr-10 py-3 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition-all duration-300 text-foreground placeholder:text-muted-foreground text-sm z-10"
               />
               <button
@@ -168,7 +175,9 @@ const formatDate = (dateString?: string) => {
               :key="category"
               @click="selectedCategory = category"
               class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300"
-              :class="selectedCategory === category ? 'bg-amber-400 text-gray-900 shadow-lg shadow-amber-400/25 scale-105' : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-105'"
+              :class="selectedCategory === category
+                ? 'bg-amber-400 text-gray-900 shadow-lg shadow-amber-400/25 scale-105'
+                : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-105'"
             >
               {{ category }}
             </button>
@@ -190,53 +199,72 @@ const formatDate = (dateString?: string) => {
           >
             <NuxtLink
               :to="getBlogLink(blog.path)"
-              class="group relative flex flex-col rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
+              class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
             >
-              <!-- Image Area -->
-              <div class="relative h-48 overflow-hidden bg-gray-50 dark:bg-black/20 shrink-0">
+              <!-- Image layer (visible on hover) -->
+              <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <img
                   :src="blog.coverImage || '/placeholder.webp'"
                   :alt="blog.title"
-                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-10"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                 />
-                <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
-                
-                <div class="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm shadow-sm -translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <Icon name="lucide:pen-tool" class="w-3 h-3 text-amber-500" />
-                  <span class="text-xs font-medium">{{ blog.author || 'Author' }}</span>
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                <!-- Arrow icon top-right -->
+                <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 flex items-center justify-center translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                  <Icon name="lucide:arrow-up-right" class="w-4 h-4 text-amber-300" />
+                </div>
+                <!-- Info bottom -->
+                <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                    {{ blog.category || 'Tech' }}
+                  </span>
+                  <h3 class="text-lg font-heading text-white font-semibold leading-snug">
+                    {{ blog.title }}
+                  </h3>
+                  <p class="text-xs text-white/60 mt-1 font-mono">{{ t('Read More') }} →</p>
                 </div>
               </div>
 
-              <!-- Content Area -->
-              <div class="relative z-20 p-6 flex flex-col flex-1">
-                <div class="flex items-center justify-between gap-2 text-[10px] font-mono text-muted-foreground mb-4 uppercase tracking-widest">
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30">
+              <!-- Default content layer (hidden on hover) -->
+              <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                <!-- Icon + category -->
+                <div class="flex items-start justify-between mb-4">
+                  <div class="w-14 h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300">
+                    <Icon name="lucide:newspaper" class="w-6 h-6 text-amber-400" />
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
                     {{ blog.category || 'Tech' }}
                   </span>
-                  <span>{{ formatDate(blog.date) }}</span>
                 </div>
 
-                <h3 class="text-xl font-heading font-semibold mb-3 group-hover:text-amber-400 transition-colors duration-300 leading-snug tracking-wide">
+                <!-- Title -->
+                <h3 class="text-xl font-heading font-semibold mb-3 text-foreground leading-snug tracking-wide group-hover:text-amber-400 transition-colors duration-300">
                   {{ blog.title }}
                 </h3>
 
-                <p class="text-sm font-light text-muted-foreground mb-6 line-clamp-3 leading-relaxed flex-1">
+                <!-- Description -->
+                <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
                   {{ blog.description }}
                 </p>
 
-                <div class="flex items-center justify-between mt-auto pt-4 border-t border-border/30">
+                <!-- Footer: Date + Read time -->
+                <div class="flex items-center justify-between mt-auto">
                   <div class="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                     <Icon name="lucide:clock" class="w-3.5 h-3.5" />
                     <span>{{ blog.readTime || '5 min read' }}</span>
                   </div>
-                  <div class="text-[10px] font-mono uppercase tracking-widest font-semibold text-amber-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center gap-1">
-                    {{ t('Read More') }} <Icon name="lucide:arrow-right" class="w-3 h-3" />
-                  </div>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                    {{ formatDate(blog.date) }}
+                  </span>
                 </div>
               </div>
             </NuxtLink>
           </UiAnimatedCard>
 
+          <!-- Placeholder Card -->
           <UiAnimatedCard
             v-for="index in placeholderBlogCards"
             :key="`blog-placeholder-${index}`"
@@ -259,6 +287,7 @@ const formatDate = (dateString?: string) => {
           </UiAnimatedCard>
         </div>
 
+        <!-- Empty State -->
         <div v-else class="text-center py-24">
           <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
             <Icon name="lucide:search-x" class="w-9 h-9 text-amber-400" />
@@ -267,11 +296,15 @@ const formatDate = (dateString?: string) => {
           <p class="text-muted-foreground text-sm mb-8 max-w-xs mx-auto">
             {{ t('Try adjusting your search or filter criteria') }}
           </p>
-          <button @click="searchQuery = ''; selectedCategory = 'All'" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-400 text-gray-900 font-semibold text-sm hover:bg-amber-500 transition-colors duration-300 shadow-lg shadow-amber-400/25">
+          <button
+            @click="searchQuery = ''; selectedCategory = 'All'"
+            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-400 text-gray-900 font-semibold text-sm hover:bg-amber-500 transition-colors duration-300 shadow-lg shadow-amber-400/25"
+          >
             <Icon name="lucide:rotate-ccw" class="w-4 h-4" />
             {{ t('Clear Filters') }}
           </button>
         </div>
+
       </div>
     </section>
 

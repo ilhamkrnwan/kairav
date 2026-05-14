@@ -3,7 +3,7 @@ const { t } = useI18n()
 
 const allWorkItems = computed(() => [
   {
-    logo: '/placeholder.webp',
+    logo: '/logo/kairav.png',
     type: t('Open for Work'),
     title: t('Fullstack Developer'),
     date: t('2021 - Present'),
@@ -22,6 +22,20 @@ const allWorkItems = computed(() => [
     title: t('Fullstack Web & Android Developer at Jurutani'),
     date: t('2025 - Present'),
     description: t('Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.')
+  },
+  {
+    logo: '/logo/baznas.png',
+    type: t('Volunteer'),
+    title: t('Ramadhan Volunteer at Baznas Yogyakarta'),
+    date: t('2024'),
+    description: t('Participated as a volunteer during the holy month of Ramadhan at Baznas Yogyakarta. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.')
+  },
+  {
+    logo: '/logo/alazhar.png',
+    type: t('Volunteer'),
+    title: t('Ramadhan Volunteer at LAZ Al-Azhar Surabaya'),
+    date: t('2021'),
+    description: t('Participated as a volunteer during the holy month of Ramadhan at LAZ Al-Azhar Surabaya. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.')
   }
 ])
 

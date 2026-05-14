@@ -64,7 +64,7 @@ export default defineNuxtConfig({
     ],
     seo: true,
     lazy: true,
-    langDir: "i18n/languages/",
+    langDir: "languages/",
     defaultLocale: "id",
     strategy: "no_prefix",
     // baseUrl dinamis: mengikuti `site.url` di atas secara otomatis

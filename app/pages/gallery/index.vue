@@ -76,18 +76,19 @@ const galleryItems = computed(() => [
         </p>
 
         <!-- Main Heading -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-          {{ t('Explore My Journey') }} <br class="hidden md:block" />{{ t('Through') }} <span class="text-amber-400 inline-block hover:scale-105 transition-transform cursor-default">{{ t('Lens') }}</span>
+        <h1 class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
+          <span class="section-title-filled block">{{ t('Explore My Journey') }}</span>
+          <span class="section-title-outline text-foreground block">{{ t('Through') }} {{ t('Lens') }}<span class="text-amber-400 !important">.</span></span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200 leading-relaxed">
+        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200 leading-relaxed font-light">
           {{ t('Welcome to my photo gallery! Here, you\'ll find a collection of moments captured through my lens, showcasing my') }}
-          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
             {{ t('adventures, projects,') }}
           </UiTextGradient>
           {{ t('and') }}
-          <UiTextGradient :colors="['#A78BFA', '#8B5CF6', '#A78BFA']" :animation-speed="3">
+          <UiTextGradient :colors="['#A78BFA', '#8B5CF6', '#A78BFA']" :animation-speed="3" class="font-medium">
             {{ t('everyday life.') }}
           </UiTextGradient>
         </p>
@@ -116,16 +117,18 @@ const galleryItems = computed(() => [
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
         <!-- Section Title -->
         <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('Photo') }} <span class="text-amber-400">{{ t('Collection') }}</span>
+          <h2 class="leading-[0.88] tracking-tight mb-4">
+            <span class="section-title-filled block">{{ t('Photo') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Collection') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto font-light">
             {{ t('Each photo tells a unique story and reflects my passion for photography and creative expression.') }}
           </p>
         </div>
 
         <!-- Magic Bento Gallery -->
         <UiMagicBento
+          :items="galleryItems"
           :text-auto-hide="true"
           :enable-stars="true"
           :enable-spotlight="true"
@@ -154,4 +157,25 @@ const galleryItems = computed(() => [
     <GetinTouch />
   </div>
 </template>
+
+<style scoped>
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+</style>
 

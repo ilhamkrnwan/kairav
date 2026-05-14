@@ -38,7 +38,7 @@ const techStacks = {
 </script>
 
 <template>
-  <section id="skills" class="section w-full overflow-hidden">
+  <section id="skills" class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
     <UiGlobalSpotlight
       container-selector=".skills-container"
       card-selector=".animated-card"
@@ -46,19 +46,21 @@ const techStacks = {
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="container mx-auto">
-      <div class="max-w-6xl mx-auto skills-container">
-        <!-- Section Title -->
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('Skills &') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Technologies') }}</span>
+    <div class="max-w-6xl mx-auto skills-container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Title Area -->
+        <div class="lg:col-span-4">
+          <h2 class="leading-[0.88] tracking-tight mb-6">
+            <span class="section-title-filled block">{{ t('Skills &') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Technologies') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <div class="w-12 h-1 bg-amber-400 mb-6"></div>
+          <p class="text-sm font-mono tracking-wider text-muted-foreground leading-relaxed">
             {{ t('Technologies I currently rely on to') }}
             <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
               {{ t('execute ideas.') }}
             </UiTextGradient>
-            <br class="hidden md:block" />
+            <br/><br/>
             {{ t('As a tech-agnostic developer, I am always ready to adapt to') }}
             <UiTextGradient :colors="['#A78BFA', '#8B5CF6', '#A78BFA']" :animation-speed="3">
               {{ t('any ecosystem required.') }}
@@ -67,14 +69,14 @@ const techStacks = {
         </div>
 
         <!-- Animated Tech Stack -->
-        <div class="space-y-8">
+        <div class="lg:col-span-8 space-y-6">
           <!-- Row 1 - Move Right -->
-          <div class="marquee-container relative overflow-hidden py-4">
-            <div class="marquee flex gap-6 w-max">
+          <div class="marquee-container relative overflow-hidden py-2">
+            <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
                 :key="`row1-${i}`"
-                class="marquee-content flex gap-6 animate-scroll-right"
+                class="marquee-content flex gap-4 animate-scroll-right"
               >
                 <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row1"
@@ -88,10 +90,10 @@ const techStacks = {
                   :click-effect="true"
                 >
                   <div
-                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                    class="tech-card flex items-center justify-center gap-3 p-4 px-6 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
                   >
-                    <Icon :name="tech.icon" class="w-12 h-12" />
-                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                    <Icon :name="tech.icon" class="w-6 h-6" />
+                    <span class="text-xs font-mono font-medium text-foreground whitespace-nowrap tracking-wide">
                       {{ tech.name }}
                     </span>
                   </div>
@@ -101,12 +103,12 @@ const techStacks = {
           </div>
 
           <!-- Row 2 - Move Left -->
-          <div class="marquee-container relative overflow-hidden py-4">
-            <div class="marquee flex gap-6 w-max">
+          <div class="marquee-container relative overflow-hidden py-2">
+            <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
                 :key="`row2-${i}`"
-                class="marquee-content flex gap-6 animate-scroll-left"
+                class="marquee-content flex gap-4 animate-scroll-left"
               >
                 <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row2"
@@ -120,10 +122,10 @@ const techStacks = {
                   :click-effect="true"
                 >
                   <div
-                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                    class="tech-card flex items-center justify-center gap-3 p-4 px-6 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
                   >
-                    <Icon :name="tech.icon" class="w-12 h-12" />
-                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                    <Icon :name="tech.icon" class="w-6 h-6" />
+                    <span class="text-xs font-mono font-medium text-foreground whitespace-nowrap tracking-wide">
                       {{ tech.name }}
                     </span>
                   </div>
@@ -133,12 +135,12 @@ const techStacks = {
           </div>
 
           <!-- Row 3 - Move Right -->
-          <div class="marquee-container relative overflow-hidden py-4">
-            <div class="marquee flex gap-6 w-max">
+          <div class="marquee-container relative overflow-hidden py-2">
+            <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
                 :key="`row3-${i}`"
-                class="marquee-content flex gap-6 animate-scroll-right"
+                class="marquee-content flex gap-4 animate-scroll-right"
               >
                 <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row3"
@@ -152,10 +154,10 @@ const techStacks = {
                   :click-effect="true"
                 >
                   <div
-                    class="tech-card flex flex-col items-center justify-center gap-3 p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 min-w-35 h-full"
+                    class="tech-card flex items-center justify-center gap-3 p-4 px-6 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
                   >
-                    <Icon :name="tech.icon" class="w-12 h-12" />
-                    <span class="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                    <Icon :name="tech.icon" class="w-6 h-6" />
+                    <span class="text-xs font-mono font-medium text-foreground whitespace-nowrap tracking-wide">
                       {{ tech.name }}
                     </span>
                   </div>
@@ -164,25 +166,31 @@ const techStacks = {
             </div>
           </div>
         </div>
-
-        <!-- Additional Note -->
-        <div class="mt-16 text-center">
-          <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm dark:border-gray-700 dark:bg-zinc-800/50 hover:border-amber-400/30 transition-colors duration-300">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-            </span>
-            <span class="font-medium text-gray-600 dark:text-gray-200">
-              {{ t('Continuously learning and expanding skillset with emerging technologies') }}
-            </span>
-          </span>
-        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+
 .animate-scroll-right {
   animation: scroll-right 30s linear infinite;
 }

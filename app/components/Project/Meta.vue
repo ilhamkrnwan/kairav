@@ -14,7 +14,7 @@ defineProps<Props>()
 <template>
   <div class="max-w-4xl mx-auto px-4 md:px-24 lg:px-32">
     <!-- Key Info -->
-    <div v-if="year || role || duration" class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-600 dark:text-gray-400">
+    <div v-if="year || role || duration" class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
       <span v-if="year"><strong>{{ t('Year') }}:</strong> {{ year }}</span>
       <span v-if="role"><strong>{{ t('Role') }}:</strong> {{ role }}</span>
       <span v-if="duration"><strong>{{ t('Duration') }}:</strong> {{ duration }}</span>
@@ -25,7 +25,7 @@ defineProps<Props>()
       <span
         v-for="tech in technologies"
         :key="tech"
-        class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-xs font-medium"
+        class="inline-flex items-center px-3 py-1 rounded-sm border border-border/40 bg-background/50 text-[10px] font-mono uppercase tracking-widest text-foreground"
       >
         {{ tech }}
       </span>

@@ -23,6 +23,19 @@
   "seo.cv.description": "Download CV saya untuk mengetahui lebih lanjut tentang keahlian, pengalaman, dan pencapaian saya sebagai fullstack developer.",
 
   "Hello my name is Ilham Kurniawan": "Halo, saya Ilham Kurniawan",
+  "Career": "Perjalanan",
+  "Journey": "Karir",
+  "UNUYO, 2023": "UNUYO, 2023",
+  "Jan 2025 - Present": "Jan 2025 - Sekarang",
+  "Jurutani, 2025": "Jurutani, 2025",
+  "Always Learning": "Selalu Belajar",
+  "Intern at Sekeco": "Magang di Sekeco",
+  "Freelance Dev": "Developer Freelance",
+  "Years Coding": "Tahun Coding",
+  "Projects Built": "Proyek Dibangun",
+  "Companies": "Perusahaan",
+  "Show More": "Tampilkan Lebih",
+  "Show Less": "Tampilkan Lebih Sedikit",
   "Bridging the gap between": "Menjembatani kesenjangan antara",
   "complex ideas": "ide-ide kompleks",
   "and": "dan",
@@ -264,5 +277,31 @@
   "With a passion for continuous learning and a strong foundation in modern web technologies, I focus on crafting": "Dengan passion untuk terus belajar dan fondasi kuat pada teknologi web modern, saya fokus dalam merancang",
   "scalable, accessible, and user-centric applications.": "aplikasi yang scalable, aksesibel, dan berpusat pada pengguna.",
   "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a": "Baik saat membangun antarmuka responsif maupun backend yang tangguh, tujuan saya adalah memberikan produk yang membawa",
-  "meaningful impact.": "dampak nyata."
+  "meaningful impact.": "dampak nyata.",
+
+  "Frequently Asked": "Pertanyaan yang",
+  "Questions": "Sering Diajukan",
+  "Things people usually ask about": "Hal yang biasa ditanyakan tentang",
+  "working with me": "bekerja sama dengan saya",
+  "Still have questions?": "Masih ada pertanyaan?",
+
+  "Are you available for freelance projects?": "Apakah kamu tersedia untuk proyek freelance?",
+  "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.": "Ya! Saya aktif terbuka untuk kolaborasi freelance — baik itu web app penuh, landing page, maupun integrasi API. Silakan hubungi saya melalui bagian kontak di bawah dan kita bisa diskusikan kebutuhan Anda.",
+
+  "What is your preferred tech stack?": "Apa tech stack pilihan kamu?",
+  "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.": "Stack utama saya adalah Vue.js / Nuxt.js untuk frontend dan Node.js / Laravel untuk backend. Untuk database saya menggunakan Supabase, PostgreSQL, dan MongoDB. Namun saya tech-agnostic — saya beradaptasi dengan stack apapun yang paling cocok untuk proyek.",
+
+  "Are you open to full-time employment?": "Apakah kamu terbuka untuk pekerjaan full-time?",
+  "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!": "Tentu saja. Saya terbuka untuk posisi full-time sebagai Fullstack atau Frontend Developer. Saya menghargai tim yang kolaboratif, komunikasi yang jelas, dan produk yang bermakna. Mari terhubung dan lihat apakah kita cocok!",
+
+  "How long does it typically take to build a project?": "Berapa lama biasanya membangun sebuah proyek?",
+  "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.": "Tergantung scopenya. Sebuah landing page bisa memakan waktu 3–7 hari, sedangkan web app lengkap biasanya 2–6 minggu. Saya selalu memberikan estimasi timeline setelah memahami kebutuhan proyek.",
+
+  "What industries have you worked in?": "Industri apa saja yang pernah kamu tangani?",
+  "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.": "Saya pernah bekerja di agritech (Jurutani), layanan software umum (Sekeco), serta mengerjakan proyek freelance di e-commerce, company profile, dashboard, dan platform edukasi.",
+
+  "How can I contact you?": "Bagaimana cara menghubungi kamu?",
+  "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.": "Kamu bisa menghubungi saya melalui bagian 'Hubungi Saya' di bagian bawah halaman ini, atau terhubung melalui LinkedIn dan GitHub. Saya biasanya merespons dalam 1–2 hari kerja.",
+  "SMAN 1 Randublatung (Smaransa)": "SMAN 1 Randublatung (Smaransa)",
+  "Mathematics and Natural Sciences (MIPA). Actively participated in student organizations and extracurricular activities.": "Jurusan Matematika dan Ilmu Pengetahuan Alam (MIPA). Aktif berpartisipasi dalam organisasi siswa dan kegiatan ekstrakurikuler."
 }

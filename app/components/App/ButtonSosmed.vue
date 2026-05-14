@@ -44,9 +44,9 @@ const sosmedItems = [
   <!-- Toggle Button - hanya muncul di mobile -->
   <button
   class="fixed top-1/2 left-0 transform -translate-y-1/2 z-30
-  w-8 h-16 bg-accent-light/20 dark:bg-accent-dark/20
-  hover:bg-accent-light/30 dark:hover:bg-accent-dark/30
-  rounded-r-lg flex items-center justify-center
+  w-8 h-16 bg-background/50 backdrop-blur-sm border-y border-r border-border/40
+  hover:border-amber-400/50 hover:bg-background/80
+  rounded-r-sm flex items-center justify-center
   transition-all duration-300 md:hidden"
   :class="{ 'left-16': isOpen }"
   :aria-label="mobileToggleLabel"
@@ -87,10 +87,10 @@ const sosmedItems = [
         :aria-label="sosmedItem.name"
         :title="sosmedItem.name"
         class="w-10 h-10 flex items-center justify-center
-               bg-amber-100/30 dark:bg-yellow-400/10
-               hover:bg-amber-200/50 dark:hover:bg-yellow-400/20
-               rounded-full p-0 transition-all duration-300
-               ring-1 ring-amber-200/50 dark:ring-yellow-400/20"  
+               bg-background/50 backdrop-blur-sm
+               hover:bg-background/80 hover:text-amber-400
+               rounded-sm p-0 transition-all duration-300
+               border border-border/40 hover:border-amber-400/50"  
       >
         <Icon :name="sosmedItem.icon" class="w-6 h-6" aria-hidden="true" />
       </a>
@@ -99,10 +99,10 @@ const sosmedItems = [
       <span
         aria-hidden="true"
         class="absolute left-full top-1/2 transform -translate-y-1/2 z-20
-               mx-3 px-4 py-2 text-sm font-bold text-white
-               bg-gray-900 rounded-lg shadow-lg
-               transition-transform duration-300 ease-in-out
-               scale-0 group-hover:scale-100"
+               mx-3 px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase text-foreground
+               bg-background/80 backdrop-blur-md rounded-sm shadow-xl border border-border/40
+               transition-all duration-300 ease-in-out
+               scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
       >
         {{ sosmedItem.name }}
       </span>

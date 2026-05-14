@@ -23,6 +23,19 @@
   "seo.cv.description": "Download my CV to learn more about my skills, experience, and achievements as a fullstack developer.",
 
   "Hello my name is Ilham Kurniawan": "Hello, I'm Ilham Kurniawan",
+  "Career": "Career",
+  "Journey": "Journey",
+  "UNUYO, 2023": "UNUYO, 2023",
+  "Jan 2025 - Present": "Jan 2025 - Present",
+  "Jurutani, 2025": "Jurutani, 2025",
+  "Always Learning": "Always Learning",
+  "Intern at Sekeco": "Intern at Sekeco",
+  "Freelance Dev": "Freelance Dev",
+  "Years Coding": "Years Coding",
+  "Projects Built": "Projects Built",
+  "Companies": "Companies",
+  "Show More": "Show More",
+  "Show Less": "Show Less",
   "Bridging the gap between": "Bridging the gap between",
   "complex ideas": "complex ideas",
   "and": "and",
@@ -263,5 +276,31 @@
   "With a passion for continuous learning and a strong foundation in modern web technologies, I focus on crafting": "With a passion for continuous learning and a strong foundation in modern web technologies, I focus on crafting",
   "scalable, accessible, and user-centric applications.": "scalable, accessible, and user-centric applications.",
   "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a": "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a",
-  "meaningful impact.": "meaningful impact."
+  "meaningful impact.": "meaningful impact.",
+
+  "Frequently Asked": "Frequently Asked",
+  "Questions": "Questions",
+  "Things people usually ask about": "Things people usually ask about",
+  "working with me": "working with me",
+  "Still have questions?": "Still have questions?",
+
+  "Are you available for freelance projects?": "Are you available for freelance projects?",
+  "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.": "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.",
+
+  "What is your preferred tech stack?": "What is your preferred tech stack?",
+  "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.": "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.",
+
+  "Are you open to full-time employment?": "Are you open to full-time employment?",
+  "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!": "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!",
+
+  "How long does it typically take to build a project?": "How long does it typically take to build a project?",
+  "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.": "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.",
+
+  "What industries have you worked in?": "What industries have you worked in?",
+  "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.": "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.",
+
+  "How can I contact you?": "How can I contact you?",
+  "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.": "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.",
+  "SMAN 1 Randublatung (Smaransa)": "SMAN 1 Randublatung (Smaransa)",
+  "Mathematics and Natural Sciences (MIPA). Actively participated in student organizations and extracurricular activities.": "Mathematics and Natural Sciences (MIPA). Actively participated in student organizations and extracurricular activities."
 }

@@ -10,9 +10,11 @@ interface BentoCardProps {
   image?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+  class?: string;
 }
 
 interface BentoProps {
+  items?: BentoCardProps[];
   textAutoHide?: boolean;
   enableStars?: boolean;
   enableSpotlight?: boolean;
@@ -614,7 +616,7 @@ const cardElements = ref<HTMLDivElement[]>([]);
 
 const shouldDisableAnimations = computed(() => props.disableAnimations || isMobile.value);
 const baseClassName = computed(() => {
-  return `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-[box-shadow] duration-300 ease-in-out hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+  return `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-sm border border-border/40 font-light overflow-hidden transition-[box-shadow] duration-300 ease-in-out hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
     props.enableBorderGlow ? 'card--border-glow' : ''
   }`;
 });
@@ -766,10 +768,10 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
     "
   >
     <div class="gap-2 grid card-responsive">
-      <template v-for="(card, index) in cardData" :key="index">
+      <template v-for="(card, index) in props.items?.length ? props.items : cardData" :key="index">
         <ParticleCard
           v-if="enableStars"
-          :class="baseClassName"
+          :class="[baseClassName, card.class]"
           :style="getCardStyle(card)"
           :disable-animations="shouldDisableAnimations"
           :particle-count="particleCount"
@@ -779,23 +781,23 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
           :enable-magnetism="enableMagnetism"
         >
           <!-- Background Image -->
-          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-[20px]">
+          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-sm group">
             <img
               :src="card.image"
               :alt="card.title"
-              class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-300"
+              class="w-full h-full object-cover opacity-50 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-700 ease-out"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent group-hover:opacity-70 transition-opacity duration-300"></div>
           </div>
           
-          <div class="relative flex justify-between gap-3 text-white card__header z-10">
-            <span class="text-base card__label">{{ card.label }}</span>
+          <div class="relative flex justify-between gap-3 text-white card__header z-10 group">
+            <span class="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-sm bg-background/50 backdrop-blur-sm border border-border/30 text-muted-foreground">{{ card.label || 'PHOTO' }}</span>
           </div>
-          <div class="relative flex flex-col text-white card__content z-10">
-            <h3 :class="`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`">
+          <div class="relative flex flex-col text-white card__content z-10 group group-hover:-translate-y-2 transition-transform duration-300">
+            <h3 :class="`card__title font-heading font-semibold text-lg m-0 mb-2 leading-snug group-hover:text-amber-400 transition-colors duration-300 ${textAutoHide ? 'text-clamp-1' : ''}`">
               {{ card.title }}
             </h3>
-            <p :class="`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`">
+            <p :class="`card__description text-sm leading-relaxed opacity-90 font-light text-muted-foreground ${textAutoHide ? 'text-clamp-2' : ''}`">
               {{ card.description }}
             </p>
           </div>
@@ -803,28 +805,28 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
 
         <div
           v-else
-          :class="baseClassName"
+          :class="[baseClassName, card.class, 'group']"
           :style="getCardStyle(card)"
           :ref="el => setupCardRef(el as HTMLDivElement, index)"
         >
           <!-- Background Image -->
-          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-[20px]">
+          <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-sm">
             <img
               :src="card.image"
               :alt="card.title"
-              class="w-full h-full object-cover opacity-40 hover:opacity-60 transition-opacity duration-300"
+              class="w-full h-full object-cover opacity-50 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-700 ease-out"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent group-hover:opacity-70 transition-opacity duration-300"></div>
           </div>
           
           <div class="relative flex justify-between gap-3 text-white card__header z-10">
-            <span class="text-base card__label">{{ card.label }}</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-sm bg-background/50 backdrop-blur-sm border border-border/30 text-muted-foreground">{{ card.label || 'PHOTO' }}</span>
           </div>
-          <div class="relative flex flex-col text-white card__content z-10">
-            <h3 :class="`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`">
+          <div class="relative flex flex-col text-white card__content z-10 group-hover:-translate-y-2 transition-transform duration-300">
+            <h3 :class="`card__title font-heading font-semibold text-lg m-0 mb-2 leading-snug group-hover:text-amber-400 transition-colors duration-300 ${textAutoHide ? 'text-clamp-1' : ''}`">
               {{ card.title }}
             </h3>
-            <p :class="`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`">
+            <p :class="`card__description text-sm leading-relaxed opacity-90 font-light text-muted-foreground ${textAutoHide ? 'text-clamp-2' : ''}`">
               {{ card.description }}
             </p>
           </div>
@@ -880,16 +882,31 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
   }
 }
 
+.card--border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    calc(var(--glow-radius) * 1.5) circle at var(--glow-x) var(--glow-y),
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.15)) 0%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
 .card--border-glow::after {
   content: '';
   position: absolute;
   inset: 0;
-  padding: 6px;
+  padding: 1px;
   background: radial-gradient(
     var(--glow-radius) circle at var(--glow-x) var(--glow-y),
     rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.8)) 0%,
-    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.4)) 30%,
-    transparent 60%
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.2)) 50%,
+    transparent 100%
   );
   border-radius: inherit;
   mask:
@@ -905,6 +922,7 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
   z-index: 1;
 }
 
+.card--border-glow:hover::before,
 .card--border-glow:hover::after {
   opacity: 1;
 }

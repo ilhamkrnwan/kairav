@@ -83,7 +83,7 @@ const maskStyle = computed(() => {
           <!-- Main Hero Image & Interactive Frame -->
           <div
             ref="heroImageRef"
-            class="relative z-10 hero-img-wrap aspect-[4/5] h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 flex-shrink-0 cursor-crosshair group"
+            class="relative z-10 hero-img-wrap aspect-4/5 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 shrink-0 cursor-crosshair group"
             @mousemove="handleMouseMove"
             @mouseenter="isHovered = true"
             @mouseleave="isHovered = false"
@@ -148,34 +148,44 @@ const maskStyle = computed(() => {
 
         <!-- Text Content Section -->
         <div class="flex flex-col justify-center lg:p-6 p-0 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left order-2 lg:order-1 z-10 text-neutral-dark dark:text-accent-dark">
-          <!-- Logo -->
-          <div class="flex lg:justify-start items-center justify-center mb-4">
-            <h1 class="text-sm uppercase tracking-wider text-muted-foreground">kairav</h1>
+          <!-- Greeting -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm text-xs font-mono text-muted-foreground uppercase tracking-widest">
+              <span class="relative flex h-1.5 w-1.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400" />
+              </span>
+              {{ t('Hello my name is Ilham Kurniawan') }}
+            </span>
           </div>
 
-          <!-- Greeting -->
-          <p class="text-sm md:text-base text-muted-foreground mb-4 font-mono">
-            {{ t('Hello my name is Ilham Kurniawan') }}
-          </p>
-
           <!-- Main Heading -->
-          <h1 class="lg:text-4xl text-2xl font-heading mb-6 leading-tight">
-            {{ t('Fullstack Developer') }} | {{ t('IT Student') }} | {{ t('Web3 & AI Enthusiast') }}
+          <h1 class="leading-[0.88] tracking-tight mb-4">
+            <span class="section-title-filled block">{{ t('Fullstack') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Developer') }}<span class="text-amber-400 !important">.</span></span>
           </h1>
 
+          <!-- Sub Roles -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-1 mb-6">
+            <span class="text-sm font-light text-muted-foreground tracking-wide">{{ t('IT Student') }}</span>
+            <span class="text-border/40 text-sm">·</span>
+            <span class="text-sm font-light text-muted-foreground tracking-wide">{{ t('Web3 & AI Enthusiast') }}</span>
+          </div>
+
           <!-- Description -->
-          <p class="lg:text-lg text-base text-muted-foreground mb-8">
+          <p class="lg:text-lg text-base text-muted-foreground mb-8 font-light">
             {{ t('Bridging the gap between') }}
-            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
               {{ t('complex ideas') }}
             </UiTextGradient>
             {{ t('and') }}
-            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3" class="font-medium">
               {{ t('seamless digital experiences.') }}
             </UiTextGradient>
+            <br/><br/>
             {{ t('Agnostic in tools, precise in execution.') }}
             {{ t('Designed for users,') }}
-            <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3">
+            <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3" class="font-medium">
               {{ t('built for impact.') }}
             </UiTextGradient>
           </p>
@@ -314,5 +324,24 @@ const maskStyle = computed(() => {
 @keyframes orb-pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
   50%       { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
 }
 </style>

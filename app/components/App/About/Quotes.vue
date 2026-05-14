@@ -23,23 +23,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="w-full flex items-center justify-center min-h-screen text-gray-800 dark:text-white px-4 md:px-24 lg:px-8">
-    <div class="max-w-xl mx-auto text-center lg:max-w-2xl">
-      <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-800 dark:text-white sm:text-4xl mx-auto">
-        <span class="relative inline-block">
-          <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
-            <defs>
-              <pattern id="4314d5df-c4ea-4854-be21-f1fdbb6fe951" x="0" y="0" width=".135" height=".30">
-                <circle cx="1" cy="1" r=".7"></circle>
-              </pattern>
-            </defs>
-            <rect fill="url(#4314d5df-c4ea-4854-be21-f1fdbb6fe951)" width="52" height="24"></rect>
-          </svg>
-        </span>
+  <section class="w-full flex flex-col items-center justify-center py-32 px-6 md:px-12 lg:px-20 text-gray-800 dark:text-white">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="absolute -top-12 -left-12 opacity-10 pointer-events-none">
+        <Icon name="lucide:quote" class="w-32 h-32 text-amber-400" />
+      </div>
+      <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-8">
         "{{ currentQuote.text }}"
       </h2>
-      <p class="text-base text-gray-700 dark:text-gray-400 md:text-lg">
-        -- {{ currentQuote.author }} --
+      <div class="w-16 h-1 bg-amber-400 mx-auto mb-6"></div>
+      <p class="text-sm font-mono tracking-widest uppercase text-muted-foreground">
+        — {{ currentQuote.author }}
       </p>
     </div>
   </section>

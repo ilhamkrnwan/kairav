@@ -14,6 +14,7 @@ useDynamicSeo({
       <AppAboutEducations />
       <AppAboutWorks/>
       <AppRecentBlogs />
+      <AppAboutFaq />
       <AppAboutQuotes />
       <GetinTouch />
     </div>

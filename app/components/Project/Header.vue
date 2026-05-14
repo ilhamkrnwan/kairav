@@ -16,14 +16,24 @@ defineProps<Props>()
       <ProjectBreadcrumb />
       
       <!-- Title -->
-      <UiTextGradient class="text-4xl md:text-5xl lg:text-6xl">
-        {{ title }}
-      </UiTextGradient>
+      <h1 class="leading-[0.88] tracking-tight mb-8">
+        <span class="section-title-filled block">{{ title }}</span>
+      </h1>
       
       <!-- Description -->
-      <p v-if="description" class="mt-4 text-base text-gray-700 dark:text-gray-300 md:text-lg">
+      <p v-if="description" class="mt-4 text-base font-light text-muted-foreground md:text-lg">
         {{ description }}
       </p>
     </div>
   </div>
 </template>
+
+<style scoped>
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+</style>

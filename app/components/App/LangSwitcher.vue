@@ -46,17 +46,17 @@ const items = computed(() => {
 // Custom Styling for Dropdown
 const dropdownUi = {
   width: 'min-w-[180px]',
-  background: 'bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl',
-  ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
-  padding: 'p-1.5',
+  background: 'bg-background/80 backdrop-blur-md',
+  ring: 'ring-1 ring-border/40',
+  padding: 'p-1',
   item: {
-    base: 'gap-3 my-0.5',
-    rounded: 'rounded-lg',
-    active: 'bg-gray-100 dark:bg-gray-800',
-    size: 'text-sm font-medium',
+    base: 'gap-3 my-0.5 font-mono tracking-widest uppercase',
+    rounded: 'rounded-sm',
+    active: 'bg-foreground/5 dark:bg-foreground/10',
+    size: 'text-[10px] font-medium',
     icon: {
-      base: 'flex-shrink-0 w-5 h-5',
-      active: 'text-amber-500 dark:text-yellow-400'
+      base: 'flex-shrink-0 w-4 h-4',
+      active: 'text-amber-500'
     }
   }
 }
@@ -89,37 +89,27 @@ const dropdownUi = {
 .lang-toggle-btn {
   position: relative;
   z-index: 10001;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
 }
 
-.lang-toggle-btn::before {
-  content: '';
-  position: absolute;
-  inset: -25%;
-  width: 150%;
-  height: 150%;
-  background-image: url('/blob-lb2.svg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  transition: all 0.3s ease;
+.dark .lang-toggle-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .lang-toggle-btn:hover {
-  transform: scale(1.1);
-}
-
-.lang-toggle-btn:hover::before {
-  transform: rotate(-5deg);
+  border-color: rgba(251, 191, 36, 0.5);
+  background: rgba(251, 191, 36, 0.1);
 }
 
 /* Icon Styles */

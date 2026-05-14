@@ -83,7 +83,6 @@ const getTagColor = (tag: string) => {
   }
   return colors[tag] || 'bg-gray-600 hover:bg-gray-700'
 }
-
 </script>
 
 <template>
@@ -99,34 +98,28 @@ const getTagColor = (tag: string) => {
 
       <div class="max-w-4xl mx-auto text-center relative z-10">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-400/30 bg-amber-400/5 backdrop-blur-sm mb-8 animate-fade-in-up">
-          <span class="relative flex h-2 w-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8 animate-fade-in-up">
+          <span class="relative flex h-1.5 w-1.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400" />
           </span>
-          <span class="text-xs font-mono text-amber-400/80">{{ t('Welcome to my projects') }}</span>
+          <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest">{{ t('Welcome to my projects') }}</span>
         </div>
 
         <!-- Main Heading -->
-        <h1 class="text-4xl md:text-5xl lg:text-7xl font-heading mb-6 leading-tight animate-fade-in-up delay-100">
-          {{ t('Innovative') }}
-          <span class="text-amber-400 inline-block hover:scale-105 transition-transform duration-300 cursor-default">
-            {{ t('Projects') }}
-          </span>
-          <br />
-          <span class="text-2xl md:text-3xl lg:text-4xl text-muted-foreground font-normal">
-            &amp; <span class="text-amber-400 hover:scale-105 inline-block transition-transform duration-300 cursor-default">{{ t('Solutions') }}</span>
-          </span>
+        <h1 class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
+          <span class="section-title-filled block">{{ t('Innovative') }}</span>
+          <span class="section-title-outline text-foreground block">{{ t('Projects') }} & {{ t('Solutions') }}<span class="text-amber-400 !important">.</span></span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-light">
           {{ t('Here are some of the projects I\'ve worked on, showcasing my skills and passion for creating') }}
-          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3" class="font-medium">
             {{ t('innovative solutions') }}
           </UiTextGradient>
           {{ t('that make a') }}
-          <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3">
+          <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3" class="font-medium">
             {{ t('real impact.') }}
           </UiTextGradient>
         </p>
@@ -264,37 +257,37 @@ const getTagColor = (tag: string) => {
               <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
                 <!-- Icon + category -->
                 <div class="flex items-start justify-between mb-4">
-                  <div class="w-14 h-14 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300">
-                    <Icon name="lucide:folder-open" class="w-7 h-7 text-amber-400" />
+                  <div class="w-14 h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300">
+                    <Icon name="lucide:folder-open" class="w-6 h-6 text-amber-400" />
                   </div>
-                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
                     {{ project.category }}
                   </span>
                 </div>
 
                 <!-- Title -->
-                <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug">
+                <h3 class="text-xl font-heading font-semibold mb-3 text-foreground leading-snug tracking-wide group-hover:text-amber-400 transition-colors duration-300">
                   {{ project.title }}
                 </h3>
 
                 <!-- Description -->
-                <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1">
+                <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
                   {{ project.description }}
                 </p>
 
                 <!-- Tags -->
-                <div class="flex flex-wrap gap-1.5 mt-auto">
+                <div class="flex flex-wrap gap-2 mt-auto">
                   <span
                     v-for="tag in project.tags?.slice(0, 3)"
                     :key="tag"
-                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-white transition-colors duration-300"
+                    class="px-2 py-1 text-[10px] rounded-sm text-white font-mono uppercase tracking-widest transition-colors duration-300"
                     :class="getTagColor(tag)"
                   >
                     {{ tag }}
                   </span>
                   <span
                     v-if="project.tags && project.tags.length > 3"
-                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-muted-foreground bg-background/80 border border-border/50"
+                    class="px-2 py-1 text-[10px] rounded-sm text-muted-foreground font-mono uppercase tracking-widest bg-background/80 border border-border/50"
                   >
                     +{{ project.tags.length - 3 }}
                   </span>
@@ -333,4 +326,23 @@ const getTagColor = (tag: string) => {
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
+
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
 </style>

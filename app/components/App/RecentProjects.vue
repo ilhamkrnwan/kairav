@@ -57,131 +57,160 @@ const getTagColor = (tag: string) => {
 </script>
 
 <template>
-  <section class="w-full py-20 px-4 md:px-8 lg:px-12">
+  <section class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
     <div class="max-w-6xl mx-auto">
-      <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-heading">
-          {{ t('Recent') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Projects') }}</span>
-        </h2>
-        <p class="mt-4 text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          {{ t('A collection of digital executions where') }}
-          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
-            {{ t('technical logic') }}
-          </UiTextGradient>
-          {{ t('meets') }}
-          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
-            {{ t('seamless user experience.') }}
-          </UiTextGradient>
-          <br class="hidden md:block" />
-          {{ t('Showcasing my adaptability to various tech stacks to design an') }}
-          <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3">
-            {{ t('efficient and high-quality final product.') }}
-          </UiTextGradient>
-        </p>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <UiAnimatedCard
-          v-for="project in displayedProjects"
-          :key="project._path"
-          :glow-color="'251, 191, 36'"
-          :particle-count="8"
-          :enable-particles="true"
-          :enable-tilt="false"
-          :enable-magnetism="false"
-          :enable-border-glow="false"
-          :click-effect="true"
-        >
-          <NuxtLink
-            :to="project._path"
-            class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full"
-          >
-            <!-- Image (revealed on hover) -->
-            <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <img
-                :src="project.image"
-                :alt="project.title"
-                loading="lazy"
-                decoding="async"
-                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"
-              />
-              <!-- Amber gradient overlay on top of image -->
-              <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
-              <!-- Title on image hover state -->
-              <div class="absolute bottom-0 left-0 right-0 p-5">
-                <h3 class="text-lg font-heading text-white font-semibold">
-                  {{ project.title }}
-                </h3>
-              </div>
-            </div>
-
-            <!-- Default Content (hidden on hover) -->
-            <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
-              <!-- Icon -->
-              <div
-                class="w-16 h-16 mb-4 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center transition-all duration-300"
-              >
-                <Icon name="lucide:folder-open" class="w-8 h-8 text-amber-400" />
-              </div>
-
-              <!-- Title -->
-              <h3 class="text-xl font-heading font-semibold mb-2 text-foreground">
-                {{ project.title }}
-              </h3>
-
-              <!-- Description -->
-              <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1">
-                {{ project.description }}
-              </p>
-
-              <!-- Tags / Stack -->
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span
-                  v-for="tag in project.tags?.slice(0, 4)"
-                  :key="tag"
-                  class="px-2 py-1 text-xs rounded-full text-white font-mono transition-colors duration-300"
-                  :class="getTagColor(tag)"
-                >
-                  {{ tag }}
-                </span>
-              </div>
-            </div>
-          </NuxtLink>
-        </UiAnimatedCard>
-
-        <UiAnimatedCard
-          v-for="index in placeholderProjectCards"
-          :key="`project-placeholder-${index}`"
-          :glow-color="'251, 191, 36'"
-          :particle-count="5"
-          :enable-particles="false"
-          :enable-tilt="false"
-          :enable-magnetism="false"
-          :enable-border-glow="false"
-          :click-effect="false"
-        >
-          <div class="h-full min-h-64 rounded-xl border border-dashed border-amber-400/40 bg-amber-400/5 backdrop-blur-sm p-6 flex flex-col items-center justify-center text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-400/15 border border-amber-400/30 mb-4">
-              <Icon name="lucide:pen-square" class="w-6 h-6 text-amber-400" />
-            </div>
-            <p class="text-sm font-mono text-amber-300 leading-relaxed">
-              {{ workInProgressText }}
-            </p>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Section Header -->
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+          <h2 class="leading-[0.88] tracking-tight mb-6">
+            <span class="section-title-filled block">{{ t('Recent') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Projects') }}<span class="text-amber-400 !important">.</span></span>
+          </h2>
+          <div class="w-12 h-1 bg-amber-400 mb-6"></div>
+          <p class="text-sm font-mono tracking-wider text-muted-foreground leading-relaxed">
+            {{ t('A collection of digital executions where') }}
+            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3">
+              {{ t('technical logic') }}
+            </UiTextGradient>
+            {{ t('meets') }}
+            <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
+              {{ t('seamless user experience.') }}
+            </UiTextGradient>
+          </p>
+          <div class="mt-8 hidden lg:block">
+            <UiAnimatedButton href="/portofolio" variant="outline">
+              <template #default>{{ t('View All Projects') }}</template>
+              <template #iconRight>
+                <Icon name="lucide:arrow-right" class="w-4 h-4" />
+              </template>
+            </UiAnimatedButton>
           </div>
-        </UiAnimatedCard>
-      </div>
+        </div>
 
-      <!-- View All Button -->
-      <div class="text-center mt-12">
-        <UiAnimatedButton href="/portofolio" variant="outline">
-          <template #default>{{ t('View All Projects') }}</template>
-          <template #iconRight>
-            <Icon name="lucide:arrow-right" class="w-4 h-4" />
-          </template>
-        </UiAnimatedButton>
+        <!-- Projects Grid -->
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <UiAnimatedCard
+              v-for="project in displayedProjects"
+              :key="project._path"
+              :glow-color="'251, 191, 36'"
+              :particle-count="8"
+              :enable-particles="true"
+              :enable-tilt="false"
+              :enable-magnetism="false"
+              :enable-border-glow="false"
+              :click-effect="true"
+            >
+              <NuxtLink
+                :to="project._path"
+                class="group relative block rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
+              >
+                <!-- Image (revealed on hover) -->
+                <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <img
+                    :src="project.image"
+                    :alt="project.title"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"
+                  />
+                  <!-- Amber gradient overlay on top of image -->
+                  <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+                  <!-- Title on image hover state -->
+                  <div class="absolute bottom-0 left-0 right-0 p-5">
+                    <h3 class="text-lg font-heading text-white font-semibold tracking-wide">
+                      {{ project.title }}
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- Default Content (hidden on hover) -->
+                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <!-- Icon -->
+                  <div
+                    class="w-14 h-14 mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300"
+                  >
+                    <Icon name="lucide:folder-open" class="w-6 h-6 text-amber-400" />
+                  </div>
+
+                  <!-- Title -->
+                  <h3 class="text-xl font-heading font-semibold mb-3 text-foreground tracking-wide">
+                    {{ project.title }}
+                  </h3>
+
+                  <!-- Description -->
+                  <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
+                    {{ project.description }}
+                  </p>
+
+                  <!-- Tags / Stack -->
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    <span
+                      v-for="tag in project.tags?.slice(0, 3)"
+                      :key="tag"
+                      class="px-2 py-1 text-[10px] rounded-sm text-white font-mono uppercase tracking-widest transition-colors duration-300"
+                      :class="getTagColor(tag)"
+                    >
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+              </NuxtLink>
+            </UiAnimatedCard>
+
+            <UiAnimatedCard
+              v-for="index in placeholderProjectCards"
+              :key="`project-placeholder-${index}`"
+              :glow-color="'251, 191, 36'"
+              :particle-count="5"
+              :enable-particles="false"
+              :enable-tilt="false"
+              :enable-magnetism="false"
+              :enable-border-glow="false"
+              :click-effect="false"
+            >
+              <div class="h-full min-h-[280px] rounded-sm border border-dashed border-amber-400/30 bg-amber-400/5 backdrop-blur-sm p-6 flex flex-col items-center justify-center text-center shadow-lg">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-sm bg-amber-400/10 border border-amber-400/20 mb-4">
+                  <Icon name="lucide:pen-square" class="w-5 h-5 text-amber-400" />
+                </div>
+                <p class="text-sm font-mono tracking-widest uppercase text-amber-500/70 leading-relaxed">
+                  {{ workInProgressText }}
+                </p>
+              </div>
+            </UiAnimatedCard>
+          </div>
+          
+          <div class="mt-8 lg:hidden block text-center">
+            <UiAnimatedButton href="/portofolio" variant="outline">
+              <template #default>{{ t('View All Projects') }}</template>
+              <template #iconRight>
+                <Icon name="lucide:arrow-right" class="w-4 h-4" />
+              </template>
+            </UiAnimatedButton>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+</style>

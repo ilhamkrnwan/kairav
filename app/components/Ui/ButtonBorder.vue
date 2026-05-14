@@ -1,11 +1,9 @@
 <template>
     <button 
       type="button" 
-      class="border border-gray-400 text-gray-400 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none 
-             hover:bg-gray-900 hover:border-slate-500 focus:outline-none focus:shadow-outline
-             dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-slate-400"
+      class="border border-border/40 bg-background/50 backdrop-blur-sm text-muted-foreground rounded-sm px-4 py-2 m-2 transition duration-500 ease select-none font-mono tracking-widest uppercase text-[10px]
+             hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 focus:outline-none focus:shadow-outline"
     >
       <slot />
     </button>
   </template>
-  

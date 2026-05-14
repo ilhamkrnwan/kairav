@@ -314,16 +314,48 @@ onUnmounted(() => {
   will-change: transform;
 }
 
+.animated-card--border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    calc(var(--glow-radius) * 1.5) circle at var(--glow-x) var(--glow-y),
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.15)) 0%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-card--border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    calc(var(--glow-radius) * 1.5) circle at var(--glow-x) var(--glow-y),
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.15)) 0%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .animated-card--border-glow::after {
   content: '';
   position: absolute;
   inset: 0;
-  padding: 2px;
+  padding: 1px;
   background: radial-gradient(
     var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.6)) 0%,
-    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.3)) 30%,
-    transparent 60%
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.8)) 0%,
+    rgba(v-bind(glowColor), calc(var(--glow-intensity) * 0.2)) 50%,
+    transparent 100%
   );
   border-radius: inherit;
   mask:
@@ -340,6 +372,7 @@ onUnmounted(() => {
   opacity: 0;
 }
 
+.animated-card:hover.animated-card--border-glow::before,
 .animated-card:hover.animated-card--border-glow::after {
   opacity: 1;
 }

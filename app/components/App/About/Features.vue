@@ -28,7 +28,7 @@ const features = computed(() => [
 </script>
 
 <template>
-  <section id="features" class="section w-full py-6 px-2">
+  <section id="features" class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
     <UiGlobalSpotlight
       container-selector=".features-container"
       card-selector=".animated-card"
@@ -36,15 +36,16 @@ const features = computed(() => [
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="container mx-auto">
-      <div class="max-w-6xl mx-auto features-container">
-
-        <!-- Section Title -->
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('End-to-End') }} <span class="text-amber-600 dark:text-amber-400">{{ t('Development Capabilities') }}</span>
+    <div class="max-w-6xl mx-auto features-container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Title Area -->
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+          <h2 class="leading-[0.88] tracking-tight mb-6">
+            <span class="section-title-filled block">{{ t('End-to-End') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Capabilities') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <div class="w-12 h-1 bg-amber-400 mb-6"></div>
+          <p class="text-sm font-mono tracking-wider text-muted-foreground leading-relaxed">
             {{ t('Building a digital ecosystem from the') }}
             <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3">
               {{ t('deepest data structure') }}
@@ -57,55 +58,44 @@ const features = computed(() => [
         </div>
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <UiAnimatedCard
-            v-for="(feature, index) in features"
-            :key="index"
-            :glow-color="'251, 191, 36'"
-            :particle-count="8"
-            :enable-particles="true"
-            :enable-tilt="false"
-            :enable-magnetism="false"
-            :enable-border-glow="false"
-            :click-effect="true"
-          >
-            <div
-              class="group relative p-6 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full"
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <UiAnimatedCard
+              v-for="(feature, index) in features"
+              :key="index"
+              :glow-color="'251, 191, 36'"
+              :particle-count="8"
+              :enable-particles="true"
+              :enable-tilt="false"
+              :enable-magnetism="false"
+              :enable-border-glow="false"
+              :click-effect="true"
             >
-              <!-- Icon -->
               <div
-                class="w-16 h-16 mb-4 rounded-lg bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300"
+                class="group relative p-6 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
               >
-                <Icon
-                  :name="feature.icon"
-                  class="w-8 h-8 text-amber-400"
-                />
+                <!-- Icon -->
+                <div
+                  class="w-14 h-14 mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300"
+                >
+                  <Icon
+                    :name="feature.icon"
+                    class="w-6 h-6 text-amber-400"
+                  />
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-xl font-heading font-semibold mb-3 text-foreground tracking-wide">
+                  {{ feature.title }}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-sm font-light text-muted-foreground leading-relaxed">
+                  {{ feature.description }}
+                </p>
               </div>
-
-              <!-- Title -->
-              <h3 class="text-xl font-semibold mb-2 text-foreground">
-                {{ feature.title }}
-              </h3>
-
-              <!-- Description -->
-              <p class="text-sm text-muted-foreground mb-4 leading-relaxed">
-                {{ feature.description }}
-              </p>
-            </div>
-          </UiAnimatedCard>
-        </div>
-
-        <!-- Additional Note -->
-        <div class="mt-16 text-center">
-          <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm dark:border-gray-700 dark:bg-zinc-800/50 transition-colors duration-300">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-            </span>
-            <span class="font-medium text-gray-600 dark:text-gray-200">
-              {{ t('Delivering excellence across all aspects of software development') }}
-            </span>
-          </span>
+            </UiAnimatedCard>
+          </div>
         </div>
       </div>
     </div>
@@ -113,5 +103,22 @@ const features = computed(() => [
 </template>
 
 <style scoped>
-/* Additional hover effects can be added here if needed */
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
 </style>

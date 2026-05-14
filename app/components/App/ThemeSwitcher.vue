@@ -82,37 +82,27 @@ onMounted(() => {
 .theme-toggle-btn {
   position: relative;
   z-index: 10001;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
 }
 
-.theme-toggle-btn::before {
-  content: '';
-  position: absolute;
-  inset: -25%;
-  width: 150%;
-  height: 150%;
-  background-image: url('/blob-hero.svg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  transition: all 0.3s ease;
+.dark .theme-toggle-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .theme-toggle-btn:hover {
-  transform: scale(1.1);
-}
-
-.theme-toggle-btn:hover::before {
-  transform: rotate(5deg);
+  border-color: rgba(251, 191, 36, 0.5);
+  background: rgba(251, 191, 36, 0.1);
 }
 
 /* Splash Effect Wrapper - Behind Button */

@@ -18,7 +18,7 @@ const careerBadges = computed(() => [
   },
   {
     icon: 'lucide:building-2',
-    label: t('Intern at Sekeco'),
+    label: t('Part of Sekeco'),
     sub: 'Jan 2025 →',
     color: '#A78BFA',
     delay: '120ms'

@@ -42,9 +42,9 @@ RuangNU unifies all spiritual and community needs in a single platform:
 - **Educational Content** — Accessible Islamic learning resources
 - **Future Marketplace** — Planned features for NU-affiliated products and donation management
 
-## Ilham's Role
+## My Role
 
-As **Web Developer and Database Designer**, Ilham was responsible for:
+As **Web Developer and Database Designer**, I was responsible for:
 - Fullstack development using PHP Native and Tailwind CSS
 - Designing and implementing the MySQL database for content and user management
 - Developing Islamic resource library and prayer tools features

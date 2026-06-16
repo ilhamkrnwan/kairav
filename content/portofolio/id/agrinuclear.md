@@ -39,9 +39,9 @@ AgriNuclear mengubah konten ilmiah kompleks menjadi materi edukasi yang mudah di
 - **Referensi Akademik** — Sumber yang tercantum dengan benar untuk eksplorasi akademik lebih lanjut
 - **Static Site Architecture** — Loading super cepat dengan optimasi SEO bawaan
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Web Developer dan UI/UX Designer**, Ilham bertanggung jawab atas:
+Sebagai **Web Developer dan UI/UX Designer**, saya bertanggung jawab atas:
 - Desain dan pengembangan seluruh website menggunakan React dan Tailwind CSS
 - Pembuatan layout visual-first yang memprioritaskan infografis dan diagram
 - Implementasi arsitektur static site untuk performa dan SEO optimal

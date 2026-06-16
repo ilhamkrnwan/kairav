@@ -48,9 +48,9 @@ Kairav Studio was built as a modern company profile website that prioritizes pre
 * **Portfolio-Driven Layout** — Showcasing case studies, workflows, and project results as proof of capabilities
 * **Scalable Content System** — Portfolio content and service pages structured for easy expansion as the studio grows
 
-## Ilham's Role
+## My Role
 
-As **Initiator, Designer, and Web Developer**, Ilham was responsible for:
+As **Initiator, Designer, and Web Developer**, I was responsible for:
 
 * Designing the digital identity, visual direction, and positioning of Kairav Studio
 * Developing the company profile website using Astro and Tailwind CSS

@@ -44,9 +44,9 @@ Qinarian was built as a community hub prioritizing content and collaboration:
 - **Modern UI/UX** — Clean interface that puts content first
 - **SEO Optimized** — Built for discoverability and broad reach
 
-## Ilham's Role
+## My Role
 
-As **Fullstack Developer and UI/UX Designer**, Ilham was responsible for:
+As **Fullstack Developer and UI/UX Designer**, I was responsible for:
 - Architecting and developing the platform from scratch using Nuxt.js
 - Implementing the i18n system for multi-language support
 - Designing a clean, modern UI/UX with Tailwind CSS

@@ -44,9 +44,9 @@ Sistem informasi terintegrasi yang berfungsi sebagai hub resmi untuk anggota dan
 - **Gallery** — Album foto responsif dengan preview lightbox
 - **Admin Dashboard** — Statistik, quick actions, dan manajemen data terintegrasi
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Fullstack Developer dan UI/UX Designer**, Ilham bertanggung jawab atas:
+Sebagai **Fullstack Developer dan UI/UX Designer**, saya bertanggung jawab atas:
 - Arsitektur dan pengembangan seluruh sistem menggunakan Nuxt 4
 - Implementasi UI modern dengan Shadcn UI dan Nuxt UI v4
 - Desain dan implementasi database MySQL untuk manajemen anggota dan konten

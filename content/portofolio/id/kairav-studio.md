@@ -48,9 +48,9 @@ Kairav Studio dibangun sebagai website company profile modern yang mengutamakan 
 * **Portfolio-Driven Layout** — Menampilkan studi kasus, proses kerja, dan hasil proyek sebagai bukti kemampuan
 * **Scalable Content System** — Konten portofolio dan halaman layanan disusun agar mudah diperluas seiring perkembangan studio
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Penginisiasi, Desainer, dan Web Developer**, Ilham bertanggung jawab atas:
+Sebagai **Penginisiasi, Desainer, dan Web Developer**, saya bertanggung jawab atas:
 
 * Perancangan identitas digital, arah visual, dan positioning Kairav Studio
 * Pengembangan website company profile menggunakan Astro dan Tailwind CSS

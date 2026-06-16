@@ -44,9 +44,9 @@ Qinarian dibangun sebagai hub komunitas yang memprioritaskan konten dan kolabora
 - **Modern UI/UX** — Interface bersih yang mengutamakan konten
 - **SEO Optimized** — Dibangun untuk discoverability dan jangkauan luas
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Fullstack Developer dan UI/UX Designer**, Ilham bertanggung jawab atas:
+Sebagai **Fullstack Developer dan UI/UX Designer**, saya bertanggung jawab atas:
 - Arsitektur dan pengembangan platform dari awal menggunakan Nuxt.js
 - Implementasi sistem i18n untuk dukungan multi-bahasa
 - Desain UI/UX yang clean dan modern dengan Tailwind CSS

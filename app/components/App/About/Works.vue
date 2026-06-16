@@ -11,10 +11,10 @@ const allWorkItems = computed(() => [
   },
   {
     logo: '/logo/sekeco.avif',
-    type: t('Internship'),
+    type: t('Part of'),
     title: t('Junior Developer at Sekeco'),
     date: t('January 2025 - Present'),
-    description: t('Assisted in developing Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.')
+    description: t('Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.')
   },
   {
     logo: '/logo/indotech.avif',

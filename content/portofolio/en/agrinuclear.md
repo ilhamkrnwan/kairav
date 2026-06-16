@@ -39,9 +39,9 @@ AgriNuclear transforms complex scientific content into digestible educational ma
 - **Academic References** — Properly cited sources for deeper academic exploration
 - **Static Site Architecture** — Super-fast loading with built-in SEO optimization
 
-## Ilham's Role
+## My Role
 
-As **Web Developer and UI/UX Designer**, Ilham was responsible for:
+As **Web Developer and UI/UX Designer**, I was responsible for:
 - Designing and developing the entire website using React and Tailwind CSS
 - Creating visual-first layouts prioritizing infographics and diagrams
 - Implementing static site architecture for optimal performance and SEO

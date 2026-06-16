@@ -51,9 +51,9 @@ Santap dibangun sebagai platform POS dan QR ordering yang menghubungkan pelangga
 * **Multi-Organization Architecture** — Sistem dirancang agar dapat digunakan oleh banyak restoran atau outlet dengan data yang terpisah
 * **Mobile-First Experience** — Antarmuka web pelanggan dan aplikasi mobile dibuat responsif untuk penggunaan cepat di lapangan
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Fullstack Web & Mobile Developer**, Ilham bertanggung jawab atas:
+Sebagai **Fullstack Web & Mobile Developer**, saya bertanggung jawab atas:
 
 * Pengembangan customer web ordering menggunakan Nuxt.js
 * Pengembangan backend REST API menggunakan Laravel

@@ -42,9 +42,9 @@ RuangNU menyatukan semua kebutuhan spiritual dan komunitas dalam satu platform:
 - **Educational Content** — Resources edukatif Islami yang mudah diakses
 - **Future Marketplace** — Fitur yang direncanakan untuk produk afiliasi NU dan manajemen donasi
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Web Developer dan Database Designer**, Ilham bertanggung jawab atas:
+Sebagai **Web Developer dan Database Designer**, saya bertanggung jawab atas:
 - Pengembangan fullstack menggunakan PHP Native dan Tailwind CSS
 - Desain dan implementasi database MySQL untuk manajemen konten dan user
 - Pengembangan fitur Islamic resource library dan prayer tools

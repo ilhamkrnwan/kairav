@@ -44,9 +44,9 @@ An integrated information system serving as the official hub for members and the
 - **Gallery** — Responsive photo albums with lightbox preview
 - **Admin Dashboard** — Statistics, quick actions, and integrated data management
 
-## Ilham's Role
+## My Role
 
-As **Fullstack Developer and UI/UX Designer**, Ilham was responsible for:
+As **Fullstack Developer and UI/UX Designer**, I was responsible for:
 - Architecting and developing the entire system using Nuxt 4
 - Implementing modern UI with Shadcn UI and Nuxt UI v4
 - Designing and implementing the MySQL database for member and content management

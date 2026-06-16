@@ -45,9 +45,9 @@ Jurutani dibangun sebagai platform mobile-first yang menyatukan semua kebutuhan 
 - **Integrated Marketplace** — Platform jual-beli hasil tani langsung, mengurangi ketergantungan pada perantara
 - **Mobile-First Design** — Kemampuan offline untuk wilayah dengan koneksi terbatas
 
-## Peran Ilham
+## Peran Saya
 
-Sebagai **Fullstack Web & Android Developer**, Ilham bertanggung jawab atas:
+Sebagai **Fullstack Web & Android Developer**, saya bertanggung jawab atas:
 - Arsitektur dan pengembangan seluruh frontend menggunakan Nuxt.js dan Capacitor untuk deployment mobile
 - Integrasi Google Gemini AI untuk fitur konsultasi cerdas dan diagnosa tanaman
 - Desain dan implementasi database menggunakan Supabase (PostgreSQL)

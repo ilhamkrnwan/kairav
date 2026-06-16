@@ -45,9 +45,9 @@ Jurutani was built as a mobile-first platform that unifies all agricultural need
 - **Integrated Marketplace** — Direct farm-to-buyer selling platform, reducing dependence on middlemen
 - **Mobile-First Design** — Offline capabilities for areas with limited connectivity
 
-## Ilham's Role
+## My Role
 
-As **Fullstack Web & Android Developer**, Ilham was responsible for:
+As **Fullstack Web & Android Developer**, I was responsible for:
 - Architecting and developing the entire frontend using Nuxt.js and Capacitor for mobile deployment
 - Integrating Google Gemini AI for smart consultation and crop diagnosis features
 - Designing and implementing the database using Supabase (PostgreSQL)

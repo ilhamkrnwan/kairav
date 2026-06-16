@@ -51,9 +51,9 @@ Santap was built as a POS and QR ordering platform that seamlessly connects cust
 * **Multi-Organization Architecture** — Designed to support multi-tenant structures, enabling multiple restaurants or outlets to use the platform with complete data isolation
 * **Mobile-First Experience** — Both the customer web portal and the cashier/kitchen mobile apps are responsive and optimized for fast-paced, on-the-field usage
 
-## Ilham's Role
+## My Role
 
-As **Fullstack Web & Mobile Developer**, Ilham was responsible for:
+As **Fullstack Web & Mobile Developer**, I was responsible for:
 
 * Developing the customer web ordering portal using Nuxt.js
 * Building the backend REST API using Laravel

@@ -1,7 +1,7 @@
 ---
 title: Qinarian
-description: Platform komunitas tech yang dibangun buat innovators, di mana kolaborasi open-source ketemu sama solusi digital cutting-edge
-image: /portofolio/qinarian/1.webp
+description: Platform komunitas teknologi untuk innovators yang menggabungkan kolaborasi open-source dengan solusi digital cutting-edge
+image: /portofolio/qinarian/1.avif
 category: Website & Platform Komunitas
 services:
   - Web Development
@@ -19,33 +19,57 @@ tags:
   - i18n
   - Content-Driven
 _path: /portofolio/qinarian
+url: https://natakarsa.vercel.app
 ---
 
-# Qinarian
+# Qinarian — Platform Komunitas Teknologi
 
-Platform komunitas tech yang dibangun buat innovators, di mana kolaborasi open-source ketemu sama solusi digital cutting-edge.
+Platform komunitas teknologi untuk innovators yang menggabungkan kolaborasi open-source dengan solusi digital cutting-edge.
 
-![Platform Qinarian](/portofolio/qinarian/preview.webp)
+![Platform Qinarian](/portofolio/qinarian/preview.avif)
 
-## Tantangan
+## Masalah
 
-Tech communities butuh space yang feels modern, open, dan collaborative. Kebanyakan platform terlalu corporate atau cluttered, kurang welcoming buat developer.
+Komunitas teknologi membutuhkan platform yang terasa modern, terbuka, dan kolaboratif. Kebanyakan platform yang ada terlalu korporat atau berantakan, kurang ramah bagi developer yang ingin berkolaborasi dan berbagi pengetahuan secara efektif.
 
 ## Solusi
 
-- **Project Showcase** – Display clean dengan case study detail dan tech stack
-- **Community Hub** – Space untuk developer connect dan collaborate
-- **Resource Library** – Tools, tutorials, dan resources yang curated
-- **Multi-Language Support** – Built-in i18n untuk global accessibility
-- **Content-Driven CMS** – Markdown-based untuk update gampang
-- **Modern UI/UX** – Interface clean yang put content first
-- **SEO Optimized** – Built untuk discoverability dan reach
+Qinarian dibangun sebagai hub komunitas yang memprioritaskan konten dan kolaborasi:
 
+- **Project Showcase** — Display proyek yang bersih dengan case study detail dan informasi tech stack
+- **Community Hub** — Ruang untuk developer terhubung, berdiskusi, dan berkolaborasi
+- **Resource Library** — Kumpulan tools, tutorial, dan resources yang dikurasi
+- **Multi-Language Support** — i18n built-in untuk aksesibilitas global (Indonesia & English)
+- **Content-Driven CMS** — Berbasis Markdown untuk kemudahan update konten
+- **Modern UI/UX** — Interface bersih yang mengutamakan konten
+- **SEO Optimized** — Dibangun untuk discoverability dan jangkauan luas
 
-## Hasil
+## Peran Ilham
 
-Platform scalable dan modern yang brings tech communities together dengan fast performance, clean design, dan filosofi open-source.
+Sebagai **Fullstack Developer dan UI/UX Designer**, Ilham bertanggung jawab atas:
+- Arsitektur dan pengembangan platform dari awal menggunakan Nuxt.js
+- Implementasi sistem i18n untuk dukungan multi-bahasa
+- Desain UI/UX yang clean dan modern dengan Tailwind CSS
+- Setup CMS berbasis Markdown (Nuxt Content) untuk manajemen konten
+- Optimasi SEO dan performa website
 
-![Qinarian Mockup 1](/portofolio/qinarian/1.webp)
-![Qinarian Mockup 2](/portofolio/qinarian/2.webp)
-![Qinarian Mockup 3](/portofolio/qinarian/3.webp)
+## Tech Stack
+
+| Layer | Teknologi |
+|-------|-----------|
+| Frontend | Nuxt.js, Vue 3, TypeScript |
+| Styling | Tailwind CSS |
+| CMS | Nuxt Content (Markdown-based) |
+| i18n | @nuxtjs/i18n |
+| Deployment | Vercel |
+
+## Dampak dan Hasil
+
+- Platform scalable dan modern yang menyatukan komunitas teknologi
+- Performa tinggi dengan loading cepat berkat SSR Nuxt.js
+- Desain clean yang fokus pada konten dan kolaborasi
+- Dukungan multi-bahasa untuk jangkauan global
+
+![Qinarian Mockup 1](/portofolio/qinarian/1.avif)
+![Qinarian Mockup 2](/portofolio/qinarian/2.avif)
+![Qinarian Mockup 3](/portofolio/qinarian/3.avif)

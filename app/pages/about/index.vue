@@ -5,6 +5,9 @@ useDynamicSeo({
   descriptionKey: 'seo.about.description',
   image: '/og-image.jpg'
 })
+
+// JSON-LD Structured Data for profile page
+useProfilePageSchema()
 </script>
 
 <template>

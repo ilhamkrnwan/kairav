@@ -13,7 +13,7 @@ const galleryItems = computed(() => [
   {
     title: t('Portrait Photography'),
     description: t('Capturing emotions and personality in every frame'),
-    image: '/1.webp',
+    image: '/gallery/1.avif',
     icon: 'lucide:user',
     badge: t('Featured'),
     class: 'md:col-span-2 md:row-span-2',
@@ -22,7 +22,7 @@ const galleryItems = computed(() => [
   {
     title: t('Urban Exploration'),
     description: t('Discovering beauty in city landscapes'),
-    image: '/2.webp',
+    image: '/gallery/2.avif',
     icon: 'lucide:building-2',
     badge: t('Recent'),
     class: 'aspect-square',
@@ -31,7 +31,7 @@ const galleryItems = computed(() => [
   {
     title: t('Nature Vibes'),
     description: t('Finding peace in natural scenery'),
-    image: '/3.webp',
+    image: '/gallery/3.avif',
     icon: 'lucide:trees',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
@@ -39,7 +39,7 @@ const galleryItems = computed(() => [
   {
     title: t('Street Photography'),
     description: t('Life moments in everyday scenes'),
-    image: '/4.webp',
+    image: '/gallery/4.avif',
     icon: 'lucide:camera',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'
@@ -47,7 +47,7 @@ const galleryItems = computed(() => [
   {
     title: t('Professional Shoots'),
     description: t('Commercial and editorial photography'),
-    image: '/5.webp',
+    image: '/gallery/5.avif',
     icon: 'lucide:briefcase',
     badge: t('Portfolio'),
     class: 'md:col-span-2 aspect-video',
@@ -56,7 +56,7 @@ const galleryItems = computed(() => [
   {
     title: t('Creative Experiments'),
     description: t('Pushing boundaries with new techniques'),
-    image: '/6.webp',
+    image: '/gallery/6.avif',
     icon: 'lucide:palette',
     class: 'aspect-square',
     imageClass: 'filter grayscale group-hover:grayscale-0'

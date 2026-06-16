@@ -3,7 +3,7 @@ const { t } = useI18n()
 
 const allEducationItems = computed(() => [
   {
-    logo: '/logo/unu-jogja.png',
+    logo: '/logo/unu-jogja.avif',
     title: t('Nahdlatul Ulama University Yogyakarta (UNUYO)'),
     date: '2023 - ' + t('Present') + ' | ' + t('Undergraduated'),
     description: t(
@@ -12,7 +12,7 @@ const allEducationItems = computed(() => [
     type: t('Formal')
   },
   {
-    logo: '/logo/dinperinaker.png',
+    logo: '/logo/dinperinaker.avif',
     title: t('Graphic Design Training - DINPERINAKER Blora'),
     date: '2022 | ' + t('Graduated'),
     description: t(
@@ -21,7 +21,7 @@ const allEducationItems = computed(() => [
     type: t('Non-Formal')
   },
   {
-    logo: '/logo/rgi.png',
+    logo: '/logo/rgi.avif',
     title: t('Rumah Gemilang Indonesia Surabaya (RGI Surabaya)'),
     date: '2020 - 2021 | ' + t('Graduated'),
     description: t(
@@ -30,7 +30,7 @@ const allEducationItems = computed(() => [
     type: t('Non-Formal')
   },
   {
-    logo: '/logo/smaransa.png',
+    logo: '/logo/smaransa.avif',
     title: t('SMAN 1 Randublatung (Smaransa)'),
     date: '2017 - 2020 | ' + t('Graduated'),
     description: t(

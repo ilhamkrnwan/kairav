@@ -1,7 +1,7 @@
 ---
 title: "Building a Modern Web Portfolio with Nuxt 4 and Nuxt UI"
 description: "My guide and experience in restructuring an interactive portfolio utilizing the capabilities of Nuxt 4 and the elegant components of Nuxt UI."
-coverImage: "/blog/membangun-portofolio/cover.png"
+coverImage: "/blog/membangun-portofolio/cover.avif"
 author: "Ilham Kurniawan"
 date: "2026-04-06T10:00:00.000Z"
 category: "Web Development"

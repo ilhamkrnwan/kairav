@@ -1,7 +1,7 @@
 ---
 title: AgriNuclear
-description: An educational web platform that makes nuclear agriculture concepts accessible and engaging, bridging the gap between advanced science and everyday farming innovation
-image: /portofolio/agrinuklir/1.webp
+description: An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content
+image: /portofolio/agrinuklir/1.avif
 category: Website
 services:
   - Web Development
@@ -19,28 +19,49 @@ tags:
 _path: /portofolio/agrinuclear
 ---
 
-# AgriNuclear
+# AgriNuclear — Nuclear Agriculture Education Platform
 
-An educational web platform that breaks down complex nuclear agriculture concepts into bite-sized, easy-to-understand content.
+An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content.
 
-![AgriNuclear Preview](/portofolio/agrinuklir/preview.webp)
+![AgriNuclear Platform Preview](/portofolio/agrinuklir/preview.avif)
 
-## Challenge
+## Problem
 
-Nuclear agriculture sounds intimidating. Students and educators need accessible resources about how nuclear technology creates better crops, but most content is either too academic or too vague.
+Nuclear agriculture sounds intimidating to the general public. Students and educators need accessible resources about nuclear technology for crops (such as mutation breeding and radiation applications), but most available content is too academic and difficult to understand without a scientific background.
 
 ## Solution
 
-- **Visual-First Learning** – Infographics and diagrams that make complex processes easy to grasp
-- **Educational Articles** – Mutation breeding and radiation applications explained in plain language
-- **Structured Content** – Organized by difficulty level for self-paced or classroom learning
-- **Academic References** – Properly cited sources for deeper exploration
-- **Static Site Architecture** – Lightning-fast loading with SEO optimization
+AgriNuclear transforms complex scientific content into digestible educational material:
 
-## Results
+- **Visual-First Learning** — Interactive infographics and diagrams that make complex processes easy to understand
+- **Educational Articles** — Mutation breeding, radiation applications, and nuclear techniques explained in simple language
+- **Structured Content** — Material organized by difficulty level, suitable for self-study or classroom use
+- **Academic References** — Properly cited sources for deeper academic exploration
+- **Static Site Architecture** — Super-fast loading with built-in SEO optimization
 
-Made advanced agricultural science approachable for students, educators, and the public with fast loading and smooth navigation.
+## Ilham's Role
 
-![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.webp)
-![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.webp)
-![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.webp)
+As **Web Developer and UI/UX Designer**, Ilham was responsible for:
+- Designing and developing the entire website using React and Tailwind CSS
+- Creating visual-first layouts prioritizing infographics and diagrams
+- Implementing static site architecture for optimal performance and SEO
+- Collaborating with the academic team for educational content validation
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React, Tailwind CSS |
+| Architecture | Static Site Generation (SSG) |
+| Deployment | Static hosting |
+
+## Impact and Results
+
+- Made nuclear agriculture science accessible to students, educators, and the general public
+- Fast-loading website with intuitive navigation thanks to static site architecture
+- Structured content supporting progressive learning
+- Properly cited academic references ensuring content credibility
+
+![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.avif)
+![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.avif)
+![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.avif)

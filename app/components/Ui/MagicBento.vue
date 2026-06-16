@@ -39,49 +39,49 @@ const cardData: BentoCardProps[] = [
     title: 'Gallery Photo 1',
     description: 'Captured moments',
     label: 'Photo',
-    image: '/gallery/1.webp'
+    image: '/gallery/1.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 2',
     description: 'Memories in frame',
     label: 'Photo',
-    image: '/gallery/2.webp'
+    image: '/gallery/2.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 3',
     description: 'Visual stories',
     label: 'Photo',
-    image: '/gallery/3.webp'
+    image: '/gallery/3.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 4',
     description: 'Frozen in time',
     label: 'Photo',
-    image: '/gallery/4.webp'
+    image: '/gallery/4.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 5',
     description: 'Life through lens',
     label: 'Photo',
-    image: '/gallery/5.webp'
+    image: '/gallery/5.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 6',
     description: 'Beautiful moments',
     label: 'Photo',
-    image: '/gallery/6.webp'
+    image: '/gallery/6.avif'
   },
   {
     color: '#000C00',
     title: 'Gallery Photo 7',
     description: 'Artistic vision',
     label: 'Photo',
-    image: '/gallery/7.webp'
+    image: '/gallery/7.avif'
   }
 ];
 

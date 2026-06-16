@@ -231,7 +231,7 @@ const getTagColor = (tag: string) => {
               <!-- ── Image layer (visible on hover) ── -->
               <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <img
-                  :src="project.image || '/placeholder.webp'"
+                  :src="project.image || '/placeholder.avif'"
                   :alt="project.title"
                   class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                 />

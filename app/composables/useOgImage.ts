@@ -63,7 +63,7 @@ export const useOgImage = (options: OgImageOptions = {}) => {
     const encodedTitle = encodeURIComponent(title)
     const encodedSubtitle = encodeURIComponent(subtitle)
 
-    return `/og-image.png?title=${encodedTitle}&subtitle=${encodedSubtitle}&${searchParams.toString()}`
+    return `/og-image.jpg?title=${encodedTitle}&subtitle=${encodedSubtitle}&${searchParams.toString()}`
   }
 
   return {

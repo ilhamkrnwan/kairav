@@ -9,6 +9,11 @@ useDynamicSeo({
   image: '/og-image.jpg'
 })
 
+// JSON-LD Structured Data for homepage
+usePersonSchema()
+useWebSiteSchema()
+
+
 // === Image Reveal Logic ===
 const heroImageRef = ref(null)
 const isHovered = ref(false)
@@ -91,10 +96,10 @@ const maskStyle = computed(() => {
             <!-- Hero Orb Background -->
             <div class="hero-orb"></div>
 
-            <!-- Layer 1: Default Image (ilham-hero.webp) -->
+            <!-- Layer 1: Default Image (ilham-hero.avif) -->
             <div class="hero-img-inner absolute inset-0 rounded-lg overflow-hidden shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
               <NuxtImg
-                src="/ilham-hero.webp"
+                src="/ilham-hero.avif"
                 alt="Ilham Kurniawan"
                 width="640"
                 height="640"
@@ -109,13 +114,13 @@ const maskStyle = computed(() => {
               <div class="absolute inset-0 hero-overlay pointer-events-none"></div>
             </div>
 
-            <!-- Layer 2: Reveal Image (ilham-hero-2.webp) -->
+            <!-- Layer 2: Reveal Image (ilham-hero-2.avif) -->
             <div
               class="hero-img-inner absolute inset-0 rounded-lg overflow-hidden transition-all duration-300 ease-out pointer-events-none z-10 border border-amber-500/30 group-hover:scale-[1.02]"
               :style="maskStyle"
             >
               <NuxtImg
-                src="/ilham-hero-2.webp"
+                src="/ilham-hero-2.avif"
                 alt="Ilham Kurniawan Reveal"
                 width="640"
                 height="640"
@@ -221,6 +226,19 @@ const maskStyle = computed(() => {
     <LazyAppRecentProjects hydrate-on-visible />
     <LazyAppAboutQuotes hydrate-on-visible />
     <LazyGetinTouch hydrate-on-visible />
+
+    <!-- SEO: Explicit intro for search engines and AI crawlers (visually hidden but present in DOM) -->
+    <section class="sr-only" aria-label="About Ilham Kurniawan">
+      <p>
+        <strong>Ilham Kurniawan</strong> adalah seorang <strong>Fullstack Developer</strong> berbasis di <strong>Indonesia</strong>,
+        spesialisasi dalam <strong>Nuxt.js</strong>, <strong>Vue.js</strong>, <strong>Laravel</strong>, <strong>Flutter</strong>, dan <strong>UI/UX Design</strong>.
+        Dengan <strong>3+ tahun pengalaman</strong> dan <strong>50+ proyek</strong> yang berhasil diselesaikan, Ilham membangun
+        <strong>web application</strong>, <strong>mobile app</strong>, <strong>dashboard admin</strong>, dan <strong>sistem digital</strong>
+        yang scalable untuk klien di berbagai industri termasuk agritech, edukasi, komunitas, dan e-commerce.
+        Saat ini menempuh S1 Informatika di Universitas Nahdlatul Ulama Yogyakarta (UNUYO) sambil aktif bekerja sebagai
+        developer di Sekeco dan Jurutani. Terbuka untuk kolaborasi freelance dan posisi full-time.
+      </p>
+    </section>
   </div>
 </template>
 

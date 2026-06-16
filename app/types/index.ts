@@ -17,6 +17,7 @@ export interface PortofolioCollectionItem {
   client?: string
   status?: string
   industry?: string
+  url?: string
   // Content body
   body?: any
   [key: string]: any

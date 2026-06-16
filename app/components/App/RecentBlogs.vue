@@ -88,7 +88,7 @@ const getBlogLink = (path?: string) => {
                 <!-- Image (revealed on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <img
-                    :src="blog.coverImage || '/placeholder.webp'"
+                    :src="blog.coverImage || '/placeholder.avif'"
                     :alt="blog.title"
                     loading="lazy"
                     decoding="async"

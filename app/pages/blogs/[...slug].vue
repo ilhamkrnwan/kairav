@@ -73,6 +73,18 @@ useDynamicSeo({
   tags: current.value?.tags
 })
 
+// JSON-LD Structured Data for blog article
+useBlogPostingSchema({
+  title: current.value?.title,
+  description: current.value?.description,
+  coverImage: current.value?.coverImage,
+  datePublished: current.value?.date,
+  author: current.value?.author,
+  category: current.value?.category,
+  tags: current.value?.tags,
+  url: `https://ilhamkrnwan.my.id${route.path}`,
+})
+
 const formatDate = (dateString?: string) => {
   if (!dateString) return ''
   return new Date(dateString).toLocaleDateString(locale.value, { year: 'numeric', month: 'long', day: 'numeric' })
@@ -228,7 +240,7 @@ const formatDate = (dateString?: string) => {
                 <!-- Image layer (visible on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <img
-                    :src="prevBlog.coverImage || '/placeholder.webp'"
+                    :src="prevBlog.coverImage || '/placeholder.avif'"
                     :alt="prevBlog.title"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />
@@ -296,7 +308,7 @@ const formatDate = (dateString?: string) => {
                 <!-- Image layer (visible on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <img
-                    :src="nextBlog.coverImage || '/placeholder.webp'"
+                    :src="nextBlog.coverImage || '/placeholder.avif'"
                     :alt="nextBlog.title"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />

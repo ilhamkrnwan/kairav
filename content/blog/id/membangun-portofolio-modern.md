@@ -1,7 +1,7 @@
 ---
 title: "Membangun Portofolio Web Modern dengan Nuxt 4 dan Nuxt UI"
 description: "Panduan dan pengalaman saya dalam menyusun ulang portofolio interaktif menggunakan kemampuan Nuxt 4 dan komponen elegan dari Nuxt UI."
-coverImage: "/blog/membangun-portofolio/cover.png"
+coverImage: "/blog/membangun-portofolio/cover.avif"
 author: "Ilham Kurniawan"
 date: "2026-04-06T10:00:00.000Z"
 category: "Web Development"

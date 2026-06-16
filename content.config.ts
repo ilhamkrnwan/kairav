@@ -21,6 +21,7 @@ export default defineContentConfig({
         industry: z.string().optional(),
         tags: z.array(z.string()).optional(),
         _path: z.string().optional(),
+        url: z.string().optional(),
       })
     }),
     blog: defineCollection({

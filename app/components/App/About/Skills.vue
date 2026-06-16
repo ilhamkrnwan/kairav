@@ -51,7 +51,7 @@ const techStacks = {
         <!-- Title Area -->
         <div class="lg:col-span-4">
           <h2 class="leading-[0.88] tracking-tight mb-6">
-            <span class="section-title-filled block">{{ t('Skills &') }}</span>
+            <span class="section-title-filled block">{{ t('Skills and') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Technologies') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
           <div class="w-12 h-1 bg-amber-400 mb-6"></div>

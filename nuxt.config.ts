@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     head: {
       link: [
         // Ganti '/favicon.png' dengan nama file gambar Anda di folder 'public'
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+        { rel: 'icon', type: 'image/png', href: '/favicon.ico' }
       ]
     }
   },
@@ -62,8 +62,6 @@ export default defineNuxtConfig({
       { code: "id", file: "id.json", iso: "id-ID", language: "id" },
       { code: "en", file: "en.json", iso: "en-US", language: "en" },
     ],
-    seo: true,
-    lazy: true,
     langDir: "languages/",
     defaultLocale: "id",
     strategy: "no_prefix",
@@ -80,7 +78,18 @@ export default defineNuxtConfig({
     "@nuxt/content",
     '@nuxtjs/google-fonts',
     '@vueuse/motion/nuxt',
+    '@nuxtjs/sitemap',
   ],
+
+  // Sitemap configuration
+  sitemap: {
+    xsl: false,
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+  },
   googleFonts: {
     families: {
       Inter: [300, 400, 500, 600, 700],

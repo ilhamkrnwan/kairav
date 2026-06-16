@@ -79,17 +79,17 @@ const projectImages = computed(() => {
   if (!current.value) return []
   
   // Get the slug from the current project path
-  // Most portfolio projects have 3 mockup images numbered 1.webp, 2.webp, 3.webp
+  // Most portfolio projects have 3 mockup images numbered 1.avif, 2.avif, 3.avif
   // Extract the project folder name from the image path
-  const imagePath = current.value.image?.replace(/\/[^/]+\.webp$/, '') || ''
+  const imagePath = current.value.image?.replace(/\/[^/]+\.(?:avif|webp|png|jpe?g)$/, '') || ''
   
   if (!imagePath) return []
   
   // Generate array of mockup image paths
   return [
-    `${imagePath}/1.webp`,
-    `${imagePath}/2.webp`,
-    `${imagePath}/3.webp`
+    `${imagePath}/1.avif`,
+    `${imagePath}/2.avif`,
+    `${imagePath}/3.avif`
   ]
 })
 
@@ -101,6 +101,18 @@ useDynamicSeo({
   type: 'article',
   publishedTime: current.value?.date,
   tags: current.value?.tags
+})
+
+// JSON-LD Structured Data for portfolio project
+useCreativeWorkSchema({
+  title: current.value?.title,
+  description: current.value?.description,
+  image: current.value?.image,
+  datePublished: current.value?.date,
+  category: current.value?.category,
+  tags: current.value?.tags,
+  client: current.value?.client,
+  url: `https://ilhamkrnwan.my.id${route.path}`,
 })
 
 </script>
@@ -274,6 +286,30 @@ useDynamicSeo({
                     </div>
                   </UiAnimatedCard>
 
+                  <!-- Visit Website -->
+                  <UiAnimatedCard
+                    v-if="current.url"
+                    :glow-color="'251, 191, 36'"
+                    :particle-count="8"
+                    :enable-particles="true"
+                    :enable-tilt="false"
+                    :enable-magnetism="false"
+                    :enable-border-glow="false"
+                    :click-effect="true"
+                  >
+                    <a
+                      :href="current.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="block p-4 rounded-sm bg-amber-400 text-[#141009] hover:bg-amber-500 transition-all group text-center border border-amber-500/20"
+                    >
+                      <span class="text-[10px] font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2">
+                        {{ t('Visit Website') }}
+                        <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                      </span>
+                    </a>
+                  </UiAnimatedCard>
+
                   <!-- Back to Projects -->
                   <UiAnimatedCard
                     :glow-color="'251, 191, 36'"
@@ -354,7 +390,7 @@ useDynamicSeo({
                 <!-- ── Image layer (visible on hover) ── -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <img
-                    :src="prevProject.image || '/placeholder.webp'"
+                    :src="prevProject.image || '/placeholder.avif'"
                     :alt="prevProject.title"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />
@@ -424,7 +460,7 @@ useDynamicSeo({
                 <!-- ── Image layer (visible on hover) ── -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <img
-                    :src="nextProject.image || '/placeholder.webp'"
+                    :src="nextProject.image || '/placeholder.avif'"
                     :alt="nextProject.title"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />

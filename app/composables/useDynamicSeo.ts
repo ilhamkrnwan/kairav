@@ -121,7 +121,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
       return options.image
     }
     
-    // Default OG image
+    // Default OG image (use .jpg for maximum social media compatibility)
     return `${siteUrl}/og-image.jpg`
   }
   

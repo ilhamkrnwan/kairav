@@ -850,8 +850,8 @@ onMounted(() => {
   }
 
   function updateCanvasSize() {
-    const width = scaleByPixelRatio(canvas.clientWidth);
-    const height = scaleByPixelRatio(canvas.clientHeight);
+    const width = scaleByPixelRatio(canvas!.clientWidth);
+    const height = scaleByPixelRatio(canvas!.clientHeight);
 
     pendingCanvasResize = false;
 
@@ -861,8 +861,8 @@ onMounted(() => {
 
     cachedCanvasWidth = width;
     cachedCanvasHeight = height;
-    canvas.width = width;
-    canvas.height = height;
+    canvas!.width = width;
+    canvas!.height = height;
     return true;
   }
 
@@ -1220,6 +1220,7 @@ onMounted(() => {
   const handleMouseDown = (e: MouseEvent) => {
     startSimulation();
     const pointer = pointers[0];
+    if (!pointer) return;
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     updatePointerDownData(pointer, -1, posX, posY);
@@ -1228,6 +1229,7 @@ onMounted(() => {
 
   function handleFirstMouseMove(e: MouseEvent) {
     const pointer = pointers[0];
+    if (!pointer) return;
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     const color = generateColor();
@@ -1237,6 +1239,7 @@ onMounted(() => {
   }
   const handleMouseMove = (e: MouseEvent) => {
     const pointer = pointers[0];
+    if (!pointer) return;
     const posX = scaleByPixelRatio(e.clientX);
     const posY = scaleByPixelRatio(e.clientY);
     const color = pointer.color;
@@ -1246,11 +1249,14 @@ onMounted(() => {
   function handleFirstTouchStart(e: TouchEvent) {
     const touches = e.targetTouches;
     const pointer = pointers[0];
+    if (!pointer) return;
     for (let i = 0; i < touches.length; i++) {
-      const posX = scaleByPixelRatio(touches[i].clientX);
-      const posY = scaleByPixelRatio(touches[i].clientY);
+      const touch = touches[i];
+      if (!touch) continue;
+      const posX = scaleByPixelRatio(touch.clientX);
+      const posY = scaleByPixelRatio(touch.clientY);
       startSimulation();
-      updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      updatePointerDownData(pointer, touch.identifier, posX, posY);
     }
     document.body.removeEventListener('touchstart', handleFirstTouchStart);
   }
@@ -1258,26 +1264,33 @@ onMounted(() => {
   const handleTouchStart = (e: TouchEvent) => {
     const touches = e.targetTouches;
     const pointer = pointers[0];
+    if (!pointer) return;
     for (let i = 0; i < touches.length; i++) {
-      const posX = scaleByPixelRatio(touches[i].clientX);
-      const posY = scaleByPixelRatio(touches[i].clientY);
-      updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      const touch = touches[i];
+      if (!touch) continue;
+      const posX = scaleByPixelRatio(touch.clientX);
+      const posY = scaleByPixelRatio(touch.clientY);
+      updatePointerDownData(pointer, touch.identifier, posX, posY);
     }
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     const touches = e.targetTouches;
     const pointer = pointers[0];
+    if (!pointer) return;
     for (let i = 0; i < touches.length; i++) {
-      const posX = scaleByPixelRatio(touches[i].clientX);
-      const posY = scaleByPixelRatio(touches[i].clientY);
+      const touch = touches[i];
+      if (!touch) continue;
+      const posX = scaleByPixelRatio(touch.clientX);
+      const posY = scaleByPixelRatio(touch.clientY);
       updatePointerMoveData(pointer, posX, posY, pointer.color);
     }
   };
 
   const handleTouchEnd = (e: TouchEvent) => {
-    const touches = e.changedTouches;
     const pointer = pointers[0];
+    if (!pointer) return;
+    const touches = e.changedTouches;
     for (let i = 0; i < touches.length; i++) {
       updatePointerUpData(pointer);
     }

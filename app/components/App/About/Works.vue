@@ -3,35 +3,42 @@ const { t } = useI18n()
 
 const allWorkItems = computed(() => [
   {
-    logo: '/logo/kairav.png',
+    logo: '/logo/kairav.avif',
     type: t('Open for Work'),
     title: t('Fullstack Developer'),
     date: t('2021 - Present'),
     description: t('Experienced full-stack developer with a strong foundation in programming concepts, data structures, and algorithms. Currently working as a freelance developer, successfully delivering various projects for clients. Open to both full-time positions and project-based collaborations.')
   },
   {
-    logo: '/logo/sekeco.png',
+    logo: '/logo/sekeco.avif',
     type: t('Internship'),
     title: t('Junior Developer at Sekeco'),
     date: t('January 2025 - Present'),
     description: t('Assisted in developing Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.')
   },
   {
-    logo: '/logo/jurutani.png',
+    logo: '/logo/indotech.avif',
+    type: t('Professional Experience'),
+    title: t('WordPress Developer at Indotech'),
+    date: t('Mei 2025 - Present'),
+    description: t('Developed and maintained WordPress websites with a focus on responsive layouts, theme customization, content structure, and performance-minded implementation. Worked with reusable components, page templates, and client-facing website requirements to deliver polished digital experiences.')
+  },
+  {
+    logo: '/logo/jurutani.avif',
     type: t('Freelance'),
     title: t('Fullstack Web & Android Developer at Jurutani'),
     date: t('2025 - Present'),
     description: t('Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.')
   },
   {
-    logo: '/logo/baznas.png',
+    logo: '/logo/baznas.avif',
     type: t('Volunteer'),
     title: t('Ramadhan Volunteer at Baznas Yogyakarta'),
     date: t('2024'),
     description: t('Participated as a volunteer during the holy month of Ramadhan at Baznas Yogyakarta. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.')
   },
   {
-    logo: '/logo/alazhar.png',
+    logo: '/logo/alazhar.avif',
     type: t('Volunteer'),
     title: t('Ramadhan Volunteer at LAZ Al-Azhar Surabaya'),
     date: t('2021'),

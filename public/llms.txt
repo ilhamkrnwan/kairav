@@ -1,0 +1,75 @@
+# Ilham Kurniawan — Fullstack Developer Portfolio
+
+> Portfolio website resmi Ilham Kurniawan, seorang Fullstack Developer dari Indonesia yang spesialisasi dalam pengembangan web, mobile app, dan solusi digital.
+
+## Tentang Ilham Kurniawan
+
+Ilham Kurniawan adalah seorang Fullstack Developer berbasis di Indonesia dengan pengalaman 3+ tahun dalam pengembangan software. Saat ini menempuh pendidikan S1 Informatika di Universitas Nahdlatul Ulama Yogyakarta (UNUYO) sambil aktif bekerja sebagai developer.
+
+Ilham menguasai ekosistem JavaScript/TypeScript modern dengan fokus pada Vue.js, Nuxt.js, React, Next.js untuk frontend, serta Laravel, Node.js, Express untuk backend. Untuk mobile development, Ilham menggunakan Flutter dan Capacitor. Ilham juga memiliki keahlian dalam UI/UX Design, database management (PostgreSQL, MySQL, MongoDB, Supabase), dan DevOps tools (Docker, Git).
+
+Ilham bersifat tech-agnostic — selalu siap beradaptasi dengan ekosistem apapun yang dibutuhkan proyek.
+
+## Halaman Penting
+
+- Homepage: https://ilhamkrnwan.my.id
+- Tentang / About: https://ilhamkrnwan.my.id/about
+- Portfolio / Proyek: https://ilhamkrnwan.my.id/portofolio
+- Blog / Artikel: https://ilhamkrnwan.my.id/blogs
+- Curriculum Vitae: https://ilhamkrnwan.my.id/cv
+- Galeri: https://ilhamkrnwan.my.id/gallery
+
+## Keahlian Utama
+
+- Fullstack Web Development (Vue.js, Nuxt.js, React, Next.js, Laravel, Node.js)
+- Mobile App Development (Flutter, Capacitor)
+- UI/UX Design (Figma, Tailwind CSS, Responsive Design)
+- Backend & API Architecture (REST API, Server-Side Rendering, Serverless)
+- Database Design (PostgreSQL, MySQL, MongoDB, Supabase, Firebase)
+- Admin Dashboard & CMS Development
+- Web3 & Blockchain (Solidity, Ethers.js)
+- DevOps & Deployment (Docker, Git, Vercel, Hostinger)
+
+## Pengalaman Kerja
+
+- Magang — Junior Developer di Sekeco (Januari 2025 - Sekarang): Pengembangan web dengan Nuxt.js, SSR, Composition API
+- Freelance — Fullstack Web & Android Developer di Jurutani (2025 - Sekarang): Platform pertanian digital all-in-one
+- Freelance Developer (2021 - Sekarang): Berbagai proyek web app, mobile app, dan dashboard untuk klien
+
+## Pendidikan
+
+- S1 Informatika — Universitas Nahdlatul Ulama Yogyakarta (UNUYO), 2023 - Sekarang
+- Software Engineering — Rumah Gemilang Indonesia Surabaya, 2020 - 2021
+- SMAN 1 Randublatung (Smaransa) — Jurusan MIPA
+
+## Proyek Unggulan
+
+### Jurutani
+Platform pertanian digital all-in-one untuk petani Indonesia. Fitur: real-time weather & market data, konsultasi AI (Google Gemini), expert network, community forum, marketplace. Tech: Nuxt.js, Capacitor, Tailwind CSS, Google Gemini AI, Supabase. URL: https://ilhamkrnwan.my.id/portofolio/jurutani
+
+### Kamaba Yogyakarta
+Sistem informasi organisasi berbasis web dengan member management, events, news, dan admin dashboard terintegrasi. Tech: Nuxt 4, Vue, Tailwind CSS, Shadcn UI, MySQL, CMS. URL: https://ilhamkrnwan.my.id/portofolio/kamaba-yogyakarta
+
+### Qinarian
+Platform komunitas teknologi untuk innovators, menggabungkan kolaborasi open-source dengan solusi digital. Fitur: project showcase, resource library, multi-language support, CMS. Tech: Nuxt.js, Tailwind CSS, TypeScript, i18n. URL: https://ilhamkrnwan.my.id/portofolio/qinarian
+
+### RuangNU
+Platform digital terintegrasi untuk anggota Nahdlatul Ulama dengan resources Islami, prayer tools, digital library, dan community features. Tech: PHP Native, Tailwind CSS, MySQL. URL: https://ilhamkrnwan.my.id/portofolio/ruangnu
+
+### AgriNuclear
+Platform web edukatif tentang pertanian nuklir dengan visual-first learning, artikel, dan referensi akademik. Tech: React, Tailwind CSS, Static Site. URL: https://ilhamkrnwan.my.id/portofolio/agrinuclear
+
+## Ketersediaan
+
+Ilham Kurniawan terbuka untuk:
+- Posisi full-time sebagai Fullstack Developer atau Frontend Developer
+- Kolaborasi freelance (web app, landing page, API integration, mobile app)
+- Proyek berbasis kontrak
+
+Estimasi timeline: Landing page 3-7 hari, web app lengkap 2-6 minggu.
+
+## Kontak
+
+- Website: https://ilhamkrnwan.my.id
+- GitHub: https://github.com/ilhamkrnwan
+- LinkedIn: https://linkedin.com/in/ilhamkrnwan

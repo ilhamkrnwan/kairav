@@ -1,0 +1,27 @@
+# robots.txt — ilhamkrnwan.my.id
+# Izinkan semua crawler utama mengakses konten publik
+
+User-agent: *
+Allow: /
+Disallow: /_nuxt/
+Disallow: /api/
+Disallow: /_vercel/
+
+# Izinkan crawler AI secara eksplisit
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://ilhamkrnwan.my.id/sitemap.xml

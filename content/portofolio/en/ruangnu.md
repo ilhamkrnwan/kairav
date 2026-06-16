@@ -1,7 +1,7 @@
 ---
 title: RuangNU
 description: An integrated digital platform designed to support Nahdlatul Ulama members with Islamic resources, community services, and educational content
-image: /portofolio/ruangnu/1.webp
+image: /portofolio/ruangnu/1.avif
 category: Web Platform
 services:
   - Web Development
@@ -21,29 +21,52 @@ tags:
 _path: /portofolio/ruangnu
 ---
 
-# RuangNU
+# RuangNU — Nahdlatul Ulama Digital Community Platform
 
-An integrated digital platform supporting Nahdlatul Ulama members with Islamic resources, community services, and educational content.
+An integrated digital platform designed to support Nahdlatul Ulama members with Islamic resources, community services, and educational content in a centralized platform.
 
-![RuangNU Preview](/portofolio/ruangnu/preview.webp)
+![RuangNU Platform Preview](/portofolio/ruangnu/preview.avif)
 
-## Challenge
+## Problem
 
-NU members needed a centralized platform for daily religious and community needs. Existing solutions are fragmented across different apps and websites.
+Nahdlatul Ulama members need a centralized platform for their religious and community needs. Existing solutions are fragmented across multiple apps and websites, making access to information and services inefficient.
 
 ## Solution
 
-- **Islamic Resource Library** – Complete collection of daily prayers, dzikir, tasbih, and shalawat
-- **Prayer & Worship Tools** – Accurate prayer times, Qibla finder, Islamic calendar, and Hijri converter
-- **Digital Islamic Library** – Curated books, scholarly articles, and research papers from NU perspectives
-- **Community Features** – Discussion forums, event calendar, and local NU branch information
-- **Educational Content** – Accessible resources for Islamic learning
-- **Future Marketplace** – Planned feature for NU-affiliated products and donation management
+RuangNU unifies all spiritual and community needs in a single platform:
 
-## Results
+- **Islamic Resource Library** — Comprehensive collection of daily prayers, dzikir, tasbih, and shalawat
+- **Prayer & Worship Tools** — Accurate prayer schedules, qibla finder, Islamic calendar, and Hijri converter
+- **Digital Islamic Library** — Curated Islamic books, scholarly articles, and research papers from the NU perspective
+- **Community Features** — Discussion forums, event calendar, and local NU branch information
+- **Educational Content** — Accessible Islamic learning resources
+- **Future Marketplace** — Planned features for NU-affiliated products and donation management
 
-A spiritually centered platform that strengthens bonds between members, provides practical daily tools, and supports Islamic education.
+## Ilham's Role
 
-![RuangNU Mockup 1](/portofolio/ruangnu/1.webp)
-![RuangNU Mockup 2](/portofolio/ruangnu/2.webp)
-![RuangNU Mockup 3](/portofolio/ruangnu/3.webp)
+As **Web Developer and Database Designer**, Ilham was responsible for:
+- Fullstack development using PHP Native and Tailwind CSS
+- Designing and implementing the MySQL database for content and user management
+- Developing Islamic resource library and prayer tools features
+- Implementing responsive design for access across all devices
+- Collaborating with the NU community for feature requirements
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | HTML, CSS, Tailwind CSS, JavaScript |
+| Backend | PHP Native |
+| Database | MySQL |
+| Deployment | Shared Hosting |
+
+## Impact and Results
+
+- A spiritually-centered platform strengthening bonds between community members
+- Provides practical daily tools for worship (prayer schedules, prayers, dzikir)
+- Supports Islamic education through curated content
+- A centralized platform replacing information fragmentation across multiple sources
+
+![RuangNU Mockup 1](/portofolio/ruangnu/1.avif)
+![RuangNU Mockup 2](/portofolio/ruangnu/2.avif)
+![RuangNU Mockup 3](/portofolio/ruangnu/3.avif)

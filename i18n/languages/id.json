@@ -250,6 +250,7 @@
   "You don't have permission to access this resource.": "Anda tidak memiliki izin untuk mengakses resource ini.",
   "Error": "Error",
   "ERROR": "ERROR",
+  "Error Details": "Detail Error",
   "An unexpected error occurred.": "Terjadi error yang tidak terduga.",
   "Go to Home": "Ke Beranda",
   "Go Back": "Kembali",
@@ -449,5 +450,7 @@
   "Demis Hassabis (Google DeepMind CEO)": "Demis Hassabis (CEO Google DeepMind)",
   "The best way to understand the universe is to build a maximum truth-seeking AI.": "Cara terbaik untuk memahami alam semesta adalah dengan membangun AI yang mencari kebenaran secara maksimal.",
   "Elon Musk (xAI Founder)": "Elon Musk (Pendiri xAI)",
-  "Part of": "Bagian dari"
+  "Part of": "Bagian dari",
+  "Yogyakarta / Blora, ID": "Yogyakarta / Blora, Indonesia",
+  "Ready 27 Hours a Day (lol)": "Siap 27 Jam Sehari (wkwk)"
 }

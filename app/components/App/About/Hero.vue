@@ -60,6 +60,17 @@ const stats = computed(() => [
           </span>
           {{ t('Hello my name is Ilham Kurniawan') }}
         </span>
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md text-xs font-mono text-muted-foreground uppercase tracking-widest shadow-lg shadow-black/5">
+          <Icon name="lucide:map-pin" class="w-3.5 h-3.5 text-amber-400" />
+          {{ t('Yogyakarta / Blora, ID') }}
+        </span>
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md text-xs font-mono text-muted-foreground uppercase tracking-widest shadow-lg shadow-black/5">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+          </span>
+          {{ t('Ready 27 Hours a Day (lol)') }}
+        </span>
         <span class="text-xs font-mono text-muted-foreground/40 uppercase tracking-widest hidden sm:block">— Est. 2021</span>
       </div>
 

@@ -10,7 +10,6 @@
   "Download CV": "Download CV",
   "Fullstack": "Fullstack",
   "Developer": "Developer",
-
   "seo.default.title": "Ilham Kurniawan - KAIRAV Portfolio and Digital Services",
   "seo.default.description": "Portfolio, case studies, and digital services by Ilham Kurniawan for business websites, custom systems, API/AI, web applications, and SEO/GEO.",
   "seo.home.title": "Ilham Kurniawan - Websites, Systems, API, AI, SEO/GEO",
@@ -29,7 +28,6 @@
   "seo.contact.description": "Contact Ilham Kurniawan to discuss web apps, backend APIs, mobile apps, UI/UX, or other digital collaborations.",
   "seo.cv.title": "Curriculum Vitae — Ilham Kurniawan, Fullstack Developer",
   "seo.cv.description": "Download Ilham Kurniawan's CV. Fullstack Developer with expertise in Nuxt.js, Vue.js, Laravel, Flutter, 3+ years of experience, and 50+ digital projects.",
-
   "Hello my name is Ilham Kurniawan": "Hello, I'm Ilham Kurniawan",
   "Career": "Career",
   "Journey": "Journey",
@@ -60,7 +58,6 @@
   "Web3 & AI Enthusiast": "Web3 & AI Enthusiast",
   "See More": "See More",
   "2026 | Copyright © KAIRAV": "2026 | Copyright © KAIRAV",
-
   "Welcome to my gallery": "Welcome to my gallery",
   "Explore My Journey": "Explore My Journey",
   "Through": "Through",
@@ -72,7 +69,6 @@
   "Collection": "Collection",
   "Each photo tells a unique story and reflects my passion for photography and creative expression.": "Each photo tells a unique story and reflects my passion for photography and creative expression.",
   "For more photos and updates, visit my Instagram": "For more photos and updates, visit my Instagram",
-
   "Backend Development": "Backend Development",
   "Integrating data and APIs to build robust and scalable backend systems.": "Integrating data and APIs to build robust and scalable backend systems.",
   "Frontend Development": "Frontend Development",
@@ -101,7 +97,6 @@
   "Specialized expertise across the full development spectrum": "Specialized expertise across the full development spectrum",
   "Specialized expertise across the": "Specialized expertise across the",
   "full development spectrum": "full development spectrum",
-
   "Skills &": "Skills and",
   "Skills and": "Skills and",
   "Modern tech stack for building scalable and performant applications": "Modern tech stack for building scalable and performant applications",
@@ -111,7 +106,6 @@
   "execute ideas.": "execute ideas.",
   "As a tech-agnostic developer, I am always ready to adapt to": "As a tech-agnostic developer, I am always ready to adapt to",
   "any ecosystem required.": "any ecosystem required.",
-
   "Education &": "Education &",
   "Training": "Training",
   "Formal and Non Formal": "Formal and Non Formal",
@@ -128,7 +122,6 @@
   "Graphic Design Training - DINPERINAKER Blora": "Graphic Design Training - DINPERINAKER Blora",
   "2022 | Graduated": "2022 | Graduated",
   "Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.": "Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.",
-
   "Work &": "Work &",
   "Experience": "Experience",
   "Professional Journey": "Professional Journey",
@@ -155,15 +148,12 @@
   "Ramadhan Volunteer at LAZ Al-Azhar Surabaya": "Ramadhan Volunteer at LAZ Al-Azhar Surabaya",
   "2021": "2021",
   "Participated as a volunteer during the holy month of Ramadhan at LAZ Al-Azhar Surabaya. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.": "Participated as a volunteer during the holy month of Ramadhan at LAZ Al-Azhar Surabaya. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.",
-
   "Interested in collaborating?": "Interested in collaborating?",
   "Get In Touch": "Get In Touch",
   "View works": "View Works",
-
   "Portfolio not found": "Portfolio not found",
   "View project details and portfolio": "View project details and portfolio",
   "Visit Website": "Visit Website",
-
   "Featured": "Featured",
   "Work": "Work",
   "Recent": "Recent",
@@ -187,7 +177,6 @@
   "Commercial and editorial photography": "Commercial and editorial photography",
   "Creative Experiments": "Creative Experiments",
   "Pushing boundaries with new techniques": "Pushing boundaries with new techniques",
-
   "Welcome to my projects": "Welcome to my projects",
   "Welcome to my blog": "Welcome to my blog",
   "Innovative": "Innovative",
@@ -216,7 +205,6 @@
   "Try adjusting your search or filter criteria": "Try adjusting your search or filter criteria",
   "Clear Filters": "Clear Filters",
   "Delivering excellence across all aspects of software development": "Delivering excellence across all aspects of software development",
-
   "Project Info": "Project Info",
   "Client": "Client",
   "Status": "Status",
@@ -228,17 +216,14 @@
   "More Projects": "More Projects",
   "Previous Project": "Previous Project",
   "Next Project": "Next Project",
-
   "Year": "Year",
   "Role": "Role",
   "Duration": "Duration",
   "Live Preview": "Live Preview",
-
   "CURRICULUM": "CURRICULUM",
   "VITAE": "VITAE",
   "Ilham Kurniawan · Software Developer": "Ilham Kurniawan · Software Developer",
   "© 2026 KAIRAV Portfolio": "© 2026 KAIRAV Portfolio",
-
   "Page Not Found": "Page Not Found",
   "Sorry, the page you're looking for doesn't exist.": "Sorry, the page you're looking for doesn't exist.",
   "Server Error": "Server Error",
@@ -247,6 +232,7 @@
   "You don't have permission to access this resource.": "You don't have permission to access this resource.",
   "Error": "Error",
   "ERROR": "ERROR",
+  "Error Details": "Error Details",
   "An unexpected error occurred.": "An unexpected error occurred.",
   "Go to Home": "Go to Home",
   "Go Back": "Go Back",
@@ -284,28 +270,21 @@
   "scalable, accessible, and user-centric applications.": "scalable, accessible, and user-centric applications.",
   "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a": "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a",
   "meaningful impact.": "meaningful impact.",
-
   "Frequently Asked": "Frequently Asked",
   "Questions": "Questions",
   "Things people usually ask about": "Things people usually ask about",
   "working with me": "working with me",
   "Still have questions?": "Still have questions?",
-
   "Are you available for freelance projects?": "Are you available for freelance projects?",
   "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.": "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.",
-
   "What is your preferred tech stack?": "What is your preferred tech stack?",
   "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.": "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.",
-
   "Are you open to full-time employment?": "Are you open to full-time employment?",
   "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!": "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!",
-
   "How long does it typically take to build a project?": "How long does it typically take to build a project?",
   "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.": "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.",
-
   "What industries have you worked in?": "What industries have you worked in?",
   "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.": "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.",
-
   "How can I contact you?": "How can I contact you?",
   "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.": "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.",
   "Digital services": "Digital services",
@@ -441,5 +420,7 @@
   "Demis Hassabis (Google DeepMind CEO)": "Demis Hassabis (Google DeepMind CEO)",
   "The best way to understand the universe is to build a maximum truth-seeking AI.": "The best way to understand the universe is to build a maximum truth-seeking AI.",
   "Elon Musk (xAI Founder)": "Elon Musk (xAI Founder)",
-  "Part of": "Part of"
+  "Part of": "Part of",
+  "Yogyakarta / Blora, ID": "Yogyakarta / Blora, ID",
+  "Ready 27 Hours a Day (lol)": "Ready 27 Hours a Day (lol)"
 }

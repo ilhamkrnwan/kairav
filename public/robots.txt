@@ -1,5 +1,6 @@
-# robots.txt — ilhamkrnwan.my.id
-# Izinkan semua crawler utama mengakses konten publik
+# robots.txt - ilhamkrnwan.my.id
+# Izinkan crawler utama mengakses konten publik.
+# LLM discovery file: https://ilhamkrnwan.my.id/llms.txt
 
 User-agent: *
 Allow: /
@@ -7,8 +8,11 @@ Disallow: /_nuxt/
 Disallow: /api/
 Disallow: /_vercel/
 
-# Izinkan crawler AI secara eksplisit
+# Izinkan crawler AI dan search crawler secara eksplisit.
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -17,7 +21,19 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot

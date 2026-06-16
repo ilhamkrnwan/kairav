@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 const productionUrl = process.env.NUXT_PUBLIC_SITE_URL
   || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
   || (process.env.VERCEL_BRANCH_URL ? `https://${process.env.VERCEL_BRANCH_URL}` : null)
-  || "https://ilhamkrnwan.vercel.app";
+  || "https://ilhamkrnwan.my.id";
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-07-15",

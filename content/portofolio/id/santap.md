@@ -88,6 +88,7 @@ Sebagai **Fullstack Web & Mobile Developer**, Ilham bertanggung jawab atas:
 * Menyediakan fondasi sistem POS yang scalable untuk banyak outlet dan organisasi
 * Meningkatkan akurasi pencatatan pesanan melalui struktur order, item, varian, add-on, status pembayaran, dan status bill yang lebih jelas
 
-![Santap Mockup 1](/portofolio/santap/santap1.avif)
-![Santap Mockup 2](/portofolio/santap/santap2.avif)
-![Santap Mockup 3](/portofolio/santap/santap3.avif)
+![Santap Mockup 1](/portofolio/santap/1.avif)
+![Santap Mockup 2](/portofolio/santap/2.avif)
+![Santap Mockup 3](/portofolio/santap/3.avif)
+![Santap Mockup 4](/portofolio/santap/4.avif)

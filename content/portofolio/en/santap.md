@@ -1,6 +1,6 @@
 ---
 title: Santap
-description: Platform POS dan QR ordering modern untuk restoran, kafe, dan UMKM kuliner dengan sistem kasir, kitchen, open bill, pembayaran QRIS, dan customer ordering berbasis web
+description: A modern POS and QR ordering platform for restaurants, cafes, and F&B MSMEs featuring cashier systems, kitchen workflow, open bill sessions, QRIS payment, and customer web ordering
 image: /portofolio/santap/preview.avif
 category: Web & Mobile App
 services:
@@ -26,48 +26,48 @@ _path: /portofolio/santap
 url: https://santap.app
 ---
 
-# Santap — Platform POS dan QR Ordering untuk Bisnis Kuliner
+# Santap — POS and QR Ordering Platform for F&B Businesses
 
-Santap adalah platform digital untuk membantu restoran, kafe, dan UMKM kuliner mengelola proses pemesanan, pembayaran, kasir, dapur, dan operasional outlet dalam satu ekosistem. Sistem ini menggabungkan customer web ordering, aplikasi mobile kasir dan kitchen, dashboard admin, serta backend API yang dirancang untuk kebutuhan operasional kuliner modern.
+Santap is a digital platform designed to help restaurants, cafes, and F&B MSMEs manage ordering, payment, cashier, kitchen, and outlet operations in a single ecosystem. The system combines web-based customer ordering, mobile apps for cashiers and kitchens, an admin dashboard, and a robust backend API tailored for modern culinary operations.
 
 ![Interface Santap](/portofolio/santap/preview.avif)
 
-## Masalah
+## Problem
 
-Banyak bisnis kuliner masih mengandalkan proses manual untuk mencatat pesanan, mengelola meja, memproses pembayaran, dan meneruskan order ke dapur. Alur manual ini rentan terhadap kesalahan pencatatan, antrean panjang, miskomunikasi antara kasir dan kitchen, serta kesulitan memantau status pesanan secara real-time.
+Many F&B businesses still rely on manual processes to record orders, manage tables, process payments, and forward orders to the kitchen. This manual workflow is prone to order entry errors, long queues, miscommunication between waitstaff and kitchen teams, and makes it difficult to track order statuses in real-time.
 
-Selain itu, beberapa solusi POS yang tersedia sering kali terlalu kompleks, mahal, atau tidak cukup fleksibel untuk kebutuhan restoran kecil dan menengah. Bisnis kuliner membutuhkan sistem yang mudah digunakan, mobile-friendly, mendukung QR ordering, dan tetap kuat untuk operasional harian.
+Furthermore, existing POS solutions are often too complex, expensive, or lack flexibility for small-to-medium restaurants. F&B businesses need a system that is easy to use, mobile-friendly, supports QR ordering, and remains highly reliable for daily operations.
 
-## Solusi
+## Solution
 
-Santap dibangun sebagai platform POS dan QR ordering yang menghubungkan pelanggan, kasir, kitchen, dan admin dalam satu sistem:
+Santap was built as a POS and QR ordering platform that seamlessly connects customers, cashiers, kitchen staff, and admins in one system:
 
-* **Customer QR Ordering** — Pelanggan dapat scan QR meja, melihat menu, memilih varian/add-on, menambahkan catatan, dan membuat pesanan langsung dari browser
-* **Cashier Mobile App** — Aplikasi kasir untuk membuat order, mengelola pembayaran, membuat sesi open bill, dan memantau pesanan aktif
-* **Kitchen Workflow** — Tampilan kitchen untuk menerima dan memproses pesanan secara lebih terstruktur
-* **Open Bill System** — Dukungan pesanan berbasis sesi untuk pelanggan yang ingin menambah order berkali-kali sebelum pembayaran akhir
-* **QRIS Payment Integration** — Integrasi pembayaran QRIS dengan status pembayaran, pembatalan, timeout, dan pengecekan otomatis
-* **Admin Dashboard** — Panel admin berbasis Filament untuk mengelola organisasi, outlet, meja, menu, produk, dan konfigurasi operasional
-* **Multi-Organization Architecture** — Sistem dirancang agar dapat digunakan oleh banyak restoran atau outlet dengan data yang terpisah
-* **Mobile-First Experience** — Antarmuka web pelanggan dan aplikasi mobile dibuat responsif untuk penggunaan cepat di lapangan
+* **Customer QR Ordering** — Customers scan a table QR code to browse the menu, select variants/add-ons, add custom notes, and place orders directly from their mobile browser
+* **Cashier Mobile App** — An app for cashiers to take orders, manage payments, open bill sessions, and monitor active orders
+* **Kitchen Workflow** — A dedicated kitchen view to receive, organize, and process incoming food and beverage orders systematically
+* **Open Bill System** — Support for session-based ordering, allowing customers to add multiple items to their bill before making a final payment
+* **QRIS Payment Integration** — Integrated QRIS payments with automatic payment status checks, cancellations, timeouts, and verification
+* **Admin Dashboard** — A Filament-based admin panel to manage organizations, outlets, tables, menus, products, and operational configurations
+* **Multi-Organization Architecture** — Designed to support multi-tenant structures, enabling multiple restaurants or outlets to use the platform with complete data isolation
+* **Mobile-First Experience** — Both the customer web portal and the cashier/kitchen mobile apps are responsive and optimized for fast-paced, on-the-field usage
 
-## Peran Ilham
+## Ilham's Role
 
-Sebagai **Fullstack Web & Mobile Developer**, Ilham bertanggung jawab atas:
+As **Fullstack Web & Mobile Developer**, Ilham was responsible for:
 
-* Pengembangan customer web ordering menggunakan Nuxt.js
-* Pengembangan backend REST API menggunakan Laravel
-* Perancangan alur pemesanan QR meja, order detail, cart, payment, dan open bill
-* Integrasi pembayaran QRIS termasuk create payment, check status, cancel payment, dan timeout
-* Pengembangan struktur data multi-organisasi, order, order item, dining table, dan open bill session
-* Pengembangan dashboard admin menggunakan Filament
-* Pengembangan dan penyesuaian aplikasi mobile Flutter untuk kasir dan kitchen
-* Penyusunan dokumentasi API menggunakan Scramble
-* Optimasi UI/UX untuk alur customer, kasir, dan admin agar lebih cepat digunakan secara operasional
+* Developing the customer web ordering portal using Nuxt.js
+* Building the backend REST API using Laravel
+* Designing table QR ordering, order details, shopping cart, checkout, and open bill session flows
+* Integrating QRIS payments (handling creation, status checking, cancellations, and timeouts)
+* Developing multi-organization data structures, managing orders, items, dining tables, and session billing
+* Building the admin dashboard panel using Filament
+* Developing and customizing the mobile Flutter applications for cashiers and kitchens
+* Creating self-documenting API structures using Scramble
+* Optimizing the UI/UX across customer, cashier, and admin views for faster, error-free operations
 
 ## Tech Stack
 
-| Layer             | Teknologi                                  |
+| Layer             | Technology                                 |
 | ----------------- | ------------------------------------------ |
 | Frontend Customer | Nuxt.js, Vue, Nuxt UI, Tailwind CSS, Pinia |
 | Mobile App        | Flutter                                    |
@@ -79,15 +79,16 @@ Sebagai **Fullstack Web & Mobile Developer**, Ilham bertanggung jawab atas:
 | Deployment        | VPS, Vercel                                |
 | Storage & Media   | Spatie Media Library                       |
 
-## Dampak dan Hasil
+## Impact and Results
 
-* Membantu bisnis kuliner mengurangi proses manual dalam pemesanan, pembayaran, dan komunikasi order
-* Mempercepat alur pelanggan dari scan QR hingga pesanan masuk ke sistem
-* Memudahkan kasir dalam membuat pesanan, memantau order aktif, dan mengelola pembayaran
-* Mendukung skenario restoran dengan meja, takeaway, dine-in, serta open bill
-* Menyediakan fondasi sistem POS yang scalable untuk banyak outlet dan organisasi
-* Meningkatkan akurasi pencatatan pesanan melalui struktur order, item, varian, add-on, status pembayaran, dan status bill yang lebih jelas
+* Empowering F&B businesses to reduce manual work in ordering, billing, and kitchen communication
+* Accelerating the customer lifecycle from QR scan to order processing
+* Streamlining cashier operations for order creation, active order monitoring, and payment collection
+* Supporting restaurant-specific dining scenarios like table management, takeaway, dine-in, and open bill sessions
+* Providing a highly scalable POS foundation ready for multi-tenant and multi-outlet expansion
+* Improving order accuracy through structured database representations of order items, variants, add-ons, payments, and billing statuses
 
-![Santap Mockup 1](/portofolio/santap/santap1.avif)
-![Santap Mockup 2](/portofolio/santap/santap2.avif)
-![Santap Mockup 3](/portofolio/santap/santap3.avif)
+![Santap Mockup 1](/portofolio/santap/1.avif)
+![Santap Mockup 2](/portofolio/santap/2.avif)
+![Santap Mockup 3](/portofolio/santap/3.avif)
+![Santap Mockup 4](/portofolio/santap/4.avif)

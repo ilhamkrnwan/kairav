@@ -2,8 +2,7 @@
 // Dynamic SEO
 useDynamicSeo({
   titleKey: 'seo.about.title',
-  descriptionKey: 'seo.about.description',
-  image: '/og-image.jpg'
+  descriptionKey: 'seo.about.description'
 })
 
 // JSON-LD Structured Data for profile page

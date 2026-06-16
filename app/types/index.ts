@@ -38,3 +38,24 @@ export interface BlogCollectionItem {
   body?: any
   [key: string]: any
 }
+
+export interface ServiceCollectionItem {
+  _path?: string
+  path?: string
+  title?: string
+  description?: string
+  slug?: string
+  icon?: string
+  category?: string
+  order?: number
+  duration?: string
+  deliverables?: string[]
+  tags?: string[]
+  featured?: boolean
+  seo?: {
+    title?: string
+    description?: string
+  }
+  body?: any
+  [key: string]: any
+}

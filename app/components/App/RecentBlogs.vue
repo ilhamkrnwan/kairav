@@ -58,12 +58,14 @@ const getBlogLink = (path?: string) => {
             </UiTextGradient>
           </p>
           <div class="mt-8 hidden lg:block">
-            <UiAnimatedButton v-if="displayedBlogs.length > 0" href="/blogs" variant="outline">
-              <template #default>{{ t('View All Articles') }}</template>
-              <template #iconRight>
-                <Icon name="lucide:arrow-right" class="w-4 h-4" />
-              </template>
-            </UiAnimatedButton>
+            <NuxtLink
+              v-if="displayedBlogs.length > 0"
+              to="/blogs"
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+            >
+              <span>{{ t('View All Articles') }}</span>
+              <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
+            </NuxtLink>
           </div>
         </div>
 
@@ -162,12 +164,14 @@ const getBlogLink = (path?: string) => {
 
           <!-- Mobile Button -->
           <div class="mt-8 lg:hidden block text-center">
-            <UiAnimatedButton v-if="displayedBlogs.length > 0" href="/blogs" variant="outline">
-              <template #default>{{ t('View All Articles') }}</template>
-              <template #iconRight>
-                <Icon name="lucide:arrow-right" class="w-4 h-4" />
-              </template>
-            </UiAnimatedButton>
+            <NuxtLink
+              v-if="displayedBlogs.length > 0"
+              to="/blogs"
+              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+            >
+              <span>{{ t('View All Articles') }}</span>
+              <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
+            </NuxtLink>
           </div>
         </div>
 

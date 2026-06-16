@@ -1,14 +1,30 @@
 /**
  * JSON-LD Structured Data Composable
  *
- * Provides reusable functions to inject Schema.org JSON-LD
- * into <head> for SEO and Generative Engine Optimization (GEO).
+ * Provides reusable Schema.org JSON-LD helpers for SEO and
+ * Generative Engine Optimization (GEO).
  *
- * Supports: Person, WebSite, ProfilePage, CreativeWork, BlogPosting
+ * Supports: Person, WebSite, ProfilePage, Service, OfferCatalog,
+ * CreativeWork, BlogPosting.
  */
 
 interface PersonSchemaOptions {
   siteUrl?: string
+}
+
+interface ServiceSchemaOptions {
+  title?: string
+  description?: string
+  category?: string
+  duration?: string
+  deliverables?: string[]
+  tags?: string[]
+  url?: string
+}
+
+interface ServiceCatalogSchemaOptions {
+  services?: ServiceSchemaOptions[]
+  url?: string
 }
 
 interface CreativeWorkOptions {
@@ -35,19 +51,43 @@ interface BlogPostingOptions {
 
 const DEFAULT_SITE_URL = 'https://ilhamkrnwan.my.id'
 
+const resolveSiteUrl = (optionSiteUrl?: string) => {
+  const config = useRuntimeConfig()
+  return optionSiteUrl || config.public.siteUrl || DEFAULT_SITE_URL
+}
+
+const toAbsoluteUrl = (url: string | undefined, siteUrl: string) => {
+  if (!url) return undefined
+  return url.startsWith('/') ? `${siteUrl}${url}` : url
+}
+
 /**
- * Shared person data used across schemas
+ * Shared person data used across schemas.
  */
 const getPersonData = (siteUrl: string) => ({
   '@type': 'Person',
-  'name': 'Ilham Kurniawan',
-  'alternateName': 'ilhamkrnwan',
-  'url': siteUrl,
-  'image': `${siteUrl}/ilham-hero.avif`,
-  'jobTitle': 'Fullstack Developer',
-  'description': 'Fullstack Developer dari Indonesia, spesialisasi dalam Nuxt.js, Vue.js, Laravel, Flutter, dan UI/UX Design. Membangun web application, mobile app, dan solusi digital yang scalable.',
-  'knowsAbout': [
+  name: 'Ilham Kurniawan',
+  alternateName: 'ilhamkrnwan',
+  url: siteUrl,
+  image: `${siteUrl}/ilham-hero.avif`,
+  jobTitle: 'Fullstack Developer',
+  description:
+    'Fullstack Developer dari Indonesia yang membangun website bisnis, toko online, dashboard admin, sistem informasi custom, integrasi API/AI, aplikasi web, aplikasi Android custom, serta optimasi SEO/GEO.',
+  knowsAbout: [
     'Fullstack Web Development',
+    'Business Website',
+    'Company Profile Website',
+    'Online Store',
+    'Product Catalog',
+    'Admin Dashboard',
+    'Custom Information System',
+    'API Integration',
+    'AI Automation',
+    'Custom Android App Development',
+    'Mobile App Development',
+    'SEO',
+    'Generative Engine Optimization',
+    'WordPress',
     'Vue.js',
     'Nuxt.js',
     'Laravel',
@@ -63,46 +103,51 @@ const getPersonData = (siteUrl: string) => ({
     'PostgreSQL',
     'MongoDB',
     'MySQL',
+    'Cloudinary',
+    'OpenAI',
+    'Google Gemini',
+    'Claude',
+    'Qwen',
+    'DeepSeek',
     'Docker',
     'Git',
   ],
-  'sameAs': [
+  sameAs: [
     'https://github.com/ilhamkrnwan',
     'https://linkedin.com/in/ilhamkrnwan',
   ],
-  'worksFor': [
+  worksFor: [
     {
       '@type': 'Organization',
-      'name': 'Sekeco',
-      'description': 'Software Services Company',
+      name: 'Sekeco',
+      description: 'Software Services Company',
     },
     {
       '@type': 'Organization',
-      'name': 'Indotech',
-      'description': 'WordPress Development Experience',
+      name: 'Indotech',
+      description: 'WordPress Development Experience',
     },
     {
       '@type': 'Organization',
-      'name': 'Jurutani',
-      'description': 'Platform Pertanian Digital',
+      name: 'Jurutani',
+      description: 'Platform Pertanian Digital',
     },
   ],
-  'alumniOf': {
+  alumniOf: {
     '@type': 'EducationalOrganization',
-    'name': 'Universitas Nahdlatul Ulama Yogyakarta (UNUYO)',
+    name: 'Universitas Nahdlatul Ulama Yogyakarta (UNUYO)',
   },
-  'nationality': {
+  nationality: {
     '@type': 'Country',
-    'name': 'Indonesia',
+    name: 'Indonesia',
   },
 })
 
 /**
- * Inject Person schema — identity of Ilham Kurniawan
+ * Inject Person schema - identity of Ilham Kurniawan.
  */
 export const usePersonSchema = (options: PersonSchemaOptions = {}) => {
-  const config = useRuntimeConfig()
-  const siteUrl = options.siteUrl || config.public.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = resolveSiteUrl(options.siteUrl)
 
   const schema = {
     '@context': 'https://schema.org',
@@ -121,25 +166,37 @@ export const usePersonSchema = (options: PersonSchemaOptions = {}) => {
 }
 
 /**
- * Inject WebSite schema — site-level metadata
+ * Inject WebSite schema - site-level metadata.
  */
 export const useWebSiteSchema = (options: PersonSchemaOptions = {}) => {
-  const config = useRuntimeConfig()
-  const siteUrl = options.siteUrl || config.public.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = resolveSiteUrl(options.siteUrl)
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'name': 'Ilham Kurniawan — Fullstack Developer Portfolio',
-    'alternateName': 'KAIRAV',
-    'url': siteUrl,
-    'description':
-      'Portfolio website Ilham Kurniawan, Fullstack Developer dari Indonesia. Menampilkan proyek web application, mobile app, dan solusi digital menggunakan Nuxt.js, Vue.js, Laravel, Flutter.',
-    'author': getPersonData(siteUrl),
-    'inLanguage': ['id-ID', 'en-US'],
-    'potentialAction': {
+    name: 'Ilham Kurniawan / KAIRAV - Portfolio and Digital Services',
+    alternateName: ['KAIRAV', 'ilhamkrnwan'],
+    url: siteUrl,
+    description:
+      'Portfolio dan layanan digital Ilham Kurniawan untuk website bisnis, toko online, dashboard admin, sistem informasi custom, integrasi API/AI, aplikasi web, aplikasi Android custom, dan optimasi SEO/GEO.',
+    author: getPersonData(siteUrl),
+    inLanguage: ['id-ID', 'en-US'],
+    about: [
+      'Website development',
+      'Business website',
+      'Online store',
+      'Admin dashboard',
+      'Custom information system',
+      'API integration',
+      'AI automation',
+      'Android app development',
+      'Mobile app development',
+      'SEO',
+      'Generative Engine Optimization',
+    ],
+    potentialAction: {
       '@type': 'SearchAction',
-      'target': `${siteUrl}/portofolio?q={search_term_string}`,
+      target: `${siteUrl}/portofolio?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   }
@@ -156,20 +213,19 @@ export const useWebSiteSchema = (options: PersonSchemaOptions = {}) => {
 }
 
 /**
- * Inject ProfilePage schema — for about page
+ * Inject ProfilePage schema - for about page.
  */
 export const useProfilePageSchema = (options: PersonSchemaOptions = {}) => {
-  const config = useRuntimeConfig()
-  const siteUrl = options.siteUrl || config.public.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = resolveSiteUrl(options.siteUrl)
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    'name': 'Tentang Ilham Kurniawan — Fullstack Developer',
-    'url': `${siteUrl}/about`,
-    'description':
-      'Profil lengkap Ilham Kurniawan: pendidikan di UNUYO, pengalaman sebagai Fullstack Developer di Sekeco dan Jurutani, keahlian Nuxt.js/Vue.js/Laravel/Flutter, dan ketersediaan untuk kolaborasi.',
-    'mainEntity': getPersonData(siteUrl),
+    name: 'Tentang Ilham Kurniawan - Fullstack Developer',
+    url: `${siteUrl}/about`,
+    description:
+      'Profil Ilham Kurniawan: Fullstack Developer Indonesia dengan pengalaman di Sekeco, Indotech, Jurutani, dan proyek freelance untuk website, dashboard, sistem custom, API/AI, serta SEO/GEO.',
+    mainEntity: getPersonData(siteUrl),
   }
 
   useHead({
@@ -184,36 +240,124 @@ export const useProfilePageSchema = (options: PersonSchemaOptions = {}) => {
 }
 
 /**
- * Inject CreativeWork / SoftwareApplication schema — for portfolio items
+ * Inject OfferCatalog schema - for the services listing page.
+ */
+export const useServiceCatalogSchema = (options: ServiceCatalogSchemaOptions = {}) => {
+  const siteUrl = resolveSiteUrl()
+  const servicesUrl = toAbsoluteUrl(options.url || '/services', siteUrl)
+  const services = options.services || []
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'Layanan Digital Ilham Kurniawan',
+    url: servicesUrl,
+    description:
+      'Katalog layanan digital untuk website bisnis, toko online, dashboard admin, sistem informasi custom, integrasi API/AI, aplikasi web, aplikasi Android custom, dan optimasi SEO/GEO.',
+    itemListElement: services.map((service, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        serviceType: service.category,
+        url: toAbsoluteUrl(service.url, siteUrl),
+        provider: getPersonData(siteUrl),
+        areaServed: {
+          '@type': 'Country',
+          name: 'Indonesia',
+        },
+        ...(service.tags?.length ? { keywords: service.tags.join(', ') } : {}),
+      },
+    })),
+  }
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(schema),
+        tagPosition: 'head',
+      },
+    ],
+  })
+}
+
+/**
+ * Inject Service schema - for service detail pages.
+ */
+export const useServiceSchema = (service: ServiceSchemaOptions = {}) => {
+  if (!service.title) return
+
+  const route = useRoute()
+  const siteUrl = resolveSiteUrl()
+  const serviceUrl = toAbsoluteUrl(service.url || route.path, siteUrl)
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.description || '',
+    serviceType: service.category || 'Digital Service',
+    url: serviceUrl,
+    provider: getPersonData(siteUrl),
+    areaServed: {
+      '@type': 'Country',
+      name: 'Indonesia',
+    },
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Business, MSME, Startup, Organization',
+    },
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      category: service.category || 'Digital Service',
+      url: serviceUrl,
+    },
+    ...(service.duration ? { timeRequired: service.duration } : {}),
+    ...(service.deliverables?.length ? { serviceOutput: service.deliverables } : {}),
+    ...(service.tags?.length ? { keywords: service.tags.join(', ') } : {}),
+  }
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(schema),
+        tagPosition: 'head',
+      },
+    ],
+  })
+}
+
+/**
+ * Inject CreativeWork / SoftwareApplication schema - for portfolio items.
  */
 export const useCreativeWorkSchema = (project: CreativeWorkOptions = {}) => {
-  const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = resolveSiteUrl()
 
   if (!project.title) return
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    'name': project.title,
-    'description': project.description || '',
-    'url': project.url || siteUrl,
-    'image': project.image
-      ? project.image.startsWith('/')
-        ? `${siteUrl}${project.image}`
-        : project.image
-      : undefined,
-    'datePublished': project.datePublished,
-    'applicationCategory': project.category || 'WebApplication',
-    'author': {
+    name: project.title,
+    description: project.description || '',
+    url: project.url || siteUrl,
+    image: toAbsoluteUrl(project.image, siteUrl),
+    datePublished: project.datePublished,
+    applicationCategory: project.category || 'WebApplication',
+    author: {
       '@type': 'Person',
-      'name': 'Ilham Kurniawan',
-      'url': siteUrl,
+      name: 'Ilham Kurniawan',
+      url: siteUrl,
     },
-    'creator': {
+    creator: {
       '@type': 'Person',
-      'name': 'Ilham Kurniawan',
-      'url': siteUrl,
+      name: 'Ilham Kurniawan',
+      url: siteUrl,
     },
     ...(project.tags && project.tags.length > 0
       ? { keywords: project.tags.join(', ') }
@@ -222,7 +366,7 @@ export const useCreativeWorkSchema = (project: CreativeWorkOptions = {}) => {
       ? {
           sourceOrganization: {
             '@type': 'Organization',
-            'name': project.client,
+            name: project.client,
           },
         }
       : {}),
@@ -240,38 +384,35 @@ export const useCreativeWorkSchema = (project: CreativeWorkOptions = {}) => {
 }
 
 /**
- * Inject BlogPosting schema — for blog articles
+ * Inject BlogPosting schema - for blog articles.
  */
 export const useBlogPostingSchema = (article: BlogPostingOptions = {}) => {
-  const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = resolveSiteUrl()
 
   if (!article.title) return
+
+  const articleUrl = toAbsoluteUrl(article.url, siteUrl) || siteUrl
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    'headline': article.title,
-    'description': article.description || '',
-    'url': article.url || siteUrl,
-    'image': article.coverImage
-      ? article.coverImage.startsWith('/')
-        ? `${siteUrl}${article.coverImage}`
-        : article.coverImage
-      : undefined,
-    'datePublished': article.datePublished,
-    'author': {
+    headline: article.title,
+    description: article.description || '',
+    url: articleUrl,
+    image: toAbsoluteUrl(article.coverImage, siteUrl),
+    datePublished: article.datePublished,
+    author: {
       '@type': 'Person',
-      'name': article.author || 'Ilham Kurniawan',
-      'url': siteUrl,
+      name: article.author || 'Ilham Kurniawan',
+      url: siteUrl,
     },
-    'publisher': {
+    publisher: {
       '@type': 'Person',
-      'name': 'Ilham Kurniawan',
-      'url': siteUrl,
-      'logo': {
+      name: 'Ilham Kurniawan',
+      url: siteUrl,
+      logo: {
         '@type': 'ImageObject',
-        'url': `${siteUrl}/kairav.avif`,
+        url: `${siteUrl}/kairav.avif`,
       },
     },
     ...(article.category
@@ -280,10 +421,10 @@ export const useBlogPostingSchema = (article: BlogPostingOptions = {}) => {
     ...(article.tags && article.tags.length > 0
       ? { keywords: article.tags.join(', ') }
       : {}),
-    'inLanguage': 'id-ID',
-    'mainEntityOfPage': {
+    inLanguage: 'id-ID',
+    mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': article.url || siteUrl,
+      '@id': articleUrl,
     },
   }
 

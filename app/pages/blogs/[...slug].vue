@@ -67,7 +67,6 @@ if (error.value || !current.value) {
 useDynamicSeo({
   title: current.value?.title,
   description: current.value?.description || t('View article details'),
-  image: current.value?.coverImage,
   type: 'article',
   publishedTime: current.value?.date,
   tags: current.value?.tags

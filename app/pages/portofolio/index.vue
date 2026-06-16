@@ -51,8 +51,7 @@ const filteredPortfolios = computed(() => {
 
 useDynamicSeo({
   titleKey: 'seo.portfolio.title',
-  descriptionKey: 'seo.portfolio.description',
-  image: '/og-image.jpg'
+  descriptionKey: 'seo.portfolio.description'
 })
 
 const getTagColor = (tag: string) => {
@@ -126,18 +125,32 @@ const getTagColor = (tag: string) => {
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <UiAnimatedButton href="#project-list" variant="primary">
-            <template #default>{{ t('View Projects') }}</template>
-            <template #iconRight>
+          <NuxtLink
+            to="#project-list"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
+          >
+            <div class="absolute inset-0 z-0 overflow-hidden rounded-sm">
+              <div class="absolute top-0 -left-full h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-700 group-hover:left-[200%]"></div>
+            </div>
+            <span class="relative z-10 flex items-center gap-2">
+              {{ t('View Projects') }}
+            </span>
+            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
               <Icon name="lucide:arrow-down" class="w-4 h-4" />
-            </template>
-          </UiAnimatedButton>
-          <UiAnimatedButton href="/" variant="outline">
-            <template #default>{{ t('Back to Home') }}</template>
-            <template #iconRight>
+            </span>
+          </NuxtLink>
+
+          <NuxtLink
+            to="/"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              {{ t('Back to Home') }}
+            </span>
+            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
               <Icon name="lucide:home" class="w-4 h-4" />
-            </template>
-          </UiAnimatedButton>
+            </span>
+          </NuxtLink>
         </div>
       </div>
 

@@ -7,10 +7,11 @@ const hoveredMenu = ref('')
 
 const menuItems = computed(() => [
   { name: t('Home'), route: '/' },
+  { name: t('Services'), route: '/services' },
   { name: t('Portofolio'), route: '/portofolio' },
   { name: t('Blogs'), route: '/blogs' },
   { name: t('Gallery'), route: '/gallery' },
-  { name: t('About'), route: '/about' }
+  { name: t('About'), route: '/about' },
 ])
 
 const toggleMenu = () => {
@@ -277,6 +278,8 @@ const closeMenu = () => {
 .wrapper.open ul li:nth-child(3) { transition-delay: 0.2s }
 .wrapper.open ul li:nth-child(4) { transition-delay: 0.25s }
 .wrapper.open ul li:nth-child(5) { transition-delay: 0.3s }
+.wrapper.open ul li:nth-child(6) { transition-delay: 0.35s }
+.wrapper.open ul li:nth-child(7) { transition-delay: 0.4s }
 
 /* Responsive */
 @media (max-width: 640px) {

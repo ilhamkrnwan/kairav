@@ -34,6 +34,16 @@ const techStacks = {
     { name: "Docker", icon: "logos:docker-icon" },
     { name: "Capacitor", icon: "logos:capacitorjs-icon" },
   ],
+  row4: [
+    { name: "WordPress", icon: "logos:wordpress-icon" },
+    { name: "Gemini", icon: "logos:google-gemini" },
+    { name: "ChatGPT", icon: "logos:openai-icon" },
+    { name: "Claude", icon: "logos:claude-icon" },
+    { name: "Qwen", icon: "logos:qwen-icon" },
+    { name: "DeepSeek", icon: "logos:deepseek-icon" },
+    { name: "Antigravity", icon: "streamline-plump-color:atom" },
+    { name: "VS Code", icon: "logos:visual-studio-code" },
+  ],
 };
 </script>
 
@@ -145,6 +155,38 @@ const techStacks = {
                 <UiAnimatedCard
                   v-for="(tech, index) in techStacks.row3"
                   :key="`row3-tech-${i}-${index}`"
+                  :glow-color="'251, 191, 36'"
+                  :particle-count="6"
+                  :enable-particles="true"
+                  :enable-tilt="false"
+                  :enable-magnetism="false"
+                  :enable-border-glow="false"
+                  :click-effect="true"
+                >
+                  <div
+                    class="tech-card flex items-center justify-center gap-3 p-4 px-6 rounded-sm bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
+                  >
+                    <Icon :name="tech.icon" class="w-6 h-6" />
+                    <span class="text-xs font-mono font-medium text-foreground whitespace-nowrap tracking-wide">
+                      {{ tech.name }}
+                    </span>
+                  </div>
+                </UiAnimatedCard>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4 - Move Left -->
+          <div class="marquee-container relative overflow-hidden py-2">
+            <div class="marquee flex gap-4 w-max">
+              <div
+                v-for="i in 2"
+                :key="`row4-${i}`"
+                class="marquee-content flex gap-4 animate-scroll-left"
+              >
+                <UiAnimatedCard
+                  v-for="(tech, index) in techStacks.row4"
+                  :key="`row4-tech-${i}-${index}`"
                   :glow-color="'251, 191, 36'"
                   :particle-count="6"
                   :enable-particles="true"

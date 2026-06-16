@@ -76,13 +76,26 @@ const errorInfo = computed(() => {
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-        <UiAnimatedButton href="/" variant="primary">
-          <template #default>{{ t('Go to Home') }}</template>
-        </UiAnimatedButton>
+        <NuxtLink
+          to="/"
+          class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
+        >
+          <div class="absolute inset-0 z-0 overflow-hidden rounded-sm">
+            <div class="absolute top-0 -left-full h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-700 group-hover:left-[200%]"></div>
+          </div>
+          <span class="relative z-10 flex items-center gap-2">
+            {{ t('Go to Home') }}
+          </span>
+        </NuxtLink>
 
-        <UiAnimatedButton @click="() => $router.back()" variant="outline">
-          <template #default>{{ t('Go Back') }}</template>
-        </UiAnimatedButton>
+        <button
+          @click="() => $router.back()"
+          class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            {{ t('Go Back') }}
+          </span>
+        </button>
       </div>
 
       <!-- Error Details Card (Optional) -->

@@ -1,6 +1,6 @@
 ---
 title: Kairav Studio
-description: Studio digital kreatif yang membantu brand membangun website modern, cepat, SEO-ready, dan siap bersaing di era generative engine optimization
+description: A creative digital studio helping brands build modern, fast, SEO-ready websites prepared for the generative engine optimization era
 image: /portofolio/kairav-studio/preview.avif
 category: Company Website
 services:
@@ -24,45 +24,45 @@ _path: /portofolio/kairav-studio
 url: https://kairav.studio
 ---
 
-# Kairav Studio — Digital Studio untuk Website Modern, Cepat, dan Berkarakter
+# Kairav Studio — Digital Studio for Modern, Fast, and Purpose-Driven Websites
 
-Kairav Studio adalah studio digital yang berfokus pada pembuatan website modern untuk brand, bisnis, dan produk digital. Website ini dirancang untuk memperkenalkan identitas Kairav Studio sebagai partner kreatif-teknis yang menggabungkan desain visual, performa, SEO, dan generative engine optimization dalam satu pengalaman digital yang solid.
+Kairav Studio is a digital studio focusing on building modern websites for brands, businesses, and digital products. This website is designed to introduce Kairav Studio's identity as a creative-technical partner that combines visual design, performance, SEO, and generative engine optimization into a solid digital experience.
 
 ![Interface Kairav Studio](/portofolio/kairav-studio/preview.avif)
 
-## Masalah
+## Problem
 
-Banyak bisnis sudah memiliki website, tetapi belum memiliki identitas digital yang kuat. Website sering kali hanya berfungsi sebagai profil online tanpa strategi visual, performa, struktur konten, SEO, atau kesiapan untuk ditemukan oleh mesin pencari modern dan generative engine seperti ChatGPT, Gemini, Perplexity, dan search AI lainnya.
+Many businesses already have websites but lack a strong digital identity. Websites often function purely as online profiles without visual strategy, performance optimization, content structure, SEO, or readiness to be discovered by modern search engines and generative engines like ChatGPT, Gemini, Perplexity, and other search AIs.
 
-Di sisi lain, banyak website agency terasa terlalu generik, terlalu ramai, atau tidak menunjukkan kualitas teknis secara langsung melalui pengalaman pengguna. Kairav Studio membutuhkan website yang tidak hanya menjual layanan, tetapi juga menjadi bukti kualitas dari layanan itu sendiri.
+On the other hand, many agency websites feel too generic, cluttered, or fail to demonstrate technical quality directly through user experience. Kairav Studio needed a website that not only sells services but also acts as a living proof of those services' quality.
 
-## Solusi
+## Solution
 
-Kairav Studio dibangun sebagai website company profile modern yang mengutamakan kesan premium, performa tinggi, dan narasi layanan yang jelas:
+Kairav Studio was built as a modern company profile website that prioritizes premium aesthetics, high performance, and clear service storytelling:
 
-* **Modern Digital Presence** — Tampilan visual yang clean, solid, dan profesional untuk memperkuat positioning brand
-* **Service-Oriented Structure** — Penyusunan layanan seperti website development, UI/UX, SEO, GEO, sistem informasi, integrasi AI, Android, dan IoT
-* **Performance-First Website** — Menggunakan pendekatan static-first agar website ringan, cepat, dan stabil
-* **SEO & GEO Ready** — Struktur konten, metadata, semantic HTML, sitemap, dan optimasi agar mudah dibaca mesin pencari serta generative engine
-* **Interactive Experience** — Animasi halus menggunakan GSAP untuk memberi kesan hidup tanpa mengorbankan performa
-* **Portfolio-Driven Layout** — Menampilkan studi kasus, proses kerja, dan hasil proyek sebagai bukti kemampuan
-* **Scalable Content System** — Konten portofolio dan halaman layanan disusun agar mudah diperluas seiring perkembangan studio
+* **Modern Digital Presence** — A clean, solid, and professional visual style to strengthen brand positioning
+* **Service-Oriented Structure** — Clearly organized services including website development, UI/UX, SEO, GEO, information systems, AI integration, Android, and IoT
+* **Performance-First Website** — Utilizing a static-first approach to keep the website lightweight, fast, and stable
+* **SEO & GEO Ready** — Content structure, metadata, semantic HTML, sitemap, and optimization to ensure readability by search engines and generative engines
+* **Interactive Experience** — Smooth animations using GSAP to bring the site to life without sacrificing performance
+* **Portfolio-Driven Layout** — Showcasing case studies, workflows, and project results as proof of capabilities
+* **Scalable Content System** — Portfolio content and service pages structured for easy expansion as the studio grows
 
-## Peran Ilham
+## Ilham's Role
 
-Sebagai **Penginisiasi, Desainer, dan Web Developer**, Ilham bertanggung jawab atas:
+As **Initiator, Designer, and Web Developer**, Ilham was responsible for:
 
-* Perancangan identitas digital, arah visual, dan positioning Kairav Studio
-* Pengembangan website company profile menggunakan Astro dan Tailwind CSS
-* Penyusunan struktur halaman layanan, portofolio, about, dan contact
-* Implementasi animasi interaktif menggunakan GSAP
-* Optimasi SEO teknis, metadata, sitemap, Open Graph, dan struktur konten
-* Perencanaan generative engine optimization agar konten lebih mudah dipahami oleh AI search engine
-* Persiapan deployment modern menggunakan Vercel dan optimasi asset image
+* Designing the digital identity, visual direction, and positioning of Kairav Studio
+* Developing the company profile website using Astro and Tailwind CSS
+* Structuring pages for services, portfolio, about, and contact
+* Implementing interactive animations using GSAP
+* Optimizing technical SEO, metadata, sitemaps, Open Graph, and content structure
+* Planning generative engine optimization to make content more easily understood by AI search engines
+* Preparing modern deployment using Vercel and optimizing image assets
 
 ## Tech Stack
 
-| Layer              | Teknologi                                          |
+| Layer              | Technology                                         |
 | ------------------ | -------------------------------------------------- |
 | Frontend           | Astro, Tailwind CSS                                |
 | Animation          | GSAP                                               |
@@ -72,14 +72,14 @@ Sebagai **Penginisiasi, Desainer, dan Web Developer**, Ilham bertanggung jawab a
 | Deployment         | Vercel                                             |
 | Domain & DNS       | Name.com, Cloudflare                               |
 
-## Dampak dan Hasil
+## Impact and Results
 
-* Membangun fondasi digital resmi untuk Kairav Studio sebagai studio website dan teknologi kreatif
-* Menjadi media utama untuk memperkenalkan layanan, portofolio, proses kerja, dan positioning brand
-* Menghasilkan website yang cepat, ringan, mobile-friendly, dan siap dikembangkan menjadi platform studio yang lebih lengkap
-* Memperkuat kredibilitas studio melalui tampilan profesional, struktur konten rapi, dan pendekatan SEO/GEO modern
-* Menjadi showcase langsung dari kualitas desain, development, performa, dan perhatian terhadap detail
+* Building the official digital foundation for Kairav Studio as a website and creative technology studio
+* Serving as the primary medium to introduce services, portfolio, workflow, and brand positioning
+* Delivering a fast, lightweight, mobile-friendly website ready to be scaled into a comprehensive studio platform
+* Strengthening the studio's credibility through a professional design, clean content structure, and modern SEO/GEO approaches
+* Serving as a direct showcase of design, development, performance quality, and attention to detail
 
-![Kairav Studio Mockup 1](/portofolio/kairav-studio/kairav-studio1.avif)
-![Kairav Studio Mockup 2](/portofolio/kairav-studio/kairav-studio2.avif)
-![Kairav Studio Mockup 3](/portofolio/kairav-studio/kairav-studio3.avif)
+![Kairav Studio Mockup 1](/portofolio/kairav-studio/1.avif)
+![Kairav Studio Mockup 2](/portofolio/kairav-studio/2.avif)
+![Kairav Studio Mockup 3](/portofolio/kairav-studio/3.avif)

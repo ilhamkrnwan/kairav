@@ -25,11 +25,12 @@
  *   descriptionKey: 'seo.home.description'
  * })
  * 
- * // With image for social sharing
+ * // With fallback image when dynamic OG is disabled
  * useDynamicSeo({
  *   title: 'Project Name',
  *   description: 'Project description',
- *   image: '/og-image.jpg'
+ *   image: '/og-image.jpg',
+ *   disableDynamicOg: true
  * })
  */
 
@@ -42,8 +43,10 @@ interface SeoOptions {
   description?: string
   /** i18n key for description translation */
   descriptionKey?: string
-  /** Image URL for Open Graph and Twitter Card */
+  /** Fallback image URL when disableDynamicOg is true */
   image?: string
+  /** Label shown in the dynamic OG image */
+  label?: string
   /** Page type for Open Graph (default: 'website') */
   type?: 'website' | 'article' | 'profile'
   /** Article publish date (for type='article') */
@@ -58,6 +61,8 @@ interface SeoOptions {
   canonical?: string
   /** Disable auto-suffix for title (default: true) */
   noSuffix?: boolean
+  /** Disable generated nuxt-og-image output */
+  disableDynamicOg?: boolean
 }
 
 export const useDynamicSeo = (options: SeoOptions = {}) => {
@@ -66,7 +71,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
   const config = useRuntimeConfig()
   
   // Get base site URL from runtime config
-  const siteUrl = config.public.siteUrl || 'https://ilhamkrnwan.vercel.app'
+  const siteUrl = config.public.siteUrl || 'https://ilhamkrnwan.my.id'
   const siteName = 'Ilham Kurniawan | Kairav'
   
   // Resolve title
@@ -111,7 +116,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     return `${siteUrl}${path}`
   }
   
-  // Resolve image URL
+  // Resolve fallback image URL for non-dynamic usage
   const getImage = () => {
     if (options.image) {
       // If image is relative, make it absolute
@@ -123,6 +128,35 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     
     // Default OG image (use .jpg for maximum social media compatibility)
     return `${siteUrl}/og-image.jpg`
+  }
+
+  const getOgLabel = () => {
+    if (options.label) return options.label
+    if (route.path.startsWith('/services')) return 'Services'
+    if (route.path.startsWith('/portofolio')) return options.type === 'article' ? 'Project' : 'Portfolio'
+    if (route.path.startsWith('/blogs')) return options.type === 'article' ? 'Article' : 'Blog'
+    if (route.path.startsWith('/contact')) return 'Contact'
+    if (route.path.startsWith('/about')) return 'Profile'
+    if (route.path.startsWith('/cv')) return 'Curriculum Vitae'
+    if (route.path.startsWith('/gallery')) return 'Gallery'
+    return 'Digital Solution'
+  }
+
+  if (!options.disableDynamicOg) {
+    defineOgImage({
+      component: 'DefaultOgImage',
+      extension: 'png',
+      width: 1200,
+      height: 630,
+      alt: getTitle(),
+      props: {
+        title: getTitle(),
+        description: getDescription(),
+        label: getOgLabel(),
+        siteName: 'KAIRAV',
+        siteUrl: 'ilhamkrnwan.my.id',
+      },
+    })
   }
   
   // Set SEO meta tags
@@ -136,8 +170,12 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     ogDescription: getDescription,
     ogType: options.type || 'website',
     ogUrl: getCanonical,
-    ogImage: getImage,
-    ogImageAlt: getTitle,
+    ...(options.disableDynamicOg
+      ? {
+          ogImage: getImage,
+          ogImageAlt: getTitle,
+        }
+      : {}),
     ogLocale: locale.value === 'id' ? 'id_ID' : 'en_US',
     ogSiteName: siteName,
     
@@ -152,8 +190,12 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     twitterCard: options.twitterCard || 'summary_large_image',
     twitterTitle: getTitle,
     twitterDescription: getDescription,
-    twitterImage: getImage,
-    twitterImageAlt: getTitle,
+    ...(options.disableDynamicOg
+      ? {
+          twitterImage: getImage,
+          twitterImageAlt: getTitle,
+        }
+      : {}),
     
     // Additional meta tags
     robots: 'index, follow',

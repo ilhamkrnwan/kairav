@@ -80,6 +80,6 @@ Sebagai **Penginisiasi, Desainer, dan Web Developer**, Ilham bertanggung jawab a
 * Memperkuat kredibilitas studio melalui tampilan profesional, struktur konten rapi, dan pendekatan SEO/GEO modern
 * Menjadi showcase langsung dari kualitas desain, development, performa, dan perhatian terhadap detail
 
-![Kairav Studio Mockup 1](/portofolio/kairav-studio/kairav-studio1.avif)
-![Kairav Studio Mockup 2](/portofolio/kairav-studio/kairav-studio2.avif)
-![Kairav Studio Mockup 3](/portofolio/kairav-studio/kairav-studio3.avif)
+![Kairav Studio Mockup 1](/portofolio/kairav-studio/1.avif)
+![Kairav Studio Mockup 2](/portofolio/kairav-studio/2.avif)
+![Kairav Studio Mockup 3](/portofolio/kairav-studio/3.avif)

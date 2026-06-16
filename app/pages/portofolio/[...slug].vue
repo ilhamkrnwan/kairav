@@ -97,7 +97,6 @@ const projectImages = computed(() => {
 useDynamicSeo({
   title: current.value?.title,
   description: current.value?.description || t('View project details and portfolio'),
-  image: current.value?.image,
   type: 'article',
   publishedTime: current.value?.date,
   tags: current.value?.tags

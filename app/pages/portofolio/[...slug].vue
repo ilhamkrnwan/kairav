@@ -182,7 +182,7 @@ useCreativeWorkSchema({
       </section>
 
       <!-- Content Section with Grid Layout -->
-      <section class="py-8 md:py-12 overflow-x-hidden">
+      <section class="py-8 md:py-12">
         <UiGlobalSpotlight
           container-selector=".content-container"
           card-selector=".animated-card"
@@ -207,125 +207,127 @@ useCreativeWorkSchema({
               </div>
 
               <!-- Sidebar -->
-              <aside 
-                v-motion
-                :initial="{ opacity: 0, x: 30 }"
-                :visible="{ opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
-                class="lg:col-span-4"
-              >
+              <aside class="lg:col-span-4">
                 <div class="sticky top-24 space-y-6">
-                  <!-- Project Info Card -->
-                  <UiAnimatedCard
-                    :glow-color="'251, 191, 36'"
-                    :particle-count="8"
-                    :enable-particles="true"
-                    :enable-tilt="false"
-                    :enable-magnetism="false"
-                    :enable-border-glow="false"
-                    :click-effect="true"
+                  <div
+                    v-motion
+                    :initial="{ opacity: 0, x: 30 }"
+                    :visible="{ opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
+                    class="space-y-6"
                   >
-                    <div class="p-6 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
-                      <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-6">{{ t('Project Info') }}</h3>
-                    
-                    <div class="space-y-6">
-                      <!-- Client -->
-                      <div v-if="current.client">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Client') }}</p>
-                        <p class="font-medium text-sm">{{ current.client }}</p>
-                      </div>
+                    <!-- Project Info Card -->
+                    <UiAnimatedCard
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
+                    >
+                      <div class="p-6 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
+                        <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-6">{{ t('Project Info') }}</h3>
+                      
+                      <div class="space-y-6">
+                        <!-- Client -->
+                        <div v-if="current.client">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Client') }}</p>
+                          <p class="font-medium text-sm">{{ current.client }}</p>
+                        </div>
 
-                      <!-- Status -->
-                      <div v-if="current.status">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-2">{{ t('Status') }}</p>
-                        <span class="inline-flex items-center px-3 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
-                          {{ current.status }}
+                        <!-- Status -->
+                        <div v-if="current.status">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-2">{{ t('Status') }}</p>
+                          <span class="inline-flex items-center px-3 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                            {{ current.status }}
+                          </span>
+                        </div>
+
+                        <!-- Industry -->
+                        <div v-if="current.industry">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Industry') }}</p>
+                          <p class="font-medium text-sm">{{ current.industry }}</p>
+                        </div>
+
+                        <!-- Date -->
+                        <div v-if="current.date">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Date') }}</p>
+                          <p class="font-medium text-sm">{{ new Date(current.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+                        </div>
+
+                        <!-- Services -->
+                        <div v-if="current.services && current.services.length > 0">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-3">{{ t('Services') }}</p>
+                          <div class="flex flex-wrap gap-2">
+                            <span 
+                              v-for="service in current.services" 
+                              :key="service"
+                              class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 text-[10px] font-mono uppercase tracking-widest text-foreground"
+                            >
+                              {{ service }}
+                            </span>
+                          </div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div v-if="current.tags && current.tags.length > 0">
+                          <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-3">{{ t('Technologies') }}</p>
+                          <div class="flex flex-wrap gap-2">
+                            <span 
+                              v-for="tag in current.tags" 
+                              :key="tag"
+                              class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 transition-colors text-[10px] font-mono uppercase tracking-widest text-foreground"
+                            >
+                              {{ tag }}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </UiAnimatedCard>
+
+                    <!-- Visit Website -->
+                    <UiAnimatedCard
+                      v-if="current.url"
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
+                    >
+                      <a
+                        :href="current.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block p-4 rounded-sm bg-amber-400 text-[#141009] hover:bg-amber-500 transition-all group text-center border border-amber-500/20"
+                      >
+                        <span class="text-[10px] font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2">
+                          {{ t('Visit Website') }}
+                          <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
                         </span>
-                      </div>
+                      </a>
+                    </UiAnimatedCard>
 
-                      <!-- Industry -->
-                      <div v-if="current.industry">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Industry') }}</p>
-                        <p class="font-medium text-sm">{{ current.industry }}</p>
-                      </div>
-
-                      <!-- Date -->
-                      <div v-if="current.date">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Date') }}</p>
-                        <p class="font-medium text-sm">{{ new Date(current.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
-                      </div>
-
-                      <!-- Services -->
-                      <div v-if="current.services && current.services.length > 0">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-3">{{ t('Services') }}</p>
-                        <div class="flex flex-wrap gap-2">
-                          <span 
-                            v-for="service in current.services" 
-                            :key="service"
-                            class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 text-[10px] font-mono uppercase tracking-widest text-foreground"
-                          >
-                            {{ service }}
-                          </span>
-                        </div>
-                      </div>
-
-                      <!-- Tags -->
-                      <div v-if="current.tags && current.tags.length > 0">
-                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-3">{{ t('Technologies') }}</p>
-                        <div class="flex flex-wrap gap-2">
-                          <span 
-                            v-for="tag in current.tags" 
-                            :key="tag"
-                            class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 transition-colors text-[10px] font-mono uppercase tracking-widest text-foreground"
-                          >
-                            {{ tag }}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  </UiAnimatedCard>
-
-                  <!-- Visit Website -->
-                  <UiAnimatedCard
-                    v-if="current.url"
-                    :glow-color="'251, 191, 36'"
-                    :particle-count="8"
-                    :enable-particles="true"
-                    :enable-tilt="false"
-                    :enable-magnetism="false"
-                    :enable-border-glow="false"
-                    :click-effect="true"
-                  >
-                    <a
-                      :href="current.url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="block p-4 rounded-sm bg-amber-400 text-[#141009] hover:bg-amber-500 transition-all group text-center border border-amber-500/20"
+                    <!-- Back to Projects -->
+                    <UiAnimatedCard
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
                     >
-                      <span class="text-[10px] font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2">
-                        {{ t('Visit Website') }}
-                        <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
-                      </span>
-                    </a>
-                  </UiAnimatedCard>
-
-                  <!-- Back to Projects -->
-                  <UiAnimatedCard
-                    :glow-color="'251, 191, 36'"
-                    :particle-count="8"
-                    :enable-particles="true"
-                    :enable-tilt="false"
-                    :enable-magnetism="false"
-                    :enable-border-glow="false"
-                    :click-effect="true"
-                  >
-                    <NuxtLink
-                      to="/portofolio"
-                      class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
-                    >
-                      <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Projects') }}</span>
-                    </NuxtLink>
-                  </UiAnimatedCard>
+                      <NuxtLink
+                        to="/portofolio"
+                        class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
+                      >
+                        <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Projects') }}</span>
+                      </NuxtLink>
+                    </UiAnimatedCard>
+                  </div>
                 </div>
               </aside>
             </div>

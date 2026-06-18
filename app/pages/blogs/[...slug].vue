@@ -88,6 +88,40 @@ const formatDate = (dateString?: string) => {
   if (!dateString) return ''
   return new Date(dateString).toLocaleDateString(locale.value, { year: 'numeric', month: 'long', day: 'numeric' })
 }
+
+const relatedBlogs = computed(() => {
+  if (!blogs.value || !current.value) return []
+  
+  const otherBlogs = blogs.value.filter(
+    blog => normalizeBlogPath(blog) !== normalizeBlogPath(current.value)
+  )
+  
+  const sameCategory = otherBlogs.filter(
+    blog => blog.category === current.value?.category
+  )
+  
+  if (sameCategory.length >= 3) {
+    return sameCategory.slice(0, 3)
+  }
+  
+  const remainingCount = 3 - sameCategory.length
+  const otherRecent = otherBlogs.filter(
+    blog => !sameCategory.some(sc => normalizeBlogPath(sc) === normalizeBlogPath(blog))
+  )
+  
+  return [...sameCategory, ...otherRecent.slice(0, remainingCount)]
+})
+
+const copySuccess = ref(false)
+const copyUrl = () => {
+  if (process.client) {
+    navigator.clipboard.writeText(window.location.href)
+    copySuccess.value = true
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 2000)
+  }
+}
 </script>
 
 <template>
@@ -152,50 +186,174 @@ const formatDate = (dateString?: string) => {
       </section>
 
       <!-- Content Section -->
-      <section class="py-8 md:py-12 overflow-x-hidden">
+      <section class="py-8 md:py-12">
+        <UiGlobalSpotlight
+          container-selector=".content-container"
+          card-selector=".animated-card"
+          :glow-color="'251, 191, 36'"
+          :spotlight-radius="400"
+          :enabled="true"
+        />
         <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-4xl">
-            <div 
-              v-motion
-              :initial="{ opacity: 0, y: 30 }"
-              :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
-              class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-headings:font-black prose-headings:uppercase prose-p:text-foreground/80"
-            >
-              <ContentRenderer :value="current" />
-            </div>
+          <div class="mx-auto max-w-6xl content-container">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+              <!-- Main Content -->
+              <div 
+                v-motion
+                :initial="{ opacity: 0, y: 30 }"
+                :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
+                class="lg:col-span-8"
+              >
+                <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-headings:font-black prose-headings:uppercase prose-p:text-foreground/80">
+                  <ContentRenderer :value="current" />
+                </div>
 
-            <!-- Tags -->
-            <div v-if="current.tags && current.tags.length > 0" class="mt-12 pt-8 border-t border-border/40">
-              <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">{{ t('Tags:') }}</h3>
-              <div class="flex flex-wrap gap-2">
-                <span 
-                  v-for="tag in current.tags" 
-                  :key="tag"
-                  class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-foreground hover:border-amber-400/50 transition-colors"
-                >
-                  {{ tag }}
-                </span>
+                <!-- Tags -->
+                <div v-if="current.tags && current.tags.length > 0" class="mt-12 pt-8 border-t border-border/40">
+                  <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">{{ t('Tags:') }}</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span 
+                      v-for="tag in current.tags" 
+                      :key="tag"
+                      class="inline-flex items-center px-3 py-1.5 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-foreground hover:border-amber-400/50 transition-colors"
+                    >
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <!-- Back to Blogs -->
-            <div class="mt-12">
-               <UiAnimatedCard
-                  :glow-color="'251, 191, 36'"
-                  :particle-count="8"
-                  :enable-particles="true"
-                  :enable-tilt="false"
-                  :enable-magnetism="false"
-                  :enable-border-glow="false"
-                  :click-effect="true"
-                >
-                  <NuxtLink
-                    to="/blogs"
-                    class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
+
+              <!-- Sidebar -->
+              <aside class="lg:col-span-4">
+                <div class="sticky top-24 space-y-6">
+                  <div
+                    v-motion
+                    :initial="{ opacity: 0, x: 30 }"
+                    :visible="{ opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
+                    class="space-y-6"
                   >
-                    <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Articles') }}</span>
-                  </NuxtLink>
-                </UiAnimatedCard>
+                    <!-- Author & Share Card -->
+                    <UiAnimatedCard
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
+                    >
+                      <div class="p-6 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
+                        <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">{{ t('Written by') }}</h3>
+                        
+                        <!-- Author info -->
+                        <div class="flex items-center gap-3 mb-6">
+                          <div class="w-10 h-10 rounded-full bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center">
+                            <Icon name="lucide:user" class="w-5 h-5 text-amber-400" />
+                          </div>
+                          <div class="text-left">
+                            <p class="text-sm font-semibold text-foreground">{{ t('Ilham Kurniawan') }}</p>
+                            <p class="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{{ t('Software Developer') }}</p>
+                          </div>
+                        </div>
+
+                        <!-- Share title -->
+                        <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-3 text-left">{{ t('Share Article') }}</p>
+                        
+                        <!-- Share actions grid -->
+                        <div class="grid grid-cols-4 gap-2">
+                          <NuxtLink
+                            :to="`https://twitter.com/intent/tweet?url=https://ilhamkrnwan.my.id${route.path}&text=${current.title}`"
+                            target="_blank"
+                            class="flex items-center justify-center p-2.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 hover:text-amber-400 transition-colors"
+                            aria-label="Share on X"
+                          >
+                            <Icon name="simple-icons:x" class="w-4 h-4" />
+                          </NuxtLink>
+
+                          <NuxtLink
+                            :to="`https://www.linkedin.com/sharing/share-offsite/?url=https://ilhamkrnwan.my.id${route.path}`"
+                            target="_blank"
+                            class="flex items-center justify-center p-2.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 hover:text-amber-400 transition-colors"
+                            aria-label="Share on LinkedIn"
+                          >
+                            <Icon name="simple-icons:linkedin" class="w-4 h-4" />
+                          </NuxtLink>
+
+                          <NuxtLink
+                            :to="`https://api.whatsapp.com/send?text=${current.title}%20https://ilhamkrnwan.my.id${route.path}`"
+                            target="_blank"
+                            class="flex items-center justify-center p-2.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 hover:text-amber-400 transition-colors"
+                            aria-label="Share on WhatsApp"
+                          >
+                            <Icon name="simple-icons:whatsapp" class="w-4 h-4" />
+                          </NuxtLink>
+
+                          <button
+                            @click="copyUrl"
+                            class="flex items-center justify-center p-2.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 hover:text-amber-400 transition-colors relative"
+                            aria-label="Copy Link"
+                          >
+                            <Icon :name="copySuccess ? 'lucide:check' : 'lucide:copy'" class="w-4 h-4 text-amber-400" />
+                            <span v-if="copySuccess" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-amber-400 text-black text-[9px] font-mono tracking-wider px-2 py-0.5 rounded-sm whitespace-nowrap uppercase font-bold">
+                              {{ t('Link Copied!') }}
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </UiAnimatedCard>
+
+                    <!-- Related Articles Card -->
+                    <UiAnimatedCard
+                      v-if="relatedBlogs.length > 0"
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
+                    >
+                      <div class="p-6 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
+                        <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4 text-left">{{ t('Related Articles') }}</h3>
+                        
+                        <div class="divide-y divide-border/20 space-y-4 [&>div]:pt-4 first:[&>div]:pt-0">
+                          <div v-for="blog in relatedBlogs" :key="blog.path">
+                            <NuxtLink :to="getBlogLink(blog)" class="group/related block text-left">
+                              <span class="inline-flex items-center text-[9px] font-mono tracking-wider uppercase text-amber-400/80 mb-1 group-hover/related:text-amber-400">
+                                {{ blog.category || 'Tech' }}
+                              </span>
+                              <h4 class="text-xs font-semibold leading-snug line-clamp-2 text-foreground group-hover/related:text-amber-400 transition-colors">
+                                {{ blog.title }}
+                              </h4>
+                              <p class="text-[9px] font-mono text-muted-foreground mt-1 uppercase tracking-wider">
+                                {{ formatDate(blog.date) }}
+                              </p>
+                            </NuxtLink>
+                          </div>
+                        </div>
+                      </div>
+                    </UiAnimatedCard>
+
+                    <!-- Back to Articles Button -->
+                    <UiAnimatedCard
+                      :glow-color="'251, 191, 36'"
+                      :particle-count="8"
+                      :enable-particles="true"
+                      :enable-tilt="false"
+                      :enable-magnetism="false"
+                      :enable-border-glow="false"
+                      :click-effect="true"
+                    >
+                      <NuxtLink
+                        to="/blogs"
+                        class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
+                      >
+                        <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Articles') }}</span>
+                      </NuxtLink>
+                    </UiAnimatedCard>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </div>

@@ -105,11 +105,12 @@ useServiceCatalogSchema({
 
     <section id="services-list" class="section py-20">
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('Solusi Digital untuk Website, Sistem, dan Integrasi Bisnis') }}
+        <div class="text-center mb-16">
+          <h2 class="leading-[0.88] tracking-tight mb-4">
+            <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Untuk Bisnis') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-light">
             {{ t('Saya membantu bisnis, UMKM, startup, dan organisasi membangun') }}
             <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
               {{ t('website, dashboard, sistem custom,') }}

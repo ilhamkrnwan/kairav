@@ -145,11 +145,12 @@ const formatDate = (dateString?: string) => {
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
 
         <!-- Section Title -->
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-heading mb-4">
-            {{ t('Latest') }} <span class="text-amber-400">{{ t('Articles') }}</span>
+        <div class="text-center mb-16">
+          <h2 class="leading-[0.88] tracking-tight mb-4">
+            <span class="section-title-filled block">{{ t('Latest') }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Articles') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto font-light">
             {{ t('A collection of my writings, sharing insights and experiences across technology, design, and software engineering.') }}
           </p>
         </div>

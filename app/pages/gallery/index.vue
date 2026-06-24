@@ -61,6 +61,9 @@ const galleryItems = computed(() => [
     imageClass: 'filter grayscale group-hover:grayscale-0'
   }
 ])
+
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 </script>
 
 <template>
@@ -127,10 +130,10 @@ const galleryItems = computed(() => [
     </section>
 
     <!-- Gallery Grid Section -->
-    <section id="gallery-grid" class="section py-20 text-gray-800 dark:text-white">
+    <section id="gallery-grid" class="scroll-section will-change-[transform,opacity] section py-20 text-gray-800 dark:text-white">
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
         <!-- Section Title -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 stagger-item">
           <h2 class="leading-[0.88] tracking-tight mb-4">
             <span class="section-title-filled block">{{ t('Photo') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Collection') }}<span class="text-amber-400 !important">.</span></span>
@@ -153,10 +156,11 @@ const galleryItems = computed(() => [
           :spotlight-radius="300"
           :particle-count="12"
           glow-color="251, 191, 36"
+          class="stagger-item"
         />
 
         <!-- Instagram CTA -->
-        <div class="text-center mt-16">
+        <div class="text-center mt-16 stagger-item">
           <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm hover:border-amber-400/30 transition-colors duration-300 mb-6">
             <Icon name="lucide:sparkles" class="w-4 h-4 text-amber-400" />
             <span class="font-medium text-foreground">
@@ -168,7 +172,9 @@ const galleryItems = computed(() => [
     </section>
     
     <!-- Get In Touch -->
-    <GetinTouch />
+    <div class="scroll-section will-change-[transform,opacity] w-full">
+      <GetinTouch />
+    </div>
   </div>
 </template>
 
@@ -192,4 +198,3 @@ const galleryItems = computed(() => [
   opacity: 0.85;
 }
 </style>
-

@@ -114,7 +114,7 @@ const relatedBlogs = computed(() => {
 
 const copySuccess = ref(false)
 const copyUrl = () => {
-  if (process.client) {
+  if (import.meta.client) {
     navigator.clipboard.writeText(window.location.href)
     copySuccess.value = true
     setTimeout(() => {
@@ -289,9 +289,9 @@ const copyUrl = () => {
                           </NuxtLink>
 
                           <button
-                            @click="copyUrl"
                             class="flex items-center justify-center p-2.5 rounded-sm border border-border/40 bg-background/50 hover:border-amber-400/50 hover:text-amber-400 transition-colors relative"
                             aria-label="Copy Link"
+                            @click="copyUrl"
                           >
                             <Icon :name="copySuccess ? 'lucide:check' : 'lucide:copy'" class="w-4 h-4 text-amber-400" />
                             <span v-if="copySuccess" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-amber-400 text-black text-[9px] font-mono tracking-wider px-2 py-0.5 rounded-sm whitespace-nowrap uppercase font-bold">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
-
 import type { BlogCollectionItem } from '~/types'
+
+const { t, locale } = useI18n()
 
 const { data: blogs } = await useAsyncData<BlogCollectionItem[]>(
   `blog-${locale.value}`,
@@ -64,6 +64,8 @@ const formatDate = (dateString?: string) => {
   if (!dateString) return ''
   return new Date(dateString).toLocaleDateString(locale.value, { year: 'numeric', month: 'short', day: 'numeric' })
 }
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 </script>
 
 <template>
@@ -141,11 +143,11 @@ const formatDate = (dateString?: string) => {
     </section>
 
     <!-- BLOG LIST SECTION -->
-    <section id="blog-list" class="section py-20">
+    <section id="blog-list" class="scroll-section will-change-[transform,opacity] section py-20">
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
 
         <!-- Section Title -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 stagger-item">
           <h2 class="leading-[0.88] tracking-tight mb-4">
             <span class="section-title-filled block">{{ t('Latest') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Articles') }}<span class="text-amber-400 !important">.</span></span>
@@ -156,7 +158,7 @@ const formatDate = (dateString?: string) => {
         </div>
 
         <!-- Filters -->
-        <div class="mb-12 space-y-5">
+        <div class="mb-12 space-y-5 stagger-item">
           <!-- Search Bar -->
           <div class="max-w-2xl mx-auto">
             <div class="relative group/search">
@@ -173,8 +175,8 @@ const formatDate = (dateString?: string) => {
               />
               <button
                 v-if="searchQuery"
-                @click="searchQuery = ''"
                 class="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-muted-foreground hover:text-foreground transition-colors duration-200"
+                @click="searchQuery = ''"
               >
                 <Icon name="lucide:x" class="w-4 h-4" />
               </button>
@@ -186,11 +188,11 @@ const formatDate = (dateString?: string) => {
             <button
               v-for="category in categories"
               :key="category"
-              @click="selectedCategory = category"
               class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300"
               :class="selectedCategory === category
                 ? 'bg-amber-400 text-gray-900 shadow-lg shadow-amber-400/25 scale-105'
                 : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-105'"
+              @click="selectedCategory = category"
             >
               {{ category }}
             </button>
@@ -209,6 +211,7 @@ const formatDate = (dateString?: string) => {
             :enable-magnetism="false"
             :enable-border-glow="false"
             :click-effect="true"
+            class="stagger-item"
           >
             <NuxtLink
               :to="getBlogLink(blog.path)"
@@ -288,6 +291,7 @@ const formatDate = (dateString?: string) => {
             :enable-magnetism="false"
             :enable-border-glow="false"
             :click-effect="false"
+            class="stagger-item"
           >
             <div class="h-full min-h-64 rounded-xl border border-dashed border-amber-400/40 bg-amber-400/5 backdrop-blur-sm p-6 flex flex-col items-center justify-center text-center">
               <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-400/15 border border-amber-400/30 mb-4">
@@ -301,7 +305,7 @@ const formatDate = (dateString?: string) => {
         </div>
 
         <!-- Empty State -->
-        <div v-else class="text-center py-24">
+        <div v-else class="text-center py-24 stagger-item">
           <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-400/10 border border-amber-400/20 mb-6">
             <Icon name="lucide:search-x" class="w-9 h-9 text-amber-400" />
           </div>
@@ -310,8 +314,8 @@ const formatDate = (dateString?: string) => {
             {{ t('Try adjusting your search or filter criteria') }}
           </p>
           <button
-            @click="searchQuery = ''; selectedCategory = 'All'"
             class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-400 text-gray-900 font-semibold text-sm hover:bg-amber-500 transition-colors duration-300 shadow-lg shadow-amber-400/25"
+            @click="searchQuery = ''; selectedCategory = 'All'"
           >
             <Icon name="lucide:rotate-ccw" class="w-4 h-4" />
             {{ t('Clear Filters') }}
@@ -321,7 +325,9 @@ const formatDate = (dateString?: string) => {
       </div>
     </section>
 
-    <GetinTouch />
+    <div class="scroll-section will-change-[transform,opacity] w-full">
+      <GetinTouch />
+    </div>
   </div>
 </template>
 

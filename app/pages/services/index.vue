@@ -48,6 +48,8 @@ useServiceCatalogSchema({
     url: getServiceLink(service.path),
   })),
 })
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 </script>
 
 <template>
@@ -99,13 +101,13 @@ useServiceCatalogSchema({
 
       <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span class="text-xs text-muted-foreground font-mono">{{ t('scroll') }}</span>
-        <Icon name="lucide:chevrons-down" class="w-4 h-4 text-amber-400/60" />
+        <Icon name="chevrons-down" class="w-4 h-4 text-amber-400/60" />
       </div>
     </section>
 
-    <section id="services-list" class="section py-20">
+    <section id="services-list" class="scroll-section will-change-[transform,opacity] section py-20">
       <div class="container max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 stagger-item">
           <h2 class="leading-[0.88] tracking-tight mb-4">
             <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Untuk Bisnis') }}<span class="text-amber-400 !important">.</span></span>
@@ -123,7 +125,7 @@ useServiceCatalogSchema({
           </p>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-12 stagger-item">
           <button
             v-for="category in categories"
             :key="category"
@@ -148,6 +150,7 @@ useServiceCatalogSchema({
             :enable-magnetism="false"
             :enable-border-glow="false"
             :click-effect="true"
+            class="stagger-item"
           >
             <NuxtLink
               :to="getServiceLink(service.path)"
@@ -188,11 +191,42 @@ useServiceCatalogSchema({
               </div>
             </NuxtLink>
           </UiAnimatedCard>
+
+          <!-- Custom service suggestion -->
+          <div class="md:col-span-2 mt-6 stagger-item">
+            <div class="relative overflow-hidden rounded-sm border border-dashed border-border/60 hover:border-amber-400/60 bg-background/30 hover:bg-amber-400/[0.02] backdrop-blur-sm p-8 text-center flex flex-col items-center justify-center gap-4 group transition-all duration-500 hover:-translate-y-1">
+              <!-- Glow gradient background -->
+              <div class="absolute -inset-px bg-linear-to-r from-transparent via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-750 pointer-events-none" />
+
+              <div class="w-12 h-12 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300 shadow-inner">
+                <Icon name="lucide:sparkles" class="w-5 h-5 text-amber-400 animate-pulse" />
+              </div>
+              <div class="max-w-xl relative z-10">
+                <h3 class="text-lg md:text-xl font-heading font-semibold mb-2 text-foreground tracking-wide uppercase">
+                  {{ t('Ingin service custom tertentu yang belum ada di daftar?') }}
+                </h3>
+                <p class="text-sm font-light text-muted-foreground leading-relaxed mb-6">
+                  {{ t('Jangan ragu untuk mendiskusikan kebutuhan unik bisnis Anda. Saya siap membantu merancang solusi kustom.') }}
+                </p>
+                <NuxtLink
+                  to="/contact"
+                  class="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-sm px-6 py-2.5 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.2)] hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]"
+                >
+                  <span class="relative z-10 flex items-center gap-2">
+                    {{ t('Bisa kontak saya aja langsung') }}
+                    <Icon name="lucide:message-square" class="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-0.5" />
+                  </span>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <GetinTouch />
+    <div class="scroll-section will-change-[transform,opacity] w-full">
+      <GetinTouch />
+    </div>
   </main>
 </template>
 

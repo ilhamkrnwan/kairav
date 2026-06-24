@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <!-- Splash Cursor Effect -->
@@ -32,7 +33,7 @@
 
     <UMain class="relative min-h-screen">
       <!-- Fixed background pattern dengan opacity lebih tinggi -->
-      <div class="fixed inset-0 -z-10 overflow-hidden bg-neutral-light dark:bg-neutral-dark">
+      <div data-aurora-bg class="fixed inset-0 -z-10 overflow-hidden bg-neutral-light dark:bg-neutral-dark">
         <ClientOnly>
           <LazyUiAnimatedGridPattern
             :hydrate-on-idle="1500"
@@ -50,5 +51,10 @@
     </UMain>
 
     <LazyAppButtonSosmed :hydrate-on-idle="1200" />
+
+    <!-- Global cursor ring — visible on every page -->
+    <ClientOnly>
+      <UiGlobalSpotlight :ring-only="true" />
+    </ClientOnly>
   </div>
 </template>

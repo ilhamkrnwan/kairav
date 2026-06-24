@@ -805,9 +805,9 @@ const setupCardRef = (el: HTMLDivElement | null, index: number) => {
 
         <div
           v-else
+          :ref="el => setupCardRef(el as HTMLDivElement, index)"
           :class="[baseClassName, card.class, 'group']"
           :style="getCardStyle(card)"
-          :ref="el => setupCardRef(el as HTMLDivElement, index)"
         >
           <!-- Background Image -->
           <div v-if="card.image" class="absolute inset-0 overflow-hidden rounded-sm">

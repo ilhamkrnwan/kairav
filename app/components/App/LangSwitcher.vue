@@ -25,7 +25,7 @@ const selectLanguage = async (lang) => {
     try {
       await setLocale(lang.code)
       // Simpan preferensi bahasa ke localStorage
-      if (process.client) {
+      if (import.meta.client) {
         localStorage.setItem('user-locale', lang.code)
       }
     } catch (error) {

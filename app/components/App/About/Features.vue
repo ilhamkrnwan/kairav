@@ -43,7 +43,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
     <div class="max-w-6xl mx-auto features-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit stagger-item will-change-[transform,opacity]">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Untuk Bisnis') }}<span class="text-amber-400 !important">.</span></span>
@@ -68,6 +68,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
             <UiAnimatedCard
               v-for="(feature, index) in displayedFeatures"
               :key="index"
+              class="stagger-item will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="8"
               :enable-particles="true"
@@ -118,6 +119,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
             </UiAnimatedCard>
 
             <UiAnimatedCard
+              class="stagger-item will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="8"
               :enable-particles="true"

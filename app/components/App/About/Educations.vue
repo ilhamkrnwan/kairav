@@ -65,9 +65,9 @@ const hasMore = computed(() => allEducationItems.value.length > 3)
         <div class="lg:col-span-8 relative">
           <AppUiTimelineRail>
             <div
-              class="relative flex flex-col sm:pl-12"
               v-for="item in displayedItems"
               :key="item.title"
+              class="relative flex flex-col sm:pl-12"
             >
               <AppUiTimelineNode />
               <div class="flex items-center justify-between space-x-4 text-muted-foreground mb-3">

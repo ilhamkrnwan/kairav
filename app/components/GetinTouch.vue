@@ -18,22 +18,22 @@ const { t } = useI18n()
           <div class="absolute inset-x-8 bottom-0 h-px bg-linear-to-r from-transparent via-amber-400/40 to-transparent" />
         </div>
 
-        <span class="relative mb-5 inline-flex items-center gap-2 rounded-sm border border-amber-400/25 bg-amber-400/10 px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-amber-500 dark:text-amber-300">
+        <span class="relative mb-5 inline-flex items-center gap-2 rounded-sm border border-amber-400/25 bg-amber-400/10 px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-amber-500 dark:text-amber-300 stagger-item will-change-[transform,opacity]">
           <Icon name="lucide:sparkles" class="h-3.5 w-3.5" />
           {{ t('Interested in collaborating?') }}
         </span>
 
-        <h2 class="relative font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-foreground transition-colors duration-300 uppercase group-hover:text-amber-400">
+        <h2 class="relative font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-foreground transition-colors duration-300 uppercase group-hover:text-amber-400 stagger-item will-change-[transform,opacity]">
           {{ t('Get In Touch') }}
         </h2>
 
-        <div class="relative mt-8 inline-flex items-center justify-center gap-2 rounded-sm bg-amber-400 px-6 py-3 font-mono text-xs font-bold uppercase tracking-widest text-black shadow-[0_0_18px_rgba(251,191,36,0.35)] transition-all duration-300 group-hover:bg-amber-300 group-hover:shadow-[0_0_28px_rgba(251,191,36,0.5)]">
+        <div class="relative mt-8 inline-flex items-center justify-center gap-2 rounded-sm bg-amber-400 px-6 py-3 font-mono text-xs font-bold uppercase tracking-widest text-black shadow-[0_0_18px_rgba(251,191,36,0.35)] transition-all duration-300 group-hover:bg-amber-300 group-hover:shadow-[0_0_28px_rgba(251,191,36,0.5)] stagger-item will-change-[transform,opacity]">
           <span>{{ t('Start a Project') }}</span>
           <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
       </NuxtLink>
       
-      <footer class="mt-16 text-xs font-mono tracking-widest text-muted-foreground uppercase">
+      <footer class="mt-16 text-xs font-mono tracking-widest text-muted-foreground uppercase stagger-item will-change-[transform,opacity]">
         {{ new Date().getFullYear() }} | Copyright (c) KAIRAV
       </footer>
     </div>

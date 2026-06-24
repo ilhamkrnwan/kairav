@@ -22,8 +22,8 @@ const contactMethods = [
   },
   {
     label: 'GitHub',
-    value: 'IlhamKurniawanBlora',
-    href: 'https://github.com/IlhamKurniawanBlora',
+    value: 'ilhamkrnwan',
+    href: 'https://github.com/ilhamkrnwan',
     icon: 'lucide:github',
   },
 ]
@@ -56,13 +56,16 @@ useDynamicSeo({
   titleKey: 'seo.contact.title',
   descriptionKey: 'seo.contact.description'
 })
+
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 </script>
 
 <template>
   <main class="min-h-screen">
-    <section class="relative w-full min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-28 overflow-hidden">
+    <section class="scroll-section will-change-[transform,opacity] relative w-full min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-28 overflow-hidden">
       <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 stagger-item">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8">
             <span class="relative flex h-1.5 w-1.5">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
@@ -91,7 +94,7 @@ useDynamicSeo({
           </div>
         </div>
 
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-7 stagger-item">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
               v-for="method in contactMethods"
@@ -139,9 +142,9 @@ useDynamicSeo({
       </div>
     </section>
 
-    <section class="section px-6 md:px-12 lg:px-20 pb-28">
+    <section class="scroll-section will-change-[transform,opacity] px-6 md:px-12 lg:px-20 pb-28">
       <div class="max-w-6xl mx-auto">
-        <div class="mb-10 max-w-3xl">
+        <div class="mb-10 max-w-3xl stagger-item">
           <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">
             {{ t('Location & Availability') }}
           </p>
@@ -153,7 +156,7 @@ useDynamicSeo({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 stagger-item">
           <div
             v-for="location in locations"
             :key="location.city"
@@ -192,7 +195,7 @@ useDynamicSeo({
           </div>
         </div>
 
-        <div class="mt-6 rounded-sm border border-amber-400/30 bg-amber-400/10 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+        <div class="mt-6 rounded-sm border border-amber-400/30 bg-amber-400/10 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5 stagger-item">
           <div>
             <p class="text-sm font-mono uppercase tracking-widest text-amber-400 mb-2">
               {{ t('Online meeting ready') }}

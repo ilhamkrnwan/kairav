@@ -6,6 +6,9 @@ useDynamicSeo({
   titleKey: 'seo.cv.title',
   descriptionKey: 'seo.cv.description'
 })
+
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 </script>
 
 <template>
@@ -88,11 +91,11 @@ useDynamicSeo({
     <!-- ═══════════════════════════════════════
          CV VIEWER SECTION
     ════════════════════════════════════════ -->
-    <section id="cv-viewer" class="section py-20">
+    <section id="cv-viewer" class="scroll-section will-change-[transform,opacity] section py-20">
       <div class="container max-w-5xl mx-auto px-6 lg:px-8">
 
         <!-- Section label -->
-        <div class="flex items-center gap-4 mb-10">
+        <div class="flex items-center gap-4 mb-10 stagger-item">
           <div class="h-px flex-1 bg-border/40" />
           <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest px-4">
             {{ t('Preview') }}
@@ -101,7 +104,7 @@ useDynamicSeo({
         </div>
 
         <!-- CV Embed Container -->
-        <div class="relative group/cv rounded-xl overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm shadow-2xl">
+        <div class="relative group/cv rounded-xl overflow-hidden border border-border/50 bg-background/50 backdrop-blur-sm shadow-2xl stagger-item">
           <!-- Glow effect -->
           <div class="absolute -inset-0.5 bg-linear-to-br from-amber-400/20 via-transparent to-orange-500/10 rounded-xl opacity-0 group-hover/cv:opacity-100 transition-opacity duration-500 pointer-events-none blur-sm" />
 
@@ -139,7 +142,7 @@ useDynamicSeo({
         </div>
 
         <!-- Bottom CTA row -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 animate-fade-in-up">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 stagger-item">
           <NuxtLink
             to="https://drive.google.com/uc?id=1YMNL-ukjebg7xxOh1YV11SSJd8jCK1AO&export=download"
             class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
@@ -170,7 +173,9 @@ useDynamicSeo({
       </div>
     </section>
 
-    <GetinTouch />
+    <div class="scroll-section will-change-[transform,opacity] w-full">
+      <GetinTouch />
+    </div>
   </div>
 </template>
 

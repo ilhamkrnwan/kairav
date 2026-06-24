@@ -4,19 +4,22 @@ import type { NuxtError } from "#app";
 const props = defineProps<{ error: NuxtError }>();
 const { t } = useI18n()
 
-const errorMessages: Record<number, { title: string; description: string; icon: string }> = {
+const errorMessages: Record<number, { firstPart: string; secondPart: string; description: string; icon: string }> = {
   404: {
-    title: t('Page Not Found'),
+    firstPart: t('Page Not'),
+    secondPart: t('Found'),
     description: t('Sorry, the page you\'re looking for doesn\'t exist.'),
     icon: "lucide:search-x"
   },
   500: {
-    title: t('Server Error'),
+    firstPart: t('Server'),
+    secondPart: t('Error'),
     description: t('Something went wrong on our end. Please try again later.'),
     icon: "lucide:server-crash"
   },
   403: {
-    title: t('Access Forbidden'),
+    firstPart: t('Access'),
+    secondPart: t('Forbidden'),
     description: t('You don\'t have permission to access this resource.'),
     icon: "lucide:shield-alert"
   },
@@ -26,7 +29,8 @@ const errorInfo = computed(() => {
   const statusCode = props.error.statusCode || 500;
   return (
     errorMessages[statusCode] || {
-      title: `${t('Error')} ${statusCode}`,
+      firstPart: t('Error'),
+      secondPart: String(statusCode),
       description: props.error.message || t('An unexpected error occurred.'),
       icon: "lucide:alert-triangle"
     }
@@ -89,27 +93,21 @@ const handleClearError = () => clearError({ redirect: '/' });
     </div>
 
     <div class="text-center max-w-2xl w-full z-10 py-16">
-      <!-- Error Icon with Animation -->
+      <!-- Error Illustration -->
       <div class="mb-8 relative flex flex-col items-center justify-center">
         <!-- Decorative blobs -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-linear-to-tr from-amber-400/10 to-orange-500/10 blur-3xl -z-10 animate-pulse"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-linear-to-tr from-amber-400/10 to-orange-500/10 blur-3xl -z-10 animate-pulse"></div>
         
-        <!-- Large animated icon -->
-        <div class="relative w-24 h-24 flex items-center justify-center rounded-sm border border-border/40 bg-background/50 backdrop-blur-md shadow-lg shadow-black/5">
-          <Icon :name="errorInfo.icon" class="w-12 h-12 text-amber-400" />
-          
-          <!-- Status Code Badge -->
-          <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-background/90 backdrop-blur-sm border border-border/50 shadow-lg">
-            <span class="text-sm font-mono font-bold text-amber-400">
-              {{ error.statusCode || t('ERROR') }}
-            </span>
-          </div>
+        <!-- Illustration Image (No card container, no code badge) -->
+        <div class="relative max-w-xs md:max-w-md flex items-center justify-center">
+          <img src="/error.avif" alt="Error Illustration" class="w-full h-auto object-cover" />
         </div>
       </div>
 
-      <!-- Error Title -->
-      <h1 class="text-4xl md:text-6xl font-heading mb-4 text-foreground font-bold tracking-tight">
-        {{ errorInfo.title }}
+      <!-- Error Title (Hero Stretched Style) -->
+      <h1 class="leading-[0.88] tracking-tight mb-6">
+        <span class="section-title-filled block">{{ errorInfo.firstPart }}</span>
+        <span class="section-title-outline text-foreground block">{{ errorInfo.secondPart }}<span class="text-amber-400 !important">.</span></span>
       </h1>
 
       <!-- Error Description -->
@@ -125,10 +123,10 @@ const handleClearError = () => clearError({ redirect: '/' });
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button
-          @click="handleClearError"
           class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5 cursor-pointer"
+          @click="handleClearError"
         >
           <div class="absolute inset-0 z-0 overflow-hidden rounded-sm">
             <div class="absolute top-0 -left-full h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-700 group-hover:left-[200%]"></div>
@@ -139,46 +137,13 @@ const handleClearError = () => clearError({ redirect: '/' });
         </button>
 
         <button
-          @click="() => $router.back()"
           class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5 cursor-pointer"
+          @click="() => $router.back()"
         >
           <span class="relative z-10 flex items-center gap-2">
             {{ t('Go Back') }}
           </span>
         </button>
-      </div>
-
-      <!-- Error Details Card (Optional) -->
-      <div v-if="error.message" class="max-w-xl mx-auto mb-8 px-4">
-        <UiAnimatedCard
-          :glow-color="'251, 191, 36'"
-          :particle-count="6"
-          :enable-particles="false"
-          :enable-tilt="false"
-          :enable-magnetism="false"
-          :enable-border-glow="true"
-          :click-effect="false"
-          class="w-full text-left"
-        >
-          <div class="p-6 rounded-sm border border-border/40 bg-background/50 backdrop-blur-md font-mono text-xs">
-            <div class="flex items-center justify-between mb-3 border-b border-border/30 pb-2">
-              <span class="font-bold text-amber-400 uppercase tracking-wider">{{ t('Error Details') }}</span>
-              <span class="text-[10px] text-muted-foreground bg-background px-2 py-0.5 rounded border border-border/30">{{ error.statusCode }}</span>
-            </div>
-            <p class="text-foreground font-semibold mb-2 font-mono">{{ error.message }}</p>
-            <pre v-if="error.stack" class="overflow-x-auto max-h-40 text-muted-foreground/80 whitespace-pre-wrap select-all font-mono leading-relaxed bg-black/30 p-3 rounded-sm border border-border/20 mt-2">{{ error.stack }}</pre>
-          </div>
-        </UiAnimatedCard>
-      </div>
-
-      <!-- Additional Info -->
-      <div>
-        <span class="inline-flex items-center px-4 py-2 space-x-2 text-sm border rounded-full border-border/50 bg-background/50 backdrop-blur-sm hover:border-amber-400/30 transition-colors duration-300">
-          <Icon name="lucide:help-circle" class="w-4 h-4 text-amber-400" />
-          <span class="text-muted-foreground">
-            {{ t('If you think this is a mistake, please contact support') }}
-          </span>
-        </span>
       </div>
     </div>
 
@@ -187,3 +152,23 @@ const handleClearError = () => clearError({ redirect: '/' });
   </div>
 </template>
 
+<style scoped>
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+</style>

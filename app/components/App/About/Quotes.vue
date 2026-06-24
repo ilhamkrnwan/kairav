@@ -34,11 +34,11 @@ onMounted(() => {
       <div class="absolute -top-12 -left-12 opacity-10 pointer-events-none">
         <Icon name="lucide:quote" class="w-32 h-32 text-amber-400" />
       </div>
-      <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-8">
+      <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-8 stagger-item will-change-[transform,opacity]">
         "{{ currentQuote.text }}"
       </h2>
-      <div class="w-16 h-1 bg-amber-400 mx-auto mb-6"></div>
-      <p class="text-sm font-mono tracking-widest uppercase text-muted-foreground">
+      <div class="w-16 h-1 bg-amber-400 mx-auto mb-6 stagger-item will-change-[transform,opacity]"></div>
+      <p class="text-sm font-mono tracking-widest uppercase text-muted-foreground stagger-item will-change-[transform,opacity]">
         — {{ currentQuote.author }}
       </p>
     </div>

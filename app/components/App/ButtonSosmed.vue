@@ -20,7 +20,7 @@ const sosmedItems = [
   {
     name: 'GitHub',
     icon: 'streamline-ultimate-color:github-logo-1',
-    to: 'https://github.com/IlhamKurniawanBlora'
+    to: 'https://github.com/ilhamkrnwan'
   },
   {
     name: 'LinkedIn',

@@ -59,7 +59,7 @@ const techStacks = {
     <div class="max-w-6xl mx-auto skills-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Title Area -->
-        <div class="lg:col-span-4">
+        <div class="lg:col-span-4 stagger-item will-change-[transform,opacity]">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Skills and') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Technologies') }}<span class="text-amber-400 !important">.</span></span>
@@ -81,7 +81,7 @@ const techStacks = {
         <!-- Animated Tech Stack -->
         <div class="lg:col-span-8 space-y-6">
           <!-- Row 1 - Move Right -->
-          <div class="marquee-container relative overflow-hidden py-2">
+          <div class="marquee-container relative overflow-hidden py-2 stagger-item will-change-[transform,opacity]">
             <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
@@ -113,7 +113,7 @@ const techStacks = {
           </div>
 
           <!-- Row 2 - Move Left -->
-          <div class="marquee-container relative overflow-hidden py-2">
+          <div class="marquee-container relative overflow-hidden py-2 stagger-item will-change-[transform,opacity]">
             <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
@@ -145,7 +145,7 @@ const techStacks = {
           </div>
 
           <!-- Row 3 - Move Right -->
-          <div class="marquee-container relative overflow-hidden py-2">
+          <div class="marquee-container relative overflow-hidden py-2 stagger-item will-change-[transform,opacity]">
             <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"
@@ -177,7 +177,7 @@ const techStacks = {
           </div>
 
           <!-- Row 4 - Move Left -->
-          <div class="marquee-container relative overflow-hidden py-2">
+          <div class="marquee-container relative overflow-hidden py-2 stagger-item will-change-[transform,opacity]">
             <div class="marquee flex gap-4 w-max">
               <div
                 v-for="i in 2"

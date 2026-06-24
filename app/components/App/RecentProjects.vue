@@ -50,7 +50,7 @@ const getTagColor = (tag: string) => {
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Section Header -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit stagger-item will-change-[transform,opacity]">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Recent') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Projects') }}<span class="text-amber-400 !important">.</span></span>
@@ -74,6 +74,7 @@ const getTagColor = (tag: string) => {
             <UiAnimatedCard
               v-for="project in displayedProjects"
               :key="project._path"
+              class="stagger-item will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="8"
               :enable-particles="true"
@@ -140,6 +141,7 @@ const getTagColor = (tag: string) => {
             </UiAnimatedCard>
 
             <UiAnimatedCard
+              class="stagger-item will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="8"
               :enable-particles="true"

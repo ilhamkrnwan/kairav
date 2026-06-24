@@ -1,5 +1,7 @@
 <script setup>
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const { t } = useI18n()
 
@@ -19,6 +21,7 @@ const isHovered = ref(false)
 const mousePos = reactive({ x: 0, y: 0 })
 const smoothMousePos = reactive({ x: 0, y: 0 })
 let animationFrame = null
+let ctx = null
 
 const updateSmoothPosition = () => {
   smoothMousePos.x += (mousePos.x - smoothMousePos.x) * 0.15
@@ -28,10 +31,80 @@ const updateSmoothPosition = () => {
 
 onMounted(() => {
   animationFrame = requestAnimationFrame(updateSmoothPosition)
+
+  if (import.meta.client) {
+    gsap.registerPlugin(ScrollTrigger)
+
+    ctx = gsap.context(() => {
+      const sections = gsap.utils.toArray('.scroll-section')
+
+      sections.forEach((section) => {
+        // 1. Exit Animation (Level Section): Parallax fade-up and slide-up
+        gsap.to(section, {
+          opacity: 0,
+          y: -50,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top', // start when top leaves top of viewport (fixes early hero fade)
+            end: 'bottom top',
+            scrub: true,
+          }
+        })
+
+        // 2. Entry Animation (Level Section wrapper layout shift only)
+        gsap.fromTo(section,
+          { y: 30 },
+          {
+            y: 0,
+            duration: 0.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            }
+          }
+        )
+
+        // 3. Deferred Batch Staggered Entry for elements (Supporting Lazy Loading)
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 95%', // initialize when section is close to entering
+          once: true,
+          onEnter: () => {
+            const staggerItems = section.querySelectorAll('.stagger-item')
+            if (staggerItems.length > 0) {
+              ScrollTrigger.batch(staggerItems, {
+                start: 'top 88%',
+                onEnter: (batch) => gsap.fromTo(batch,
+                  { opacity: 0, y: 20 },
+                  { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: 'power3.out', overwrite: 'auto' }
+                ),
+                onLeaveBack: (batch) => gsap.to(batch, { opacity: 0, y: 20, duration: 0.4, overwrite: 'auto' }),
+                onEnterBack: (batch) => gsap.fromTo(batch,
+                  { opacity: 0, y: 20 },
+                  { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: 'power3.out', overwrite: 'auto' }
+                )
+              })
+            }
+          }
+        })
+      })
+    })
+
+    // Height Recalculation after lazy loaded hydration
+    setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 500)
+  }
 })
 
 onUnmounted(() => {
   if (animationFrame) cancelAnimationFrame(animationFrame)
+  if (ctx) {
+    ctx.revert()
+  }
 })
 
 const handleMouseMove = (event) => {
@@ -54,7 +127,7 @@ const maskStyle = computed(() => {
 <template>
   <div class="min-h-screen text-gray-800 dark:text-white w-full overflow-hidden">
     <!-- Hero Section -->
-    <section class="section w-full py-6 px-2 lg:pt-20">
+    <section class="scroll-section will-change-[transform,opacity] section w-full py-6 px-2 lg:pt-20">
       <div class="container mx-auto">
         <div class="max-w-6xl mx-auto flex flex-col justify-center p-6 lg:flex-row lg:justify-between lg:items-center">
         <!-- Hero Image Section -->
@@ -87,7 +160,7 @@ const maskStyle = computed(() => {
           <!-- Main Hero Image & Interactive Frame -->
           <div
             ref="heroImageRef"
-            class="relative z-10 hero-img-wrap aspect-4/5 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 shrink-0 cursor-crosshair group"
+            class="relative z-10 hero-img-wrap aspect-4/5 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 shrink-0 cursor-crosshair group stagger-item will-change-[transform,opacity]"
             @mousemove="handleMouseMove"
             @mouseenter="isHovered = true"
             @mouseleave="isHovered = false"
@@ -153,7 +226,7 @@ const maskStyle = computed(() => {
         <!-- Text Content Section -->
         <div class="flex flex-col justify-center lg:p-6 p-0 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left order-2 lg:order-1 z-10 text-neutral-dark dark:text-accent-dark">
           <!-- Greeting -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6">
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 stagger-item will-change-[transform,opacity]">
             <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm text-xs font-mono text-muted-foreground uppercase tracking-widest">
               <span class="relative flex h-1.5 w-1.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
@@ -164,20 +237,20 @@ const maskStyle = computed(() => {
           </div>
 
           <!-- Main Heading -->
-          <h1 class="leading-[0.88] tracking-tight mb-4">
+          <h1 class="leading-[0.88] tracking-tight mb-4 stagger-item will-change-[transform,opacity]">
             <span class="section-title-filled block">{{ t('Fullstack') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Developer') }}<span class="text-amber-400 !important">.</span></span>
           </h1>
 
           <!-- Sub Roles -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-1 mb-6">
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-1 mb-6 stagger-item will-change-[transform,opacity]">
             <span class="text-sm font-light text-muted-foreground tracking-wide">{{ t('IT Student') }}</span>
             <span class="text-border/40 text-sm">·</span>
             <span class="text-sm font-light text-muted-foreground tracking-wide">{{ t('Web3 & AI Enthusiast') }}</span>
           </div>
 
           <!-- Description -->
-          <p class="lg:text-lg text-base text-muted-foreground mb-8 font-light">
+          <p class="lg:text-lg text-base text-muted-foreground mb-8 font-light stagger-item will-change-[transform,opacity]">
             {{ t('Bridging the gap between') }}
             <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
               {{ t('complex ideas') }}
@@ -195,7 +268,7 @@ const maskStyle = computed(() => {
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row space-y-4 sm:space-y-4 md:space-y-4 lg:space-y-0 lg:space-x-4">
+          <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row space-y-4 sm:space-y-4 md:space-y-4 lg:space-y-0 lg:space-x-4 stagger-item will-change-[transform,opacity]">
             <NuxtLink
               to="/cv"
               class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
@@ -233,11 +306,22 @@ const maskStyle = computed(() => {
       </div>
     </section>
 
-    <LazyAppAboutFeatures hydrate-on-visible />
-    <LazyAppAboutSkills hydrate-on-visible />
-    <LazyAppRecentProjects hydrate-on-visible />
-    <LazyAppAboutQuotes hydrate-on-visible />
-    <LazyGetinTouch hydrate-on-visible />
+    <!-- Lazy loaded sections with GSAP trigger classes directly on their wrappers -->
+    <div class="scroll-section will-change-[transform,opacity]">
+      <LazyAppAboutFeatures hydrate-on-visible />
+    </div>
+    <div class="scroll-section will-change-[transform,opacity]">
+      <LazyAppAboutSkills hydrate-on-visible />
+    </div>
+    <div class="scroll-section will-change-[transform,opacity]">
+      <LazyAppRecentProjects hydrate-on-visible />
+    </div>
+    <div class="scroll-section will-change-[transform,opacity]">
+      <LazyAppAboutQuotes hydrate-on-visible />
+    </div>
+    <div class="scroll-section will-change-[transform,opacity]">
+      <LazyGetinTouch hydrate-on-visible />
+    </div>
 
     <!-- SEO: Explicit intro for search engines and AI crawlers (visually hidden but present in DOM) -->
     <section class="sr-only" aria-label="About Ilham Kurniawan">

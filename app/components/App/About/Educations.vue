@@ -52,7 +52,7 @@ const hasMore = computed(() => allEducationItems.value.length > 3)
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity]">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Education') }}</span>
             <span class="section-title-outline text-foreground block">& {{ t('Training') }}<span class="text-amber-400 !important">.</span></span>
@@ -67,7 +67,7 @@ const hasMore = computed(() => allEducationItems.value.length > 3)
             <div
               v-for="item in displayedItems"
               :key="item.title"
-              class="relative flex flex-col sm:pl-12"
+              class="relative flex flex-col sm:pl-12 scroll-section will-change-[transform,opacity]"
             >
               <AppUiTimelineNode />
               <div class="flex items-center justify-between space-x-4 text-muted-foreground mb-3">

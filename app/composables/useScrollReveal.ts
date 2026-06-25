@@ -34,7 +34,12 @@ export function useScrollReveal(containerRef?: Ref<HTMLElement | null>) {
           ease: "none",
           scrollTrigger: {
             trigger: section,
-            start: "top top",
+            start: () => {
+              const height = section.offsetHeight;
+              const viewportHeight = window.innerHeight;
+              // If the element is taller than 80% of the viewport, start fading only when its bottom starts leaving
+              return height > viewportHeight * 0.8 ? "bottom 20%" : "top top";
+            },
             end: "bottom top",
             scrub: true,
           },

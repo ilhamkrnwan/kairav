@@ -41,7 +41,7 @@ const getBlogLink = (path?: string) => {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
         <!-- Section Header (sticky, kiri) -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity]">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Latest') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Articles') }}<span class="text-amber-400 !important">.</span></span>
@@ -75,6 +75,7 @@ const getBlogLink = (path?: string) => {
             <UiAnimatedCard
               v-for="blog in displayedBlogs"
               :key="blog.path"
+              class="scroll-section will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="8"
               :enable-particles="true"
@@ -143,6 +144,7 @@ const getBlogLink = (path?: string) => {
             <UiAnimatedCard
               v-for="index in placeholderBlogCards"
               :key="`blog-placeholder-${index}`"
+              class="scroll-section will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
               :particle-count="5"
               :enable-particles="false"

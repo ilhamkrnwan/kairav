@@ -1,9 +1,18 @@
+<script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core'
+
+// Hanya jalankan efek kursor berat (WebGL fluid sim + spotlight ring) di
+// perangkat desktop berpointer presisi. Di mobile/touch tidak ada kursor,
+// sehingga efek ini mubazir dan membebani TBT/INP.
+const isDesktop = useMediaQuery('(min-width: 768px) and (pointer: fine)')
+</script>
 
 <template>
   <div>
     <!-- Splash Cursor Effect -->
     <ClientOnly>
       <LazyUiSplashCursor
+        v-if="isDesktop"
         :hydrate-on-interaction="['mousemove', 'touchstart']"
         :SIM_RESOLUTION="128"
         :DYE_RESOLUTION="1440"
@@ -54,7 +63,7 @@
 
     <!-- Global cursor ring — visible on every page -->
     <ClientOnly>
-      <UiGlobalSpotlight :ring-only="true" />
+      <UiGlobalSpotlight v-if="isDesktop" :ring-only="true" />
     </ClientOnly>
   </div>
 </template>

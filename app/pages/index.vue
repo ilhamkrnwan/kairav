@@ -14,6 +14,8 @@ useDynamicSeo({
 usePersonSchema()
 useWebSiteSchema()
 
+// Initialize Scroll Reveal Animations
+useScrollReveal()
 
 // === Image Reveal Logic ===
 const heroImageRef = ref(null)
@@ -21,7 +23,6 @@ const isHovered = ref(false)
 const mousePos = reactive({ x: 0, y: 0 })
 const smoothMousePos = reactive({ x: 0, y: 0 })
 let animationFrame = null
-let ctx = null
 
 const updateSmoothPosition = () => {
   smoothMousePos.x += (mousePos.x - smoothMousePos.x) * 0.15
@@ -31,85 +32,10 @@ const updateSmoothPosition = () => {
 
 onMounted(() => {
   animationFrame = requestAnimationFrame(updateSmoothPosition)
-
-  if (import.meta.client) {
-    gsap.registerPlugin(ScrollTrigger)
-
-    ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray('.scroll-section')
-
-      sections.forEach((section) => {
-        // 1. Exit Animation (Level Section): Parallax fade-up and slide-up
-        gsap.to(section, {
-          opacity: 0,
-          y: -50,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: () => {
-              const height = section.offsetHeight
-              const viewportHeight = window.innerHeight
-              // If the element is taller than 80% of the viewport, start fading only when its bottom starts leaving
-              return height > viewportHeight * 0.8 ? 'bottom 20%' : 'top top'
-            },
-            end: 'bottom top',
-            scrub: true,
-          }
-        })
-
-        // 2. Entry Animation (Level Section wrapper layout shift only)
-        gsap.fromTo(section,
-          { y: 30 },
-          {
-            y: 0,
-            duration: 0.5,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            }
-          }
-        )
-
-        // 3. Deferred Batch Staggered Entry for elements (Supporting Lazy Loading)
-        ScrollTrigger.create({
-          trigger: section,
-          start: 'top 95%', // initialize when section is close to entering
-          once: true,
-          onEnter: () => {
-            const staggerItems = section.querySelectorAll('.stagger-item')
-            if (staggerItems.length > 0) {
-              ScrollTrigger.batch(staggerItems, {
-                start: 'top 88%',
-                onEnter: (batch) => gsap.fromTo(batch,
-                  { opacity: 0, y: 20 },
-                  { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: 'power3.out', overwrite: 'auto' }
-                ),
-                onLeaveBack: (batch) => gsap.to(batch, { opacity: 0, y: 20, duration: 0.4, overwrite: 'auto' }),
-                onEnterBack: (batch) => gsap.fromTo(batch,
-                  { opacity: 0, y: 20 },
-                  { opacity: 1, y: 0, stagger: 0.15, duration: 0.6, ease: 'power3.out', overwrite: 'auto' }
-                )
-              })
-            }
-          }
-        })
-      })
-    })
-
-    // Height Recalculation after lazy loaded hydration
-    setTimeout(() => {
-      ScrollTrigger.refresh()
-    }, 500)
-  }
 })
 
 onUnmounted(() => {
   if (animationFrame) cancelAnimationFrame(animationFrame)
-  if (ctx) {
-    ctx.revert()
-  }
 })
 
 const handleMouseMove = (event) => {
@@ -203,9 +129,7 @@ const maskStyle = computed(() => {
                 height="640"
                 sizes="288px sm:320px lg:384px xl:448px 2xl:512px"
                 format="webp"
-                preload
-                loading="eager"
-                fetchpriority="high"
+                loading="lazy"
                 class="w-full h-full object-cover object-top"
               />
             </div>

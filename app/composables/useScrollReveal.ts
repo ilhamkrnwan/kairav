@@ -5,7 +5,7 @@ import { onMounted, onUnmounted, type Ref } from "vue";
 /**
  * Reusable scroll reveal hook for individual pages or components.
  * Finds all elements with the `.scroll-section` class inside the container
- * and applies entrance, exit, and staggered reveal animations.
+ * and applies entrance and staggered reveal animations.
  *
  * @param containerRef Optional Vue ref pointing to the container element to scope the animation search.
  */
@@ -27,89 +27,55 @@ export function useScrollReveal(containerRef?: Ref<HTMLElement | null>) {
       ) as HTMLElement[];
 
       sections.forEach((section) => {
-        // 1. Exit Animation: parallax fade/slide up as section leaves viewport
-        gsap.to(section, {
-          opacity: 0,
-          y: -50,
-          ease: "none",
+        const staggerItems = section.querySelectorAll(".stagger-item");
+
+        // Create a single coordinated animation timeline for this section
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: () => {
-              const height = section.offsetHeight;
-              const viewportHeight = window.innerHeight;
-              // If the element is taller than 80% of the viewport, start fading only when its bottom starts leaving
-              return height > viewportHeight * 0.8 ? "bottom 20%" : "top top";
-            },
-            end: "bottom top",
-            scrub: true,
+            start: "top 88%", // triggers when top of section is 88% from the top of the viewport
+            toggleActions: "play none none reverse", // plays entry animation forward, reverses back when scrolling past the start going up
           },
         });
 
-        // 2. Entry Animation: slide/fade up as section enters viewport
-        gsap.fromTo(
+        // 1. Entry Animation: slide/fade up as section enters viewport
+        tl.fromTo(
           section,
-          { y: 30, opacity: 0.85 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.5,
+            duration: 0.8,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
+            // Strip inline transform/will-change after reveal so nested
+            // glass cards keep working backdrop-filter (no backdrop root left).
+            clearProps: "transform,willChange",
           }
         );
 
-        // 3. Staggered Entry for child elements containing the .stagger-item class
-        const staggerItems = section.querySelectorAll(".stagger-item");
+        // 2. Staggered Entry for child elements containing the .stagger-item class
         if (staggerItems.length > 0) {
-          gsap.set(staggerItems, { opacity: 0, y: 20 });
-
-          ScrollTrigger.create({
-            trigger: section,
-            start: "top 95%",
-            once: true,
-            onEnter: () => {
-              ScrollTrigger.batch(staggerItems, {
-                start: "top 88%",
-                onEnter: (batch) =>
-                  gsap.to(batch, {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.15,
-                    duration: 0.6,
-                    ease: "power3.out",
-                    overwrite: "auto",
-                  }),
-                onLeaveBack: (batch) =>
-                  gsap.to(batch, {
-                    opacity: 0,
-                    y: 20,
-                    duration: 0.4,
-                    overwrite: "auto",
-                  }),
-                onEnterBack: (batch) =>
-                  gsap.to(batch, {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.15,
-                    duration: 0.6,
-                    ease: "power3.out",
-                    overwrite: "auto",
-                  }),
-              });
+          tl.fromTo(
+            staggerItems,
+            { opacity: 0, y: 25 },
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0.12,
+              duration: 0.6,
+              ease: "power3.out",
+              clearProps: "transform,willChange",
             },
-          });
+            "-=0.6" // overlaps with parent reveal for seamless entry
+          );
         }
       });
     });
 
-    // Recalculate heights after a short timeout to let the DOM settle
+    // Recalculate ScrollTrigger heights after a short timeout to let the DOM settle
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 200);
+    }, 300);
   });
 
   onUnmounted(() => {
@@ -118,3 +84,4 @@ export function useScrollReveal(containerRef?: Ref<HTMLElement | null>) {
     }
   });
 }
+

@@ -96,6 +96,7 @@ export default defineNuxtConfig({
       'JetBrains Mono': [400, 500, 600], // untuk code snippets
     },
     display: 'swap',
+    download: true, // self-host font agar tidak ada koneksi pihak ketiga
     preload: true,
     prefetch: true,
   },

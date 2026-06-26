@@ -14,7 +14,7 @@ const { t } = useI18n()
     <div class="max-w-6xl mx-auto about-me-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Title area -->
-        <div class="lg:col-span-4">
+        <div class="lg:col-span-4 relative z-0">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('About') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Me') }}<span class="text-amber-400 !important">.</span></span>
@@ -23,7 +23,7 @@ const { t } = useI18n()
         </div>
         
         <!-- Content area -->
-        <div class="lg:col-span-8">
+        <div class="lg:col-span-8 relative z-10">
           <UiAnimatedCard
             :glow-color="'251, 191, 36'"
             :particle-count="8"

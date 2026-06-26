@@ -209,11 +209,11 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     link: [
       {
         rel: 'canonical',
-        href: getCanonical(),
+        href: () => getCanonical(),
       },
     ],
     htmlAttrs: {
-      lang: locale.value,
+      lang: () => locale.value,
     },
   })
   

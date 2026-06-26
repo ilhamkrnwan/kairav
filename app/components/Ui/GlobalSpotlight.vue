@@ -368,8 +368,6 @@ const setupEventListeners = () => {
 };
 
 onMounted(() => {
-  const route = useRoute();
-  console.log('[GlobalSpotlight] onMounted called. ringOnly:', props.ringOnly, 'enabled:', props.enabled, 'route:', route.path);
   nextTick(() => {
     setupEventListeners();
   });

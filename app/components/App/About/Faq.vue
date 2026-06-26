@@ -40,7 +40,7 @@ const toggle = (index: number) => {
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit z-0">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('FAQ') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Questions') }}<span class="text-amber-400 !important">.</span></span>
@@ -64,7 +64,7 @@ const toggle = (index: number) => {
         </div>
         
         <!-- FAQ Accordion -->
-        <div class="lg:col-span-8">
+        <div class="lg:col-span-8 relative z-10">
           <div class="space-y-4">
             <div
               v-for="(faq, index) in faqs"

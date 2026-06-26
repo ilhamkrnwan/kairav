@@ -20,6 +20,9 @@ useScrollReveal()
       <div class="scroll-section will-change-[transform,opacity] w-full">
         <AppAboutMe />
       </div>
+      <div class="scroll-section will-change-[transform,opacity] w-full">
+        <AppAboutSkills />
+      </div>
       <div class="will-change-[transform,opacity] w-full">
         <AppAboutEducations />
       </div>

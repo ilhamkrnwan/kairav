@@ -58,7 +58,7 @@ const hasMore = computed(() => allWorkItems.value.length > 3)
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity]">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity] z-0">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Work') }}</span>
             <span class="section-title-outline text-foreground block">& {{ t('Experience') }}<span class="text-amber-400 !important">.</span></span>
@@ -68,7 +68,7 @@ const hasMore = computed(() => allWorkItems.value.length > 3)
         </div>
         
         <!-- Timeline Area -->
-        <div class="lg:col-span-8 relative">
+        <div class="lg:col-span-8 relative z-10">
           <AppUiTimelineRail>
             <div
               v-for="item in displayedItems"

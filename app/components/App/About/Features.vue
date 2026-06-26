@@ -43,7 +43,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
     <div class="max-w-6xl mx-auto features-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
-        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity]">
+        <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity] z-0">
           <h2 class="leading-[0.88] tracking-tight mb-6">
             <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Untuk Bisnis') }}<span class="text-amber-400 !important">.</span></span>
@@ -63,7 +63,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
         </div>
 
         <!-- Features Grid -->
-        <div class="lg:col-span-8">
+        <div class="lg:col-span-8 relative z-10">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <UiAnimatedCard
               v-for="(feature, index) in displayedFeatures"

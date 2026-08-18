@@ -22,7 +22,7 @@ const getBlogLink = (item: BlogCollectionItem) => {
   return rawPath?.replace(/^\/blog\/[^/]+/, '/blogs') || '#'
 }
 
-const { data: current, error } = await useAsyncData(
+const { data: current, error, status } = await useAsyncData(
   `blog-${locale.value}-${slug.value}`,
   () =>
     queryCollection('blog')
@@ -56,7 +56,7 @@ const nextBlog = computed(() => {
   return blogs.value[currentIndex.value + 1]
 })
 
-if (error.value || !current.value) {
+if (status.value !== 'pending' && (error.value || !current.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: t('Article not found'),
@@ -126,7 +126,10 @@ const copyUrl = () => {
 
 <template>
   <main class="min-h-screen">
-    <template v-if="current">
+    <template v-if="status === 'pending'">
+      <UiSkeletonDetail type="blog" />
+    </template>
+    <template v-else-if="current">
       <!-- Hero Header Section -->
       <section 
         v-motion
@@ -174,7 +177,7 @@ const copyUrl = () => {
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
         class="py-8 md:py-12"
       >
-        <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 max-w-7xl">
           <div class="relative aspect-video rounded-sm overflow-hidden border border-border/40 shadow-xl shadow-black/5">
             <img 
               :src="current.coverImage" 
@@ -195,7 +198,7 @@ const copyUrl = () => {
           :enabled="true"
         />
         <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-6xl content-container">
+          <div class="mx-auto max-w-7xl content-container">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
               <!-- Main Content -->
               <div 
@@ -373,7 +376,7 @@ const copyUrl = () => {
           :spotlight-radius="400"
           :enabled="true"
         />
-        <div class="container mx-auto max-w-6xl navigation-container">
+        <div class="container mx-auto max-w-7xl navigation-container">
           <h2 class="leading-[0.88] tracking-tight mb-12 text-center">
             <span class="section-title-filled block">{{ t('Next') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('To Read') }}<span class="text-amber-400 !important">.</span></span>

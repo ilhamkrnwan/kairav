@@ -33,6 +33,7 @@ const SOURCE_FILE_IGNORES = [
   'package-lock.json',
   'yarn.lock',
   'bun.lockb',
+  'bun.lock',
 ];
 
 const args = process.argv.slice(2);

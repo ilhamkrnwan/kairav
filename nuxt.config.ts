@@ -94,6 +94,7 @@ export default defineNuxtConfig({
     families: {
       Inter: [300, 400, 500, 600, 700],
       'JetBrains Mono': [400, 500, 600], // untuk code snippets
+      Caveat: [400, 600, 700], // untuk hand-drawn doodle annotations
     },
     display: 'swap',
     download: true, // self-host font agar tidak ada koneksi pihak ketiga
@@ -106,7 +107,7 @@ export default defineNuxtConfig({
     classSuffix: '', // class will be 'dark' instead of 'dark-mode'
     storageKey: 'nuxt-color-mode', // localStorage key
   },
-  css: ["./app/assets/css/main.css"],
+  css: ["~/assets/css/main.css"],
   vite: {
     plugins: [tailwindcss()],
   },

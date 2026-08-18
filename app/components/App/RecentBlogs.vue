@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
-const { data: blogs } = await useAsyncData(
+const { data: blogs, status } = await useAsyncData(
   `recent-blogs-${locale.value}`,
   () =>
     queryCollection('blog')
@@ -37,7 +37,7 @@ const getBlogLink = (path?: string) => {
 
 <template>
   <section class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
         <!-- Section Header (sticky, kiri) -->
@@ -71,7 +71,10 @@ const getBlogLink = (path?: string) => {
 
         <!-- Blogs Grid (kanan) -->
         <div class="lg:col-span-8 relative z-10">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div v-if="status === 'pending'" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <UiSkeletonBlogCard v-for="i in 4" :key="`recent-blog-skeleton-${i}`" />
+          </div>
+          <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <UiAnimatedCard
               v-for="blog in displayedBlogs"
               :key="blog.path"

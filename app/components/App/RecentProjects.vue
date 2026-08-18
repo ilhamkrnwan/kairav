@@ -47,7 +47,7 @@ const getTagColor = (tag: string) => {
 
 <template>
   <section class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Section Header -->
         <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity] z-0">
@@ -70,6 +70,17 @@ const getTagColor = (tag: string) => {
 
         <!-- Projects Grid -->
         <div class="lg:col-span-8 relative z-10">
+          <!-- Hand-drawn Doodle Annotation pointing to project cards -->
+          <div class="absolute -top-9 left-2 hidden sm:flex items-center gap-1 z-30 pointer-events-none select-none">
+            <span class="font-handwriting text-amber-600 dark:text-amber-400 text-lg font-bold tracking-wide -rotate-6 filter drop-shadow-xs whitespace-nowrap">
+              Open it
+            </span>
+            <svg class="w-12 h-9 text-amber-500 dark:text-amber-400 overflow-visible" viewBox="0 0 50 35" fill="none">
+              <path d="M 6 8 Q 28 6 36 26" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
+              <path d="M 26 22 L 37 27 L 38 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+          </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <UiAnimatedCard
               v-for="project in displayedProjects"

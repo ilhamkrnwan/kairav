@@ -1,69 +1,88 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { onClickOutside, useEventListener } from '@vueuse/core';
 
 const isOpen = ref(false);
+const sidebarRef = ref<HTMLElement | null>(null);
 
 const toggleSidebar = () => {
   isOpen.value = !isOpen.value;
 };
 
-const mobileToggleLabel = computed(() =>
-  isOpen.value ? 'Hide social media links' : 'Show social media links'
-);
+const closeSidebar = () => {
+  if (isOpen.value) {
+    isOpen.value = false;
+  }
+};
+
+// Tutup saat klik di luar floating sidebar
+onClickOutside(sidebarRef, () => {
+  closeSidebar();
+});
+
+// Tutup otomatis saat pengguna melakukan scroll
+if (import.meta.client) {
+  useEventListener(window, 'scroll', () => {
+    closeSidebar();
+  }, { passive: true });
+}
 
 const sosmedItems = [
   {
     name: 'Instagram',
-    icon: 'streamline-ultimate-color:instagram-logo',
+    icon: 'lucide:instagram',
     to: 'https://www.instagram.com/ilhamkrnwan__'
   },
   {
     name: 'GitHub',
-    icon: 'streamline-ultimate-color:github-logo-1',
+    icon: 'lucide:github',
     to: 'https://github.com/ilhamkrnwan'
   },
   {
     name: 'LinkedIn',
-    icon: 'streamline-ultimate-color:linkedin-logo',
+    icon: 'lucide:linkedin',
     to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/'
   },
   {
     name: 'WhatsApp',
-    icon: 'streamline-color:whatsapp',
+    icon: 'simple-icons:whatsapp',
     to: 'https://wa.me/6287761296676?text=Hello%20friend%2C%20how%20can%20I%20help%20you%20today%3F%20😊'
   },
   {
     name: 'Email',
-    icon: 'streamline-stickies-color:mail-duo',
+    icon: 'lucide:mail',
     to: 'mailto:ilhamkurniawanjateng@gmail.com'
   }
 ];
 </script>
 
 <template>
-  <!-- Toggle Button - hanya muncul di mobile -->
-  <button
-  class="fixed top-1/2 left-0 transform -translate-y-1/2 z-30
-  w-8 h-16 bg-background/50 backdrop-blur-sm border-y border-r border-border/40
-  hover:border-amber-400/50 hover:bg-background/80
-  rounded-r-sm flex items-center justify-center
-  transition-all duration-300 md:hidden"
-  :class="{ 'left-16': isOpen }"
-  :aria-label="mobileToggleLabel"
-  :aria-expanded="isOpen"
-  aria-controls="social-media-sidebar"
-  @click="toggleSidebar"
-  >
-    <Icon 
-      :name="isOpen ? 'lucide:arrow-left-to-line' : 'lucide:arrow-right-to-line'" 
-      class="w-8 h-8 text-accent-light dark:text-accent-dark transition-transform duration-300 cursor-pointer"
-      aria-hidden="true"
-    />
-  </button>
+  <!-- Toggle Button - muncul dengan animasi slide dari kiri dan ada delay saat sidebar tertutup -->
+  <transition name="slide-toggle-btn">
+    <button
+      v-if="!isOpen"
+      class="fixed top-1/2 left-0 -translate-y-1/2 z-30
+             w-8 h-16 bg-background/50 backdrop-blur-sm border-y border-r border-border/40
+             hover:border-amber-400/50 hover:bg-background/80
+             rounded-r-sm flex items-center justify-center
+             transition-colors duration-300 md:hidden"
+      aria-label="Show social media links"
+      :aria-expanded="isOpen"
+      aria-controls="social-media-sidebar"
+      @click.stop="toggleSidebar"
+    >
+      <Icon 
+        name="lucide:arrow-right-to-line" 
+        class="w-5 h-5 text-foreground transition-transform duration-300 cursor-pointer"
+        aria-hidden="true"
+      />
+    </button>
+  </transition>
 
   <!-- Social Media Floating Bar -->
   <div
     id="social-media-sidebar"
+    ref="sidebarRef"
     class="fixed top-1/2 transform -translate-y-1/2
            text-accent-light dark:text-accent-dark
            flex flex-col items-center space-y-4 p-2 z-20
@@ -87,11 +106,11 @@ const sosmedItems = [
         :title="sosmedItem.name"
         class="w-10 h-10 flex items-center justify-center
                bg-background/50 backdrop-blur-sm
-               hover:bg-background/80 hover:text-amber-400
+               hover:bg-background/80
                rounded-sm p-0 transition-all duration-300
                border border-border/40 hover:border-amber-400/50"  
       >
-        <Icon :name="sosmedItem.icon" class="w-6 h-6" aria-hidden="true" />
+        <Icon :name="sosmedItem.icon" class="w-5 h-5 text-foreground" aria-hidden="true" />
       </a>
 
       <!-- Tooltip -->
@@ -108,4 +127,29 @@ const sosmedItems = [
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Animasi slide muncul dari kiri ke kanan dengan delay saat sidebar menutup */
+.slide-toggle-btn-enter-active {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition-delay: 0.25s;
+}
+
+.slide-toggle-btn-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition-delay: 0s;
+}
+
+.slide-toggle-btn-enter-from,
+.slide-toggle-btn-leave-to {
+  transform: translate(-100%, -50%);
+  opacity: 0;
+}
+
+.slide-toggle-btn-enter-to,
+.slide-toggle-btn-leave-from {
+  transform: translate(0, -50%);
+  opacity: 1;
+}
+</style>
 

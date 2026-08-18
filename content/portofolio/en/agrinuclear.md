@@ -1,7 +1,7 @@
 ---
 title: AgriNuclear
 description: An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content
-image: /portofolio/agrinuklir/1.avif
+image: /portofolio/agrinuklir/thumbnails-agrinuclear.avif
 category: Website
 services:
   - Web Development
@@ -16,6 +16,10 @@ tags:
   - Tailwind CSS
   - Static Site
   - Educational Platform
+gallery:
+  - /portofolio/agrinuklir/galeri_agrinuclear_1.avif
+  - /portofolio/agrinuklir/galeri_agrinuclear_2.avif
+  - /portofolio/agrinuklir/galeri_agrinuclear_3.avif
 _path: /portofolio/agrinuclear
 ---
 
@@ -23,7 +27,7 @@ _path: /portofolio/agrinuclear
 
 An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content.
 
-![AgriNuclear Platform Preview](/portofolio/agrinuklir/preview.avif)
+![AgriNuclear Platform Preview](/portofolio/agrinuklir/thumbnails-agrinuclear.avif)
 
 ## Problem
 
@@ -62,6 +66,6 @@ As **Web Developer and UI/UX Designer**, I was responsible for:
 - Structured content supporting progressive learning
 - Properly cited academic references ensuring content credibility
 
-![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.avif)
-![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.avif)
-![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.avif)
+![AgriNuclear Gallery 1](/portofolio/agrinuklir/galeri_agrinuclear_1.avif)
+![AgriNuclear Gallery 2](/portofolio/agrinuklir/galeri_agrinuclear_2.avif)
+![AgriNuclear Gallery 3](/portofolio/agrinuklir/galeri_agrinuclear_3.avif)

@@ -1,7 +1,7 @@
 ---
 title: RuangNU
 description: Platform digital terintegrasi untuk mendukung anggota Nahdlatul Ulama dengan resources Islami, layanan komunitas, dan konten edukatif
-image: /portofolio/ruangnu/1.avif
+image: /portofolio/ruangnu/thumbnails-ruangnu.avif
 category: Platform Web
 services:
   - Web Development
@@ -18,6 +18,10 @@ tags:
   - MySQL
   - Platform Islami
   - Sistem Komunitas
+gallery:
+  - /portofolio/ruangnu/galeri_ruangnu_1.avif
+  - /portofolio/ruangnu/galeri_ruangnu_2.avif
+  - /portofolio/ruangnu/galeri_ruangnu_3.avif
 _path: /portofolio/ruangnu
 ---
 
@@ -25,7 +29,7 @@ _path: /portofolio/ruangnu
 
 Platform digital terintegrasi untuk mendukung anggota Nahdlatul Ulama dengan resources Islami, layanan komunitas, dan konten edukatif dalam satu platform terpusat.
 
-![Preview Platform RuangNU](/portofolio/ruangnu/preview.avif)
+![Interface Platform RuangNU](/portofolio/ruangnu/thumbnails-ruangnu.avif)
 
 ## Masalah
 
@@ -67,6 +71,6 @@ Sebagai **Web Developer dan Database Designer**, saya bertanggung jawab atas:
 - Mendukung pendidikan Islam melalui konten yang dikurasi
 - Platform terpusat menggantikan fragmentasi informasi di berbagai sumber
 
-![RuangNU Mockup 1](/portofolio/ruangnu/1.avif)
-![RuangNU Mockup 2](/portofolio/ruangnu/2.avif)
-![RuangNU Mockup 3](/portofolio/ruangnu/3.avif)
+![RuangNU Galeri 1](/portofolio/ruangnu/galeri_ruangnu_1.avif)
+![RuangNU Galeri 2](/portofolio/ruangnu/galeri_ruangnu_2.avif)
+![RuangNU Galeri 3](/portofolio/ruangnu/galeri_ruangnu_3.avif)

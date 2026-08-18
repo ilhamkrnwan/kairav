@@ -60,7 +60,7 @@ const maskStyle = computed(() => {
     <!-- Hero Section -->
     <section class="scroll-section will-change-[transform,opacity] section w-full py-6 px-2 lg:pt-20">
       <div class="container mx-auto">
-        <div class="max-w-6xl mx-auto flex flex-col justify-center p-6 lg:flex-row lg:justify-between lg:items-center">
+        <div class="max-w-7xl mx-auto flex flex-col justify-center p-6 lg:flex-row lg:justify-between lg:items-center">
         <!-- Hero Image Section -->
         <div class="relative flex items-center justify-center p-6 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 order-1 lg:order-2">
           <!-- Background Blob -->
@@ -140,6 +140,27 @@ const maskStyle = computed(() => {
             <div class="cbr bl border-amber-500/80 dark:border-amber-400"></div>
             <div class="cbr br border-amber-500/80 dark:border-amber-400"></div>
 
+            <!-- Hand-Drawn Doodle Annotation Labels with Curved Dashed Arrows -->
+            <div class="absolute -top-10 -left-12 lg:-left-20 z-30 hidden sm:flex items-center gap-1 pointer-events-none select-none">
+              <span class="font-handwriting text-amber-600 dark:text-amber-400 text-lg lg:text-xl font-bold tracking-wide -rotate-6 filter drop-shadow-xs whitespace-nowrap">
+                Hover to reveal
+              </span>
+              <svg class="w-12 h-9 text-amber-500 dark:text-amber-400 overflow-visible" viewBox="0 0 50 40" fill="none">
+                <path d="M 6 8 Q 28 6 36 28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
+                <path d="M 26 24 L 37 30 L 38 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+            </div>
+
+            <div class="absolute -bottom-8 -right-12 lg:-right-20 z-30 hidden sm:flex items-center gap-1 pointer-events-none select-none">
+              <svg class="w-12 h-9 text-amber-500 dark:text-amber-400 overflow-visible" viewBox="0 0 50 40" fill="none">
+                <path d="M 44 32 Q 22 34 14 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
+                <path d="M 24 16 L 12 10 L 11 22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+              <span class="font-handwriting text-amber-600 dark:text-amber-400 text-lg lg:text-xl font-bold tracking-wide rotate-6 filter drop-shadow-xs whitespace-nowrap">
+                Interactive frame
+              </span>
+            </div>
+
             <!-- Floating stat chips -->
             <div class="hero-chip c1 bg-white/95 dark:bg-[#141009]/95 border-amber-500/30 backdrop-blur-md shadow-lg hidden md:block">
               <div class="chip-num text-amber-600 dark:text-amber-400 font-mono">50+</div>
@@ -153,7 +174,7 @@ const maskStyle = computed(() => {
         </div>
 
         <!-- Text Content Section -->
-        <div class="flex flex-col justify-center lg:p-6 p-0 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left order-2 lg:order-1 z-10 text-neutral-dark dark:text-accent-dark">
+        <div class="flex flex-col justify-center lg:p-6 p-0 text-center rounded-sm lg:max-w-lg xl:max-w-xl lg:text-left order-2 lg:order-1 z-10 text-neutral-dark dark:text-accent-dark">
           <!-- Greeting -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 stagger-item will-change-[transform,opacity]">
             <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm text-xs font-mono text-muted-foreground uppercase tracking-widest">

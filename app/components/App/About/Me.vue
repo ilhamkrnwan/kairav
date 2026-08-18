@@ -11,7 +11,7 @@ const { t } = useI18n()
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="max-w-6xl mx-auto about-me-container">
+    <div class="max-w-7xl mx-auto about-me-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Title area -->
         <div class="lg:col-span-4 relative z-0">

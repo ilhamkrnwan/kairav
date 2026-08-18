@@ -1,9 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useMediaQuery } from '@vueuse/core'
 
 const { t } = useI18n()
 const isOpen = ref(false)
 const hoveredMenu = ref('')
+const isDesktop = useMediaQuery('(min-width: 768px) and (pointer: fine)')
 
 const menuItems = computed(() => [
   { name: t('Home'), route: '/' },
@@ -38,14 +40,14 @@ const closeMenu = () => {
     >
       <Icon
         v-if="!isOpen"
-        name="streamline-ultimate-color:navigation-menu-1"
+        name="lucide:menu"
         class="w-6 h-6"
         aria-hidden="true"
       />
       <Icon
         v-else
-        name="streamline-stickies-color:cancel-2-duo"
-        class="w-8 h-8"
+        name="lucide:x"
+        class="w-6 h-6"
         aria-hidden="true"
       />
     </button>
@@ -55,6 +57,25 @@ const closeMenu = () => {
 
     <!-- Menu Wrapper -->
     <div id="site-fullscreen-menu" class="wrapper" :class="{ open: isOpen }">
+      <!-- Splash Cursor Effect (Active ONLY inside the Menu Panel) -->
+      <ClientOnly v-if="isOpen && isDesktop">
+        <LazyUiSplashCursor
+          :SIM_RESOLUTION="128"
+          :DYE_RESOLUTION="1440"
+          :CAPTURE_RESOLUTION="512"
+          :DENSITY_DISSIPATION="3.5"
+          :VELOCITY_DISSIPATION="2"
+          :PRESSURE="0.1"
+          :PRESSURE_ITERATIONS="20"
+          :CURL="3"
+          :SPLAT_RADIUS="0.2"
+          :SPLAT_FORCE="6000"
+          :SHADING="true"
+          :COLOR_UPDATE_SPEED="10"
+          :BACK_COLOR="{ r: 0.5, g: 0, b: 0 }"
+          :TRANSPARENT="true"
+        />
+      </ClientOnly>
       
       <!-- Giant Background Outline Text -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">

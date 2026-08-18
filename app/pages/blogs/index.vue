@@ -3,7 +3,7 @@ import type { BlogCollectionItem } from '~/types'
 
 const { t, locale } = useI18n()
 
-const { data: blogs } = await useAsyncData<BlogCollectionItem[]>(
+const { data: blogs, status } = await useAsyncData<BlogCollectionItem[]>(
   `blog-${locale.value}`,
   () =>
     queryCollection('blog')
@@ -144,7 +144,7 @@ useScrollReveal()
 
     <!-- BLOG LIST SECTION -->
     <section id="blog-list" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
 
         <!-- Section Title -->
         <div class="text-center mb-16 stagger-item">
@@ -199,8 +199,13 @@ useScrollReveal()
           </div>
         </div>
 
+        <!-- Blogs Grid Skeleton -->
+        <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <UiSkeletonBlogCard v-for="i in 6" :key="`blog-skeleton-${i}`" />
+        </div>
+
         <!-- Blogs Grid -->
-        <div v-if="filteredBlogs.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-else-if="filteredBlogs.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <UiAnimatedCard
             v-for="blog in filteredBlogs"
             :key="blog.path"

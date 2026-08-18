@@ -40,7 +40,7 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="max-w-6xl mx-auto features-container">
+    <div class="max-w-7xl mx-auto features-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
         <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity] z-0">

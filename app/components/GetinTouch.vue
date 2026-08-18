@@ -23,7 +23,7 @@ const { t } = useI18n()
           {{ t('Interested in collaborating?') }}
         </span>
 
-        <h2 class="relative font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-foreground transition-colors duration-300 uppercase group-hover:text-amber-400 stagger-item will-change-[transform,opacity]">
+        <h2 class="relative font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-foreground uppercase stagger-item will-change-[transform,opacity]">
           {{ t('Get In Touch') }}
         </h2>
 

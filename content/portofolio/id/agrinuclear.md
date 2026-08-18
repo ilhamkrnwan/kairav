@@ -1,7 +1,7 @@
 ---
 title: AgriNuclear
 description: Platform web edukatif yang menjembatani sains pertanian nuklir dengan inovasi pertanian sehari-hari melalui konten visual yang mudah dipahami
-image: /portofolio/agrinuklir/1.avif
+image: /portofolio/agrinuklir/thumbnails-agrinuclear.avif
 category: Website
 services:
   - Web Development
@@ -16,6 +16,10 @@ tags:
   - Tailwind CSS
   - Static Site
   - Platform Edukatif
+gallery:
+  - /portofolio/agrinuklir/galeri_agrinuclear_1.avif
+  - /portofolio/agrinuklir/galeri_agrinuclear_2.avif
+  - /portofolio/agrinuklir/galeri_agrinuclear_3.avif
 _path: /portofolio/agrinuclear
 ---
 
@@ -23,7 +27,7 @@ _path: /portofolio/agrinuclear
 
 Platform web edukatif yang menjembatani konsep pertanian nuklir yang kompleks dengan inovasi pertanian sehari-hari melalui konten visual yang mudah dipahami.
 
-![Preview Platform AgriNuclear](/portofolio/agrinuklir/preview.avif)
+![Interface Platform AgriNuclear](/portofolio/agrinuklir/thumbnails-agrinuclear.avif)
 
 ## Masalah
 
@@ -62,6 +66,6 @@ Sebagai **Web Developer dan UI/UX Designer**, saya bertanggung jawab atas:
 - Konten terstruktur yang mendukung proses pembelajaran bertahap
 - Referensi akademik yang properly cited untuk kredibilitas konten
 
-![AgriNuclear Mockup 1](/portofolio/agrinuklir/1.avif)
-![AgriNuclear Mockup 2](/portofolio/agrinuklir/2.avif)
-![AgriNuclear Mockup 3](/portofolio/agrinuklir/3.avif)
+![AgriNuclear Galeri 1](/portofolio/agrinuklir/galeri_agrinuclear_1.avif)
+![AgriNuclear Galeri 2](/portofolio/agrinuklir/galeri_agrinuclear_2.avif)
+![AgriNuclear Galeri 3](/portofolio/agrinuklir/galeri_agrinuclear_3.avif)

@@ -1,7 +1,7 @@
 ---
 title: Santap
 description: A modern POS and QR ordering platform for restaurants, cafes, and F&B MSMEs featuring cashier systems, kitchen workflow, open bill sessions, QRIS payment, and customer web ordering
-image: /portofolio/santap/preview.avif
+image: /portofolio/santap/thumbnails-santap.avif
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -22,6 +22,10 @@ tags:
   - QRIS
   - Supabase
   - Mobile-First
+gallery:
+  - /portofolio/santap/galeri_santap_1.avif
+  - /portofolio/santap/galeri_santap_2.avif
+  - /portofolio/santap/galeri_santap_3.avif
 _path: /portofolio/santap
 url: https://santap.app
 ---
@@ -30,7 +34,7 @@ url: https://santap.app
 
 Santap is a digital platform designed to help restaurants, cafes, and F&B MSMEs manage ordering, payment, cashier, kitchen, and outlet operations in a single ecosystem. The system combines web-based customer ordering, mobile apps for cashiers and kitchens, an admin dashboard, and a robust backend API tailored for modern culinary operations.
 
-![Interface Santap](/portofolio/santap/preview.avif)
+![Interface Santap](/portofolio/santap/thumbnails-santap.avif)
 
 ## Problem
 
@@ -88,7 +92,6 @@ As **Fullstack Web & Mobile Developer**, I was responsible for:
 * Providing a highly scalable POS foundation ready for multi-tenant and multi-outlet expansion
 * Improving order accuracy through structured database representations of order items, variants, add-ons, payments, and billing statuses
 
-![Santap Mockup 1](/portofolio/santap/1.avif)
-![Santap Mockup 2](/portofolio/santap/2.avif)
-![Santap Mockup 3](/portofolio/santap/3.avif)
-![Santap Mockup 4](/portofolio/santap/4.avif)
+![Santap Gallery 1](/portofolio/santap/galeri_santap_1.avif)
+![Santap Gallery 2](/portofolio/santap/galeri_santap_2.avif)
+![Santap Gallery 3](/portofolio/santap/galeri_santap_3.avif)

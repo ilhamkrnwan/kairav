@@ -5,14 +5,14 @@ const { locale, setLocale } = useI18n()
 
 const languages = [
   {
-    code: 'en',
-    label: 'English',
-    icon: 'twemoji:flag-united-kingdom'//england
+    code: 'id',
+    label: 'ID',
+    description: 'Bahasa Indonesia'
   },
   {
-    code: 'id',
-    label: 'Bahasa Indonesia',
-    icon: 'twemoji:flag-indonesia'
+    code: 'en',
+    label: 'EN',
+    description: 'English'
   }
 ]
 
@@ -36,28 +36,23 @@ const selectLanguage = async (lang) => {
 
 const items = computed(() => {
   return [languages.map(lang => ({
-    label: lang.label,
-    icon: lang.icon,
+    label: `${lang.label} - ${lang.description}`,
     onSelect: () => selectLanguage(lang),
-    class: locale.value === lang.code ? 'text-amber-600 dark:text-yellow-400 bg-amber-50 dark:bg-yellow-400/10' : ''
+    class: locale.value === lang.code ? 'text-amber-600 dark:text-yellow-400 bg-amber-50 dark:bg-yellow-400/10 font-bold' : ''
   }))]
 })
 
 // Custom Styling for Dropdown
 const dropdownUi = {
-  width: 'min-w-[180px]',
+  width: 'min-w-[170px]',
   background: 'bg-background/80 backdrop-blur-md',
   ring: 'ring-1 ring-border/40',
   padding: 'p-1',
   item: {
-    base: 'gap-3 my-0.5 font-mono tracking-widest uppercase',
+    base: 'gap-2 my-0.5 font-mono tracking-wider uppercase',
     rounded: 'rounded-sm',
     active: 'bg-foreground/5 dark:bg-foreground/10',
-    size: 'text-[10px] font-medium',
-    icon: {
-      base: 'flex-shrink-0 w-4 h-4',
-      active: 'text-amber-500'
-    }
+    size: 'text-[11px] font-medium'
   }
 }
 </script>
@@ -69,8 +64,15 @@ const dropdownUi = {
       :ui="dropdownUi" 
       :popper="{ placement: 'bottom-start', offsetDistance: 8 }"
     >
-      <button class="lang-toggle-btn" aria-label="Change language">
-        <Icon :name="currentLanguage.icon" class="w-6 h-6" />
+      <button class="lang-toggle-btn overflow-hidden" aria-label="Change language">
+        <Transition name="swipe-lang" mode="out-in">
+          <span 
+            :key="currentLanguage.code"
+            class="font-mono text-xs font-bold tracking-widest text-foreground select-none inline-block"
+          >
+            {{ currentLanguage.label }}
+          </span>
+        </Transition>
       </button>
     </UDropdownMenu>
   </div>
@@ -112,9 +114,20 @@ const dropdownUi = {
   background: rgba(251, 191, 36, 0.1);
 }
 
-/* Icon Styles */
-.lang-toggle-btn :deep(svg) {
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+/* Swipe Down Up Transition for Language Text */
+.swipe-lang-enter-active,
+.swipe-lang-leave-active {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.swipe-lang-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.swipe-lang-leave-to {
+  opacity: 0;
+  transform: translateY(-16px);
 }
 
 /* Responsive */

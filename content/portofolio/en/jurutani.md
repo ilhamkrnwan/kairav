@@ -1,7 +1,7 @@
 ---
 title: Jurutani
 description: The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and integrated marketplace access
-image: /portofolio/jurutani/1.avif
+image: /portofolio/jurutani/thumbnails-jurutani.avif
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -19,6 +19,10 @@ tags:
   - Google Gemini AI
   - Supabase
   - Mobile-First
+gallery:
+  - /portofolio/jurutani/galeri_jurutani_1.avif
+  - /portofolio/jurutani/galeri_jurutani_2.avif
+  - /portofolio/jurutani/galeri_jurutani_3.avif
 _path: /portofolio/jurutani
 url: https://jurutani.com
 ---
@@ -27,7 +31,7 @@ url: https://jurutani.com
 
 The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and integrated marketplace access.
 
-![Jurutani Preview](/portofolio/jurutani/preview.avif)
+![Jurutani Preview](/portofolio/jurutani/thumbnails-jurutani.avif)
 
 ## Problem
 
@@ -71,6 +75,6 @@ As **Fullstack Web & Android Developer**, I was responsible for:
 - Reduces middlemen dependency through direct marketplace access
 - Provides 24/7 AI consultation access in areas with limited expert availability
 
-![Jurutani Mockup 1](/portofolio/jurutani/1.avif)
-![Jurutani Mockup 2](/portofolio/jurutani/2.avif)
-![Jurutani Mockup 3](/portofolio/jurutani/3.avif)
+![Jurutani Gallery 1](/portofolio/jurutani/galeri_jurutani_1.avif)
+![Jurutani Gallery 2](/portofolio/jurutani/galeri_jurutani_2.avif)
+![Jurutani Gallery 3](/portofolio/jurutani/galeri_jurutani_3.avif)

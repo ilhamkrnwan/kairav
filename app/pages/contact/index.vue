@@ -6,7 +6,7 @@ const contactMethods = [
     label: 'WhatsApp',
     value: '+62 877-6129-6676',
     href: 'https://wa.me/6287761296676?text=Halo%20Ilham%2C%20saya%20ingin%20diskusi%20project.',
-    icon: 'lucide:message-circle',
+    icon: 'simple-icons:whatsapp',
   },
   {
     label: 'Email',
@@ -64,7 +64,7 @@ useScrollReveal()
 <template>
   <main class="min-h-screen">
     <section class="scroll-section will-change-[transform,opacity] relative w-full min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-28 overflow-hidden">
-      <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5 stagger-item">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8">
             <span class="relative flex h-1.5 w-1.5">
@@ -143,7 +143,7 @@ useScrollReveal()
     </section>
 
     <section class="scroll-section will-change-[transform,opacity] px-6 md:px-12 lg:px-20 pb-28">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-7xl mx-auto">
         <div class="mb-10 max-w-3xl stagger-item">
           <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">
             {{ t('Location & Availability') }}

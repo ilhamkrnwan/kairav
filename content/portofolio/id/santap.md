@@ -1,7 +1,7 @@
 ---
 title: Santap
 description: Platform POS dan QR ordering modern untuk restoran, kafe, dan UMKM kuliner dengan sistem kasir, kitchen, open bill, pembayaran QRIS, dan customer ordering berbasis web
-image: /portofolio/santap/preview.avif
+image: /portofolio/santap/thumbnails-santap.avif
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -22,6 +22,10 @@ tags:
   - QRIS
   - Supabase
   - Mobile-First
+gallery:
+  - /portofolio/santap/galeri_santap_1.avif
+  - /portofolio/santap/galeri_santap_2.avif
+  - /portofolio/santap/galeri_santap_3.avif
 _path: /portofolio/santap
 url: https://santap.app
 ---
@@ -30,7 +34,7 @@ url: https://santap.app
 
 Santap adalah platform digital untuk membantu restoran, kafe, dan UMKM kuliner mengelola proses pemesanan, pembayaran, kasir, dapur, dan operasional outlet dalam satu ekosistem. Sistem ini menggabungkan customer web ordering, aplikasi mobile kasir dan kitchen, dashboard admin, serta backend API yang dirancang untuk kebutuhan operasional kuliner modern.
 
-![Interface Santap](/portofolio/santap/preview.avif)
+![Interface Santap](/portofolio/santap/thumbnails-santap.avif)
 
 ## Masalah
 
@@ -88,7 +92,6 @@ Sebagai **Fullstack Web & Mobile Developer**, saya bertanggung jawab atas:
 * Menyediakan fondasi sistem POS yang scalable untuk banyak outlet dan organisasi
 * Meningkatkan akurasi pencatatan pesanan melalui struktur order, item, varian, add-on, status pembayaran, dan status bill yang lebih jelas
 
-![Santap Mockup 1](/portofolio/santap/1.avif)
-![Santap Mockup 2](/portofolio/santap/2.avif)
-![Santap Mockup 3](/portofolio/santap/3.avif)
-![Santap Mockup 4](/portofolio/santap/4.avif)
+![Santap Galeri 1](/portofolio/santap/galeri_santap_1.avif)
+![Santap Galeri 2](/portofolio/santap/galeri_santap_2.avif)
+![Santap Galeri 3](/portofolio/santap/galeri_santap_3.avif)

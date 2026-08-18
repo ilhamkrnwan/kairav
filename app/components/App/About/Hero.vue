@@ -49,7 +49,7 @@ const stats = computed(() => [
     <div class="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
     <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-cyan-400/4 rounded-full blur-3xl pointer-events-none" />
 
-    <div class="max-w-6xl mx-auto w-full py-28 lg:py-32 relative z-10">
+    <div class="max-w-7xl mx-auto w-full py-28 lg:py-32 relative z-10">
 
       <!-- ── Row 1: Status bar ── -->
       <div class="flex flex-wrap items-center gap-4 mb-10 entry-1">

@@ -131,7 +131,7 @@ useScrollReveal()
 
     <!-- Gallery Grid Section -->
     <section id="gallery-grid" class="scroll-section will-change-[transform,opacity] section py-20 text-gray-800 dark:text-white">
-      <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
         <!-- Section Title -->
         <div class="text-center mb-16 stagger-item">
           <h2 class="leading-[0.88] tracking-tight mb-4">

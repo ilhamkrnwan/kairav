@@ -41,7 +41,7 @@ const techStacks = {
     { name: "Claude", icon: "logos:claude-icon" },
     { name: "Qwen", icon: "logos:qwen-icon" },
     { name: "DeepSeek", icon: "logos:deepseek-icon" },
-    { name: "Antigravity", icon: "streamline-plump-color:atom" },
+    { name: "Antigravity", icon: "lucide:atom" },
     { name: "VS Code", icon: "logos:visual-studio-code" },
   ],
 };
@@ -56,7 +56,7 @@ const techStacks = {
       :spotlight-radius="400"
       :enabled="true"
     />
-    <div class="max-w-6xl mx-auto skills-container">
+    <div class="max-w-7xl mx-auto skills-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Title Area -->
         <div class="lg:col-span-4 relative z-0 stagger-item will-change-[transform,opacity]">

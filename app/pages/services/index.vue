@@ -3,7 +3,7 @@ import type { ServiceCollectionItem } from '~/types'
 
 const { t, locale } = useI18n()
 
-const { data: services } = await useAsyncData<ServiceCollectionItem[]>(
+const { data: services, status } = await useAsyncData<ServiceCollectionItem[]>(
   `services-${locale.value}`,
   () =>
     queryCollection('services')
@@ -106,7 +106,7 @@ useScrollReveal()
     </section>
 
     <section id="services-list" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16 stagger-item">
           <h2 class="leading-[0.88] tracking-tight mb-4">
             <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
@@ -137,9 +137,12 @@ useScrollReveal()
           >
             {{ category }}
           </button>
+        <!-- Services Grid Skeleton -->
+        <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <UiSkeletonServiceCard v-for="i in 4" :key="`service-skeleton-${i}`" />
         </div>
 
-        <div v-if="filteredServices.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div v-else-if="filteredServices.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <UiAnimatedCard
             v-for="service in filteredServices"
             :key="service.path"

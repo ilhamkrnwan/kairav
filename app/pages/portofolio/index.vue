@@ -3,7 +3,7 @@ import type { PortofolioCollectionItem } from '~/types'
 
 const { t, locale } = useI18n()
 
-const { data: portofolios } = await useAsyncData<PortofolioCollectionItem[]>(
+const { data: portofolios, status } = await useAsyncData<PortofolioCollectionItem[]>(
   `portofolio-${locale.value}`,
   () =>
     queryCollection('portofolio')
@@ -167,7 +167,7 @@ useScrollReveal()
          PROJECT LIST SECTION
     ════════════════════════════════════════ -->
     <section id="project-list" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
 
         <!-- Section Title -->
         <div class="text-center mb-16 stagger-item">
@@ -227,8 +227,25 @@ useScrollReveal()
 
         </div>
 
+        <!-- Project Cards Grid Skeleton -->
+        <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <UiSkeletonPortfolioCard v-for="i in 6" :key="`portfolio-skeleton-${i}`" />
+        </div>
+
         <!-- ── Project Cards Grid ── -->
-        <div v-if="filteredPortfolios.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-else-if="filteredPortfolios.length > 0" class="relative">
+          <!-- Hand-drawn Doodle Annotation pointing to portfolio card -->
+          <div class="absolute -top-9 left-2 hidden md:flex items-center gap-1 z-30 pointer-events-none select-none">
+            <span class="font-handwriting text-amber-600 dark:text-amber-400 text-lg font-bold tracking-wide -rotate-6 filter drop-shadow-xs whitespace-nowrap">
+              Open it
+            </span>
+            <svg class="w-12 h-9 text-amber-500 dark:text-amber-400 overflow-visible" viewBox="0 0 50 35" fill="none">
+              <path d="M 6 8 Q 28 6 36 26" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
+              <path d="M 26 22 L 37 27 L 38 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <UiAnimatedCard
             v-for="project in filteredPortfolios"
             :key="project.path"
@@ -313,6 +330,7 @@ useScrollReveal()
             </NuxtLink>
           </UiAnimatedCard>
         </div>
+      </div>
 
         <!-- ── Empty State ── -->
         <div v-else class="text-center py-24 stagger-item">

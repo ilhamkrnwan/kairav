@@ -94,7 +94,8 @@ const setupEventListeners = () => {
   let animateRingX: ((value: number) => gsap.core.Tween) | null = null;
   let animateRingY: ((value: number) => gsap.core.Tween) | null = null;
   let animateRingOpacity: ((value: number) => gsap.core.Tween) | null = null;
-  let animateRingScale: ((value: number) => gsap.core.Tween) | null = null;
+  let animateRingScaleX: ((value: number) => gsap.core.Tween) | null = null;
+  let animateRingScaleY: ((value: number) => gsap.core.Tween) | null = null;
 
   const markMetricsDirty = () => { metricsDirty = true; };
 
@@ -210,7 +211,8 @@ const setupEventListeners = () => {
     animateRingX = gsap.quickTo(cursorRing, "left",    { duration: 0.04, ease: "none" });
     animateRingY = gsap.quickTo(cursorRing, "top",     { duration: 0.04, ease: "none" });
     animateRingOpacity = gsap.quickTo(cursorRing, "opacity", { duration: 0.25, ease: "power2.out" });
-    animateRingScale   = gsap.quickTo(cursorRing, "scale",   { duration: 0.2,  ease: "power2.out" });
+    animateRingScaleX  = gsap.quickTo(cursorRing, "scaleX",  { duration: 0.2,  ease: "power2.out" });
+    animateRingScaleY  = gsap.quickTo(cursorRing, "scaleY",  { duration: 0.2,  ease: "power2.out" });
   }
 
   // ─── GSAP tick ─────────────────────────────────────────────────────────────
@@ -218,13 +220,16 @@ const setupEventListeners = () => {
     // ── Ring (ring mode only) ────────────────────────────────────────────────
     if (props.ringOnly && cursorRing) {
       if (pendingPointer && pointerOnPage) {
+        const ringScale = isMouseDown ? 0.7 : 1;
         animateRingX?.(pendingPointer.clientX);
         animateRingY?.(pendingPointer.clientY);
         animateRingOpacity?.(0.85);
-        animateRingScale?.(isMouseDown ? 0.7 : 1);
+        animateRingScaleX?.(ringScale);
+        animateRingScaleY?.(ringScale);
       } else {
         animateRingOpacity?.(0);
-        animateRingScale?.(1);
+        animateRingScaleX?.(1);
+        animateRingScaleY?.(1);
       }
     }
 

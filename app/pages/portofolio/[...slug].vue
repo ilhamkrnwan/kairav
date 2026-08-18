@@ -24,7 +24,7 @@ const getPortofolioLink = (item?: PortofolioCollectionItem | null) => {
 }
 
 // Fetch current portfolio item
-const { data: current, error } = await useAsyncData(
+const { data: current, error, status } = await useAsyncData(
   `portofolio-${locale.value}-${slug.value}`,
   () =>
     queryCollection('portofolio')
@@ -66,7 +66,7 @@ const nextProject = computed(() => {
 })
 
 // Handle 404
-if (error.value || !current.value) {
+if (status.value !== 'pending' && (error.value || !current.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: t('Portfolio not found'),
@@ -77,6 +77,10 @@ if (error.value || !current.value) {
 // Extract all images from markdown content for carousel
 const projectImages = computed(() => {
   if (!current.value) return []
+  
+  if (current.value.gallery && Array.isArray(current.value.gallery) && current.value.gallery.length > 0) {
+    return current.value.gallery
+  }
   
   // Get the slug from the current project path
   // Most portfolio projects have 3 mockup images numbered 1.avif, 2.avif, 3.avif
@@ -118,7 +122,10 @@ useCreativeWorkSchema({
 
 <template>
   <main class="min-h-screen">
-    <template v-if="current">
+    <template v-if="status === 'pending'">
+      <UiSkeletonDetail type="portfolio" />
+    </template>
+    <template v-else-if="current">
       <!-- Hero Header Section -->
       <section 
         v-motion
@@ -170,7 +177,7 @@ useCreativeWorkSchema({
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
         class="py-8 md:py-12"
       >
-        <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 max-w-7xl">
           <div class="relative aspect-video rounded-sm overflow-hidden border border-border/40 shadow-xl shadow-black/5">
             <img 
               :src="current.image" 
@@ -191,7 +198,7 @@ useCreativeWorkSchema({
           :enabled="true"
         />
         <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-6xl content-container">
+          <div class="mx-auto max-w-7xl content-container">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
               <!-- Main Content -->
               <div 
@@ -343,7 +350,7 @@ useCreativeWorkSchema({
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 450 } }"
         class="py-8 md:py-12 overflow-x-hidden"
       >
-        <div class="container mx-auto px-4 max-w-6xl">
+        <div class="container mx-auto px-4 max-w-7xl">
           <h2 class="text-2xl md:text-3xl font-heading font-black uppercase mb-8 text-center tracking-tight">
             {{ t('Project Gallery') }}
           </h2>
@@ -367,7 +374,7 @@ useCreativeWorkSchema({
           :spotlight-radius="400"
           :enabled="true"
         />
-        <div class="container mx-auto max-w-6xl navigation-container">
+        <div class="container mx-auto max-w-7xl navigation-container">
           <h2 class="leading-[0.88] tracking-tight mb-12 text-center">
             <span class="section-title-filled block">{{ t('More') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Projects') }}<span class="text-amber-400 !important">.</span></span>

@@ -13,7 +13,7 @@ const slug = computed(() => {
 const normalizeServicePath = (item?: ServiceCollectionItem | null) => item?.path || item?._path || ''
 const getServiceLink = (item: ServiceCollectionItem) => normalizeServicePath(item).replace(/^\/services\/[^/]+/, '/services') || '#'
 
-const { data: current, error } = await useAsyncData(
+const { data: current, error, status } = await useAsyncData(
   `service-${locale.value}-${slug.value}`,
   () =>
     queryCollection('services')
@@ -48,7 +48,7 @@ const nextService = computed(() => {
   return services.value[(currentIndex.value + 1) % services.value.length]
 })
 
-if (error.value || !current.value) {
+if (status.value !== 'pending' && (error.value || !current.value)) {
   throw createError({
     statusCode: 404,
     statusMessage: t('Service not found'),
@@ -74,7 +74,10 @@ useServiceSchema({
 
 <template>
   <main class="min-h-screen">
-    <template v-if="current">
+    <template v-if="status === 'pending'">
+      <UiSkeletonDetail type="service" />
+    </template>
+    <template v-else-if="current">
       <section class="py-16 md:py-24 px-4 border-b border-border/40">
         <div class="container mx-auto max-w-4xl text-center">
           <div class="mb-6">
@@ -170,7 +173,7 @@ useServiceSchema({
           :spotlight-radius="400"
           :enabled="true"
         />
-        <div class="container mx-auto max-w-6xl navigation-container">
+        <div class="container mx-auto max-w-7xl navigation-container">
           <h2 class="leading-[0.88] tracking-tight mb-12 text-center">
             <span class="section-title-filled block">{{ t('More') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Services') }}<span class="text-amber-400 !important">.</span></span>

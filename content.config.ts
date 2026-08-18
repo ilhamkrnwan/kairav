@@ -2,10 +2,6 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
-      type: 'page',
-      source: '**/*.md'
-    }),
     portofolio: defineCollection({
       type: 'page',
       source: 'portofolio/**/*.md',
@@ -20,6 +16,7 @@ export default defineContentConfig({
         status: z.string().optional(),
         industry: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        gallery: z.array(z.string()).optional(),
         _path: z.string().optional(),
         url: z.string().optional(),
       })
@@ -62,4 +59,3 @@ export default defineContentConfig({
     })
   }
 })
-

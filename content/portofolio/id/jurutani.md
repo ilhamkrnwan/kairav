@@ -1,7 +1,7 @@
 ---
 title: Jurutani
 description: Platform pertanian digital all-in-one yang mendukung petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan akses marketplace terpadu
-image: /portofolio/jurutani/1.avif
+image: /portofolio/jurutani/thumbnails-jurutani.avif
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -19,6 +19,10 @@ tags:
   - Google Gemini AI
   - Supabase
   - Mobile-First
+gallery:
+  - /portofolio/jurutani/galeri_jurutani_1.avif
+  - /portofolio/jurutani/galeri_jurutani_2.avif
+  - /portofolio/jurutani/galeri_jurutani_3.avif
 _path: /portofolio/jurutani
 url: https://jurutani.com
 ---
@@ -27,7 +31,7 @@ url: https://jurutani.com
 
 Platform pertanian digital all-in-one yang mendukung petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan akses marketplace terpadu.
 
-![Interface Platform Jurutani](/portofolio/jurutani/preview.avif)
+![Interface Platform Jurutani](/portofolio/jurutani/thumbnails-jurutani.avif)
 
 ## Masalah
 
@@ -71,6 +75,6 @@ Sebagai **Fullstack Web & Android Developer**, saya bertanggung jawab atas:
 - Mengurangi ketergantungan pada perantara melalui marketplace langsung
 - Menyediakan akses konsultasi AI 24/7 di wilayah dengan akses ahli terbatas
 
-![Jurutani Mockup 1](/portofolio/jurutani/1.avif)
-![Jurutani Mockup 2](/portofolio/jurutani/2.avif)
-![Jurutani Mockup 3](/portofolio/jurutani/3.avif)
+![Jurutani Galeri 1](/portofolio/jurutani/galeri_jurutani_1.avif)
+![Jurutani Galeri 2](/portofolio/jurutani/galeri_jurutani_2.avif)
+![Jurutani Galeri 3](/portofolio/jurutani/galeri_jurutani_3.avif)

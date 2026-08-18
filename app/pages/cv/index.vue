@@ -92,7 +92,7 @@ useScrollReveal()
          CV VIEWER SECTION
     ════════════════════════════════════════ -->
     <section id="cv-viewer" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
 
         <!-- Section label -->
         <div class="flex items-center gap-4 mb-10 stagger-item">

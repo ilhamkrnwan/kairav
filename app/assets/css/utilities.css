@@ -23,6 +23,10 @@
     background-color: var(--color-bg);
     color: var(--color-text);
   }
+
+  .font-handwriting {
+    font-family: 'Caveat', 'Architects Daughter', cursive, sans-serif;
+  }
 }
 
 /* ===================================

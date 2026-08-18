@@ -58,12 +58,12 @@ onMounted(() => {
       @click="toggleDarkMode"
     >
       <Icon
-        name="streamline-emojis:smiling-face-with-sunglasses"
-        class="block dark:hidden w-8 h-8"
+        name="lucide:sun"
+        class="block dark:hidden w-6 h-6 text-foreground"
       />
       <Icon
-        name="streamline-emojis:full-moon"
-        class="hidden dark:block w-8 h-8"
+        name="lucide:moon"
+        class="hidden dark:block w-6 h-6 text-foreground"
       />
     </button>
   </div>

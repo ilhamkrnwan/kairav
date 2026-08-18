@@ -37,7 +37,7 @@ const toggle = (index: number) => {
 
 <template>
   <section class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Title Area -->
         <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit z-0">

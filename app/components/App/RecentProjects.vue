@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
-const { data: projects } = await useAsyncData(
+const { data: projects, status } = await useAsyncData(
   `recent-projects-${locale.value}`,
   () =>
     queryCollection('portofolio')
@@ -81,7 +81,11 @@ const getTagColor = (tag: string) => {
             </svg>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div v-if="status === 'pending'" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <UiSkeletonPortfolioCard v-for="i in 3" :key="`recent-project-skeleton-${i}`" />
+          </div>
+
+          <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <UiAnimatedCard
               v-for="project in displayedProjects"
               :key="project._path"

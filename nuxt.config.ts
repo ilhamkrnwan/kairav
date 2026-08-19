@@ -72,6 +72,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/i18n",
     "@nuxt/image",
+    "@nuxt/fonts",
     "nuxt-og-image",
     "@nuxt/eslint",
     "@nuxt/ui",
@@ -80,6 +81,19 @@ export default defineNuxtConfig({
     '@vueuse/motion/nuxt',
     '@nuxtjs/sitemap',
   ],
+
+  fonts: {
+    families: [
+      { name: 'Inter', weights: [400, 500, 600, 700, 800, 900], global: true },
+    ],
+  },
+
+  ogImage: {
+    zeroRuntime: true,
+    security: {
+      renderTimeout: 30000,
+    },
+  },
 
   // Sitemap configuration
   sitemap: {

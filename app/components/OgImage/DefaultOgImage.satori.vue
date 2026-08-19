@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import fs from 'node:fs'
+import path from 'node:path'
+
 interface Props {
   title?: string
   description?: string
@@ -23,12 +26,26 @@ const truncate = (value: string | undefined, max: number) => {
 
 const displayTitle = truncate(props.title, 68)
 const displayDescription = truncate(props.description, 118)
+
+// Load bg image as base64 Data URI to prevent HTTP fetch timeouts during SSG prerendering
+let bgImageDataUri = ''
+if (import.meta.server) {
+  try {
+    const bgPath = path.resolve(process.cwd(), 'public/og/og-bg-kairav.png')
+    if (fs.existsSync(bgPath)) {
+      const buffer = fs.readFileSync(bgPath)
+      bgImageDataUri = `data:image/png;base64,${buffer.toString('base64')}`
+    }
+  } catch {
+    // fallback
+  }
+}
 </script>
 
 <template>
   <div style="position: relative; display: flex; width: 1200px; height: 630px; overflow: hidden; background: #05080d; color: #f8fafc; font-family: Inter, Arial, sans-serif;">
     <img
-      src="/og/og-bg-kairav.png"
+      :src="bgImageDataUri || '/og/og-bg-kairav.png'"
       alt=""
       style="position: absolute; inset: 0; width: 1200px; height: 630px; object-fit: cover;"
     >

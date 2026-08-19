@@ -143,19 +143,17 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
   }
 
   if (!options.disableDynamicOg) {
-    defineOgImage({
-      component: 'DefaultOgImage',
+    defineOgImage('DefaultOgImage', {
+      title: getTitle(),
+      description: getDescription(),
+      label: getOgLabel(),
+      siteName: 'KAIRAV',
+      siteUrl: 'ilhamkrnwan.my.id',
+    }, {
       extension: 'png',
       width: 1200,
       height: 630,
       alt: getTitle(),
-      props: {
-        title: getTitle(),
-        description: getDescription(),
-        label: getOgLabel(),
-        siteName: 'KAIRAV',
-        siteUrl: 'ilhamkrnwan.my.id',
-      },
     })
   }
   

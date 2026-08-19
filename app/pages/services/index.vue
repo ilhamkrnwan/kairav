@@ -137,6 +137,8 @@ useScrollReveal()
           >
             {{ category }}
           </button>
+        </div>
+
         <!-- Services Grid Skeleton -->
         <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <UiSkeletonServiceCard v-for="i in 4" :key="`service-skeleton-${i}`" />

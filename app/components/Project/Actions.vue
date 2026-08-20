@@ -30,7 +30,7 @@ defineProps<Props>()
         rel="noopener noreferrer"
       >
         <UiStyleButton>
-          <Icon name="lucide:github" class="w-4 h-4 mr-2" />
+          <Icon name="simple-icons:github" class="w-4 h-4 mr-2" />
           GitHub
         </UiStyleButton>
       </NuxtLink>

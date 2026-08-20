@@ -87,9 +87,21 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  icon: {
+    serverBundle: {
+      collections: ['lucide', 'simple-icons', 'logos', 'skill-icons'],
+    },
+    clientBundle: {
+      scan: true,
+    },
+  },
+
   fonts: {
     families: [
       { name: 'Inter', weights: [400, 500, 600, 700, 800, 900], global: true },
+      { name: 'Segoe UI', provider: 'none' },
+      { name: 'Helvetica Neue', provider: 'none' },
+      { name: 'Arial', provider: 'none' },
     ],
   },
 

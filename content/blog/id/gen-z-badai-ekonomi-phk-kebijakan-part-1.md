@@ -61,4 +61,4 @@ Badai ekonomi, ancaman PHK, dan ketidakpastian karir ini tidak hanya berdampak p
 
 Bagaimana tekanan eksternal yang masif ini bertransformasi menjadi gangguan kecemasan (*anxiety*), kelelahan kronis (*burnout*), serta krisis jati diri (*quarter-life crisis*) di usia 20-an? 
 
-Simak pembahasannya pada **[Bagian Kedua: Krisis di Usia 20-an: Ketika Anxiety, Burnout, dan Quarter-Life Crisis Melanda Gen Z](file:///c:/KAIRAV/project/2026/kairav/content/blog/id/gen-z-anxiety-quarter-life-crisis-part-2.md)**.
+Simak pembahasannya pada **[Bagian Kedua: Krisis di Usia 20-an: Ketika Anxiety, Burnout, dan Quarter-Life Crisis Melanda Gen Z](/blogs/gen-z-anxiety-quarter-life-crisis-part-2)**.

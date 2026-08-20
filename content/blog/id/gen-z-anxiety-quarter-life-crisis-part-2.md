@@ -16,7 +16,7 @@ readTime: "10 min read"
 
 # Krisis di Usia 20-an: Ketika Anxiety, Burnout, dan Quarter-Life Crisis Melanda Gen Z (Part 2)
 
-Setelah menelaah badai makro ekonomi, gelombang PHK, serta himpitan biaya hidup pada [Bagian Pertama](file:///c:/KAIRAV/project/2026/kairav/content/blog/id/gen-z-badai-ekonomi-phk-kebijakan-part-1.md), pertanyaan besar berikutnya yang muncul adalah: **apa dampak tak kasat mata dari seluruh tekanan eksternal tersebut terhadap kondisi jiwa anak muda?**
+Setelah menelaah badai makro ekonomi, gelombang PHK, serta himpitan biaya hidup pada [Bagian Pertama](/blogs/gen-z-badai-ekonomi-phk-kebijakan-part-1), pertanyaan besar berikutnya yang muncul adalah: **apa dampak tak kasat mata dari seluruh tekanan eksternal tersebut terhadap kondisi jiwa anak muda?**
 
 Bagi seorang pemuda di usia 20-an, transisi menuju kedewasaan (*emerging adulthood*) seharusnya menjadi fase eksplorasi, pencarian identitas, dan pembentukan fondasi masa depan. Namun bagi Gen Z, fase ini justru bertransformasi menjadi periode kerentanan psikologis yang amat tinggi. Istilah-istilah seperti *mental health*, *anxiety*, *burnout*, hingga *quarter-life crisis* bukan lagi sekadar tren di media sosial, melainkan luka nyata yang dirasakan oleh jutaan anak muda setiap harinya.
 
@@ -73,4 +73,4 @@ Mengetahui bahwa kita sedang berada di tengah krisis adalah satu hal, namun mene
 
 Bagaimana cara Gen Z membangun benteng resiliensi mental, mengatur ulang strategi karir, memanfaatkan peluang baru (seperti AI dan *freelancing*), serta menjaga kesehatan jiwa di tengah badai?
 
-Temukan jawabannya pada **[Bagian Ketiga: Menatap Masa Depan Tanpa Takut: Strategi Resiliensi, Upskilling, dan Navigasi Mental Gen Z](file:///c:/KAIRAV/project/2026/kairav/content/blog/id/gen-z-strategi-resiliensi-tips-part-3.md)**.
+Temukan jawabannya pada **[Bagian Ketiga: Menatap Masa Depan Tanpa Takut: Strategi Resiliensi, Upskilling, dan Navigasi Mental Gen Z](/blogs/gen-z-strategi-resiliensi-tips-part-3)**.

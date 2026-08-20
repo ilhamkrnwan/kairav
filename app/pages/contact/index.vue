@@ -18,13 +18,13 @@ const contactMethods = [
     label: 'LinkedIn',
     value: 'ilham-kurniawan',
     href: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/',
-    icon: 'lucide:linkedin',
+    icon: 'simple-icons:linkedin',
   },
   {
     label: 'GitHub',
     value: 'ilhamkrnwan',
     href: 'https://github.com/ilhamkrnwan',
-    icon: 'lucide:github',
+    icon: 'simple-icons:github',
   },
 ]
 
@@ -37,11 +37,11 @@ const projectScopes = computed(() => [
 
 const locations = computed(() => [
   {
-    city: t('Kedungtuban, Blora'),
+    city: t('Kabupaten Blora'),
     region: t('Jawa Tengah'),
     description: t('Base kerja untuk kolaborasi remote, konsultasi project, dan koordinasi digital dengan client dari berbagai kota.'),
-    mapLabel: t('Peta area Kedungtuban, Blora'),
-    mapSrc: 'https://www.google.com/maps?q=Kedungtuban%2C%20Blora%2C%20Jawa%20Tengah&output=embed',
+    mapLabel: t('Peta area Kabupaten Blora'),
+    mapSrc: 'https://www.google.com/maps?q=Kabupaten%20Blora%2C%20Jawa%20Tengah&output=embed',
   },
   {
     city: t('Sleman'),
@@ -152,7 +152,7 @@ useScrollReveal()
             {{ t('Fleksibel untuk remote, hybrid, dan kolaborasi project.') }}
           </h2>
           <p class="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
-            {{ t('Lokasi saya berada di Kedungtuban, Blora dan Sleman, Yogyakarta. Untuk project, konsultasi, dan kolaborasi, saya tetap fleksibel melayani client secara remote melalui meeting online, WhatsApp, dan workflow digital.') }}
+            {{ t('Lokasi saya berada di Kabupaten Blora dan Sleman, Yogyakarta. Untuk project, konsultasi, dan kolaborasi, saya tetap fleksibel melayani client secara remote melalui meeting online, WhatsApp, dan workflow digital.') }}
           </p>
         </div>
 

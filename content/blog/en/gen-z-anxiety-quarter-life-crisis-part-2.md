@@ -16,7 +16,7 @@ readTime: "10 min read"
 
 # Crisis in the Twenties: When Anxiety, Burnout, and Quarter-Life Crisis Hit Gen Z (Part 2)
 
-Following our analysis of macroeconomic pressures, corporate layoffs, and financial strains in [Part One](file:///c:/KAIRAV/project/2026/kairav/content/blog/en/gen-z-badai-ekonomi-phk-kebijakan-part-1.md), a fundamental question emerges: **what is the hidden psychological cost of these external forces on the youth?**
+Following our analysis of macroeconomic pressures, corporate layoffs, and financial strains in [Part One](/blogs/gen-z-badai-ekonomi-phk-kebijakan-part-1), a fundamental question emerges: **what is the hidden psychological cost of these external forces on the youth?**
 
 For young adults in their twenties, the transition into adulthood should ideally represent a period of personal discovery, identity formation, and foundational growth. For Gen Z, however, this phase has evolved into an era of heightened psychological vulnerability. Concepts such as *mental health*, *anxiety*, *burnout*, and *quarter-life crisis* are no longer mere social media trends; they reflect daily struggles for millions.
 
@@ -73,4 +73,4 @@ Identifying the crisis is crucial, but developing actionable solutions is essent
 
 How can Gen Z cultivate mental resilience, restructure career paths, leverage emerging opportunities (such as AI and freelancing), and protect mental health amidst uncertainty?
 
-Discover actionable strategies in **[Part Three: Facing the Future Without Fear: Resilience Strategies, Upskilling, and Mental Navigation for Gen Z](file:///c:/KAIRAV/project/2026/kairav/content/blog/en/gen-z-strategi-resiliensi-tips-part-3.md)**.
+Discover actionable strategies in **[Part Three: Facing the Future Without Fear: Resilience Strategies, Upskilling, and Mental Navigation for Gen Z](/blogs/gen-z-strategi-resiliensi-tips-part-3)**.

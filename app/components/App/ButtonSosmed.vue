@@ -35,12 +35,12 @@ const sosmedItems = [
   },
   {
     name: 'GitHub',
-    icon: 'lucide:github',
+    icon: 'simple-icons:github',
     to: 'https://github.com/ilhamkrnwan'
   },
   {
     name: 'LinkedIn',
-    icon: 'lucide:linkedin',
+    icon: 'simple-icons:linkedin',
     to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/'
   },
   {

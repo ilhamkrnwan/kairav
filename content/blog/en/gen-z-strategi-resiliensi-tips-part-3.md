@@ -16,7 +16,7 @@ readTime: "11 min read"
 
 # Facing the Future Without Fear: Resilience Strategies, Upskilling, and Mental Navigation for Gen Z (Part 3)
 
-Having explored economic instability in [Part One](file:///c:/KAIRAV/project/2026/kairav/content/blog/en/gen-z-badai-ekonomi-phk-kebijakan-part-1.md) and analyzed psychological impacts in [Part Two](file:///c:/KAIRAV/project/2026/kairav/content/blog/en/gen-z-anxiety-quarter-life-crisis-part-2.md), we arrive at the most vital consideration: **how do we move forward?**
+Having explored economic instability in [Part One](/blogs/gen-z-badai-ekonomi-phk-kebijakan-part-1) and analyzed psychological impacts in [Part Two](/blogs/gen-z-anxiety-quarter-life-crisis-part-2), we arrive at the most vital consideration: **how do we move forward?**
 
 Understanding structural challenges does not mean accepting passive victimhood. Rather, clear awareness of reality provides the essential foundation for strategic navigation. Economic parameters and employment norms may shift, but control over our mental responses, personal skill development, and life direction remains in our hands.
 

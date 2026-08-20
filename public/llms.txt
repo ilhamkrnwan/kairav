@@ -49,7 +49,7 @@ Ilham Kurniawan builds practical, high-performance digital solutions for busines
 
 ## Entity Summary
 
-Ilham Kurniawan is a Fullstack Developer based in Indonesia, domiciled in **Sleman, Yogyakarta** and **Kedungtuban, Blora, Central Java**. Operating under the brand **KAIRAV**, he specializes in frontend development (Nuxt.js, Vue.js), backend systems (Laravel, Node.js), hybrid mobile applications (Flutter, Capacitor), and AI integrations. Available for remote collaboration, hybrid work, contract projects, and digital consultations globally.
+Ilham Kurniawan is a Fullstack Developer based in Indonesia, domiciled in **Sleman, Yogyakarta** and **Kabupaten Blora, Central Java**. Operating under the brand **KAIRAV**, he specializes in frontend development (Nuxt.js, Vue.js), backend systems (Laravel, Node.js), hybrid mobile applications (Flutter, Capacitor), and AI integrations. Available for remote collaboration, hybrid work, contract projects, and digital consultations globally.
 
 ## Technical Skills & Tooling
 

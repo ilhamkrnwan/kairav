@@ -16,7 +16,7 @@ readTime: "11 min read"
 
 # Menatap Masa Depan Tanpa Takut: Strategi Resiliensi, Upskilling, dan Navigasi Mental Gen Z (Part 3)
 
-Setelah menelusuri badai ekonomi pada [Bagian Pertama](file:///c:/KAIRAV/project/2026/kairav/content/blog/id/gen-z-badai-ekonomi-phk-kebijakan-part-1.md) serta membedah krisis mental pada [Bagian Kedua](file:///c:/KAIRAV/project/2026/kairav/content/blog/id/gen-z-anxiety-quarter-life-crisis-part-2.md), kita sampai pada bagian terpenting dari pembacaan ini: **bagaimana kita, sebagai generasi Z, harus melangkah maju?**
+Setelah menelusuri badai ekonomi pada [Bagian Pertama](/blogs/gen-z-badai-ekonomi-phk-kebijakan-part-1) serta membedah krisis mental pada [Bagian Kedua](/blogs/gen-z-anxiety-quarter-life-crisis-part-2), kita sampai pada bagian terpenting dari pembacaan ini: **bagaimana kita, sebagai generasi Z, harus melangkah maju?**
 
 Memahami tantangan zaman bukan berarti kita harus pasrah menjadi korban keadaan. Sebaliknya, kesadaran akan realita adalah modal utama untuk menyusun peta navigasi baru. Dunia mungkin sedang bergejolak, aturan permainan ekonomi mungkin berubah, namun kendali atas respons mental, pengembangan diri, dan arah hidup kita tetap berada di tangan kita sendiri.
 

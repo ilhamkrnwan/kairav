@@ -61,4 +61,4 @@ Economic instability and employment insecurity extend far beyond bank balances; 
 
 How do these external pressures transform into chronic anxiety, burnout, and quarter-life existential crises in one's twenties?
 
-Read our continuation in **[Part Two: Crisis in the Twenties: When Anxiety, Burnout, and Quarter-Life Crisis Hit Gen Z](file:///c:/KAIRAV/project/2026/kairav/content/blog/en/gen-z-anxiety-quarter-life-crisis-part-2.md)**.
+Read our continuation in **[Part Two: Crisis in the Twenties: When Anxiety, Burnout, and Quarter-Life Crisis Hit Gen Z](/blogs/gen-z-anxiety-quarter-life-crisis-part-2)**.

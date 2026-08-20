@@ -1,70 +1,71 @@
 ---
-title: "Pembuatan Landing Page + Ads"
-description: "Bangun landing page yang berkonversi tinggi disertai setup dan manajemen iklan Google Ads / Meta Ads (Facebook & Instagram) untuk meningkatkan leads, penjualan, dan ROI bisnis Anda."
+title: "Landing Page High Conversion & Iklan"
+description: "Perancangan landing page promosi dan kampanye iklan digital yang cepat, berdesain fokus, persuasif, serta terbukti mengonversi pengunjung menjadi prospek."
 slug: "landing-page-ads"
-icon: "lucide:megaphone"
-category: "Website Bisnis"
-order: 9
-duration: "1-3 minggu"
+icon: "lucide:target"
+coverImage: "/services/landing-page-ads.avif"
+category: "Pemasaran & Digital"
+order: 2
+duration: "3-7 hari"
 deliverables:
-  - "Landing page berorientasi konversi tinggi"
-  - "Integrasi tracking (Meta Pixel, Google Analytics/Tag Manager)"
-  - "Setup campaign Google Ads atau Meta Ads"
-  - "Optimasi copywriting & penulisan ad copy"
+  - "Struktur penawaran & copywriting fokus konversi"
+  - "Landing page super cepat & mobile-optimized"
+  - "Integrasi WhatsApp lead & piksel iklan (Meta/Google)"
+  - "Uji coba kecepatan & garansi bebas kendala"
 tags:
   - "Landing Page"
+  - "High Conversion"
+  - "Iklan Digital"
   - "Meta Ads"
-  - "Google Ads"
-  - "Copywriting"
 featured: true
 seo:
-  title: "Jasa Pembuatan Landing Page + Iklan (Ads) | Ilham Kurniawan"
-  description: "Jasa pembuatan landing page berkonversi tinggi dan setup iklan Google Ads / Meta Ads profesional untuk meningkatkan konversi dan penjualan bisnis Anda."
+  title: "Jasa Pembuatan Landing Page High Conversion & Iklan | Ilham Kurniawan"
+  description: "Landing page promosi khusus kampanye iklan digital yang cepat, berdesain fokus, dan terbukti mengonversi penawaran menjadi pesan prospek."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Kombinasi landing page yang cepat dan copywriting persuasif dengan setup iklan berorientasi konversi (Meta/Google Ads) untuk mendatangkan traffic berkualitas yang siap membeli produk atau menggunakan jasa Anda.
+Menjalankan kampanye iklan digital di Google Ads, Instagram, atau TikTok Ads membutuhkan anggaran yang perlu dikelola secara efisien. Namun, kendala yang sering terjadi adalah ketika calon pembeli mengklik iklan, mereka mengarah ke halaman yang lambat, informasi terlalu umum, atau tombol kontak yang sulit ditemukan.
 
-## Masalah yang Biasa Terjadi
+Layanan ini dirancang khusus untuk membangun **halaman penawaran terfokus (landing page)**. Tujuan utamanya adalah menyalurkan trafik iklan atau media sosial Anda menjadi saluran komunikasi prospek yang siap menghubungi bisnis Anda di WhatsApp.
 
-- Iklan jalan terus tapi tidak menghasilkan leads/penjualan (boncos)
-- Pengunjung landing page banyak tapi langsung keluar tanpa action
-- Kesulitan setup tracking Pixel, Tag Manager, atau Analytics
-- Desain landing page kurang meyakinkan dan loading-nya lambat
+---
 
-## Solusi yang Ditawarkan
+## Kendala yang Sering Dihadapi
 
-Saya membantu merancang landing page dengan copywriting yang menjual, setup technical tracking (Pixel/GTM), serta merancang strategi & setup kampanye iklan yang optimal untuk menghemat budget iklan Anda.
+- **Iklan Banyak Klik, Prospek Minim:** Angka klik iklan cukup tinggi, namun persentase pengunjung yang menghubungi toko sangat rendah.
+- **Waktu Muat Halaman Lambat:** Calon pembeli meninggalkan halaman sebelum penawaran produk selesai dimuat di ponsel.
+- **Pesan Penawaran Kurang Fokus:** Pengunjung kesulitan menangkap manfaat utama produk dalam 5 detik pertama.
 
-## Output yang Akan Didapat
+---
 
-- Landing page responsif berkinerja tinggi
-- Copywriting persuasif & struktur AIDA (Attention, Interest, Desire, Action)
-- Setup & integrasi Meta Pixel (Facebook Ads) & Google Tag Manager
-- Setup campaign iklan awal (Google Ads atau Meta Ads)
-- Dashboard laporan performa iklan sederhana
+## Strategi & Alur Pengerjaan
 
-## Cocok Untuk Siapa
+Perancangan difokuskan pada alur komunikasi yang jelas dan kemudahan akses pengunjung:
 
-UMKM, pebisnis online, distributor, penyedia jasa, startup, dan siapa saja yang ingin meluncurkan produk atau promo baru dan mendapatkan hasil instan dari iklan berbayar.
+1. **Hero Section & Pesan Utama:** Menyusun judul dan nilai tambah yang langsung menjawab kebutuhan calon pelanggan.
+2. **Penyusunan Bukti Sosial:** Menampilkan nilai unggul produk, testimoni pembeli, dan ilustrasi visual pendukung.
+3. **Optimasi Kecepatan Pemuaan:** Memastikan landing page terbuka kurang dari 2 detik di perangkat smartphone.
+4. **Alur Kontak Langsung:** Memasang tombol pesan WhatsApp interaktif dengan draf teks otomatis yang terarah.
 
-## Contoh Fitur
+---
 
-Form input lead direct WhatsApp/Email, integrasi database, analytics, multi-pixel support, speed optimization, catchy headline, dan benefit-driven sections.
+## Output yang Didapatkan
 
-## Proses Pengerjaan
+- Halaman landing page promosi tunggal yang terfokus.
+- Penulisan pesan penawaran yang komunikatif dan persuasif.
+- Integrasi tombol WhatsApp, formulir prospek, atau kode pelacak piksel (Meta/Google).
+- Kompresi gambar otomatis untuk kecepatan akses maksimal.
+- Pengujian fungsi pasca-peluncuran.
 
-1. Diskusi produk, target audience, dan budget iklan
-2. Pembuatan copywriting dan struktur landing page
-3. Pembangunan landing page dan setup tracking code (Pixel/GTM)
-4. Setup campaign iklan awal (ad set, target audience, ad copy, creative)
-5. Review final, launch, dan monitoring awal
+---
 
-## Teknologi yang Mungkin Digunakan
+## Alokasi Teknologi
 
-Untuk landing page cepat dan dinamis: Nuxt/Vue, Tailwind CSS, Vercel, Supabase (untuk form database), atau WordPress/Elementor jika dibutuhkan kemudahan edit konten. Setup iklan menggunakan Meta Ads Manager dan Google Ads Dashboard, dengan tracking via Google Tag Manager dan GA4.
+Landing page dibangun menggunakan **Nuxt 4 / Vue 3 dengan Tailwind CSS**, dipadukan dengan optimasi gambar Cloudinary. Kombinasi ini menghasilkan halaman promosi yang sangat ringan, responsif, dan siap menerima lonjakan trafik iklan.
 
-## CTA Konsultasi Project
+---
 
-Siap melejitkan penjualan dengan landing page & iklan tertarget? Mulai diskusi melalui [halaman contact](/contact).
+## Mulai Diskusi Kampanye
+
+Ingin mengoptimalkan hasil kampanye iklan atau peluncuran produk baru? Diskusikan rencana kebutuhan landing page Anda melalui [halaman kontak](/contact).

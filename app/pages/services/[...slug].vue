@@ -70,6 +70,11 @@ useServiceSchema({
   tags: current.value?.tags,
   url: current.value ? getServiceLink(current.value as ServiceCollectionItem) : undefined,
 })
+
+const breadcrumbItems = computed(() => [
+  { label: t('Services'), to: '/services' },
+  { label: current.value?.title || t('Service Details') }
+])
 </script>
 
 <template>
@@ -79,7 +84,7 @@ useServiceSchema({
     </template>
     <template v-else-if="current">
       <section class="py-16 md:py-24 px-4 border-b border-border/40">
-        <div class="container mx-auto max-w-4xl text-center">
+        <div class="container mx-auto max-w-6xl text-center">
           <div class="mb-6">
             <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
               {{ current.category }}
@@ -94,7 +99,7 @@ useServiceSchema({
             {{ current.title }}
           </h1>
 
-          <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+          <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
             {{ current.description }}
           </p>
 
@@ -107,6 +112,30 @@ useServiceSchema({
               <Icon name="lucide:sparkles" class="w-3.5 h-3.5 text-amber-400" />
               <span>{{ t('Featured Service') }}</span>
             </div>
+          </div>
+
+          <!-- Breadcrumbs at the bottom of hero above section border -->
+          <div class="mt-8 flex justify-center">
+            <UiBreadcrumb :items="breadcrumbItems" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Cover Image Section -->
+      <section 
+        v-if="current.coverImage || current.image"
+        v-motion
+        :initial="{ opacity: 0, y: 30 }"
+        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
+        class="pt-8 pb-4 md:pt-12 md:pb-6"
+      >
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="relative aspect-video rounded-sm overflow-hidden border border-border/40 shadow-xl shadow-black/5">
+            <img 
+              :src="current.coverImage || current.image" 
+              :alt="current.title"
+              class="w-full h-full object-cover"
+            >
           </div>
         </div>
       </section>

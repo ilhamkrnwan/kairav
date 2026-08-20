@@ -1,73 +1,71 @@
 ---
-title: "End-to-End Web Application Development"
-description: "Build a web application from planning to production, including feature planning, UI, frontend, backend, database, integration, testing, and deployment."
+title: "Custom Web Application Development"
+description: "Tailored, interactive, and secure web applications engineered specifically to streamline complex business workflows."
 slug: "web-app-development"
-icon: "lucide:layers-3"
-category: "Web App"
-order: 6
-duration: "3-12 weeks"
+icon: "lucide:code-2"
+coverImage: "/services/web-app-development.avif"
+category: "Web Development"
+order: 3
+duration: "2-8 weeks"
 deliverables:
-  - "Custom web app"
-  - "Backend API and responsive frontend"
-  - "Database design and authentication"
-  - "Deployment, technical documentation, and early maintenance"
+  - "Custom frontend & backend architecture"
+  - "Secure database management & authentication"
+  - "System testing & real-time responsiveness"
+  - "Documentation & maintenance guidelines"
 tags:
-  - "Web App"
-  - "End-to-End"
-  - "Backend API"
-  - "Deployment"
+  - "Web Application"
+  - "Vue.js"
+  - "Nuxt 4"
+  - "Node.js"
+  - "Laravel"
 featured: true
 seo:
-  title: "End-to-End Web Application Development | Ilham Kurniawan"
-  description: "End-to-end web application development service from feature planning, UI, frontend, backend, database, integration, testing, to production deployment."
+  title: "Custom Web Application Development | Ilham Kurniawan"
+  description: "Fast, secure, and intuitive custom web application development tailored to your business operations."
 ---
 
-## Service Hero
+## Service Overview
 
-End-to-End Web Application Development helps you build a digital product from idea to production-ready usage.
+As organizations expand, spreadsheets and manual tracking frequently encounter operational bottlenecks. Data processing slows down, risk of human error increases, and off-the-shelf software often proves too rigid to accommodate unique operational models.
 
-## Common Problems
+This service focuses on **custom web application engineering**. Platforms are designed precisely around your organization's internal workflows, bringing clarity, security, and structure to daily operations.
 
-- Project needs one clear path from planning to deployment
-- Frontend, backend, and database are not connected cleanly
-- Features are growing but the system structure is not ready
-- Business needs a custom application that cannot be solved with templates
+---
 
-## Offered Solution
+## Common Challenges Addressed
 
-I help define scope, build UI, backend, database, integrations, testing, and deployment so the application is ready to use and easy to grow.
+- **Fragmented Manual Processes:** Teams spend excessive hours re-entering records across disconnected documents.
+- **Ill-Fitting Off-the-Shelf Software:** Generic platforms offer overly complex features while omitting exact workflow requirements.
+- **Legacy System Inflexibility:** Older web applications struggle to scale or experience frequent technical downtime.
 
-## Output You Get
+---
 
-- Custom web app
-- Backend API
-- Responsive frontend
-- Database design
-- Authentication
-- Deployment
-- Technical documentation
-- Early maintenance
+## Process & Collaboration
 
-## Best For
+Development follows a structured, transparent methodology:
 
-Startups, SMEs, organizations, and businesses that want custom web applications for operations, products, dashboards, or digital services.
+1. **Workflow Mapping:** Detailing specific processes to automate and defining clear user role permissions.
+2. **System Architecture & UI Design:** Structuring secure database schemas alongside intuitive user interfaces.
+3. **Iterative Feature Releases:** Building in milestone phases so progress can be reviewed continuously.
+4. **Deployment & Onboarding:** Assisting with data migration, system load testing, and providing operational guidelines.
 
-## Example Features
+---
 
-Auth, dashboard, CRUD, API, roles, file upload, reporting, notification, payment, and third-party integrations.
+## Web Applications Built
 
-## Work Process
+- Client Portals & Service Management Platforms.
+- Custom Content & Document Management Systems (SaaS/CMS).
+- Interactive Booking & Reservation Platforms.
+- Data Processing & Reporting Systems.
 
-1. Discovery and MVP priorities
-2. Architecture, data, and UI planning
-3. End-to-end feature implementation
-4. Testing and deployment
-5. Early maintenance and documentation
+---
 
-## Possible Technologies
+## Technology Stack
 
-Technology is selected based on project needs. Tools may include Nuxt, Vue, Laravel, Node.js, PostgreSQL, MySQL, Supabase, Tailwind CSS, Flutter, Cloudinary, and AI integrations.
+Applications are engineered using **Vue 3, Nuxt 4, Node.js, Laravel, PostgreSQL, MySQL, Supabase, and Tailwind CSS**. System architecture is chosen based on scalability, speed requirements, and long-term maintenance.
 
-## Project Consultation CTA
+---
 
-Start planning your web application through the [contact page](/contact).
+## Start a Discussion
+
+Looking to modernize internal workflows or develop a custom web application idea? Explore system solutions via the [contact page](/contact).

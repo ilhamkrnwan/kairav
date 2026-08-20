@@ -31,7 +31,7 @@ const displayDescription = truncate(props.description, 118)
 let bgImageDataUri = ''
 if (import.meta.server) {
   try {
-    const bgPath = path.resolve(process.cwd(), 'public/og/og-bg-kairav.png')
+    const bgPath = path.resolve(process.cwd(), 'public/og/og-bg-kairav.avif')
     if (fs.existsSync(bgPath)) {
       const buffer = fs.readFileSync(bgPath)
       bgImageDataUri = `data:image/png;base64,${buffer.toString('base64')}`
@@ -45,7 +45,7 @@ if (import.meta.server) {
 <template>
   <div style="position: relative; display: flex; width: 1200px; height: 630px; overflow: hidden; background: #05080d; color: #f8fafc; font-family: Inter, Arial, sans-serif;">
     <img
-      :src="bgImageDataUri || '/og/og-bg-kairav.png'"
+      :src="bgImageDataUri || '/og/og-bg-kairav.avif'"
       alt=""
       style="position: absolute; inset: 0; width: 1200px; height: 630px; object-fit: cover;"
     >

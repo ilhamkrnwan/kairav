@@ -1,73 +1,59 @@
 ---
-title: "Toko Online & Katalog Produk"
-description: "Buat toko online, katalog produk, atau landing page penjualan yang rapi, mudah dikelola, dan membantu calon customer memahami produk sebelum membeli atau konsultasi."
+title: "Toko Online & Katalog Produk Interaktif"
+description: "Pembuatan toko online dan katalog produk interaktif yang cepat, nyaman dibuka di smartphone, serta terintegrasi langsung dengan format pesanan WhatsApp."
 slug: "online-store-catalog"
 icon: "lucide:shopping-bag"
-category: "Penjualan Online"
-order: 2
-duration: "1-6 minggu"
+coverImage: "/services/online-store-catalog.avif"
+category: "E-Commerce"
+order: 7
+duration: "1-4 minggu"
 deliverables:
-  - "Katalog produk dan kategori"
-  - "Landing page produk"
-  - "CTA WhatsApp/order"
-  - "Basic SEO produk dan optimasi mobile"
+  - "Tampilan katalog produk interaktif & pencarian"
+  - "Fitur keranjang belanja & format pemesanan WhatsApp"
+  - "Halaman detail produk & variasi (ukuran/warna)"
+  - "Panel admin kelola produk & pesanan"
 tags:
-  - "Katalog Produk"
   - "Toko Online"
-  - "Landing Page Produk"
-  - "WhatsApp Order"
-featured: true
+  - "E-Commerce"
+  - "Katalog Produk"
+  - "Order WhatsApp"
+featured: false
 seo:
-  title: "Jasa Toko Online dan Katalog Produk | Ilham Kurniawan"
-  description: "Jasa pembuatan toko online, katalog produk, landing page penjualan, CTA WhatsApp/order, SEO produk, dan optimasi mobile untuk bisnis."
+  title: "Jasa Pembuatan Toko Online & Katalog Produk | Ilham Kurniawan"
+  description: "Toko online dan katalog produk interaktif yang cepat, ramah pengguna di ponsel, dan terintegrasi langsung dengan pesanan WhatsApp."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Toko Online & Katalog Produk membantu calon customer memahami produk, kategori, manfaat, harga, dan jalur order dengan lebih cepat.
+Penjual online dan pemilik merek sering kerepotan saat calon pembeli harus menanyakan stok atau harga barang satu per satu via obrolan. Menampilkan seluruh katalog dalam dokumen PDF yang berat atau unggahan media sosial sering kali membuat calon pembeli enggan menjelajah lebih lanjut.
 
-## Masalah yang Biasa Terjadi
+Layanan ini membantu **menghadirkan toko online atau katalog produk yang ringan dan menawan**. Pembeli dapat menjelajahi katalog, memilih variasi produk, dan mengirimkan rincian pesanan yang rapi langsung ke WhatsApp toko Anda.
 
-- Produk hanya dikirim manual lewat chat
-- Customer sulit melihat katalog lengkap
-- Landing page belum siap untuk promosi
-- CTA order tidak jelas
-- Tampilan mobile belum nyaman untuk belanja
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi
 
-Website disusun sebagai katalog atau toko sederhana yang fokus pada kejelasan produk, CTA, SEO produk, dan pengalaman mobile.
+- **Katalog Produk Sulit Dijelajahi:** Pelanggan kesulitan melihat daftar produk dan harga secara terstruktur.
+- **Format Pesanan Berantakan:** Pembeli bingung cara memesan sehingga admin toko harus memandu dari awal secara berulang.
+- **Website Toko Lama Lambat:** Pemuatan foto produk yang berat membuat toko online lama terasa berat di seluler.
 
-## Output yang Akan Didapat
+---
 
-- Katalog produk
-- Landing page produk
-- CTA WhatsApp/order
-- Struktur kategori produk
-- Optimasi tampilan mobile
-- Basic SEO produk
-- Integrasi form atau checkout sederhana
+## Fitur Utama
 
-## Cocok Untuk Siapa
+1. **Pencarian & Filter Produk Cepat:** Memudahkan pembeli menemukan kategori atau barang yang dicari dalam hitungan detik.
+2. **Detail Produk & Variasi:** Menampilkan foto produk berkualitas, deskripsi jelas, serta pilihan ukuran atau warna.
+3. **Keranjang Belanja Interaktif:** Pembeli dapat mengumpulkan beberapa item sekaligus sebelum checkout.
+4. **Format Order WhatsApp Otomatis:** Saat checkout diklik, sistem secara otomatis menyusun daftar rincian pesanan dan total harga ke WhatsApp Anda.
 
-Brand lokal, UMKM, reseller, produk digital, produk fisik, dan bisnis yang ingin punya katalog online mandiri.
+---
 
-## Contoh Fitur
+## Alokasi Teknologi
 
-Grid produk, detail produk, kategori, pencarian sederhana, CTA order, form inquiry, badge promo, dan metadata produk.
+Toko online dibangun menggunakan **Nuxt 4 / Vue 3 dipadukan dengan Tailwind CSS dan Headless CMS atau Laravel/Supabase**. Pendekatan ini menghasilkan toko online yang super cepat di smartphone dan efisien mengelola foto produk.
 
-## Proses Pengerjaan
+---
 
-1. Mapping produk, kategori, dan flow order
-2. Penyusunan konten dan CTA penjualan
-3. Implementasi katalog atau landing page
-4. Optimasi image, mobile, dan SEO produk
-5. Review dan handover
+## Mulai Diskusi Proyek
 
-## Teknologi yang Mungkin Digunakan
-
-Teknologi dipilih sesuai kebutuhan bisnis, bukan dipaksakan. Tools dapat mencakup Nuxt, Vue, Laravel, WordPress, Tailwind CSS, Cloudinary, Supabase, payment gateway, dan WhatsApp integration.
-
-## CTA Konsultasi Project
-
-Diskusikan katalog atau toko online Anda melalui [halaman contact](/contact).
+Siap memberikan pengalaman berbelanja yang lebih nyaman bagi calon pembeli Anda? Diskusikan rencana toko online Anda melalui [halaman kontak](/contact).

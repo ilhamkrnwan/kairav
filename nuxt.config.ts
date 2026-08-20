@@ -20,6 +20,11 @@ export default defineNuxtConfig({
     }
   },
 
+  routeRules: {
+    '/blog': { redirect: { to: '/blogs', statusCode: 301 } },
+    '/blog/**': { redirect: { to: '/blogs/**', statusCode: 301 } },
+  },
+
   runtimeConfig: {
     public: {
       siteUrl: productionUrl,

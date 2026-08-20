@@ -1,73 +1,68 @@
 ---
-title: "Custom Information System"
-description: "Develop an information system based on business, school, community, organization, or startup workflows so manual processes become cleaner, digital, and easier to monitor."
+title: "Custom Information & Management Systems"
+description: "Structured internal information systems engineered to organize data management, inventory tracking, membership, or unique organizational workflows."
 slug: "custom-information-system"
-icon: "lucide:workflow"
-category: "Custom System"
-order: 4
-duration: "4-12 weeks"
+icon: "lucide:database"
+coverImage: "/services/custom-information-system.avif"
+category: "Web Development"
+order: 6
+duration: "3-8 weeks"
 deliverables:
-  - "Data collection or reservation system"
-  - "POS/order or monitoring system"
-  - "Member/customer system"
-  - "Approval and reporting system"
+  - "Database schema design & workflow planning"
+  - "Data management features (CRUD) & validation"
+  - "Fast search, filtering, & document export tools"
+  - "Role-based access control & secure authentication"
 tags:
   - "Information System"
-  - "Workflow"
-  - "Custom Web App"
-  - "Operations"
+  - "Management System"
+  - "Database"
+  - "Custom Software"
 featured: false
 seo:
   title: "Custom Information System Development | Ilham Kurniawan"
-  description: "Custom information system development for data collection, reservation, POS/order, monitoring, member/customer, approval, reporting, and business workflows."
+  description: "Organized internal information systems and custom data management software tailored to your organization's workflow."
 ---
 
-## Service Hero
+## Service Overview
 
-Custom Information System turns manual processes into digital systems that are cleaner, easier to monitor, and aligned with real workflows.
+Organizations, educational institutions, and businesses encounter hurdles when membership records, inventory logs, or operational documents rely on manual spreadsheets. Consequently, retrieving records takes time, duplicate data risks rise, and internal reporting becomes inaccurate.
 
-## Common Problems
+This service focuses on **streamlining internal data management systematically**. Custom information systems are crafted to be intuitive for staff to operate without steep learning curves.
 
-- Business workflow is unique and does not fit generic templates
-- Data is hard to track because it is scattered
-- Approval, reservation, or order processes are still manual
-- The team needs a system that follows internal processes
+---
 
-## Offered Solution
+## Common Challenges Addressed
 
-I help design and build information systems based on actual field needs, not just copied templates.
+- **Slow Record Searches:** Finding transaction histories, member files, or specific document statuses consumes excessive time.
+- **Data Entry Errors:** Manual tracking causes duplicate entries or lost records.
+- **Inaccurate Reporting:** Leadership struggles to obtain transparent, real-time internal data summaries.
 
-## Output You Get
+---
 
-- Data collection system
-- Reservation system
-- POS/order system
-- Monitoring system
-- Member/customer system
-- Approval system
-- Reporting system
-- Custom web app
+## Process & Workflow
 
-## Best For
+1. **Requirements Analysis:** Understanding what data needs managing and defining system user roles.
+2. **Workflow Mapping:** Structuring data entry, verification steps, and document printing smoothly.
+3. **Interface & Database Engineering:** Constructing clean interfaces paired with secure, high-performance database architecture.
+4. **Testing & Staff Onboarding:** Testing system reliability with your team and providing straightforward user guidelines.
 
-Schools, communities, organizations, SMEs, startups, and operational businesses that need custom digital workflows.
+---
 
-## Example Features
+## Systems Developed
 
-Data forms, approval, status tracking, user roles, compact dashboards, reports, notifications, and API integrations.
+- Membership & Community Management Systems.
+- Internal Stock & Inventory Tracking Portals.
+- Administrative & Document Archive Portals.
+- Internal Request & Service Portals.
 
-## Work Process
+---
 
-1. Map manual processes and pain points
-2. Design system flow and data structure
-3. Implement priority modules
-4. Test with users
-5. Iterate and hand over
+## Technology Stack
 
-## Possible Technologies
+Systems are constructed using **Nuxt 4 / Vue 3, Laravel, Node.js, PostgreSQL, MySQL, and Tailwind CSS**. System architecture is crafted to be secure, durable, and easy to expand as your organization grows.
 
-Technology follows system scale and needs. Common tools include Nuxt, Vue, Laravel, PostgreSQL, MySQL, Supabase, Flutter, Cloudinary, and AI/API integrations.
+---
 
-## Project Consultation CTA
+## Start a Discussion
 
-Tell me the workflow you want to digitize through the [contact page](/contact).
+Ready to make internal operations more organized? Explore data workflow options via the [contact page](/contact).

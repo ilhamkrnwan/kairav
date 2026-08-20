@@ -1,72 +1,73 @@
 ---
 title: "Business Website & Company Profile"
-description: "Build a professional, fast, and easy-to-understand business website for presenting your brand, services, products, or portfolio with stronger credibility."
+description: "A professional, fast, and clear business website and company profile solution tailored to establish brand credibility and engage prospective clients."
 slug: "business-website"
 icon: "lucide:building-2"
+coverImage: "/services/business-website.avif"
 category: "Business Website"
 order: 1
-duration: "1-5 weeks"
+duration: "1-3 weeks"
 deliverables:
-  - "Company profile or landing page"
-  - "Services, product, portfolio, and contact pages"
-  - "WhatsApp CTA and lead generation structure"
-  - "Basic SEO, metadata, and internal links"
+  - "Communicative page structure & information architecture"
+  - "Responsive & high-speed UI/UX design"
+  - "Direct WhatsApp CTA & Contact Form integration"
+  - "Basic SEO optimization & Meta tags"
 tags:
   - "Company Profile"
+  - "Business Website"
   - "Landing Page"
-  - "Basic SEO"
-  - "WhatsApp CTA"
+  - "Nuxt 4"
 featured: true
 seo:
-  title: "Business Website and Company Profile Development | Ilham Kurniawan"
-  description: "Professional, fast, and SEO-friendly business website, company profile, landing page, personal website, studio website, and organization website development service."
+  title: "Business Website & Company Profile Services | Ilham Kurniawan"
+  description: "Professional, fast, and SEO-friendly business websites and company profiles tailored to your brand goals."
 ---
 
-## Service Hero
+## Service Overview
 
-Business Website & Company Profile helps your brand look more credible, easier to understand, and ready to receive potential clients from Google, social media, and digital campaigns.
+Business owners, freelancers, and agency founders often face a common hurdle: their products and services are outstanding, but official information remains scattered across various social media posts. When prospective clients request an official profile, there is no single, well-organized reference point.
 
-## Common Problems
+This service is designed to solve that challenge. **The core focus is constructing a credible digital home**, organizing product and service details, and creating a seamless browsing experience for potential customers.
 
-- The business does not yet have a professional website
-- Service information is scattered across chats or social media
-- Potential clients struggle to understand the value and contact path
-- Existing website is slow, not mobile-friendly, or not convincing
+---
 
-## Offered Solution
+## Common Challenges Addressed
 
-I help structure pages, copywriting, visual sections, CTAs, and metadata so the website becomes a clear business communication tool.
+- **Scattered Business Details:** Potential buyers repeatedly ask basic questions because official references are incomplete or hard to find.
+- **Unconvincing Online Presence:** Older websites load slowly, break on mobile screens, or fail to reflect current service quality.
+- **Low Search Visibility:** Brand presence struggles to appear when local customers search for relevant services online.
 
-## Output You Get
+---
 
-- Company profile
-- Landing page
-- Personal website
-- Studio/agency website
-- Community/organization website
-- Basic SEO
-- Contact page and WhatsApp CTA
+## Process & Approach
 
-## Best For
+Project collaboration is conducted transparently and systematically:
 
-SMEs, freelancers, studios, agencies, communities, organizations, and service businesses that want to look more trusted online.
+1. **Requirements & Audience Mapping:** Identifying core brand strengths and defining target customer profiles.
+2. **Information Architecture:** Organizing page flow and clear messaging so visitors understand offerings without technical jargon.
+3. **Visual Design & User Experience:** Building clean, modern, and lightning-fast layouts optimized for desktop and mobile devices.
+4. **Direct Communication Integration:** Implementing clear call-to-action buttons connecting directly to WhatsApp or contact forms.
+5. **SEO Readiness:** Structuring metadata and page schemas so search engines index content effectively from day one.
 
-## Example Features
+---
 
-Hero section, services, portfolio, testimonials, FAQ, WhatsApp CTA, contact section, SEO metadata, and clean heading structure.
+## What You Receive
 
-## Work Process
+- Main Landing Page (Hero fold, core values, testimonials, and work showcase).
+- Structured Services & Product details.
+- Informative About Us & Company Profile section.
+- Interactive contact form and direct WhatsApp integration.
+- Speed optimization and responsive mobile design.
+- Simple maintenance guidelines for updating content.
 
-1. Map the business, audience, and website goals
-2. Plan page structure and copywriting
-3. Implement UI, content, and CTAs
-4. Optimize responsive layout, images, and basic SEO
-5. Final review and handover
+---
 
-## Possible Technologies
+## Technology Stack
 
-I do not lock the solution to a single stack. Technology is selected based on project needs, system scale, budget, timeline, and maintenance. Tools may include Nuxt, Vue, Laravel, Supabase, PostgreSQL, MySQL, Tailwind CSS, Cloudinary, WordPress, and AI integrations.
+Technologies are selected based on real requirements and long-term maintenance needs. Development typically utilizes **Nuxt, Vue.js, Tailwind CSS, and Headless CMS or WordPress** when independent content management is required.
 
-## Project Consultation CTA
+---
 
-Ready to build a more credible business website? Start through the [contact page](/contact).
+## Start a Discussion
+
+Every business has unique goals and requirements. Feel free to explore project ideas via the [contact page](/contact).

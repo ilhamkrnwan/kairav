@@ -1,73 +1,59 @@
 ---
-title: "Integrasi API, AI & Otomatisasi"
-description: "Hubungkan sistem Anda dengan payment gateway, WhatsApp, email, AI, storage, maps, authentication, atau API eksternal agar workflow lebih otomatis dan efisien."
+title: "Integrasi API & Otomatisasi AI"
+description: "Layanan integrasi API antar-sistem dan penerapan fitur kecerdasan buatan (AI) untuk menghemat waktu dan meningkatkan efisiensi operasional bisnis."
 slug: "api-ai-automation"
-icon: "lucide:plug-zap"
-category: "Integrasi"
-order: 5
-duration: "1-6 minggu"
+icon: "lucide:bot"
+coverImage: "/services/api-ai-automation.avif"
+category: "Pengembangan Web"
+order: 8
+duration: "1-4 minggu"
 deliverables:
-  - "Integrasi payment gateway"
-  - "Integrasi WhatsApp/email"
-  - "Integrasi AI dan automation workflow"
-  - "Webhook, REST API, storage, maps, dan auth"
+  - "Integrasi API pihak ketiga (Payment, WA, AI)"
+  - "Alur otomatisasi data & Webhook"
+  - "Fitur cerdas berbasis LLM / AI Prompting"
+  - "Pengujian keamanan & dokumentasi integrasi"
 tags:
-  - "API"
-  - "AI"
-  - "Automation"
+  - "API Integration"
+  - "AI Automation"
   - "Webhook"
-featured: true
+  - "LLM Integration"
+featured: false
 seo:
-  title: "Jasa Integrasi API, AI, Payment Gateway, dan WhatsApp | Ilham Kurniawan"
-  description: "Jasa integrasi API, AI, payment gateway, WhatsApp, email, Cloudinary/storage, Google Maps, Supabase/Firebase, dan automation workflow."
+  title: "Jasa Integrasi API & Otomatisasi AI | Ilham Kurniawan"
+  description: "Integrasi API pihak ketiga dan fitur kecerdasan buatan (AI) untuk meningkatkan efisiensi operasional dan otomatisasi sistem bisnis Anda."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Integrasi API, AI & Otomatisasi membantu sistem bisnis bekerja lebih efisien dengan menghubungkan layanan eksternal yang relevan.
+Kemajuan teknologi kecerdasan buatan (AI) dan API memberikan peluang besar untuk menghemat waktu pengerjaan tugas-tugas operasional berulang. Kendala yang sering dihadapi pemilik bisnis adalah kebingungan dalam memanfaatkan AI secara praktis tanpa harus merombak seluruh aplikasi yang sedang berjalan.
 
-## Masalah yang Biasa Terjadi
+Layanan ini membantu **menghubungkan berbagai sistem serta menyuntikkan kemampuan cerdas berbasis AI** ke dalam alur kerja bisnis Anda—mulai dari otomatisasi notifikasi, pengolahan dokumen, hingga asisten percakapan cerdas.
 
-- Pembayaran, notifikasi, atau laporan masih dicek manual
-- Sistem tidak terhubung dengan WhatsApp, email, atau storage
-- Bisnis ingin memakai AI tetapi belum tahu alur praktisnya
-- Data perlu sinkron dengan API eksternal
+---
 
-## Solusi yang Ditawarkan
+## Contoh Penerapan Layanan
 
-Saya membantu membuat integrasi yang aman, terstruktur, dan sesuai workflow bisnis, termasuk webhook, callback, validasi payload, dan logging.
+- **Otomatisasi Notifikasi & WhatsApp:** Mengirimkan konfirmasi pembayaran atau pembaruan status pesanan secara otomatis via WhatsApp/Email.
+- **Asisten AI & Pengolahan Teks:** Memproses data dokumen panjang, merangkum catatan, atau menggenerasi respons otomatis berbasis AI (OpenAI / Gemini API).
+- **Integrasi Payment Gateway:** Menghubungkan website dengan sistem pembayaran otomatis (seperti Midtrans, Xendit, atau Stripe).
 
-## Output yang Akan Didapat
+---
 
-- Integrasi payment gateway
-- Integrasi WhatsApp/email
-- Integrasi AI
-- Integrasi Cloudinary/storage
-- Integrasi Google Maps
-- Integrasi Supabase/Firebase
-- REST API
-- Automation workflow
+## Tahapan Pengerjaan
 
-## Cocok Untuk Siapa
+1. **Analisis Alur Data:** Memetakan sistem yang akan dihubungkan dan mengidentifikasi peluang otomatisasi.
+2. **Pengembangan Integrasi API & Webhook:** Membangun saluran komunikasi data yang aman, cepat, dan handal antar platform.
+3. **Pengondisian Prompt AI (AI Engineering):** Merancang instruksi prompt yang presisi agar luaran AI relevan dan sesuai konteks bisnis.
+4. **Pengujian Kestabilan:** Memastikan proses transaksi dan aliran data otomatis berjalan stabil tanpa gangguan.
 
-Bisnis yang ingin mengurangi proses manual, menambah fitur AI, atau menghubungkan sistem dengan layanan pihak ketiga.
+---
 
-## Contoh Fitur
+## Alokasi Teknologi
 
-Webhook payment, WhatsApp notification, email automation, file upload, geolocation/maps, AI assistant, dan data sync.
+Integrasi dibangun menggunakan **RESTful API, Webhooks, Node.js, Python, Nuxt/Vue, OpenAI API, Google Gemini API, Supabase, dan Cloudflare Workers**. Sistem dirancang bersih, aman, dan terdokumentasi dengan baik.
 
-## Proses Pengerjaan
+---
 
-1. Mapping workflow yang ingin diotomasi
-2. Review dokumentasi API dan credential
-3. Implementasi integrasi dan webhook
-4. Testing sukses, gagal, dan retry
-5. Dokumentasi penggunaan
+## Mulai Diskusi Proyek
 
-## Teknologi yang Mungkin Digunakan
-
-Stack dipilih sesuai API dan kebutuhan bisnis. Tools dapat mencakup Laravel, Nuxt, Node.js, OpenAI/API AI provider, payment gateway, WhatsApp gateway, Resend/email, Cloudinary, Supabase, Firebase, dan REST API.
-
-## CTA Konsultasi Project
-
-Diskusikan integrasi yang ingin Anda otomatisasi melalui [halaman contact](/contact).
+Punya proses operasional berulang yang ingin diotomatiskan dengan AI atau API? Diskusikan ide dan solusinya melalui [halaman kontak](/contact).

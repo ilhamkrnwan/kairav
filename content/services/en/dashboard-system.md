@@ -1,73 +1,60 @@
 ---
-title: "Dashboard System & Admin Panel"
-description: "Build an internal dashboard to manage data, transactions, reports, users, content, products, orders, or operational workflows in a more structured and scalable way."
+title: "Dashboard System & Data Visualization"
+description: "Consolidating business metrics and operational data into clear, fast, and interactive dashboard interfaces for informed decision-making."
 slug: "dashboard-system"
-icon: "lucide:panel-top"
-category: "Dashboard"
-order: 3
-duration: "3-10 weeks"
+icon: "lucide:layout-dashboard"
+coverImage: "/services/dashboard-system.avif"
+category: "Web Development"
+order: 5
+duration: "2-5 weeks"
 deliverables:
-  - "Admin dashboard and CRUD data"
-  - "Roles and permissions"
-  - "Reporting and PDF/Excel export"
-  - "Database integration"
+  - "Custom admin dashboard & chart visualization"
+  - "Data source integration & automatic calculations"
+  - "Filtering, search, & report export features"
+  - "Role-based access control (RBAC)"
 tags:
+  - "Dashboard System"
+  - "Data Visualization"
   - "Admin Panel"
-  - "Dashboard"
-  - "Reporting"
-  - "Database"
-featured: true
+  - "Vue.js"
+  - "Nuxt 4"
+featured: false
 seo:
-  title: "Dashboard System and Admin Panel Development | Ilham Kurniawan"
-  description: "Internal dashboard and admin panel development service for managing data, transactions, reports, users, content, products, orders, and business workflows."
+  title: "Dashboard & Admin Panel Development | Ilham Kurniawan"
+  description: "Clean, real-time admin dashboards and data visualization systems tailored to your business operations."
 ---
 
-## Service Hero
+## Service Overview
 
-Dashboard System & Admin Panel helps businesses manage data and operations through a clean, secure, and scalable internal interface.
+Reviewing operational or financial performance often consumes excessive time when data remains scattered across separate documents or manual monthly recaps.
 
-## Common Problems
+This service focuses on **consolidating business metrics onto a clear, interactive dashboard screen**. Growth trends, revenue summaries, and key performance indicators (*KPIs*) can be monitored at a glance in real time.
 
-- Data is still managed manually in spreadsheets
-- Reports are slow and error-prone
-- Admins struggle to monitor transactions, users, or content
-- Roles and permissions are unclear
+---
 
-## Offered Solution
+## Common Challenges Addressed
 
-I build admin dashboards that follow business workflows, including CRUD data, roles, reporting, and scalable database structure.
+- **Fragmented Data Storage:** Sales records, inventory metrics, and financial logs reside in disconnected locations.
+- **Difficulty Reading Trends:** Tabular reports make identifying growth patterns or operational bottlenecks challenging.
+- **Unregulated Access:** Needing to grant summary views to team managers without exposing confidential company records.
 
-## Output You Get
+---
 
-- Admin dashboard
-- CRUD data
-- Roles and permissions
-- Reporting
-- PDF/Excel export
-- Product/content management
-- Database integration
-- System ready to grow
+## Process & Approach
 
-## Best For
+1. **KPI Mapping:** Defining core metrics essential for effective operational monitoring.
+2. **Clean Data UI Design:** Structuring charts and summary cards for maximum readability.
+3. **Interactive Features:** Building date range filters, fast search, and report exports (PDF/Excel).
+4. **Role-Based Permissions:** Setting up secure access levels appropriate for team responsibilities.
 
-Businesses, organizations, schools, communities, and startups that need internal panels for data or operational management.
+---
 
-## Example Features
+## Technology Stack
 
-Admin login, data tables, filters, search, detail pages, input forms, report export, simple audit, and role settings.
+Admin dashboards are engineered using **Vue 3 / Nuxt 4 with Tailwind CSS, Chart.js / ApexCharts, and PostgreSQL, MySQL, or Supabase backends**. This delivers responsive performance capable of processing dataset queries smoothly.
 
-## Work Process
+---
 
-1. Audit existing workflows and data
-2. Design dashboard modules and roles
-3. Implement backend, database, and admin UI
-4. Test operational processes
-5. Handover system usage
+## Start a Discussion
 
-## Possible Technologies
-
-Stack is selected based on project needs. Tools may include Laravel, Filament, Nuxt, Vue, PostgreSQL, MySQL, Supabase, Tailwind CSS, Cloudinary, and external APIs.
-
-## Project Consultation CTA
-
-Start organizing your business dashboard through the [contact page](/contact).
+Looking to monitor your business metrics with clarity? Discuss dashboard requirements via the [contact page](/contact).

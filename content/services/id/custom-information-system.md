@@ -1,73 +1,68 @@
 ---
-title: "Sistem Informasi Custom"
-description: "Kembangkan sistem informasi sesuai workflow bisnis, sekolah, komunitas, organisasi, atau startup agar proses manual menjadi lebih rapi, digital, dan mudah dipantau."
+title: "Sistem Informasi Custom & Manajemen Internal"
+description: "Pengembangan sistem informasi internal yang terstruktur untuk merapikan manajemen data, inventaris, keanggotaan, atau alur kerja khusus organisasi."
 slug: "custom-information-system"
-icon: "lucide:workflow"
-category: "Sistem Custom"
-order: 4
-duration: "4-12 minggu"
+icon: "lucide:database"
+coverImage: "/services/custom-information-system.avif"
+category: "Pengembangan Web"
+order: 6
+duration: "3-8 minggu"
 deliverables:
-  - "Sistem pendataan atau reservasi"
-  - "Sistem POS/order atau monitoring"
-  - "Sistem member/customer"
-  - "Sistem approval dan laporan"
+  - "Perancangan skema basis data & alur kerja"
+  - "Fitur manajemen data (CRUD) & validasi"
+  - "Pencarian cepat, filter, & pencetakan dokumen"
+  - "Hak akses bertingkat & otentikasi aman"
 tags:
   - "Sistem Informasi"
-  - "Workflow"
-  - "Web App Custom"
-  - "Operasional"
+  - "Management System"
+  - "Database"
+  - "Custom Software"
 featured: false
 seo:
-  title: "Jasa Sistem Informasi Custom untuk Bisnis dan Organisasi | Ilham Kurniawan"
-  description: "Jasa pembuatan sistem informasi custom untuk pendataan, reservasi, POS/order, monitoring, member, approval, laporan, dan workflow bisnis."
+  title: "Jasa Pembuatan Sistem Informasi Custom | Ilham Kurniawan"
+  description: "Perancangan sistem informasi internal dan manajemen data custom yang rapi, terstruktur, dan sesuai alur bisnis organisasi."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Sistem Informasi Custom membantu mengubah proses manual menjadi sistem digital yang rapi, mudah dipantau, dan sesuai dengan workflow nyata.
+Organisasi, sekolah, klinik, atau perusahaan sering menghadapi kendala ketika pendataan anggota, inventaris barang, atau dokumen kerja masih dikelola secara manual. Akibatnya, pencarian berkas membutuhkan waktu lama, risiko penumpukan data ganda tinggi, dan pelaporan internal menjadi tidak akurat.
 
-## Masalah yang Biasa Terjadi
+Layanan ini dirancang untuk **merapikan sistem pendataan dan manajemen internal secara terstruktur**. Sistem informasi kustom dibangun agar mudah dioperasikan oleh staf tanpa memerlukan pelatihan teknis yang rumit.
 
-- Workflow bisnis unik dan tidak cocok memakai template umum
-- Data sulit dilacak karena tersebar di banyak tempat
-- Proses approval, reservasi, atau order masih manual
-- Tim membutuhkan sistem yang bisa mengikuti proses internal
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi
 
-Saya membantu merancang dan membangun sistem informasi berbasis kebutuhan lapangan, bukan sekadar menyalin template.
+- **Pencarian Data Lambat:** Membutuhkan waktu lama hanya untuk menemukan riwayat transaksi, data anggota, atau status dokumen.
+- **Risiko Kesalahan Pendataan:** Penginputan manual sering menimbulkan data ganda (*duplicate entries*) atau arsip hilang.
+- **Pelaporan Kurang Akurat:** Pimpinan kesulitan mendapatkan rekapitulasi data internal yang transparan dan *real-time*.
 
-## Output yang Akan Didapat
+---
 
-- Sistem pendataan
-- Sistem reservasi
-- Sistem POS/order
-- Sistem monitoring
-- Sistem member/customer
-- Sistem approval
-- Sistem laporan
-- Web app custom
+## Tahapan Pengerjaan
 
-## Cocok Untuk Siapa
+1. **Analisis Kebutuhan Pendataan:** Memahami struktur data apa saja yang dikelola serta siapa pengguna sistemnya.
+2. **Penyusunan Alur Kerja (Workflow):** Menata proses input, pengeditan, verifikasi, hingga pencetakan dokumen secara alami.
+3. **Pengembangan UI & Database:** Membangun antarmuka yang bersih serta sistem basis data yang aman dan cepat.
+4. **Pengujian & Pelatihan Penggunaan:** Menguji keandalan sistem bersama staf serta menyediakan petunjuk penggunaan.
 
-Sekolah, komunitas, organisasi, UMKM, startup, dan bisnis operasional yang membutuhkan workflow digital custom.
+---
 
-## Contoh Fitur
+## Contoh Sistem Informasi yang Dikembangkan
 
-Form data, approval, status tracking, role user, dashboard ringkas, laporan, notifikasi, dan integrasi API.
+- Sistem Informasi Manajemen Anggota & Komunitas.
+- Sistem Inventaris & Stok Barang Internal.
+- Sistem Pendataan Administrasi & Arsip Dokumen.
+- Portal Layanan & Pengajuan Internal Organisasi.
 
-## Proses Pengerjaan
+---
 
-1. Mapping proses manual dan pain point
-2. Desain alur sistem dan struktur data
-3. Implementasi modul prioritas
-4. Testing bersama user
-5. Iterasi dan handover
+## Alokasi Teknologi
 
-## Teknologi yang Mungkin Digunakan
+Sistem dikembangkan menggunakan **Nuxt 4 / Vue 3, Laravel, Node.js, PostgreSQL, MySQL, dan Tailwind CSS**. Arsitektur dirancang agar aman, tahan lama, dan mudah dikembangkan seiring pertumbuhan organisasi.
 
-Teknologi menyesuaikan skala dan kebutuhan sistem. Tools yang umum dipakai: Nuxt, Vue, Laravel, PostgreSQL, MySQL, Supabase, Flutter, Cloudinary, dan integrasi AI/API.
+---
 
-## CTA Konsultasi Project
+## Mulai Diskusi Proyek
 
-Ceritakan workflow yang ingin didigitalkan melalui [halaman contact](/contact).
+Ingin membuat operasional internal organisasi Anda lebih teratur dan efisien? Diskusikan alur kebutuhan sistem Anda melalui [halaman kontak](/contact).

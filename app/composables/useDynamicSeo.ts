@@ -29,7 +29,7 @@
  * useDynamicSeo({
  *   title: 'Project Name',
  *   description: 'Project description',
- *   image: '/og-image.jpg',
+ *   image: '/og-image.avif',
  *   disableDynamicOg: true
  * })
  */
@@ -127,7 +127,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     }
     
     // Default OG image (use .jpg for maximum social media compatibility)
-    return `${siteUrl}/og-image.jpg`
+    return `${siteUrl}/og-image.avif`
   }
 
   const getOgLabel = () => {

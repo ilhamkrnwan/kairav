@@ -1,73 +1,59 @@
 ---
-title: "Online Store & Product Catalog"
-description: "Create an online store, product catalog, or sales landing page that is clean, manageable, and helps customers understand products before buying or consulting."
+title: "Online Store & Interactive Product Catalog"
+description: "Mobile-friendly online stores and interactive product catalogs integrated directly with automated WhatsApp checkout messaging."
 slug: "online-store-catalog"
 icon: "lucide:shopping-bag"
-category: "Online Sales"
-order: 2
-duration: "1-6 weeks"
+coverImage: "/services/online-store-catalog.avif"
+category: "E-Commerce"
+order: 7
+duration: "1-4 weeks"
 deliverables:
-  - "Product catalog and categories"
-  - "Product landing page"
-  - "WhatsApp/order CTA"
-  - "Product SEO and mobile optimization"
+  - "Interactive product catalog display & search"
+  - "Shopping cart & automated WhatsApp order format"
+  - "Product detail pages & variations (size/color)"
+  - "Admin panel for managing products & orders"
 tags:
-  - "Product Catalog"
   - "Online Store"
-  - "Product Landing Page"
+  - "E-Commerce"
+  - "Product Catalog"
   - "WhatsApp Order"
-featured: true
+featured: false
 seo:
-  title: "Online Store and Product Catalog Development | Ilham Kurniawan"
-  description: "Online store, product catalog, product landing page, WhatsApp/order CTA, product SEO, and mobile optimization service for businesses."
+  title: "Online Store & Product Catalog Services | Ilham Kurniawan"
+  description: "Fast, user-friendly online stores and interactive product catalogs connected directly to WhatsApp order checkout."
 ---
 
-## Service Hero
+## Service Overview
 
-Online Store & Product Catalog helps potential customers understand products, categories, benefits, pricing, and order flow more quickly.
+Sellers and brand owners face daily administrative friction when customers constantly message asking for prices or stock availability. Sharing product lines through heavy PDF catalogs or social media feeds often discourages buyers from browsing thoroughly.
 
-## Common Problems
+This service focuses on **building lightweight, elegant online stores and product catalogs**. Buyers can effortlessly browse offerings, select variants, and send itemized order summaries directly to your WhatsApp.
 
-- Products are still sent manually through chat
-- Customers cannot view a complete catalog
-- Landing page is not ready for campaigns
-- Order CTA is unclear
-- Mobile shopping experience is uncomfortable
+---
 
-## Offered Solution
+## Common Challenges Addressed
 
-The website is structured as a catalog or simple online store focused on product clarity, CTA, product SEO, and mobile experience.
+- **Unstructured Product Browsing:** Customers struggle to view complete product offerings and clear pricing.
+- **Inconsistent Order Formatting:** Inquiries arrive in confusing text formats, requiring staff to guide buyers through basic steps manually.
+- **Sluggish Mobile Performance:** Heavy product photos cause older online stores to load slowly on mobile networks.
 
-## Output You Get
+---
 
-- Product catalog
-- Product landing page
-- WhatsApp/order CTA
-- Product category structure
-- Mobile display optimization
-- Basic product SEO
-- Simple form or checkout integration
+## Key Features Built
 
-## Best For
+1. **Instant Search & Category Filtering:** Helping shoppers discover products or categories in seconds.
+2. **Product Details & Variants:** Showcasing high-quality photos, descriptions, and size or color options clearly.
+3. **Interactive Shopping Cart:** Allowing buyers to collect multiple items before placing an order.
+4. **Automated WhatsApp Checkout:** Generating structured order summaries with itemized pricing sent straight to your WhatsApp.
 
-Local brands, SMEs, resellers, digital products, physical products, and businesses that want an independent online catalog.
+---
 
-## Example Features
+## Technology Stack
 
-Product grid, product detail, categories, simple search, order CTA, inquiry form, promo badge, and product metadata.
+Online stores are built using **Nuxt 4 / Vue 3 paired with Tailwind CSS and Headless CMS or Laravel/Supabase**. This creates an exceptionally fast mobile store capable of delivering product photos efficiently.
 
-## Work Process
+---
 
-1. Map products, categories, and order flow
-2. Plan sales content and CTAs
-3. Implement catalog or landing page
-4. Optimize images, mobile layout, and product SEO
-5. Review and handover
+## Start a Discussion
 
-## Possible Technologies
-
-Technology is selected according to business needs. Tools may include Nuxt, Vue, Laravel, WordPress, Tailwind CSS, Cloudinary, Supabase, payment gateway, and WhatsApp integration.
-
-## Project Consultation CTA
-
-Discuss your catalog or online store through the [contact page](/contact).
+Ready to offer a smoother shopping experience for your customers? Discuss your online store ideas via the [contact page](/contact).

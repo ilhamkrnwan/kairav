@@ -44,6 +44,8 @@ export default defineContentConfig({
         description: z.string().optional(),
         slug: z.string().optional(),
         icon: z.string().optional(),
+        image: z.string().optional(),
+        coverImage: z.string().optional(),
         category: z.string().optional(),
         order: z.number().optional(),
         duration: z.string().optional(),

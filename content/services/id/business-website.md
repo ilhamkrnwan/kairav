@@ -1,72 +1,73 @@
 ---
 title: "Website Bisnis & Company Profile"
-description: "Bangun website bisnis yang profesional, cepat, mudah dipahami, dan siap digunakan untuk memperkenalkan brand, layanan, produk, maupun portofolio secara lebih kredibel."
+description: "Solusi pembuatan website bisnis dan company profile yang profesional, cepat, mudah dipahami calon klien, dan optimal untuk dipercaya secara online."
 slug: "business-website"
 icon: "lucide:building-2"
+coverImage: "/services/business-website.avif"
 category: "Website Bisnis"
 order: 1
-duration: "1-5 minggu"
+duration: "1-3 minggu"
 deliverables:
-  - "Company profile atau landing page"
-  - "Halaman layanan, produk, portfolio, dan kontak"
-  - "CTA WhatsApp dan struktur lead generation"
-  - "SEO basic, metadata, dan internal link"
+  - "Struktur halaman & penulisan informasi komunikatif"
+  - "Desain UI/UX responsif & kecepatan akses tinggi"
+  - "Integrasi tombol WhatsApp & formulir kontak"
+  - "Optimasi SEO dasar & Meta Tag"
 tags:
   - "Company Profile"
+  - "Website Bisnis"
   - "Landing Page"
-  - "SEO Basic"
-  - "CTA WhatsApp"
+  - "Nuxt 4"
 featured: true
 seo:
-  title: "Jasa Website Bisnis dan Company Profile | Ilham Kurniawan"
-  description: "Jasa pembuatan website bisnis, company profile, landing page, personal website, website studio, dan website organisasi yang profesional, cepat, dan SEO-friendly."
+  title: "Jasa Pembuatan Website Bisnis & Company Profile | Ilham Kurniawan"
+  description: "Website bisnis dan company profile profesional yang mudah dipahami calon klien, cepat diakses, dan siap mendukung kredibilitas brand Anda."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Website Bisnis & Company Profile membantu brand terlihat lebih kredibel, mudah dipahami, dan siap menerima calon client dari Google, media sosial, maupun campaign digital.
+Sering kali pemilik usaha, freelancer, maupun pengelola studio menghadapi kendala yang sama: produk atau jasa yang ditawarkan sangat potensial, namun informasi resminya masih tercecer di berbagai unggahan media sosial atau pesan obrolan. Ketika calon pelanggan meminta profil resmi, tidak ada satu tempat rujukan yang tertata dengan rapi.
 
-## Masalah yang Biasa Terjadi
+Layanan ini dirancang untuk menjawab kebutuhan tersebut. **Fokus utama pengerjaan adalah menyusun rumah digital yang kredibel**, merapikan alur informasi produk/jasa, dan menghadirkan pengalaman berkunjung yang nyaman bagi calon pelanggan Anda.
 
-- Bisnis belum punya website yang terlihat profesional
-- Informasi layanan tersebar di chat atau media sosial
-- Calon client sulit memahami value dan cara menghubungi
-- Website lama lambat, tidak mobile-friendly, atau kurang meyakinkan
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi Bisnis
 
-Saya membantu menyusun struktur halaman, copywriting, visual section, CTA, dan metadata agar website menjadi alat komunikasi bisnis yang jelas.
+- **Informasi Kurang Terpusat:** Calon pembeli sering menanyakan hal-hal dasar berulang kali karena belum ada tempat rujukan resmi yang lengkap.
+- **Tampilan Kurang Meyakinkan:** Website lama terasa lambat, tampilan berantakan saat dibuka via ponsel, atau belum mencerminkan kualitas layanan sebenarnya.
+- **Sulit Ditemukan di Mesin Pencari:** Keberadaan brand belum muncul optimal ketika calon pembeli mencari jasa terkait di internet.
 
-## Output yang Akan Didapat
+---
 
-- Company profile
-- Landing page
-- Personal website
-- Website studio/agency
-- Website komunitas/organisasi
-- SEO basic
-- Halaman kontak dan CTA WhatsApp
+## Pendekatan & Solusi Pengerjaan
 
-## Cocok Untuk Siapa
+Proses kolaborasi dijalankan secara transparan dan terstruktur:
 
-UMKM, freelancer, studio, agency, komunitas, organisasi, dan bisnis jasa yang ingin tampil lebih dipercaya secara online.
+1. **Pemetaan Kebutuhan & Target Audiens:** Menggali keunggulan utama bisnis Anda dan menentukan siapa calon pembeli yang ingin dituju.
+2. **Penyusunan Alur Informasi:** Merapikan struktur kalimat dan bagian halaman agar mudah dipahami pengunjung tanpa istilah rumit.
+3. **Desain Visual & Pengalaman Pengguna:** Membangun antarmuka yang bersih, modern, dan cepat diakses dari perangkat desktop maupun smartphone.
+4. **Integrasi Komunikasi Langsung:** Memasang tombol aksi menuju WhatsApp atau formulir kontak agar calon pembeli dapat langsung terhubung.
+5. **Kesiapan SEO Dasar:** Menata struktur data dan metadata agar halaman siap diindeks dengan baik oleh mesin pencari Google.
 
-## Contoh Fitur
+---
 
-Hero section, layanan, portfolio, testimonial, FAQ, CTA WhatsApp, contact section, metadata SEO, dan struktur heading rapi.
+## Output yang Didapatkan
 
-## Proses Pengerjaan
+- Halaman Beranda (Hero section, keunggulan, testimonial, dan portofolio).
+- Halaman Layanan & Rincian Produk yang terstruktur.
+- Halaman Profil Perusahaan / Tentang Kami yang informatif.
+- Formulir kontak interaktif dan tombol WhatsApp langsung.
+- Optimasi kecepatan pemuatan halaman dan responsivitas seluler.
+- Panduan pengelolaan mandiri untuk memperbarui konten.
 
-1. Mapping bisnis, audience, dan tujuan website
-2. Penyusunan struktur halaman dan copywriting
-3. Implementasi UI, konten, dan CTA
-4. Optimasi responsive, image, dan SEO basic
-5. Review final dan handover
+---
 
-## Teknologi yang Mungkin Digunakan
+## Alokasi Teknologi
 
-Saya tidak mengunci solusi pada satu stack tertentu. Teknologi dipilih berdasarkan kebutuhan project, skala sistem, budget, timeline, dan maintenance. Tools yang biasa digunakan antara lain Nuxt, Vue, Laravel, Supabase, PostgreSQL, MySQL, Tailwind CSS, Cloudinary, WordPress, dan integrasi AI.
+Teknologi dipilih berdasarkan kebutuhan nyata dan kemudahan perawatan di masa depan. Pengembangan biasa menggunakan **Nuxt, Vue.js, Tailwind CSS, serta Headless CMS atau WordPress** apabila membutuhkan kemudahan mengelola artikel dan produk secara mandiri.
 
-## CTA Konsultasi Project
+---
 
-Siap membangun website bisnis yang lebih kredibel? Mulai diskusi melalui [halaman contact](/contact).
+## Mulai Diskusi Proyek
+
+Setiap bisnis memiliki karakter dan kebutuhan yang berbeda. Mari mendiskusikan ide dan rencana kebutuhan website Anda melalui [halaman kontak](/contact).

@@ -1,73 +1,59 @@
 ---
-title: "Custom Android App Development"
-description: "Build a custom Android application for businesses, communities, internal operations, catalogs, mobile dashboards, or digital products that need direct access from user devices."
+title: "Android Mobile App Development"
+description: "Responsive and stable Android mobile applications integrated with backend systems for seamless user accessibility."
 slug: "android-app-development"
 icon: "lucide:smartphone"
-category: "Mobile App"
-order: 7
-duration: "4-12 weeks"
+coverImage: "/services/android-app-development.avif"
+category: "Mobile Development"
+order: 4
+duration: "3-8 weeks"
 deliverables:
-  - "Custom Android application"
-  - "Mobile UI and user flow"
-  - "API, authentication, and database integration"
-  - "APK/AAB build, documentation, and early maintenance"
+  - "Responsive mobile UI/UX design"
+  - "Backend API integration & data synchronization"
+  - "Stability testing across diverse Android devices"
+  - "APK/AAB deployment assistance & user documentation"
 tags:
   - "Android App"
-  - "Mobile App"
+  - "Mobile Development"
   - "Flutter"
   - "API Integration"
 featured: false
 seo:
-  title: "Custom Android App Development | Ilham Kurniawan"
-  description: "Custom Android app development for businesses, communities, mobile dashboards, catalogs, internal systems, and API-based digital products."
+  title: "Android Mobile App Development Services | Ilham Kurniawan"
+  description: "Fast, stable, and user-friendly custom Android mobile app development tailored to your business needs."
 ---
 
-## Service Hero
+## Service Overview
 
-Custom Android App Development helps businesses and organizations bring digital workflows directly to user devices.
+With high mobile device usage today, mobile applications provide an effective avenue to connect business services directly to customers and field operational teams.
 
-## Common Problems
+This service focuses on **developing responsive, efficient Android applications**, emphasizing core functionality that delivers genuine accessibility without unnecessary technical complexity.
 
-- Users interact more through smartphones than websites
-- Business needs an app with persistent sessions, notifications, or specific workflows
-- A web system already exists but does not have a convenient mobile experience
-- Template apps are not flexible enough for operational needs
+---
 
-## Offered Solution
+## Common Needs Addressed
 
-I help design and build a custom Android application connected to APIs, databases, dashboards, or existing systems.
+- **Direct Customer Access:** Providing personal mobile access for order placements, transactions, or service updates.
+- **Field Operational Tools:** Equipping field teams with portable mobile applications for on-site data recording and inventory management.
+- **Integrating Existing Systems:** Connecting existing web application data or central databases seamlessly into a mobile interface.
 
-## Output You Get
+---
 
-- Custom Android application
-- Clean and usable mobile UI
-- Backend API integration
-- Login and user management
-- Forms, catalog, dashboard, or mobile workflow
-- APK/AAB build
-- Technical documentation
-- Early maintenance
+## Process & Workflow
 
-## Best For
+1. **Mobile UI/UX Planning:** Designing intuitive layouts comfortable for mobile screen navigation.
+2. **Core Feature Engineering:** Developing application logic, user authentication, and local data storage.
+3. **Backend API Connectivity:** Connecting the mobile application securely to business server endpoints.
+4. **Device Testing:** Verifying application performance across diverse Android screen sizes and hardware specs.
 
-Businesses, SMEs, startups, communities, schools, organizations, or digital platforms that need Android apps for customers, members, field teams, admins, or internal users.
+---
 
-## Example Features
+## Technology Stack
 
-Login, product catalog, data forms, compact dashboard, push notification, file upload, QR scanning, transaction history, payment, maps, chat, and API integration.
+Development utilizes cross-platform frameworks such as **Flutter or React Native** paired with REST APIs built on **Node.js, Laravel, or Supabase**. This approach ensures application stability and straightforward maintenance.
 
-## Work Process
+---
 
-1. Discover app requirements and target users
-2. Plan user flow, screens, and data structure
-3. Implement the app and API integration
-4. Test on Android devices
-5. Build APK/AAB, document, and hand over
+## Start a Discussion
 
-## Possible Technologies
-
-Technology is selected based on project needs. Tools may include Flutter, Capacitor, Kotlin, Laravel API, Node.js, Supabase, Firebase, PostgreSQL, MySQL, Cloudinary, and AI integration.
-
-## Project Consultation CTA
-
-Start planning your custom Android application through the [contact page](/contact).
+Planning an Android application for your business or project? Explore feature requirements via the [contact page](/contact).

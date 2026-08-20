@@ -1,73 +1,60 @@
 ---
-title: "Sistem Dashboard & Admin Panel"
-description: "Bangun dashboard internal untuk mengelola data, transaksi, laporan, user, konten, produk, pesanan, atau proses operasional bisnis secara lebih terstruktur dan scalable."
+title: "Sistem Dashboard & Visualisasi Analistik"
+description: "Penyajian data operasional dan kinerja bisnis ke dalam tampilan dashboard interaktif yang rapi, cepat, dan mudah dipahami untuk pengambilan keputusan."
 slug: "dashboard-system"
-icon: "lucide:panel-top"
-category: "Dashboard"
-order: 3
-duration: "3-10 minggu"
+icon: "lucide:layout-dashboard"
+coverImage: "/services/dashboard-system.avif"
+category: "Pengembangan Web"
+order: 5
+duration: "2-5 minggu"
 deliverables:
-  - "Dashboard admin dan CRUD data"
-  - "Role dan permission"
-  - "Reporting dan export PDF/Excel"
-  - "Integrasi database"
+  - "Antarmuka dashboard admin & grafik visual"
+  - "Integrasi sumber data & kalkulasi otomatis"
+  - "Fitur filter data, pencarian, & ekspor laporan"
+  - "Keamanan peran pengguna (Role-Based Access)"
 tags:
+  - "Dashboard System"
+  - "Data Visualization"
   - "Admin Panel"
-  - "Dashboard"
-  - "Reporting"
-  - "Database"
-featured: true
+  - "Vue.js"
+  - "Nuxt 4"
+featured: false
 seo:
-  title: "Jasa Dashboard Admin dan Admin Panel | Ilham Kurniawan"
-  description: "Jasa pembuatan dashboard internal dan admin panel untuk mengelola data, transaksi, laporan, user, konten, produk, pesanan, dan workflow bisnis."
+  title: "Jasa Pembuatan Sistem Dashboard & Admin Panel | Ilham Kurniawan"
+  description: "Pembuatan sistem dashboard admin dan visualisasi data yang rapi, real-time, dan mudah dipahami untuk pemantauan bisnis Anda."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Sistem Dashboard & Admin Panel membantu bisnis mengelola data dan proses operasional melalui interface yang rapi, aman, dan siap dikembangkan.
+Meninjau ringkasan performa penjualan atau operasional sering kali menyita waktu apabila data masih tersebar di puluhan dokumen terpisah atau menunggu rekapitulasi manual di akhir bulan.
 
-## Masalah yang Biasa Terjadi
+Layanan ini membantu **merangkum data penting bisnis ke dalam satu layar dashboard yang jernih dan interaktif**. Angka penjualan, grafik pertumbuhan, hingga indikator kinerja utama (*KPI*) dapat dipantau secara transparan dalam hitungan detik.
 
-- Data masih dikelola manual di spreadsheet
-- Laporan dibuat lambat dan rawan salah
-- Admin kesulitan memantau transaksi, user, atau konten
-- Belum ada role dan permission yang jelas
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi
 
-Saya membangun dashboard admin yang mengikuti workflow bisnis, lengkap dengan CRUD data, role, reporting, dan struktur database yang scalable.
+- **Data Terfragmentasi:** Laporan keuangan, penjualan, dan stok barang tersimpan di berbagai tempat terpisah.
+- **Kesulitan Membaca Tren:** Data berbentuk tabel angka yang panjang membuat grafik peningkatan atau penurunan bisnis sulit ditangkap secara cepat.
+- **Akses Tim Kurang Teratur:** Kebutuhan membagikan ringkasan data kepada manajer tanpa harus membuka seluruh database rahasia perusahaan.
 
-## Output yang Akan Didapat
+---
 
-- Dashboard admin
-- CRUD data
-- Role dan permission
-- Reporting
-- Export PDF/Excel
-- Manajemen produk/konten
-- Integrasi database
-- Sistem yang siap dikembangkan
+## Tahapan Pengerjaan
 
-## Cocok Untuk Siapa
+1. **Pemetaan Indikator Utama (KPI):** Menentukan angka-angka kunci yang paling krusial bagi pemantauan bisnis.
+2. **Perancangan Antarmuka Data (Clean UI):** Merancang antarmuka grafik dan kartu ringkasan yang nyaman dibaca tanpa distraksi.
+3. **Pengembangan Fitur Interaktif:** Menyediakan filter rentang tanggal, pencarian cepat, serta ekspor laporan (PDF/Excel).
+4. **Pengaturan Hak Akses:** Menyiapkan batasan akses data berdasarkan peran pengguna di perusahaan.
 
-Bisnis, organisasi, sekolah, komunitas, dan startup yang membutuhkan panel internal untuk mengelola data atau operasional.
+---
 
-## Contoh Fitur
+## Alokasi Teknologi
 
-Login admin, table data, filter, search, detail page, form input, export laporan, audit sederhana, dan pengaturan role.
+Pengembangan dashboard admin biasa menggunakan **Vue 3 / Nuxt 4 dipadukan dengan Tailwind CSS, Chart.js / ApexCharts, serta backend PostgreSQL, MySQL, atau Supabase**. Hasilnya adalah sistem yang cepat saat memuat ribuan baris data dan aman.
 
-## Proses Pengerjaan
+---
 
-1. Audit workflow dan data existing
-2. Desain modul dashboard dan role
-3. Implementasi backend, database, dan UI admin
-4. Testing proses operasional
-5. Handover penggunaan sistem
+## Mulai Diskusi Proyek
 
-## Teknologi yang Mungkin Digunakan
-
-Stack dipilih berdasarkan kebutuhan project. Tools yang mungkin digunakan mencakup Laravel, Filament, Nuxt, Vue, PostgreSQL, MySQL, Supabase, Tailwind CSS, Cloudinary, dan API eksternal.
-
-## CTA Konsultasi Project
-
-Mulai rapikan dashboard bisnis Anda lewat [halaman contact](/contact).
+Ingin memantau indikator bisnis Anda secara lebih jernih dan terukur? Diskusikan rencana kebutuhan dashboard Anda melalui [halaman kontak](/contact).

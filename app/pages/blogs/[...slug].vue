@@ -122,6 +122,11 @@ const copyUrl = () => {
     }, 2000)
   }
 }
+
+const breadcrumbItems = computed(() => [
+  { label: t('Articles'), to: '/blogs' },
+  { label: current.value?.title || t('Article Details') }
+])
 </script>
 
 <template>
@@ -137,7 +142,7 @@ const copyUrl = () => {
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
         class="py-16 md:py-24 px-4 border-b border-border/40"
       >
-        <div class="container mx-auto max-w-4xl text-center">
+        <div class="container mx-auto max-w-6xl text-center">
           <div class="mb-6">
             <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
               {{ current.category }}
@@ -148,7 +153,7 @@ const copyUrl = () => {
             {{ current.title }}
           </h1>
 
-          <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
+          <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
             {{ current.description }}
           </p>
 
@@ -165,6 +170,11 @@ const copyUrl = () => {
               <Icon name="lucide:clock" class="w-3.5 h-3.5 text-amber-400" />
               <span>{{ current.readTime }}</span>
             </div>
+          </div>
+
+          <!-- Breadcrumbs at the bottom of hero above section border -->
+          <div class="mt-8 flex justify-center">
+            <UiBreadcrumb :items="breadcrumbItems" />
           </div>
         </div>
       </section>

@@ -1,73 +1,71 @@
 ---
-title: "Pengembangan Aplikasi Web End-to-End"
-description: "Bangun aplikasi web dari awal hingga siap digunakan, mulai dari perencanaan fitur, UI, frontend, backend, database, integrasi, testing, hingga deployment production."
+title: "Pengembangan Web Application Custom"
+description: "Layanan pembuatan aplikasi web interaktif, kustom, dan aman yang dirancang khusus untuk mengotomatisasi alur kerja operasional bisnis."
 slug: "web-app-development"
-icon: "lucide:layers-3"
-category: "Web App"
-order: 6
-duration: "3-12 minggu"
+icon: "lucide:code-2"
+coverImage: "/services/web-app-development.avif"
+category: "Pengembangan Web"
+order: 3
+duration: "2-8 minggu"
 deliverables:
-  - "Web app custom"
-  - "Backend API dan frontend responsive"
-  - "Database design dan authentication"
-  - "Deployment, dokumentasi teknis, dan maintenance awal"
+  - "Arsitektur frontend & backend kustom"
+  - "Manajemen basis data & keamanan autentikasi"
+  - "Pengujian sistem & respon waktu nyata"
+  - "Dokumentasi & panduan pemeliharaan"
 tags:
-  - "Web App"
-  - "End-to-End"
-  - "Backend API"
-  - "Deployment"
+  - "Web Application"
+  - "Vue.js"
+  - "Nuxt 4"
+  - "Node.js"
+  - "Laravel"
 featured: true
 seo:
-  title: "Jasa Pengembangan Aplikasi Web End-to-End | Ilham Kurniawan"
-  description: "Jasa pengembangan aplikasi web end-to-end dari perencanaan fitur, UI, frontend, backend, database, integrasi, testing, hingga deployment production."
+  title: "Jasa Pengembangan Web Application Custom | Ilham Kurniawan"
+  description: "Pengembangan aplikasi web kustom yang interaktif, cepat, dan aman sesuai alur kerja bisnis organisasi Anda menggunakan teknologi modern."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Pengembangan Aplikasi Web End-to-End membantu Anda membangun produk digital dari ide hingga siap digunakan oleh user.
+Seiring berkembangnya skala usaha, metode manual seperti penggunaan lembar kerja (*spreadsheet*) yang terpisah sering kali mulai menimbulkan kendala operasional. Proses pengolahan data menjadi lambat, potensi kesalahan input meningkat, dan software siap pakai di pasaran sering kali terlalu kaku untuk mengakomodasi proses bisnis unik Anda.
 
-## Masalah yang Biasa Terjadi
+Layanan ini difokuskan pada **pengembangan aplikasi web kustom (*custom web app*)**. Sistem dirancang presisi mengikuti tahapan kerja internal organisasi Anda, sehingga proses operasional harian menjadi lebih terstruktur dan efisien.
 
-- Project butuh satu alur pengerjaan dari planning sampai deployment
-- Frontend, backend, dan database belum terhubung rapi
-- Fitur berkembang tetapi struktur sistem belum siap
-- Bisnis membutuhkan aplikasi custom yang tidak cukup dibuat dengan template
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi
 
-Saya membantu menyusun scope, membangun UI, backend, database, integrasi, testing, dan deployment agar aplikasi siap digunakan dan mudah dikembangkan.
+- **Operasional Masih Terfragmentasi:** Tim menghabiskan banyak waktu menginput data berulang kali di berbagai dokumen terpisah.
+- **Software Pasaran Tidak Pas:** Aplikasi siap pakai terasa terlalu rumit atau justru tidak menyediakan fitur sesuai alur kerja spesifik bisnis.
+- **Sistem Lama Lambat & Kaku:** Aplikasi lama sulit dikembangkan lebih lanjut atau sering mengalami kendala teknis.
 
-## Output yang Akan Didapat
+---
 
-- Web app custom
-- Backend API
-- Frontend responsive
-- Database design
-- Authentication
-- Deployment
-- Dokumentasi teknis
-- Maintenance awal
+## Alur Pengerjaan & Kolaborasi
 
-## Cocok Untuk Siapa
+Tahapan pengembangan dijalankan secara sistematis dan transparan:
 
-Startup, UMKM, organisasi, dan bisnis yang ingin membuat aplikasi web custom untuk operasional, produk, dashboard, atau layanan digital.
+1. **Pemetaan Alur Kerja (Workflow Mapping):** Merinci proses operasional yang ingin diotomatisasi serta mengatur hak akses tiap peran pengguna (*user roles*).
+2. **Perancangan Sistem & UI/UX:** Menyusun struktur basis data yang aman dan merancang antarmuka yang ramah pengguna.
+3. **Pengembangan & Uji Coba Bertahap:** Membangun aplikasi secara bertahap sehingga perkembangan fitur dapat ditinjau secara berkala.
+4. **Peluncuran & Migrasi Data:** Mendampingi proses pemindahan data, pengujian keandalan sistem, serta menyediakan dokumentasi penggunaan.
 
-## Contoh Fitur
+---
 
-Auth, dashboard, CRUD, API, role, file upload, reporting, notification, payment, dan integrasi third-party.
+## Jenis Aplikasi Web yang Dapat Didevelop
 
-## Proses Pengerjaan
+- Portal Manajemen Klien & Layanan (*Client Portal*).
+- Sistem Manajemen Konten & Dokumen Internal (*CMS/SaaS Custom*).
+- Platform Pemesanan & Reservasi Interaktif.
+- Aplikasi Pengolahan Data & Pelaporan Bisnis.
 
-1. Discovery dan prioritas MVP
-2. Perancangan arsitektur, data, dan UI
-3. Implementasi fitur end-to-end
-4. Testing dan deployment
-5. Maintenance awal dan dokumentasi
+---
 
-## Teknologi yang Mungkin Digunakan
+## Alokasi Teknologi
 
-Saya memilih teknologi berdasarkan kebutuhan project. Tools yang mungkin digunakan: Nuxt, Vue, Laravel, Node.js, PostgreSQL, MySQL, Supabase, Tailwind CSS, Flutter, Cloudinary, dan integrasi AI.
+Aplikasi web dikembangkan menggunakan **Vue 3, Nuxt 4, Node.js, Laravel, PostgreSQL, MySQL, Supabase, dan Tailwind CSS**. Pemilihan arsitektur disesuaikan dengan skala pengguna, kebutuhan kinerja, dan rencana perawatan jangka panjang.
 
-## CTA Konsultasi Project
+---
 
-Mulai rencanakan aplikasi web Anda melalui [halaman contact](/contact).
+## Mulai Diskusi Proyek
+
+Ingin memodernisasi alur kerja tim atau membangun ide aplikasi web kustom? Mari mendiskusikan kebutuhan sistem Anda melalui [halaman kontak](/contact).

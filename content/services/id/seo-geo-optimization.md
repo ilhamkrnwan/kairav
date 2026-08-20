@@ -1,72 +1,63 @@
 ---
-title: "Optimasi SEO / GEO"
-description: "Perkuat struktur konten, metadata, internal link, dan copywriting agar website lebih mudah dipahami mesin pencari serta AI search dan generative engine."
+title: "Optimasi SEO & Generative Engine Optimization (GEO)"
+description: "Optimasi struktur teknis, metadata, dan relevansi konten website agar lebih mudah ditemukan di mesin pencari Google serta mesin pencari AI."
 slug: "seo-geo-optimization"
-icon: "lucide:search-check"
-category: "SEO & GEO"
-order: 8
-duration: "1-4 minggu"
+icon: "lucide:search-code"
+coverImage: "/services/seo-geo-optimization.avif"
+category: "Pemasaran & Digital"
+order: 9
+duration: "1-3 minggu"
 deliverables:
-  - "Audit struktur SEO dan metadata"
-  - "Optimasi heading, internal link, dan schema dasar"
-  - "Copywriting yang mudah dikutip AI"
-  - "Rekomendasi konten untuk search dan generative engine"
+  - "Audit teknis SEO & kecepatan website"
+  - "Penyusunan Open Graph & Structured Data (JSON-LD)"
+  - "Struktur Sitemap XML & Robot.txt teroptimasi"
+  - "Peta relevansi konten untuk AI Search & Google"
 tags:
   - "SEO"
   - "GEO"
-  - "Content Structure"
-  - "Metadata"
+  - "Structured Data"
+  - "Technical SEO"
 featured: false
 seo:
-  title: "Jasa Optimasi SEO dan GEO Website | Ilham Kurniawan"
-  description: "Jasa optimasi SEO dan Generative Engine Optimization untuk memperkuat metadata, struktur konten, internal link, copywriting, dan keterbacaan website oleh AI search."
+  title: "Jasa Optimasi SEO Teknis & GEO | Ilham Kurniawan"
+  description: "Optimasi aspek teknis SEO dan ketersediaan data website agar mudah diindeks serta direkomendasikan oleh Google dan AI Search Engine."
 ---
 
-## Hero Service
+## Gambaran Layanan
 
-Optimasi SEO / GEO membantu website lebih mudah ditemukan, dipahami, dan dikutip oleh mesin pencari serta generative engine berbasis AI.
+Memiliki website yang indah perlu diimbangi dengan ketersediaan data teknis yang baik agar dapat ditemukan oleh calon pengunjung yang tepat. Perilaku pencarian informasi saat ini tidak lagi hanya terbatas pada mesin pencari konvensional seperti Google, melainkan juga mulai meluas ke mesin pencari berbasis AI (*Generative Engine Optimization / GEO*) seperti ChatGPT, Perplexity, atau Gemini.
 
-## Masalah yang Biasa Terjadi
+Layanan ini dirancang untuk **merapikan fondasi teknis dan struktur data website Anda**, sehingga konten Anda mudah dipahami, diindeks, dan direkomendasikan secara organik.
 
-- Halaman sudah online tetapi belum punya struktur SEO kuat
-- Copywriting terlalu umum dan tidak menjawab intent calon client
-- Internal link belum mengarahkan user ke layanan penting
-- Konten sulit dipahami oleh AI search dan generative engine
+---
 
-## Solusi yang Ditawarkan
+## Masalah yang Sering Dihadapi
 
-Saya memperbaiki struktur heading, metadata, canonical, internal link, copywriting, dan kalimat eksplisit agar halaman lebih kuat untuk search dan AI citation.
+- **Website Sulit Ditemukan:** Website sudah tayang lama, tetapi tidak muncul ketika calon pembeli mengetikkan nama produk atau kata kunci terkait.
+- **Tampilan Berbagi Media Sosial Rusak:** Saat tautan dibagikan ke WhatsApp atau LinkedIn, gambar sampul atau deskripsinya tidak muncul secara rapi (*Open Graph issue*).
+- **Kinerja Teknis Lambat:** Nilai kecepatan website rendah di Google PageSpeed Insights yang berdampak buruk pada peringkat pencarian.
 
-## Output yang Akan Didapat
+---
 
-- SEO audit
-- GEO content improvement
-- Optimasi metadata
-- Struktur heading rapi
-- Internal linking
-- Copywriting service-oriented
-- Rekomendasi konten lanjutan
+## Tahapan Pengerjaan
 
-## Cocok Untuk Siapa
+1. **Audit Teknis SEO:** Memeriksa struktur HTML, meta tag, sitemap, serta kecepatan akses website.
+2. **Implementasi Data Terstruktur (JSON-LD):** Menyuntikkan kode skema standar global agar mesin pencari dan AI memahami jenis bisnis dan produk Anda secara presisi.
+3. **Optimasi Pratinjau Media Sosial (Open Graph):** Memastikan setiap halaman memiliki foto sampul dan deskripsi yang menawan saat dibagikan.
+4. **Struktur Konten Ramah AI (GEO):** Menata sintaksis agar sistem mesin pencari AI dapat mengutip bisnis Anda sebagai jawaban utama.
 
-Website portfolio, company profile, landing page, blog, service page, dan bisnis yang ingin memperjelas positioning di search engine dan AI search.
+---
 
-## Contoh Fitur
+## Output yang Didapatkan
 
-Meta title, description, canonical, Open Graph, FAQ content, internal link, service copy, dan content block yang mudah dikutip AI.
+- Audit & perbaikan aspek teknis SEO.
+- Pemasangan JSON-LD Schema (Article/CreativeWork/Business).
+- Pemasangan Open Graph & Twitter Card metadata.
+- Peta situs XML (Sitemap) & konfigurasi Robots.txt.
+- Laporan perbaikan dan rekomendasi berkelanjutan.
 
-## Proses Pengerjaan
+---
 
-1. Audit halaman dan struktur konten
-2. Mapping keyword, intent, dan entity
-3. Perbaikan metadata, heading, dan internal link
-4. Rewrite copy untuk SEO/GEO
-5. Rekomendasi konten berikutnya
+## Mulai Diskusi Proyek
 
-## Teknologi yang Mungkin Digunakan
-
-Tools dan pendekatan dipilih sesuai platform website. Bisa mencakup Nuxt, Nuxt Content, WordPress, schema markup, sitemap, metadata, analytics, dan bantuan AI untuk content analysis.
-
-## CTA Konsultasi Project
-
-Perkuat SEO dan GEO website Anda melalui [halaman contact](/contact).
+Ingin membuat website Anda bekerja lebih efektif mendatangkan pengunjung secara organik? Periksa kesehatan teknis website Anda melalui [halaman kontak](/contact).

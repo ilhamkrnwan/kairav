@@ -236,21 +236,21 @@ const getBentoSpanClass = (index: number) => {
   const mod = index % 7
   switch (mod) {
     case 0:
-      return 'md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-[460px]'
+      return 'md:col-span-2 md:row-span-2 min-h-[160px] md:min-h-[460px]'
     case 1:
-      return 'md:col-span-1 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 2:
-      return 'md:col-span-1 md:row-span-2 min-h-[300px] md:min-h-[460px]'
+      return 'md:col-span-1 md:row-span-2 min-h-[160px] md:min-h-[460px]'
     case 3:
-      return 'md:col-span-2 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-2 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 4:
-      return 'md:col-span-1 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 5:
-      return 'md:col-span-1 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 6:
-      return 'md:col-span-2 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-2 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     default:
-      return 'md:col-span-1 md:row-span-1 min-h-[220px]'
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
   }
 }
 
@@ -347,14 +347,14 @@ useScrollReveal()
     <!-- Bento Gallery Grid Section -->
     <section class="py-10 md:py-14 px-4 md:px-8">
       <div class="container max-w-7xl mx-auto">
-        <!-- Pure Bento Grid - Loads All Items Immediately -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-[220px] md:auto-rows-[240px]">
+        <!-- Pure Bento Grid - Loads All Items Immediately (2 Columns on Mobile) -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
           <div
             v-for="(item, index) in allGalleryItems"
             :key="item.id"
             @click="openModal(item)"
             :class="[
-              'group relative rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer',
+              'group relative rounded-xl sm:rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer',
               getBentoSpanClass(index)
             ]"
           >
@@ -367,13 +367,13 @@ useScrollReveal()
             >
 
             <!-- Clean Vignette Overlay & Title Only on Hover -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-5">
-              <div class="w-full flex items-center justify-between gap-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h3 class="text-base md:text-lg font-heading font-bold text-white leading-snug line-clamp-2 drop-shadow-md">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3 sm:p-5">
+              <div class="w-full flex items-center justify-between gap-2 sm:gap-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="text-xs sm:text-base md:text-lg font-heading font-bold text-white leading-snug line-clamp-2 drop-shadow-md">
                   {{ item.title }}
                 </h3>
-                <span class="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-amber-400 shrink-0 shadow-lg">
-                  <Icon name="lucide:maximize-2" class="w-4 h-4" />
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-amber-400 shrink-0 shadow-lg">
+                  <Icon name="lucide:maximize-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
               </div>
             </div>

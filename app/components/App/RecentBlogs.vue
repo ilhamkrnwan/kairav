@@ -93,9 +93,12 @@ const getBlogLink = (path?: string) => {
               >
                 <!-- Image (revealed on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <img
+                  <NuxtImg
                     :src="blog.coverImage || '/placeholder.avif'"
                     :alt="blog.title"
+                    width="600"
+                    height="337"
+                    format="avif"
                     loading="lazy"
                     decoding="async"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"

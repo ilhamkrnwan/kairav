@@ -87,6 +87,11 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  image: {
+    provider: process.env.VERCEL ? 'vercel' : 'ipx',
+    format: ['avif', 'webp'],
+  },
+
   icon: {
     serverBundle: {
       collections: ['lucide', 'simple-icons', 'logos', 'skill-icons'],

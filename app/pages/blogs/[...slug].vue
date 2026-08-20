@@ -189,17 +189,21 @@ const breadcrumbItems = computed(() => [
       >
         <div class="container mx-auto px-4 max-w-7xl">
           <div class="relative aspect-video rounded-sm overflow-hidden border border-border/40 shadow-xl shadow-black/5">
-            <img 
+            <NuxtImg 
               :src="current.coverImage" 
               :alt="current.title"
+              width="1280"
+              height="720"
+              format="avif"
+              loading="eager"
               class="w-full h-full object-cover"
-            >
+            />
           </div>
         </div>
       </section>
 
       <!-- Content Section -->
-      <section class="py-8 md:py-12">
+      <section class="py-8 md:py-12 overflow-x-hidden">
         <UiGlobalSpotlight
           container-selector=".content-container"
           card-selector=".animated-card"
@@ -241,8 +245,8 @@ const breadcrumbItems = computed(() => [
                 <div class="sticky top-24 space-y-6">
                   <div
                     v-motion
-                    :initial="{ opacity: 0, x: 30 }"
-                    :visible="{ opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
+                    :initial="{ opacity: 0, y: 30 }"
+                    :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
                     class="space-y-6"
                   >
                     <!-- Author & Share Card -->
@@ -409,9 +413,13 @@ const breadcrumbItems = computed(() => [
               >
                 <!-- Image layer (visible on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <img
+                  <NuxtImg
                     :src="prevBlog.coverImage || '/placeholder.avif'"
                     :alt="prevBlog.title"
+                    width="600"
+                    height="337"
+                    format="avif"
+                    loading="lazy"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />
                   <!-- Gradient overlay -->
@@ -477,9 +485,13 @@ const breadcrumbItems = computed(() => [
               >
                 <!-- Image layer (visible on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <img
+                  <NuxtImg
                     :src="nextBlog.coverImage || '/placeholder.avif'"
                     :alt="nextBlog.title"
+                    width="600"
+                    height="337"
+                    format="avif"
+                    loading="lazy"
                     class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
                   />
                   <!-- Gradient overlay -->

@@ -110,7 +110,7 @@ const closeMenu = () => {
   </div>
 </template>
 
-<style>
+<style scoped>
 /* Menu button - Right Side - Minimal Style */
 .menu-btn {
   position: fixed;

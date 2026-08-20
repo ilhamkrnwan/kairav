@@ -199,7 +199,7 @@ const breadcrumbItems = computed(() => [
       </section>
 
       <!-- Content Section with Grid Layout -->
-      <section class="py-8 md:py-12">
+      <section class="py-8 md:py-12 overflow-x-hidden">
         <UiGlobalSpotlight
           container-selector=".content-container"
           card-selector=".animated-card"
@@ -228,8 +228,8 @@ const breadcrumbItems = computed(() => [
                 <div class="sticky top-24 space-y-6">
                   <div
                     v-motion
-                    :initial="{ opacity: 0, x: 30 }"
-                    :visible="{ opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
+                    :initial="{ opacity: 0, y: 30 }"
+                    :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
                     class="space-y-6"
                   >
                     <!-- Project Info Card -->

@@ -12,22 +12,22 @@ const careerBadges = computed(() => [
   {
     icon: 'lucide:graduation-cap',
     label: t('IT Student'),
-    sub: 'UNUYO · 2023',
+    sub: t('UNUYO · Informatics'),
     color: '#22D3EE',
     delay: '60ms'
   },
   {
-    icon: 'lucide:building-2',
-    label: t('Part of Sekeco'),
-    sub: 'Jan 2025 →',
-    color: '#A78BFA',
+    icon: 'lucide:briefcase',
+    label: t('Freelance Developer'),
+    sub: t('Remote & Contract'),
+    color: '#34D399',
     delay: '120ms'
   },
   {
-    icon: 'lucide:leaf',
-    label: t('Freelance Dev'),
-    sub: 'Jurutani · 2025',
-    color: '#34D399',
+    icon: 'lucide:cpu',
+    label: t('AI & Web3 Enthusiast'),
+    sub: t('Tech & Automation'),
+    color: '#A78BFA',
     delay: '180ms'
   },
 ])

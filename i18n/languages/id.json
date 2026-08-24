@@ -74,6 +74,14 @@
   "Collection": "Koleksi",
   "Each photo tells a unique story and reflects my passion for photography and creative expression.": "Setiap foto menceritakan kisah unik dan mencerminkan passion saya terhadap fotografi dan ekspresi kreatif.",
   "For more photos and updates, visit my Instagram": "Untuk lebih banyak foto dan update, kunjungi Instagram saya",
+  "Visual Archive & Showcase": "Arsip Visual & Showcase",
+  "Visual": "Visual",
+  "Explore Gallery": "Jelajahi Galeri",
+  "Explore a curated collection of visual works, digital services, and project documentation across": "Jelajahi kurasi dokumentasi visual, layanan digital, dan portofolio proyek dalam balutan",
+  "architecture, design,": "arsitektur, desain,",
+  "creative photography.": "fotografi kreatif.",
+  "Bento": "Bento",
+  "Showcase": "Showcase",
 
   "Backend Development": "Pengembangan Backend",
   "Integrating data and APIs to build robust and scalable backend systems.": "Mengintegrasikan data dan API untuk membangun sistem backend yang tangguh dan scalable.",
@@ -142,7 +150,7 @@
   "Internship": "Magang",
   "Junior Developer at Sekeco": "Junior Developer di Sekeco",
   "January 2025 - Present": "Januari 2025 - Sekarang",
-  "May 2025 - Present": "Mei 2025 - Sekarang",
+  "May 2026 - Present": "Mei 2026 - Sekarang",
   "Assisted in developing Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.": "Membantu dalam pengembangan aplikasi web. Mendapatkan pengalaman hands-on dengan Nuxt.js dan ekosistemnya, Composition API, dan server-side rendering (SSR). Bekerja dengan modul dan plugin Nuxt untuk meningkatkan fungsionalitas aplikasi. Berkolaborasi dengan tim development untuk mengimplementasikan desain responsif dan memastikan kompatibilitas lintas browser.",
   "Professional Experience": "Pengalaman Profesional",
   "WordPress Developer at Indotech": "WordPress Developer di Indotech",
@@ -481,5 +489,9 @@
   "Freelance Developer": "Developer Freelance",
   "Remote & Contract": "Remote & Proyek",
   "AI & Web3 Enthusiast": "Antusias Web3 & AI",
-  "Tech & Automation": "Teknologi & Otomasi"
+  "Tech & Automation": "Teknologi & Otomasi",
+  "Fullstack Developer at PRAXIS by Medskill Indonesia": "Fullstack Developer di PRAXIS by Medskill Indonesia",
+  "August 2026 - Present": "Agustus 2026 - Sekarang",
+  "Developed and engineered the OSCE (Objective Structured Clinical Examination) assessment and management system for Medskill Indonesia (PRAXIS), delivering high-performance, secure, and intuitive web solutions for clinical examinations and healthcare training.": "Bekerja sebagai freelance developer yang membantu membangun dan mengembangkan sistem OSCE (Objective Structured Clinical Examination) untuk Medskill Indonesia (PRAXIS), menghadirkan platform ujian klinis dan pelatihan medis yang terstruktur, aman, dan berkinerja tinggi.",
+  "I've worked in healthtech & medical education (PRAXIS by Medskill Indonesia), agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.": "Saya pernah bekerja di bidang healthtech & pendidikan medis (PRAXIS by Medskill Indonesia), agritech (Jurutani), layanan software (Sekeco), serta menyelesaikan proyek freelance untuk e-commerce, company profile, dashboard, dan platform edukasi."
 }

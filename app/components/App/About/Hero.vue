@@ -35,7 +35,7 @@ const careerBadges = computed(() => [
 const stats = computed(() => [
   { value: '3+', label: t('Years Coding') },
   { value: '50+', label: t('Projects Built') },
-  { value: '2', label: t('Companies') },
+  { value: '3+', label: t('Companies') },
 ])
 </script>
 

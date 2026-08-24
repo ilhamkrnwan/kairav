@@ -119,6 +119,11 @@ const getPersonData = (siteUrl: string) => ({
   worksFor: [
     {
       '@type': 'Organization',
+      name: 'PRAXIS by Medskill Indonesia',
+      description: 'Medical Education & OSCE Examination Platform',
+    },
+    {
+      '@type': 'Organization',
       name: 'Sekeco',
       description: 'Software Services Company',
     },
@@ -224,7 +229,7 @@ export const useProfilePageSchema = (options: PersonSchemaOptions = {}) => {
     name: 'Tentang Ilham Kurniawan - Fullstack Developer',
     url: `${siteUrl}/about`,
     description:
-      'Profil Ilham Kurniawan: Fullstack Developer Indonesia dengan pengalaman di Sekeco, Indotech, Jurutani, dan proyek freelance untuk website, dashboard, sistem custom, API/AI, serta SEO/GEO.',
+      'Profil Ilham Kurniawan: Fullstack Developer Indonesia dengan pengalaman di PRAXIS by Medskill Indonesia, Sekeco, Indotech, Jurutani, dan proyek freelance untuk website, dashboard, sistem custom, API/AI, serta SEO/GEO.',
     mainEntity: getPersonData(siteUrl),
   }
 

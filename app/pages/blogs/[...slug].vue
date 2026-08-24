@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import type { BlogCollectionItem } from '~/types'
 
+definePageMeta({
+  key: route => route.fullPath,
+  scrollToTop: true,
+})
+
 const { t, locale } = useI18n()
 
 const route = useRoute()
@@ -28,7 +33,7 @@ const { data: current, error, status } = await useAsyncData(
     queryCollection('blog')
       .path(`/blog/${locale.value}/${slug.value}`)
       .first(),
-  { watch: [locale] }
+  { watch: [locale, slug] }
 )
 
 const { data: blogs } = await useAsyncData<BlogCollectionItem[]>(
@@ -139,7 +144,7 @@ const breadcrumbItems = computed(() => [
       <section 
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
         class="py-16 md:py-24 px-4 border-b border-border/40"
       >
         <div class="container mx-auto max-w-6xl text-center">
@@ -184,7 +189,7 @@ const breadcrumbItems = computed(() => [
         v-if="current.coverImage"
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
         class="py-8 md:py-12"
       >
         <div class="container mx-auto px-4 max-w-7xl">
@@ -218,7 +223,7 @@ const breadcrumbItems = computed(() => [
               <div 
                 v-motion
                 :initial="{ opacity: 0, y: 30 }"
-                :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
+                :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
                 class="lg:col-span-8"
               >
                 <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-headings:font-black prose-headings:uppercase prose-p:text-foreground/80">
@@ -246,7 +251,7 @@ const breadcrumbItems = computed(() => [
                   <div
                     v-motion
                     :initial="{ opacity: 0, y: 30 }"
-                    :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
+                    :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
                     class="space-y-6"
                   >
                     <!-- Author & Share Card -->

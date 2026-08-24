@@ -20,7 +20,7 @@ const faqs = computed(() => [
   },
   {
     q: t('What industries have you worked in?'),
-    a: t("I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.")
+    a: t("I've worked in healthtech & medical education (PRAXIS by Medskill Indonesia), agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.")
   },
   {
     q: t('How can I contact you?'),

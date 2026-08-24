@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { onKeyStroke } from '@vueuse/core'
 
+definePageMeta({
+  scrollToTop: true,
+})
+
 interface GalleryItem {
   id: string
   title: string
@@ -319,34 +323,48 @@ useScrollReveal()
 </script>
 
 <template>
-  <div class="min-h-screen pb-20">
-    <!-- Hero Header Section -->
-    <section class="pt-28 pb-12 px-4 md:px-8 border-b border-border/40 bg-gradient-to-b from-background via-background/95 to-background/50">
-      <div class="container max-w-5xl mx-auto text-center">
-        <!-- Top Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-6">
-          <Icon name="lucide:layout-grid" class="w-3.5 h-3.5 text-amber-400" />
-          <span>{{ t('Visual Archive & Bento Gallery') || 'Galeri Bento Showcase' }}</span>
+  <div class="min-h-screen">
+    <!-- HERO SECTION -->
+    <section 
+      v-motion
+      :initial="{ opacity: 0, y: 30 }"
+      :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+      class="py-16 md:py-24 px-4 border-b border-border/40"
+    >
+      <div class="container mx-auto max-w-6xl text-center">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
+            {{ t('Visual Archive & Showcase') || 'Arsip Visual & Showcase' }}
+          </span>
         </div>
 
-        <!-- Main Heading -->
-        <h1 class="text-4xl md:text-6xl font-heading font-black tracking-tight uppercase leading-tight mb-4">
-          <span class="block text-foreground">{{ t('Visual Showcase') || 'Galeri Visual' }}</span>
-          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500">
-            & {{ t('Creative Bento Grid') || 'Koleksi Karya' }}
-          </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-8 leading-tight uppercase">
+          {{ t('Visual') || 'Visual' }} & {{ t('Gallery') || 'Galeri' }}
         </h1>
 
-        <!-- Subtitle -->
-        <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-          {{ t('Click any image to inspect details, read descriptions, and open the full project page.') || 'Klik pada gambar untuk melihat pratinjau detail dan membuka halaman lengkap.' }}
+        <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
+          {{ t('Explore a curated collection of visual works, digital services, and project documentation across') || 'Jelajahi kurasi dokumentasi visual, layanan digital, dan portofolio proyek dalam balutan' }}
+          <span class="text-amber-400">{{ t('architecture, design,') || 'arsitektur, desain,' }}</span>
+          {{ t('and') || 'dan' }}
+          <span class="text-amber-400">{{ t('creative photography.') || 'fotografi kreatif.' }}</span>
         </p>
       </div>
     </section>
 
     <!-- Bento Gallery Grid Section -->
-    <section class="py-10 md:py-14 px-4 md:px-8">
-      <div class="container max-w-7xl mx-auto">
+    <section id="gallery-grid" class="scroll-section will-change-[transform,opacity] section py-20">
+      <div class="container max-w-7xl mx-auto px-4 md:px-8">
+        <!-- Section Title with stagger-item -->
+        <div class="text-center mb-16 stagger-item">
+          <h2 class="leading-[0.88] tracking-tight mb-4">
+            <span class="section-title-filled block">{{ t('Bento') || 'Bento' }}</span>
+            <span class="section-title-outline text-foreground block">{{ t('Showcase') || 'Koleksi Karya' }}<span class="text-amber-400 !important">.</span></span>
+          </h2>
+          <p class="text-muted-foreground text-lg max-w-2xl mx-auto font-light">
+            {{ t('Click any image to inspect details, read descriptions, and open the full project page.') || 'Klik pada gambar untuk melihat pratinjau detail dan membuka halaman lengkap.' }}
+          </p>
+        </div>
+
         <!-- Pure Bento Grid - Loads All Items Immediately (2 Columns on Mobile) -->
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
           <div
@@ -354,7 +372,7 @@ useScrollReveal()
             :key="item.id"
             @click="openModal(item)"
             :class="[
-              'group relative rounded-xl sm:rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer',
+              'group relative rounded-xl sm:rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer stagger-item',
               getBentoSpanClass(index)
             ]"
           >
@@ -516,13 +534,36 @@ useScrollReveal()
     </Teleport>
 
     <!-- Bottom Get In Touch CTA -->
-    <div class="w-full mt-12 border-t border-border/40">
+    <div class="scroll-section will-change-[transform,opacity] w-full">
       <GetinTouch />
     </div>
   </div>
 </template>
 
 <style scoped>
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+.section-title-filled {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-title-outline {
+  font-family: var(--font-heading, 'Inter', sans-serif);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px currentColor;
+  opacity: 0.85;
+}
+
 /* Custom scrollbars for modal sidebar */
 ::-webkit-scrollbar {
   width: 5px;

@@ -3,6 +3,13 @@ const { t } = useI18n()
 
 const allWorkItems = computed(() => [
   {
+    logo: '/logo/medskillindonesia.avif',
+    type: t('Freelance'),
+    title: t('Fullstack Developer at PRAXIS by Medskill Indonesia'),
+    date: t('August 2026 - Present'),
+    description: t('Developed and engineered the OSCE (Objective Structured Clinical Examination) assessment and management system for Medskill Indonesia (PRAXIS), delivering high-performance, secure, and intuitive web solutions for clinical examinations and healthcare training.')
+  },
+  {
     logo: '/logo/kairav.avif',
     type: t('Open for Work'),
     title: t('Fullstack Developer'),
@@ -20,7 +27,7 @@ const allWorkItems = computed(() => [
     logo: '/logo/indotech.avif',
     type: t('Professional Experience'),
     title: t('WordPress Developer at Indotech'),
-    date: t('Mei 2025 - Present'),
+    date: t('May 2026 - Present'),
     description: t('Developed and maintained WordPress websites with a focus on responsive layouts, theme customization, content structure, and performance-minded implementation. Worked with reusable components, page templates, and client-facing website requirements to deliver polished digital experiences.')
   },
   {

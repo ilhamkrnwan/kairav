@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { ServiceCollectionItem } from '~/types'
 
+definePageMeta({
+  key: route => route.fullPath,
+})
+
 const { t, locale } = useI18n()
 const route = useRoute()
 
@@ -19,7 +23,7 @@ const { data: current, error, status } = await useAsyncData(
     queryCollection('services')
       .path(`/services/${locale.value}/${slug.value}`)
       .first(),
-  { watch: [locale] }
+  { watch: [locale, slug] }
 )
 
 const { data: services } = await useAsyncData<ServiceCollectionItem[]>(
@@ -126,7 +130,7 @@ const breadcrumbItems = computed(() => [
         v-if="current.coverImage || current.image"
         v-motion
         :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
         class="pt-8 pb-4 md:pt-12 md:pb-6"
       >
         <div class="container mx-auto px-4 max-w-5xl">

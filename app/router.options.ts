@@ -6,11 +6,14 @@ export default <RouterConfig>{
       return savedPosition;
     }
 
-    return new Promise((resolve) => {
-      // Small timeout to allow page transitions and DOM mounting to complete
-      setTimeout(() => {
-        resolve({ top: 0, left: 0, behavior: "instant" });
-      }, 50);
-    });
+    if (to.hash) {
+      return {
+        el: to.hash,
+        top: 80,
+        behavior: "smooth",
+      };
+    }
+
+    return { top: 0, left: 0, behavior: "instant" };
   },
 };

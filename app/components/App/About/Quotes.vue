@@ -16,7 +16,7 @@ const quotes = computed(() => [
   { text: t('The best way to understand the universe is to build a maximum truth-seeking AI.'), author: t('Elon Musk (xAI Founder)') }
 ])
 
-const currentQuote = ref({ text: '', author: '' })
+const currentQuote = ref(quotes.value[0])
 
 const getRandomQuote = () => {
   const randomIndex = Math.floor(Math.random() * quotes.value.length)

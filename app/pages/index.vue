@@ -236,10 +236,11 @@ const maskStyle = computed(() => {
 
             <NuxtLink
               to="/about"
+              :aria-label="t('Pelajari profil lengkap, filosofi engineering, dan pengalaman Ilham Kurniawan')"
               class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
             >
               <span class="relative z-10 flex items-center gap-2">
-                {{ t('See More') }}
+                {{ t('About Me') }}
               </span>
               <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
                 <Icon name="lucide:arrow-right" class="w-4 h-4" />

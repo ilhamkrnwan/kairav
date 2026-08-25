@@ -15,9 +15,6 @@ const siteUrl = config.public.siteUrl || 'https://ilhamkrnwan.my.id'
 
 const fullUrl = computed(() => {
   if (props.url) return props.url
-  if (import.meta.client && typeof window !== 'undefined') {
-    return window.location.href
-  }
   return `${siteUrl}${route.path}`
 })
 
@@ -29,8 +26,9 @@ const copySuccess = ref(false)
 
 const copyUrl = async () => {
   try {
+    const textToCopy = (import.meta.client && typeof window !== 'undefined') ? window.location.href : fullUrl.value
     if (navigator?.clipboard) {
-      await navigator.clipboard.writeText(fullUrl.value)
+      await navigator.clipboard.writeText(textToCopy)
       copySuccess.value = true
       setTimeout(() => {
         copySuccess.value = false

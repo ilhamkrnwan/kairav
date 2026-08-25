@@ -28,7 +28,7 @@
     const containerRef = ref<SVGSVGElement | null>(null)
     const dimensions = ref({ width: 0, height: 0 })
     const squares = ref<Array<{ id: number; pos: [number, number]; opacity: number }>>([])
-    const patternId = `pattern-${Math.random().toString(36).substr(2, 9)}`
+    const patternId = useId()
     
     const getPos = (): [number, number] => {
       return [

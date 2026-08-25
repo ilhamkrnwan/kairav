@@ -29,9 +29,12 @@ const { t, locale } = useI18n()
 
 // Dynamic SEO
 useDynamicSeo({
-  title: t('seo.gallery.title') || 'Galeri Visual & Dokumentasi Proyek — Ilham Kurniawan',
-  description: t('seo.gallery.description') || 'Koleksi visual lengkap seluruh layanan digital, arsitektur sistem, artikel blog, dan portofolio proyek oleh Ilham Kurniawan.',
+  titleKey: 'seo.gallery.title',
+  descriptionKey: 'seo.gallery.description',
 })
+
+// Schema.org ImageGallery structured data
+useGalleryPageSchema()
 
 // Query content collections
 const { data: servicesData } = await useAsyncData(

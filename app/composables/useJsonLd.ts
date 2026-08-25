@@ -115,6 +115,8 @@ const getPersonData = (siteUrl: string) => ({
   sameAs: [
     'https://github.com/ilhamkrnwan',
     'https://linkedin.com/in/ilhamkrnwan',
+    'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/',
+    'https://www.instagram.com/ilhamkrnwan__',
   ],
   worksFor: [
     {
@@ -146,6 +148,22 @@ const getPersonData = (siteUrl: string) => ({
     '@type': 'Country',
     name: 'Indonesia',
   },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Blora',
+    addressRegion: 'Jawa Tengah',
+    addressCountry: 'ID',
+  },
+  homeLocation: [
+    {
+      '@type': 'Place',
+      name: 'Blora, Jawa Tengah, Indonesia',
+    },
+    {
+      '@type': 'Place',
+      name: 'Sleman, DI Yogyakarta, Indonesia',
+    },
+  ],
 })
 
 /**
@@ -443,3 +461,45 @@ export const useBlogPostingSchema = (article: BlogPostingOptions = {}) => {
     ],
   })
 }
+
+/**
+ * Inject ImageGallery / CollectionPage schema - for the visual showcase gallery page.
+ */
+export const useGalleryPageSchema = () => {
+  const siteUrl = resolveSiteUrl()
+  const route = useRoute()
+  const galleryUrl = `${siteUrl}${route.path}`
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: 'Galeri Visual & Showcase Karya Digital — Ilham Kurniawan / KAIRAV',
+    description: 'Koleksi visual tangkapan layar website, desain antarmuka UI/UX, arsitektur sistem informasi, showcase layanan digital, dan dokumentasi proyek oleh Ilham Kurniawan.',
+    url: galleryUrl,
+    author: getPersonData(siteUrl),
+    creator: getPersonData(siteUrl),
+    about: [
+      'Website Design & Screenshots',
+      'UI/UX Design Showcase',
+      'System Architecture Diagrams',
+      'Digital Services Visuals',
+      'Software Engineering Case Studies',
+    ],
+    inLanguage: ['id-ID', 'en-US'],
+    mainEntityOfPage: {
+      '@type': 'CollectionPage',
+      '@id': galleryUrl,
+    },
+  }
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(schema),
+        tagPosition: 'head',
+      },
+    ],
+  })
+}
+

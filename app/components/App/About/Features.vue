@@ -185,7 +185,6 @@ const displayedFeatures = computed(() => features.value.slice(0, 6))
                 </div>
               </NuxtLink>
             </UiAnimatedCard>
-          </div>
         </div>
       </div>
     </div>

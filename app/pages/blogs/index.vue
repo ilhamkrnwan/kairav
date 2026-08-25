@@ -44,8 +44,23 @@ const filteredBlogs = computed(() => {
   return filtered
 })
 
+const featuredBlog = computed(() => {
+  // Tampilkan artikel sorotan jika tidak sedang mencari dan berada di kategori All
+  if (selectedCategory.value === 'All' && !searchQuery.value && filteredBlogs.value.length > 0) {
+    return filteredBlogs.value[0]
+  }
+  return null
+})
+
+const regularBlogs = computed(() => {
+  if (featuredBlog.value) {
+    return filteredBlogs.value.slice(1)
+  }
+  return filteredBlogs.value
+})
+
 const placeholderBlogCards = computed(() => {
-  if (filteredBlogs.value.length >= 1 && filteredBlogs.value.length <= 2) return 1
+  if (regularBlogs.value.length >= 1 && regularBlogs.value.length <= 2) return 1
   return 0
 })
 
@@ -188,9 +203,9 @@ useScrollReveal()
             <button
               v-for="category in categories"
               :key="category"
-              class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-sm sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
+              class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-sm sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer"
               :class="selectedCategory === category
-                ? 'bg-amber-400 text-gray-900 shadow-md sm:shadow-lg shadow-amber-400/25 scale-102 sm:scale-105'
+                ? 'bg-amber-400 text-gray-900 shadow-md sm:shadow-lg shadow-amber-400/25 scale-102 sm:scale-105 font-bold'
                 : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-102 sm:hover:scale-105'"
               @click="selectedCategory = category"
             >
@@ -199,15 +214,124 @@ useScrollReveal()
           </div>
         </div>
 
+        <!-- Featured / Highlight Article (Most Recent) -->
+        <div v-if="featuredBlog" class="mb-10 sm:mb-14 stagger-item">
+          <div class="flex items-center gap-2 mb-3 sm:mb-4">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+            </span>
+            <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
+              {{ t('Featured Article') }} / {{ t('Featured Essay') }}
+            </span>
+          </div>
+
+          <UiAnimatedCard
+            :glow-color="'251, 191, 36'"
+            :particle-count="10"
+            :enable-particles="true"
+            :enable-tilt="false"
+            :enable-magnetism="false"
+            :enable-border-glow="false"
+            :click-effect="true"
+          >
+            <NuxtLink
+              :to="getBlogLink(featuredBlog.path)"
+              class="group relative block rounded-sm sm:rounded-xl overflow-hidden bg-background/60 backdrop-blur-md border border-border/50 hover:border-amber-400/50 transition-all duration-500 shadow-2xl shadow-black/10"
+            >
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <!-- Cover Image Area (Left / Top) -->
+                <div class="lg:col-span-7 relative aspect-video lg:aspect-auto overflow-hidden bg-muted/20 min-h-[180px] sm:min-h-[300px] lg:min-h-[360px]">
+                  <NuxtImg
+                    :src="featuredBlog.coverImage || '/placeholder.avif'"
+                    :alt="featuredBlog.title"
+                    width="1280"
+                    height="720"
+                    format="avif"
+                    loading="eager"
+                    class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-linear-to-t lg:bg-linear-to-r from-black/80 via-black/30 to-transparent opacity-70" />
+                  
+                  <!-- Category Badge -->
+                  <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-amber-400/30 text-[9px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold shadow-lg">
+                      <Icon name="lucide:sparkles" class="w-3 h-3" />
+                      {{ featuredBlog.category || 'Tech' }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Content Area (Right / Bottom) -->
+                <div class="lg:col-span-5 p-4 sm:p-6 md:p-8 flex flex-col justify-between relative z-10 bg-background/40">
+                  <div>
+                    <!-- Meta Header: Date + Read time -->
+                    <div class="flex items-center gap-3 text-[9px] sm:text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2 sm:mb-4">
+                      <span class="text-amber-400 font-semibold">{{ formatDate(featuredBlog.date) }}</span>
+                      <span>•</span>
+                      <span class="flex items-center gap-1">
+                        <Icon name="lucide:clock" class="w-3 h-3 text-muted-foreground" />
+                        {{ featuredBlog.readTime || '5 min' }}
+                      </span>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-sm sm:text-lg md:text-xl lg:text-2xl font-heading font-bold text-foreground leading-snug mb-2 sm:mb-3 group-hover:text-amber-400 transition-colors duration-300 line-clamp-2 sm:line-clamp-3">
+                      {{ featuredBlog.title }}
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed mb-3 sm:mb-5 line-clamp-2 sm:line-clamp-4">
+                      {{ featuredBlog.description }}
+                    </p>
+
+                    <!-- Tags -->
+                    <div v-if="featuredBlog.tags && featuredBlog.tags.length > 0" class="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-5">
+                      <span
+                        v-for="tag in featuredBlog.tags.slice(0, 3)"
+                        :key="tag"
+                        class="inline-flex items-center px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-sm text-[8px] sm:text-[9px] font-mono uppercase tracking-wider bg-background/60 border border-border/40 text-foreground/80"
+                      >
+                        #{{ tag }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- CTA Button -->
+                  <div class="pt-3 border-t border-border/20 flex items-center justify-between">
+                    <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-amber-400 group-hover:text-amber-300 transition-colors">
+                      {{ t('Read Full Essay') }}
+                      <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                    </span>
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center group-hover:bg-amber-400 group-hover:text-black transition-all duration-300 text-amber-400">
+                      <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </NuxtLink>
+          </UiAnimatedCard>
+        </div>
+
+        <!-- Section Label when featured is shown -->
+        <div v-if="featuredBlog && regularBlogs.length > 0" class="flex items-center justify-between mb-6 stagger-item border-t border-border/20 pt-8">
+          <h3 class="text-xs sm:text-sm font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+            <Icon name="lucide:layers" class="w-3.5 h-3.5 text-amber-400" />
+            <span>{{ t('More Articles') }}</span>
+          </h3>
+          <span class="text-[10px] sm:text-xs font-mono text-muted-foreground">{{ regularBlogs.length }} {{ t('articles') }}</span>
+        </div>
+
         <!-- Blogs Grid Skeleton -->
         <div v-if="status === 'pending'" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiSkeletonBlogCard v-for="i in 6" :key="`blog-skeleton-${i}`" />
         </div>
 
         <!-- Blogs Grid -->
-        <div v-else-if="filteredBlogs.length > 0" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+        <div v-else-if="regularBlogs.length > 0" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiAnimatedCard
-            v-for="blog in filteredBlogs"
+            v-for="blog in regularBlogs"
             :key="blog.path"
             :glow-color="'251, 191, 36'"
             :particle-count="8"

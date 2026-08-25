@@ -37,11 +37,11 @@ const projectScopes = computed(() => [
 
 const locations = computed(() => [
   {
-    city: t('Kabupaten Blora'),
+    city: t('Blora'),
     region: t('Jawa Tengah'),
     description: t('Base kerja untuk kolaborasi remote, konsultasi project, dan koordinasi digital dengan client dari berbagai kota.'),
-    mapLabel: t('Peta area Kabupaten Blora'),
-    mapSrc: 'https://www.google.com/maps?q=Kabupaten%20Blora%2C%20Jawa%20Tengah&output=embed',
+    mapLabel: t('Peta area Blora'),
+    mapSrc: 'https://www.google.com/maps?q=Blora%2C%20Jawa%20Tengah&output=embed',
   },
   {
     city: t('Sleman'),

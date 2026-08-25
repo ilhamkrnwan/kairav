@@ -49,6 +49,20 @@ const filteredPortfolios = computed(() => {
   return filtered
 })
 
+const featuredPortfolio = computed(() => {
+  if (selectedCategory.value === 'All' && !searchQuery.value && filteredPortfolios.value.length > 0) {
+    return filteredPortfolios.value[0]
+  }
+  return null
+})
+
+const regularPortfolios = computed(() => {
+  if (featuredPortfolio.value) {
+    return filteredPortfolios.value.slice(1)
+  }
+  return filteredPortfolios.value
+})
+
 useDynamicSeo({
   titleKey: 'seo.portfolio.title',
   descriptionKey: 'seo.portfolio.description'
@@ -227,27 +241,108 @@ useScrollReveal()
 
         </div>
 
+        <!-- Featured / Highlight Project (Most Recent - Borderless Editorial Style) -->
+        <div v-if="featuredPortfolio" class="mb-14 sm:mb-20 stagger-item">
+          <NuxtLink
+            :to="getPortofolioLink(featuredPortfolio)"
+            class="group block"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+              <!-- Cover Image Area (Left) -->
+              <div class="lg:col-span-7 relative aspect-[16/9] overflow-hidden rounded-sm sm:rounded-2xl border border-border/30 bg-muted/20 shadow-2xl shadow-black/10 group-hover:border-amber-400/50 transition-all duration-500">
+                <NuxtImg
+                  :src="featuredPortfolio.image || '/placeholder.avif'"
+                  :alt="featuredPortfolio.title"
+                  width="1280"
+                  height="720"
+                  format="avif"
+                  loading="eager"
+                  class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                
+                <!-- Category Badge on Image -->
+                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/85 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold shadow-lg">
+                    <Icon name="lucide:sparkles" class="w-3 h-3" />
+                    {{ featuredPortfolio.category || 'Web App' }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Content / Editorial Info (Right - Borderless) -->
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <!-- Highlight Indicator -->
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+                  </span>
+                  <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
+                    {{ t('Featured Project') }}
+                  </span>
+                </div>
+
+                <!-- Meta Info: Client / Industry -->
+                <div class="flex items-center gap-3 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
+                  <span v-if="featuredPortfolio.client" class="text-foreground/90 font-medium">{{ featuredPortfolio.client }}</span>
+                  <span v-if="featuredPortfolio.client && featuredPortfolio.industry">•</span>
+                  <span v-if="featuredPortfolio.industry" class="text-muted-foreground">{{ featuredPortfolio.industry }}</span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-lg sm:text-2xl md:text-3xl font-heading font-black text-foreground leading-[1.15] mb-3 sm:mb-4 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                  {{ featuredPortfolio.title }}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-sm md:text-base font-light text-muted-foreground leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-4">
+                  {{ featuredPortfolio.description }}
+                </p>
+
+                <!-- Tags -->
+                <div v-if="featuredPortfolio.tags && featuredPortfolio.tags.length > 0" class="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
+                  <span
+                    v-for="tag in featuredPortfolio.tags.slice(0, 4)"
+                    :key="tag"
+                    class="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm text-[9px] sm:text-[10px] font-mono uppercase tracking-wider bg-background/60 border border-border/40 text-foreground/80"
+                  >
+                    #{{ tag }}
+                  </span>
+                </div>
+
+                <!-- CTA Action Link -->
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-amber-400 group-hover:text-amber-300 transition-colors">
+                    {{ t('View Case Study') }}
+                    <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+
+        <!-- Section Label when featured is shown -->
+        <div v-if="featuredPortfolio && regularPortfolios.length > 0" class="flex items-center justify-between mb-6 stagger-item border-t border-border/20 pt-8">
+          <h3 class="text-xs sm:text-sm font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+            <Icon name="lucide:layers" class="w-3.5 h-3.5 text-amber-400" />
+            <span>{{ t('More Projects') }}</span>
+          </h3>
+          <span class="text-[10px] sm:text-xs font-mono text-muted-foreground">{{ regularPortfolios.length }} {{ t('projects') }}</span>
+        </div>
+
         <!-- Project Cards Grid Skeleton -->
         <div v-if="status === 'pending'" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiSkeletonPortfolioCard v-for="i in 6" :key="`portfolio-skeleton-${i}`" />
         </div>
 
         <!-- ── Project Cards Grid ── -->
-        <div v-else-if="filteredPortfolios.length > 0" class="relative">
-          <!-- Hand-drawn Doodle Annotation pointing to portfolio card -->
-          <div class="absolute -top-9 left-2 hidden md:flex items-center gap-1 z-30 pointer-events-none select-none">
-            <span class="font-handwriting text-amber-600 dark:text-amber-400 text-lg font-bold tracking-wide -rotate-6 filter drop-shadow-xs whitespace-nowrap">
-              Open it
-            </span>
-            <svg class="w-12 h-9 text-amber-500 dark:text-amber-400 overflow-visible" viewBox="0 0 50 35" fill="none">
-              <path d="M 6 8 Q 28 6 36 26" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
-              <path d="M 26 22 L 37 27 L 38 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            </svg>
-          </div>
-
+        <div v-else-if="regularPortfolios.length > 0" class="relative">
           <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiAnimatedCard
-            v-for="project in filteredPortfolios"
+            v-for="project in regularPortfolios"
             :key="project.path"
             :glow-color="'251, 191, 36'"
             :particle-count="8"

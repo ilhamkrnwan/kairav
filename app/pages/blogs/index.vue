@@ -214,104 +214,90 @@ useScrollReveal()
           </div>
         </div>
 
-        <!-- Featured / Highlight Article (Most Recent) -->
-        <div v-if="featuredBlog" class="mb-10 sm:mb-14 stagger-item">
-          <div class="flex items-center gap-2 mb-3 sm:mb-4">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
-            </span>
-            <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
-              {{ t('Featured Article') }} / {{ t('Featured Essay') }}
-            </span>
-          </div>
-
-          <UiAnimatedCard
-            :glow-color="'251, 191, 36'"
-            :particle-count="10"
-            :enable-particles="true"
-            :enable-tilt="false"
-            :enable-magnetism="false"
-            :enable-border-glow="false"
-            :click-effect="true"
+        <!-- Featured / Highlight Article (Most Recent - Borderless Editorial Style) -->
+        <div v-if="featuredBlog" class="mb-14 sm:mb-20 stagger-item">
+          <NuxtLink
+            :to="getBlogLink(featuredBlog.path)"
+            class="group block"
           >
-            <NuxtLink
-              :to="getBlogLink(featuredBlog.path)"
-              class="group relative block rounded-sm sm:rounded-xl overflow-hidden bg-background/60 backdrop-blur-md border border-border/50 hover:border-amber-400/50 transition-all duration-500 shadow-2xl shadow-black/10"
-            >
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                <!-- Cover Image Area (Left / Top) -->
-                <div class="lg:col-span-7 relative aspect-video lg:aspect-auto overflow-hidden bg-muted/20 min-h-[180px] sm:min-h-[300px] lg:min-h-[360px]">
-                  <NuxtImg
-                    :src="featuredBlog.coverImage || '/placeholder.avif'"
-                    :alt="featuredBlog.title"
-                    width="1280"
-                    height="720"
-                    format="avif"
-                    loading="eager"
-                    class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  <!-- Gradient overlay -->
-                  <div class="absolute inset-0 bg-linear-to-t lg:bg-linear-to-r from-black/80 via-black/30 to-transparent opacity-70" />
-                  
-                  <!-- Category Badge -->
-                  <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-amber-400/30 text-[9px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold shadow-lg">
-                      <Icon name="lucide:sparkles" class="w-3 h-3" />
-                      {{ featuredBlog.category || 'Tech' }}
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Content Area (Right / Bottom) -->
-                <div class="lg:col-span-5 p-4 sm:p-6 md:p-8 flex flex-col justify-between relative z-10 bg-background/40">
-                  <div>
-                    <!-- Meta Header: Date + Read time -->
-                    <div class="flex items-center gap-3 text-[9px] sm:text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2 sm:mb-4">
-                      <span class="text-amber-400 font-semibold">{{ formatDate(featuredBlog.date) }}</span>
-                      <span>•</span>
-                      <span class="flex items-center gap-1">
-                        <Icon name="lucide:clock" class="w-3 h-3 text-muted-foreground" />
-                        {{ featuredBlog.readTime || '5 min' }}
-                      </span>
-                    </div>
-
-                    <!-- Title -->
-                    <h3 class="text-sm sm:text-lg md:text-xl lg:text-2xl font-heading font-bold text-foreground leading-snug mb-2 sm:mb-3 group-hover:text-amber-400 transition-colors duration-300 line-clamp-2 sm:line-clamp-3">
-                      {{ featuredBlog.title }}
-                    </h3>
-
-                    <!-- Description -->
-                    <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed mb-3 sm:mb-5 line-clamp-2 sm:line-clamp-4">
-                      {{ featuredBlog.description }}
-                    </p>
-
-                    <!-- Tags -->
-                    <div v-if="featuredBlog.tags && featuredBlog.tags.length > 0" class="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-5">
-                      <span
-                        v-for="tag in featuredBlog.tags.slice(0, 3)"
-                        :key="tag"
-                        class="inline-flex items-center px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-sm text-[8px] sm:text-[9px] font-mono uppercase tracking-wider bg-background/60 border border-border/40 text-foreground/80"
-                      >
-                        #{{ tag }}
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- CTA Button -->
-                  <div class="pt-3 border-t border-border/20 flex items-center justify-between">
-                    <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-amber-400 group-hover:text-amber-300 transition-colors">
-                      {{ t('Read Full Essay') }}
-                      <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                    </span>
-                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center group-hover:bg-amber-400 group-hover:text-black transition-all duration-300 text-amber-400">
-                      <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5" />
-                    </div>
-                  </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+              <!-- Cover Image Area (Left) -->
+              <div class="lg:col-span-7 relative aspect-[16/9] overflow-hidden rounded-sm sm:rounded-2xl border border-border/30 bg-muted/20 shadow-2xl shadow-black/10 group-hover:border-amber-400/50 transition-all duration-500">
+                <NuxtImg
+                  :src="featuredBlog.coverImage || '/placeholder.avif'"
+                  :alt="featuredBlog.title"
+                  width="1280"
+                  height="720"
+                  format="avif"
+                  loading="eager"
+                  class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                
+                <!-- Category Badge on Image -->
+                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/85 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold shadow-lg">
+                    <Icon name="lucide:sparkles" class="w-3 h-3" />
+                    {{ featuredBlog.category || 'Tech' }}
+                  </span>
                 </div>
               </div>
-            </NuxtLink>
-          </UiAnimatedCard>
+
+              <!-- Content / Editorial Info (Right - Borderless) -->
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <!-- Highlight Indicator -->
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+                  </span>
+                  <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
+                    {{ t('Featured Article') }}
+                  </span>
+                </div>
+
+                <!-- Meta Info: Date + Read Time -->
+                <div class="flex items-center gap-3 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
+                  <span class="text-foreground/90 font-medium">{{ formatDate(featuredBlog.date) }}</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1 text-muted-foreground">
+                    <Icon name="lucide:clock" class="w-3 h-3 text-amber-400" />
+                    {{ featuredBlog.readTime || '5 min' }}
+                  </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-lg sm:text-2xl md:text-3xl font-heading font-black text-foreground leading-[1.15] mb-3 sm:mb-4 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                  {{ featuredBlog.title }}
+                </h3>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-sm md:text-base font-light text-muted-foreground leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-4">
+                  {{ featuredBlog.description }}
+                </p>
+
+                <!-- Tags -->
+                <div v-if="featuredBlog.tags && featuredBlog.tags.length > 0" class="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
+                  <span
+                    v-for="tag in featuredBlog.tags.slice(0, 3)"
+                    :key="tag"
+                    class="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm text-[9px] sm:text-[10px] font-mono uppercase tracking-wider bg-background/60 border border-border/40 text-foreground/80"
+                  >
+                    #{{ tag }}
+                  </span>
+                </div>
+
+                <!-- CTA Action Link -->
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-amber-400 group-hover:text-amber-300 transition-colors">
+                    {{ t('Read Full Essay') }}
+                    <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
         </div>
 
         <!-- Section Label when featured is shown -->

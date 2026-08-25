@@ -3,13 +3,6 @@ const { t } = useI18n()
 
 const allWorkItems = computed(() => [
   {
-    logo: '/logo/medskillindonesia.avif',
-    type: t('Freelance'),
-    title: t('Fullstack Developer at PRAXIS by Medskill Indonesia'),
-    date: t('August 2026 - Present'),
-    description: t('Developed and engineered the OSCE (Objective Structured Clinical Examination) assessment and management system for Medskill Indonesia (PRAXIS), delivering high-performance, secure, and intuitive web solutions for clinical examinations and healthcare training.')
-  },
-  {
     logo: '/logo/kairav.avif',
     type: t('Open for Work'),
     title: t('Fullstack Developer'),
@@ -36,6 +29,13 @@ const allWorkItems = computed(() => [
     title: t('Fullstack Web & Android Developer at Jurutani'),
     date: t('2025 - Present'),
     description: t('Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.')
+  },
+  {
+    logo: '/logo/medskillindonesia.avif',
+    type: t('Freelance'),
+    title: t('Fullstack Developer at PRAXIS by Medskill Indonesia'),
+    date: t('August 2026 - Present'),
+    description: t('Developed and engineered the OSCE (Objective Structured Clinical Examination) assessment and management system for Medskill Indonesia (PRAXIS), delivering high-performance, secure, and intuitive web solutions for clinical examinations and healthcare training.')
   },
   {
     logo: '/logo/baznas.avif',

@@ -140,17 +140,17 @@ const covers = [
   },
   {
     filename: 'if-its-meant-for-you',
-    tag: 'FAITH & SURRENDER',
+    tag: 'IKHTIAR & KEDAMAIAN',
     title: "IF IT'S MEANT FOR YOU",
     subtitle: 'IT WILL FIND ITS WAY TO YOU',
-    desc: 'Relentless Effort · Active Surrender · Trusting Divine Redirection',
+    desc: 'Ikhtiar Maksimal · Berserah dengan Tenang · Kedamaian Takdir',
     theme: {
-      bg1: '#030712',
-      bg2: '#082f49',
-      accent1: '#0284c7',
-      accent2: '#06b6d4',
-      accent3: '#38bdf8',
-      pattern: 'storm-compass'
+      bg1: '#090805',
+      bg2: '#281a06',
+      accent1: '#f59e0b',
+      accent2: '#fbbf24',
+      accent3: '#fef08a',
+      pattern: 'orbit-rings'
     }
   },
   {

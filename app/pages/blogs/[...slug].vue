@@ -248,7 +248,7 @@ const breadcrumbItems = computed(() => [
 
               <!-- Sidebar -->
               <aside class="lg:col-span-4">
-                <div class="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-4 pr-1">
+                <div class="sticky top-28 space-y-4">
                   <div
                     v-motion
                     :initial="{ opacity: 0, y: 30 }"

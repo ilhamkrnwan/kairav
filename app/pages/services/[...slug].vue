@@ -155,7 +155,7 @@ const breadcrumbItems = computed(() => [
             </article>
 
             <aside class="lg:col-span-4">
-              <div class="lg:sticky lg:top-20 rounded-sm border border-border/40 bg-background/60 backdrop-blur-md p-5 max-h-[calc(100vh-6rem)] overflow-y-auto custom-scrollbar shadow-xl shadow-black/5">
+              <div class="lg:sticky lg:top-28 rounded-sm border border-border/40 bg-background/60 backdrop-blur-md p-5 shadow-xl shadow-black/5">
                 <h2 class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4 flex items-center gap-2">
                   <Icon name="lucide:check-circle" class="w-3.5 h-3.5 text-amber-400" />
                   <span>{{ t('Deliverables') }}</span>

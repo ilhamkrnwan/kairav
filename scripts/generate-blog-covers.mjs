@@ -107,6 +107,96 @@ const covers = [
       accent3: '#e2e8f0',
       pattern: 'forge-anvil'
     }
+  },
+  {
+    filename: 'seni-merelakan-kehilangan-dan-bersyukur',
+    tag: 'MINDFULNESS & GRATITUDE',
+    title: 'SENI MERELAKAN &',
+    subtitle: 'BERSYUKUR ATAS KEHADIRANNYA',
+    desc: 'Graceful Departures · Gratitude in Presence · Meeting in Best Versions',
+    theme: {
+      bg1: '#0a060e',
+      bg2: '#3b0764',
+      accent1: '#f43f5e',
+      accent2: '#fbbf24',
+      accent3: '#fbcfe8',
+      pattern: 'orbit-rings'
+    }
+  },
+  {
+    filename: 'risk-is-better-than-regret',
+    tag: 'COURAGE & ACTION',
+    title: 'RISK IS BETTER THAN REGRET',
+    subtitle: 'KEBERANIAN MENGAMBIL RISIKO',
+    desc: 'Overcoming Comfort Zones · Cost of Inaction · Daring to Step Up',
+    theme: {
+      bg1: '#0f0505',
+      bg2: '#450a0a',
+      accent1: '#ef4444',
+      accent2: '#f59e0b',
+      accent3: '#fef08a',
+      pattern: 'forge-anvil'
+    }
+  },
+  {
+    filename: 'if-its-meant-for-you',
+    tag: 'FAITH & SURRENDER',
+    title: "IF IT'S MEANT FOR YOU",
+    subtitle: 'IT WILL FIND ITS WAY TO YOU',
+    desc: 'Relentless Effort · Active Surrender · Trusting Divine Redirection',
+    theme: {
+      bg1: '#030712',
+      bg2: '#082f49',
+      accent1: '#0284c7',
+      accent2: '#06b6d4',
+      accent3: '#38bdf8',
+      pattern: 'storm-compass'
+    }
+  },
+  {
+    filename: 'memperbaiki-cacat-logika',
+    tag: 'CRITICAL THINKING',
+    title: 'MEMBONGKAR CACAT LOGIKA',
+    subtitle: 'DALAM MEMANDANG HIDUP',
+    desc: 'Cognitive Biases · Sunk Cost Fallacy · Rational Clarity & Peace',
+    theme: {
+      bg1: '#060b13',
+      bg2: '#1e1b4b',
+      accent1: '#6366f1',
+      accent2: '#8b5cf6',
+      accent3: '#a5b4fc',
+      pattern: 'circuits'
+    }
+  },
+  {
+    filename: 'beauty-privilege-dan-integritas',
+    tag: 'CHARACTER & ETHICS',
+    title: 'BEAUTY PRIVILEGE ITU NYATA',
+    subtitle: 'TAPI INTEGRITAS MEMBUATNYA ABADI',
+    desc: 'Halo Effect · Surface Allure vs Character · Non-Depreciating Asset',
+    theme: {
+      bg1: '#0b0904',
+      bg2: '#291e07',
+      accent1: '#d97706',
+      accent2: '#eab308',
+      accent3: '#fef08a',
+      pattern: 'pillar-network'
+    }
+  },
+  {
+    filename: 'seni-menyayangi-diri-sendiri',
+    tag: 'SELF LOVE & PEACE',
+    title: 'SENI MENYAYANGI DIRI',
+    subtitle: 'MENJADI RUMAH TERBAIK BAGI JIWA',
+    desc: 'Healthy Boundaries · Forgiving the Past · Radical Self-Compassion',
+    theme: {
+      bg1: '#0d0510',
+      bg2: '#310d3e',
+      accent1: '#ec4899',
+      accent2: '#a855f7',
+      accent3: '#f472b6',
+      pattern: 'orbit-rings'
+    }
   }
 ];
 

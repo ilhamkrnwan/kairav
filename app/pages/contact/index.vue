@@ -95,27 +95,29 @@ useScrollReveal()
         </div>
 
         <div class="lg:col-span-7 stagger-item">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
             <a
               v-for="method in contactMethods"
               :key="method.label"
               :href="method.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="group rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm p-6 transition-all duration-300 hover:border-amber-400/50 hover:bg-background/80"
+              class="group rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm p-3.5 sm:p-5 md:p-6 transition-all duration-300 hover:border-amber-400/50 hover:bg-background/80 flex flex-col justify-between"
             >
-              <div class="flex items-start justify-between gap-4 mb-8">
-                <div class="w-12 h-12 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center">
-                  <Icon :name="method.icon" class="w-5 h-5 text-amber-400" />
+              <div>
+                <div class="flex items-start justify-between gap-1 mb-3 sm:mb-6 md:mb-8">
+                  <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center shrink-0">
+                    <Icon :name="method.icon" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                  </div>
+                  <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-amber-400" />
                 </div>
-                <Icon name="lucide:arrow-up-right" class="w-4 h-4 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-amber-400" />
+                <p class="text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1 sm:mb-2">
+                  {{ method.label }}
+                </p>
+                <p class="text-xs sm:text-base font-heading font-semibold text-foreground break-words line-clamp-2">
+                  {{ method.value }}
+                </p>
               </div>
-              <p class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-                {{ method.label }}
-              </p>
-              <p class="text-base font-heading font-semibold text-foreground break-words">
-                {{ method.value }}
-              </p>
             </a>
           </div>
 
@@ -232,7 +234,7 @@ useScrollReveal()
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -240,11 +242,11 @@ useScrollReveal()
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

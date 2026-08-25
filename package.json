@@ -3,6 +3,9 @@
   "type": "module",
   "packageManager": "bun@1.3.11",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "assets:audit-images": "node scripts/assets-avif.mjs audit",
     "assets:convert-avif": "node scripts/assets-avif.mjs convert --update-references",

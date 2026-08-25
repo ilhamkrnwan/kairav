@@ -127,7 +127,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     }
     
     // Default OG image (use .jpg for maximum social media compatibility)
-    return `${siteUrl}/og-image.avif`
+    return `${siteUrl}/og-image.jpg`
   }
 
   const getOgLabel = () => {
@@ -142,7 +142,10 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     return 'Digital Solution'
   }
 
-  if (!options.disableDynamicOg) {
+  // Use direct image for slug pages or when an explicit image is provided; otherwise generate dynamic OG image
+  const shouldUseDirectImage = Boolean(options.disableDynamicOg || options.image)
+
+  if (!shouldUseDirectImage) {
     defineOgImage('DefaultOgImage', {
       title: getTitle(),
       description: getDescription(),
@@ -168,12 +171,8 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     ogDescription: getDescription,
     ogType: options.type || 'website',
     ogUrl: getCanonical,
-    ...(options.disableDynamicOg
-      ? {
-          ogImage: getImage,
-          ogImageAlt: getTitle,
-        }
-      : {}),
+    ogImage: getImage,
+    ogImageAlt: getTitle,
     ogLocale: locale.value === 'id' ? 'id_ID' : 'en_US',
     ogSiteName: siteName,
     
@@ -188,12 +187,8 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     twitterCard: options.twitterCard || 'summary_large_image',
     twitterTitle: getTitle,
     twitterDescription: getDescription,
-    ...(options.disableDynamicOg
-      ? {
-          twitterImage: getImage,
-          twitterImageAlt: getTitle,
-        }
-      : {}),
+    twitterImage: getImage,
+    twitterImageAlt: getTitle,
     
     // Additional meta tags
     robots: 'index, follow',

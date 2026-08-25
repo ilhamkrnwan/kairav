@@ -11,12 +11,12 @@ interface GalleryItem {
   description?: string
   image: string
   category: string
-  categoryKey: 'services' | 'blogs' | 'portfolio' | 'creative'
+  categoryKey: 'services' | 'blogs' | 'portfolio'
   categoryLabel: string
   icon: string
   link?: string
   linkText?: string
-  type: 'service' | 'blog' | 'portfolio' | 'creative'
+  type: 'service' | 'blog' | 'portfolio'
   tags?: string[]
   date?: string
   author?: string
@@ -63,100 +63,6 @@ const { data: portfolioData } = await useAsyncData(
       .all(),
   { watch: [locale] }
 )
-
-// Static creative/photography items
-const creativeItems = computed<GalleryItem[]>(() => [
-  {
-    id: 'creative-1',
-    title: t('Portrait & Expression') || 'Portrait & Expression',
-    description: t('Capturing emotions and authentic personality in natural lighting') || 'Menangkap emosi dan karakter alami melalui pencahayaan natural.',
-    image: '/gallery/1.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:camera',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Street', 'Portrait', 'Lens']
-  },
-  {
-    id: 'creative-2',
-    title: t('Urban Exploration') || 'Urban Exploration',
-    description: t('Discovering architectural rhythm and geometry in urban spaces') || 'Menemukan keindahan geometri arsitektur dan ritme ruang perkotaan.',
-    image: '/gallery/2.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:building-2',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Architecture', 'Cityscape']
-  },
-  {
-    id: 'creative-3',
-    title: t('Nature & Serenity') || 'Nature & Serenity',
-    description: t('Finding stillness and organic textures in natural landscapes') || 'Merekam ketenangan dan kehangatan lanskap alam.',
-    image: '/gallery/3.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:trees',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Nature', 'Landscape']
-  },
-  {
-    id: 'creative-4',
-    title: t('Everyday Life Moments') || 'Everyday Life Moments',
-    description: t('Candid visual stories from daily activities and spontaneous encounters') || 'Cerita visual spontan dari rutinitas dan interaksi sehari-hari.',
-    image: '/gallery/4.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:aperture',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Candid', 'Life']
-  },
-  {
-    id: 'creative-5',
-    title: t('Creative Experimentation') || 'Creative Experimentation',
-    description: t('Exploring angles, contrast, and monochrome visual narratives') || 'Eksplorasi sudut pandang, kontras, dan narasi monokrom.',
-    image: '/gallery/5.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:palette',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Creative', 'Experiment']
-  },
-  {
-    id: 'creative-6',
-    title: t('Night & Ambience') || 'Night & Ambience',
-    description: t('Atmospheric lighting and night reflections in the city') || 'Tata cahaya malam dan refleksi suasana temaram di sudut kota.',
-    image: '/gallery/6.avif',
-    category: t('Photography') || 'Fotografi',
-    categoryKey: 'creative',
-    categoryLabel: t('Photography') || 'Fotografi',
-    icon: 'lucide:moon',
-    link: 'https://www.instagram.com/ilhamkrnwan__',
-    linkText: t('View on Instagram') || 'Kunjungi Instagram',
-    type: 'creative',
-    isExternal: true,
-    tags: ['Night', 'Mood']
-  }
-])
 
 // Aggregate all gallery items
 const allGalleryItems = computed<GalleryItem[]>(() => {
@@ -228,9 +134,6 @@ const allGalleryItems = computed<GalleryItem[]>(() => {
       })
     }
   }
-
-  // 4. Append Creative Items
-  list.push(...creativeItems.value)
 
   return list
 })
@@ -325,29 +228,73 @@ useScrollReveal()
 <template>
   <div class="min-h-screen">
     <!-- HERO SECTION -->
-    <section 
-      v-motion
-      :initial="{ opacity: 0, y: 30 }"
-      :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-      class="py-16 md:py-24 px-4 border-b border-border/40"
-    >
-      <div class="container mx-auto max-w-6xl text-center">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
-            {{ t('Visual Archive & Showcase') || 'Arsip Visual & Showcase' }}
+    <section class="relative w-full flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-12 overflow-hidden">
+      <!-- Background decorative blobs -->
+      <div class="absolute top-1/4 -left-32 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8 animate-fade-in-up">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400" />
           </span>
+          <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest">{{ t('Welcome to my gallery') }}</span>
         </div>
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-8 leading-tight uppercase">
-          {{ t('Visual') || 'Visual' }} & {{ t('Gallery') || 'Galeri' }}
+        <!-- Main Heading -->
+        <h1 class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
+          <span class="section-title-filled block">{{ t('Visual') }}</span>
+          <span class="section-title-outline text-foreground block">& {{ t('Gallery') }}<span class="text-amber-400 !important">.</span></span>
         </h1>
 
-        <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
-          {{ t('Explore a curated collection of visual works, digital services, and project documentation across') || 'Jelajahi kurasi dokumentasi visual, layanan digital, dan portofolio proyek dalam balutan' }}
-          <span class="text-amber-400">{{ t('architecture, design,') || 'arsitektur, desain,' }}</span>
-          {{ t('and') || 'dan' }}
-          <span class="text-amber-400">{{ t('creative photography.') || 'fotografi kreatif.' }}</span>
+        <!-- Subtitle -->
+        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-light">
+          {{ t('Explore a curated collection of visual works, digital services, and project documentation across') }}
+          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3" class="font-medium">
+            {{ t('architecture, design,') }}
+          </UiTextGradient>
+          {{ t('and') }}
+          <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3" class="font-medium">
+            {{ t('digital solutions.') }}
+          </UiTextGradient>
         </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
+          <NuxtLink
+            to="#gallery-grid"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
+          >
+            <div class="absolute inset-0 z-0 overflow-hidden rounded-sm">
+              <div class="absolute top-0 -left-full h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-700 group-hover:left-[200%]"></div>
+            </div>
+            <span class="relative z-10 flex items-center gap-2">
+              {{ t('Explore Gallery') }}
+            </span>
+            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
+              <Icon name="lucide:arrow-down" class="w-4 h-4" />
+            </span>
+          </NuxtLink>
+          <NuxtLink
+            to="/"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              {{ t('Back to Home') }}
+            </span>
+            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
+              <Icon name="lucide:home" class="w-4 h-4" />
+            </span>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span class="text-xs text-muted-foreground font-mono">{{ t('scroll') }}</span>
+        <Icon name="lucide:chevrons-down" class="w-4 h-4 text-amber-400/60" />
       </div>
     </section>
 
@@ -372,7 +319,7 @@ useScrollReveal()
             :key="item.id"
             @click="openModal(item)"
             :class="[
-              'group relative rounded-xl sm:rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer stagger-item',
+              'group relative rounded-sm sm:rounded-2xl overflow-hidden bg-muted/20 border border-border/40 hover:border-amber-400/60 shadow-md hover:shadow-2xl hover:shadow-amber-400/20 transition-all duration-500 cursor-pointer stagger-item',
               getBentoSpanClass(index)
             ]"
           >
@@ -444,14 +391,14 @@ useScrollReveal()
 
           <!-- Modal Dialog Content Container -->
           <div
-            class="relative w-full max-w-5xl my-auto rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800 shadow-2xl shadow-black/90 flex flex-col lg:flex-row transition-all duration-300 max-h-[90vh]"
+            class="relative w-full max-w-5xl my-auto rounded-sm sm:rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800 shadow-2xl shadow-black/90 flex flex-col lg:flex-row transition-all duration-300 max-h-[90vh]"
           >
             <!-- Left: Media Viewer -->
             <div class="lg:w-7/12 bg-black/80 flex items-center justify-center p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-zinc-800/80 relative min-h-[300px] sm:min-h-[420px]">
               <img
                 :src="activeItem.image"
                 :alt="activeItem.title"
-                class="max-h-[65vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
+                class="max-h-[65vh] w-auto max-w-full object-contain rounded-sm sm:rounded-lg shadow-2xl"
               >
               <!-- Index Counter Badge -->
               <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-zinc-300">
@@ -521,7 +468,7 @@ useScrollReveal()
                   :target="activeItem.isExternal ? '_blank' : '_self'"
                   :rel="activeItem.isExternal ? 'noopener noreferrer' : undefined"
                   @click="closeModal"
-                  class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] text-center"
+                  class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm sm:rounded-lg font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] text-center"
                 >
                   <span>{{ activeItem.linkText || (t('View Details') || 'Buka Halaman Lengkap') }}</span>
                   <Icon name="lucide:arrow-right" class="w-4 h-4" />
@@ -548,7 +495,7 @@ useScrollReveal()
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -556,11 +503,11 @@ useScrollReveal()
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 

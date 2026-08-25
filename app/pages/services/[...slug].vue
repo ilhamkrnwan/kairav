@@ -62,7 +62,8 @@ if (status.value !== 'pending' && (error.value || !current.value)) {
 
 useDynamicSeo({
   title: current.value?.seo?.title || current.value?.title,
-  description: current.value?.seo?.description || current.value?.description || t('View service details')
+  description: current.value?.seo?.description || current.value?.description || t('View service details'),
+  image: current.value?.coverImage || current.value?.image
 })
 
 useServiceSchema({
@@ -87,39 +88,39 @@ const breadcrumbItems = computed(() => [
       <UiSkeletonDetail type="service" />
     </template>
     <template v-else-if="current">
-      <section class="py-16 md:py-24 px-4 border-b border-border/40">
+      <section class="py-10 sm:py-16 md:py-24 px-4 border-b border-border/40">
         <div class="container mx-auto max-w-6xl text-center">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
+          <div class="mb-4 sm:mb-6">
+            <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
               {{ current.category }}
             </span>
           </div>
 
-          <div class="mx-auto mb-8 w-16 h-16 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center">
-            <Icon :name="current.icon || 'lucide:layers'" class="w-7 h-7 text-amber-400" />
+          <div class="mx-auto mb-6 sm:mb-8 w-12 h-12 sm:w-16 sm:h-16 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center">
+            <Icon :name="current.icon || 'lucide:layers'" class="w-5 h-5 sm:w-7 sm:h-7 text-amber-400" />
           </div>
 
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-8 leading-tight uppercase">
+          <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-4 sm:mb-6 md:mb-8 leading-snug sm:leading-tight uppercase">
             {{ current.title }}
           </h1>
 
-          <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
+          <p class="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium leading-relaxed">
             {{ current.description }}
           </p>
 
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
-            <div v-if="current.duration" class="flex items-center gap-2 bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:calendar-clock" class="w-3.5 h-3.5 text-amber-400" />
+          <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
+            <div v-if="current.duration" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
+              <Icon name="lucide:calendar-clock" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
               <span>{{ current.duration }}</span>
             </div>
-            <div v-if="current.featured" class="flex items-center gap-2 bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:sparkles" class="w-3.5 h-3.5 text-amber-400" />
+            <div v-if="current.featured" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
+              <Icon name="lucide:sparkles" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
               <span>{{ t('Featured Service') }}</span>
             </div>
           </div>
 
           <!-- Breadcrumbs at the bottom of hero above section border -->
-          <div class="mt-8 flex justify-center">
+          <div class="mt-6 sm:mt-8 flex justify-center">
             <UiBreadcrumb :items="breadcrumbItems" />
           </div>
         </div>
@@ -154,26 +155,27 @@ const breadcrumbItems = computed(() => [
             </article>
 
             <aside class="lg:col-span-4">
-              <div class="lg:sticky lg:top-28 rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm p-6">
-                <h2 class="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-5">
-                  {{ t('Deliverables') }}
+              <div class="lg:sticky lg:top-20 rounded-sm border border-border/40 bg-background/60 backdrop-blur-md p-5 max-h-[calc(100vh-6rem)] overflow-y-auto custom-scrollbar shadow-xl shadow-black/5">
+                <h2 class="text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4 flex items-center gap-2">
+                  <Icon name="lucide:check-circle" class="w-3.5 h-3.5 text-amber-400" />
+                  <span>{{ t('Deliverables') }}</span>
                 </h2>
-                <ul class="space-y-3 mb-8">
+                <ul class="space-y-2.5 mb-5">
                   <li
                     v-for="deliverable in current.deliverables"
                     :key="deliverable"
-                    class="flex items-start gap-3 text-sm text-foreground/80"
+                    class="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90 leading-snug"
                   >
-                    <Icon name="lucide:check" class="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                    <Icon name="lucide:check" class="w-3.5 h-3.5 text-amber-400 mt-0.5 shrink-0" />
                     <span>{{ deliverable }}</span>
                   </li>
                 </ul>
 
-                <div class="flex flex-wrap gap-2 mb-8">
+                <div v-if="current.tags && current.tags.length > 0" class="flex flex-wrap gap-1.5 mb-5">
                   <span
                     v-for="tag in current.tags"
                     :key="tag"
-                    class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-background/70 border border-border/40 text-foreground"
+                    class="inline-flex items-center px-2 py-0.5 rounded-sm text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-background/80 border border-border/40 text-muted-foreground hover:border-amber-400/50 hover:text-foreground transition-colors"
                   >
                     {{ tag }}
                   </span>
@@ -181,11 +183,16 @@ const breadcrumbItems = computed(() => [
 
                 <NuxtLink
                   to="/contact"
-                  class="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-amber-400 px-5 py-3 text-xs font-mono font-bold uppercase tracking-widest text-black transition-colors hover:bg-amber-500"
+                  class="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-amber-400 px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-widest text-black transition-all hover:bg-amber-500 shadow-md shadow-amber-400/20 mb-5"
                 >
                   {{ t('Discuss This Service') }}
-                  <Icon name="lucide:send" class="w-4 h-4" />
+                  <Icon name="lucide:send" class="w-3.5 h-3.5" />
                 </NuxtLink>
+
+                <!-- Share Service -->
+                <div class="pt-4 border-t border-border/40">
+                  <AppSocialShare :title="current.title" :label="t('Share Service')" />
+                </div>
               </div>
             </aside>
           </div>
@@ -211,7 +218,7 @@ const breadcrumbItems = computed(() => [
             <span class="section-title-filled block">{{ t('More') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Services') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <!-- Previous Service -->
             <UiAnimatedCard
               v-if="prevService"
@@ -225,37 +232,67 @@ const breadcrumbItems = computed(() => [
             >
               <NuxtLink 
                 :to="getServiceLink(prevService)"
-                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-64 shadow-xl shadow-black/5"
+                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-xl shadow-black/5"
               >
-                <!-- Default content layer -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:border-amber-400/10 transition-colors duration-300">
-                  <div class="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">
-                    <Icon name="lucide:arrow-left" class="w-3.5 h-3.5" />
-                    <span>{{ t('Previous Service') }}</span>
+                <!-- ── Image layer (visible on hover) ── -->
+                <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <NuxtImg
+                    :src="prevService.coverImage || prevService.image || '/placeholder.avif'"
+                    :alt="prevService.title"
+                    width="600"
+                    height="337"
+                    format="avif"
+                    loading="lazy"
+                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                  <!-- Direction indicator top-left -->
+                  <div class="absolute top-2 left-2 sm:top-4 sm:left-4 flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[8px] sm:text-[10px] uppercase tracking-wider translate-x-1 -translate-y-1 sm:translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                    <Icon name="lucide:arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500" />
+                    {{ t('Previous') }}
+                  </div>
+                  <!-- Info bottom -->
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2">
+                      {{ prevService.category }}
+                    </span>
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug uppercase line-clamp-2">
+                      {{ prevService.title }}
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- ── Default content layer (hidden on hover) ── -->
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <div class="flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono tracking-wider uppercase text-muted-foreground mb-2 sm:mb-4">
+                    <Icon name="lucide:arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span class="truncate">{{ t('Previous Service') }}</span>
                   </div>
 
-                  <div class="flex items-start justify-between mb-4">
-                    <div class="w-12 h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm group-hover:from-amber-400/20 group-hover:to-orange-500/20">
-                      <Icon :name="prevService.icon || 'lucide:layers'" class="w-5 h-5 text-amber-400" />
+                  <div class="flex items-start justify-between gap-1 mb-2 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm group-hover:from-amber-400/20 group-hover:to-orange-500/20 shrink-0">
+                      <Icon :name="prevService.icon || 'lucide:layers'" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
                     </div>
-                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-wider truncate max-w-[75px] sm:max-w-none">
                       {{ prevService.category }}
                     </span>
                   </div>
 
-                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug uppercase group-hover:text-amber-400 transition-colors">
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-2 text-foreground leading-snug uppercase group-hover:text-amber-400 transition-colors line-clamp-2">
                     {{ prevService.title }}
                   </h3>
 
-                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1 font-medium">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1 font-medium">
                     {{ prevService.description }}
                   </p>
 
-                  <div class="flex items-center justify-between mt-auto pt-4 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                    <span>{{ prevService.duration }}</span>
-                    <span class="inline-flex items-center gap-2 text-amber-400 group-hover:-translate-x-1 transition-transform">
-                      <Icon name="lucide:arrow-left" class="w-3.5 h-3.5" />
-                      {{ t('Selengkapnya') }}
+                  <div class="flex items-center justify-between mt-auto pt-2 sm:pt-4 text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    <span class="truncate">{{ prevService.duration }}</span>
+                    <span class="inline-flex items-center gap-1 sm:gap-2 text-amber-400 group-hover:-translate-x-1 transition-transform shrink-0">
+                      <Icon name="lucide:arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span class="hidden sm:inline">{{ t('Selengkapnya') }}</span>
                     </span>
                   </div>
                 </div>
@@ -275,38 +312,68 @@ const breadcrumbItems = computed(() => [
             >
               <NuxtLink 
                 :to="getServiceLink(nextService)"
-                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-64 shadow-xl shadow-black/5"
+                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-xl shadow-black/5"
               >
-                <!-- Default content layer -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:border-amber-400/10 transition-colors duration-300 items-end text-right">
-                  <div class="flex items-center justify-end gap-2 text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4 w-full">
-                    <span>{{ t('Next Service') }}</span>
-                    <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+                <!-- ── Image layer (visible on hover) ── -->
+                <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                  <NuxtImg
+                    :src="nextService.coverImage || nextService.image || '/placeholder.avif'"
+                    :alt="nextService.title"
+                    width="600"
+                    height="337"
+                    format="avif"
+                    loading="lazy"
+                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                  />
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                  <!-- Direction indicator top-right -->
+                  <div class="absolute top-2 right-2 sm:top-4 sm:right-4 flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[8px] sm:text-[10px] uppercase tracking-wider -translate-x-1 -translate-y-1 sm:-translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                    {{ t('Next') }}
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500" />
                   </div>
-
-                  <div class="flex items-center justify-between mb-4 w-full">
-                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+                  <!-- Info bottom -->
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-right">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2">
                       {{ nextService.category }}
                     </span>
-                    <div class="w-12 h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm group-hover:from-amber-400/20 group-hover:to-orange-500/20">
-                      <Icon :name="nextService.icon || 'lucide:layers'" class="w-5 h-5 text-amber-400" />
-                    </div>
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug uppercase line-clamp-2">
+                      {{ nextService.title }}
+                    </h3>
+                  </div>
+                </div>
+
+                <!-- ── Default content layer (hidden on hover) ── -->
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <div class="flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono tracking-wider uppercase text-muted-foreground mb-2 sm:mb-4">
+                    <span class="truncate">{{ t('Next Service') }}</span>
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </div>
 
-                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug uppercase w-full group-hover:text-amber-400 transition-colors">
+                  <div class="flex items-start justify-between gap-1 mb-2 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm group-hover:from-amber-400/20 group-hover:to-orange-500/20 shrink-0">
+                      <Icon :name="nextService.icon || 'lucide:layers'" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                    </div>
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-wider truncate max-w-[75px] sm:max-w-none">
+                      {{ nextService.category }}
+                    </span>
+                  </div>
+
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-2 text-foreground leading-snug uppercase group-hover:text-amber-400 transition-colors line-clamp-2">
                     {{ nextService.title }}
                   </h3>
 
-                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1 w-full text-right font-medium">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1 font-medium">
                     {{ nextService.description }}
                   </p>
 
-                  <div class="flex items-center justify-between mt-auto pt-4 text-[10px] font-mono uppercase tracking-widest text-muted-foreground w-full">
-                    <span class="inline-flex items-center gap-2 text-amber-400 group-hover:translate-x-1 transition-transform">
-                      {{ t('Selengkapnya') }}
-                      <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+                  <div class="flex items-center justify-between mt-auto pt-2 sm:pt-4 text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                    <span class="truncate">{{ nextService.duration }}</span>
+                    <span class="inline-flex items-center gap-1 sm:gap-2 text-amber-400 group-hover:translate-x-1 transition-transform shrink-0">
+                      <span class="hidden sm:inline">{{ t('Selengkapnya') }}</span>
+                      <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </span>
-                    <span>{{ nextService.duration }}</span>
                   </div>
                 </div>
               </NuxtLink>
@@ -322,7 +389,7 @@ const breadcrumbItems = computed(() => [
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -330,11 +397,11 @@ const breadcrumbItems = computed(() => [
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

@@ -1,3 +1,34 @@
+// Polyfill new ECMAScript Set methods for older Node environments (< 22.0.0) used by PostCSS
+if (typeof Set !== 'undefined') {
+  if (!Set.prototype.difference) {
+    Set.prototype.difference = function (other: any) {
+      const result = new Set(this)
+      for (const elem of other) {
+        result.delete(elem)
+      }
+      return result
+    }
+  }
+  if (!Set.prototype.intersection) {
+    Set.prototype.intersection = function (other: any) {
+      const result = new Set()
+      for (const elem of other) {
+        if (this.has(elem)) result.add(elem)
+      }
+      return result
+    }
+  }
+  if (!Set.prototype.union) {
+    Set.prototype.union = function (other: any) {
+      const result = new Set(this)
+      for (const elem of other) {
+        result.add(elem)
+      }
+      return result
+    }
+  }
+}
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 

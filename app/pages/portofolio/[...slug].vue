@@ -105,6 +105,7 @@ const projectImages = computed(() => {
 useDynamicSeo({
   title: current.value?.title,
   description: current.value?.description || t('View project details and portfolio'),
+  image: current.value?.image,
   type: 'article',
   publishedTime: current.value?.date,
   tags: current.value?.tags
@@ -140,44 +141,44 @@ const breadcrumbItems = computed(() => [
         v-motion
         :initial="{ opacity: 0, y: 30 }"
         :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-        class="py-16 md:py-24 px-4 border-b border-border/40"
+        class="py-10 sm:py-16 md:py-24 px-4 border-b border-border/40"
       >
         <div class="container mx-auto max-w-6xl text-center">
           <!-- Category Badge -->
-          <div class="mb-6">
-            <span class="inline-flex items-center px-4 py-2 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
+          <div class="mb-4 sm:mb-6">
+            <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
               {{ current.category }}
             </span>
           </div>
 
           <!-- Title -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-8 leading-tight uppercase">
+          <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-4 sm:mb-6 md:mb-8 leading-snug sm:leading-tight uppercase">
             {{ current.title }}
           </h1>
 
           <!-- Description -->
-          <p class="text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium">
+          <p class="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium leading-relaxed">
             {{ current.description }}
           </p>
 
           <!-- Meta Info -->
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
-            <div v-if="current.client" class="flex items-center gap-2 bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:briefcase" class="w-3.5 h-3.5 text-amber-400" />
+          <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
+            <div v-if="current.client" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
+              <Icon name="lucide:briefcase" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
               <span>{{ current.client }}</span>
             </div>
-            <div v-if="current.date" class="flex items-center gap-2 bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:calendar" class="w-3.5 h-3.5 text-amber-400" />
+            <div v-if="current.date" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
+              <Icon name="lucide:calendar" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
               <span>{{ new Date(current.date).toLocaleDateString(locale, { year: 'numeric', month: 'long' }) }}</span>
             </div>
-            <div v-if="current.status" class="flex items-center gap-2 bg-background/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:activity" class="w-3.5 h-3.5 text-amber-400" />
+            <div v-if="current.status" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
+              <Icon name="lucide:activity" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
               <span>{{ current.status }}</span>
             </div>
           </div>
 
           <!-- Breadcrumbs at the bottom of hero above section border -->
-          <div class="mt-8 flex justify-center">
+          <div class="mt-6 sm:mt-8 flex justify-center">
             <UiBreadcrumb :items="breadcrumbItems" />
           </div>
         </div>
@@ -229,12 +230,12 @@ const breadcrumbItems = computed(() => [
 
               <!-- Sidebar -->
               <aside class="lg:col-span-4">
-                <div class="sticky top-24 space-y-6">
+                <div class="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-4 pr-1">
                   <div
                     v-motion
                     :initial="{ opacity: 0, y: 30 }"
                     :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
-                    class="space-y-6"
+                    class="space-y-4"
                   >
                     <!-- Project Info Card -->
                     <UiAnimatedCard
@@ -246,10 +247,10 @@ const breadcrumbItems = computed(() => [
                       :enable-border-glow="false"
                       :click-effect="true"
                     >
-                      <div class="p-6 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
-                        <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-6">{{ t('Project Info') }}</h3>
+                      <div class="p-5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 shadow-xl shadow-black/5">
+                        <h3 class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">{{ t('Project Info') }}</h3>
                       
-                      <div class="space-y-6">
+                      <div class="space-y-4">
                         <!-- Client -->
                         <div v-if="current.client">
                           <p class="text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-1">{{ t('Client') }}</p>
@@ -302,6 +303,11 @@ const breadcrumbItems = computed(() => [
                               {{ tag }}
                             </span>
                           </div>
+                        </div>
+
+                        <!-- Share Project -->
+                        <div class="pt-6 border-t border-border/40">
+                          <AppSocialShare :title="current.title" :label="t('Share Project')" />
                         </div>
                       </div>
                       </div>
@@ -393,7 +399,7 @@ const breadcrumbItems = computed(() => [
             <span class="section-title-filled block">{{ t('More') }}</span>
             <span class="section-title-outline text-foreground block">{{ t('Projects') }}<span class="text-amber-400 !important">.</span></span>
           </h2>
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <!-- Previous Project -->
             <UiAnimatedCard
               v-if="prevProject"
@@ -407,7 +413,7 @@ const breadcrumbItems = computed(() => [
             >
               <NuxtLink 
                 :to="getPortofolioLink(prevProject)"
-                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-64 shadow-xl shadow-black/5"
+                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-xl shadow-black/5"
               >
                 <!-- ── Image layer (visible on hover) ── -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -419,44 +425,45 @@ const breadcrumbItems = computed(() => [
                   <!-- Gradient overlay -->
                   <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
                   <!-- Direction indicator top -->
-                  <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[10px] uppercase tracking-widest translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
-                    <Icon name="lucide:arrow-left" class="w-3.5 h-3.5 text-amber-500" />
+                  <div class="absolute top-2 left-2 sm:top-4 sm:left-4 flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[8px] sm:text-[10px] uppercase tracking-wider translate-x-1 -translate-y-1 sm:translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                    <Icon name="lucide:arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500" />
                     {{ t('Previous') }}
                   </div>
                   <!-- Info bottom -->
-                  <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2">
                       {{ prevProject.category }}
                     </span>
-                    <h3 class="text-lg font-heading text-white font-semibold leading-snug uppercase">
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug uppercase line-clamp-2">
                       {{ prevProject.title }}
                     </h3>
                   </div>
                 </div>
 
                 <!-- ── Default content layer (hidden on hover) ── -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
-                  <div class="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4">
-                    <Icon name="lucide:arrow-left" class="w-3.5 h-3.5" />
-                    <span>{{ t('Previous Project') }}</span>
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <div class="flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono tracking-wider uppercase text-muted-foreground mb-2 sm:mb-4">
+                    <Icon name="lucide:arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span class="truncate">{{ t('Previous Project') }}</span>
                   </div>
 
-                  <div class="flex items-start justify-between mb-4">
-                    <div class="w-12 h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm">
-                      <Icon name="lucide:folder-open" class="w-5 h-5 text-amber-400" />
+                  <div class="flex items-start justify-between mb-2 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm shrink-0">
+                      <Icon name="lucide:folder-open" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
                     </div>
                   </div>
 
-                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug uppercase">
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-2 text-foreground leading-snug uppercase line-clamp-2">
                     {{ prevProject.title }}
                   </h3>
 
-                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1 font-medium">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1 font-medium">
                     {{ prevProject.description }}
                   </p>
 
-                  <div class="flex flex-wrap gap-1.5 mt-auto">
-                    <span class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-background/50 border border-border/40 text-foreground">
+                  <div class="flex flex-wrap gap-1 sm:gap-1.5 mt-auto">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-background/50 border border-border/40 text-foreground">
                       {{ prevProject.category }}
                     </span>
                   </div>
@@ -477,7 +484,7 @@ const breadcrumbItems = computed(() => [
             >
               <NuxtLink 
                 :to="getPortofolioLink(nextProject)"
-                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-64 shadow-xl shadow-black/5"
+                class="group relative block rounded-sm overflow-hidden bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-xl shadow-black/5"
               >
                 <!-- ── Image layer (visible on hover) ── -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -489,44 +496,45 @@ const breadcrumbItems = computed(() => [
                   <!-- Gradient overlay -->
                   <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
                   <!-- Direction indicator top-right -->
-                  <div class="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[10px] uppercase tracking-widest -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                  <div class="absolute top-2 right-2 sm:top-4 sm:right-4 flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1.5 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 text-foreground font-mono text-[8px] sm:text-[10px] uppercase tracking-wider -translate-x-1 -translate-y-1 sm:-translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
                     {{ t('Next') }}
-                    <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 text-amber-500" />
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500" />
                   </div>
                   <!-- Info bottom -->
-                  <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-right">
-                    <span class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-right">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2">
                       {{ nextProject.category }}
                     </span>
-                    <h3 class="text-lg font-heading text-white font-semibold leading-snug uppercase">
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug uppercase line-clamp-2">
                       {{ nextProject.title }}
                     </h3>
                   </div>
                 </div>
 
                 <!-- ── Default content layer (hidden on hover) ── -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300 items-end text-right">
-                  <div class="flex items-center justify-end gap-2 text-[10px] font-mono tracking-widest uppercase text-muted-foreground mb-4 w-full">
-                    <span>{{ t('Next Project') }}</span>
-                    <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                  <div class="flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono tracking-wider uppercase text-muted-foreground mb-2 sm:mb-4">
+                    <span class="truncate">{{ t('Next Project') }}</span>
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </div>
 
-                  <div class="flex items-center justify-end mb-4 w-full">
-                    <div class="w-12 h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm">
-                      <Icon name="lucide:folder-open" class="w-5 h-5 text-amber-400" />
+                  <div class="flex items-start justify-between mb-2 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 rounded-sm border border-border/40 bg-background/50 flex items-center justify-center transition-all duration-300 shadow-sm shrink-0">
+                      <Icon name="lucide:folder-open" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
                     </div>
                   </div>
 
-                  <h3 class="text-xl font-heading font-semibold mb-2 text-foreground leading-snug uppercase w-full">
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-2 text-foreground leading-snug uppercase line-clamp-2">
                     {{ nextProject.title }}
                   </h3>
 
-                  <p class="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3 flex-1 w-full text-right font-medium">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1 font-medium">
                     {{ nextProject.description }}
                   </p>
 
-                  <div class="flex flex-wrap justify-end gap-1.5 mt-auto w-full">
-                    <span class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-background/50 border border-border/40 text-foreground">
+                  <div class="flex flex-wrap gap-1 sm:gap-1.5 mt-auto">
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-background/50 border border-border/40 text-foreground">
                       {{ nextProject.category }}
                     </span>
                   </div>
@@ -544,7 +552,7 @@ const breadcrumbItems = computed(() => [
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -552,11 +560,11 @@ const breadcrumbItems = computed(() => [
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

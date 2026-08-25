@@ -220,20 +220,22 @@ const stats = computed(() => [
 .hero-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(4.5rem, 13vw, 10rem);
+  font-size: clamp(2.25rem, 11vw, 8rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  word-break: break-word;
 }
 
 .hero-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(4.5rem, 13vw, 10rem);
+  font-size: clamp(2.25rem, 11vw, 8rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
+  word-break: break-word;
 }
 
 .hero-dot {

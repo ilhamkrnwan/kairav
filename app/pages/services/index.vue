@@ -125,14 +125,14 @@ useScrollReveal()
           </p>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-12 stagger-item">
+        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-12 stagger-item">
           <button
             v-for="category in categories"
             :key="category"
-            class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300"
+            class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-sm sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
             :class="selectedCategory === category
-              ? 'bg-amber-400 text-gray-900 shadow-lg shadow-amber-400/25 scale-105'
-              : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-105'"
+              ? 'bg-amber-400 text-gray-900 shadow-md sm:shadow-lg shadow-amber-400/25 scale-102 sm:scale-105'
+              : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-102 sm:hover:scale-105'"
             @click="selectedCategory = category"
           >
             {{ category }}
@@ -140,11 +140,11 @@ useScrollReveal()
         </div>
 
         <!-- Services Grid Skeleton -->
-        <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div v-if="status === 'pending'" class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
           <UiSkeletonServiceCard v-for="i in 4" :key="`service-skeleton-${i}`" />
         </div>
 
-        <div v-else-if="filteredServices.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div v-else-if="filteredServices.length > 0" class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
           <UiAnimatedCard
             v-for="service in filteredServices"
             :key="service.path"
@@ -159,46 +159,80 @@ useScrollReveal()
           >
             <NuxtLink
               :to="getServiceLink(service.path)"
-              class="group block h-full rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm p-6 transition-all duration-300 hover:border-amber-400/50 hover:bg-background/80"
+              class="group relative block rounded-sm sm:rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/40 hover:border-amber-400/50 hover:bg-background/80 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-lg"
             >
-              <div class="flex items-start justify-between gap-4 mb-8">
-                <div class="w-14 h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/20 group-hover:to-orange-500/20">
-                  <Icon :name="service.icon || 'lucide:layers'" class="w-6 h-6 text-amber-400" />
+              <!-- ── Image layer (visible on hover) ── -->
+              <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <NuxtImg
+                  :src="service.coverImage || service.image || '/placeholder.avif'"
+                  :alt="service.title"
+                  width="600"
+                  height="337"
+                  format="avif"
+                  loading="lazy"
+                  class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                />
+                <!-- Gradient overlay -->
+                <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
+                <!-- Arrow icon top-right -->
+                <div class="absolute top-2 right-2 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 flex items-center justify-center translate-x-1 -translate-y-1 sm:translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                  <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
                 </div>
-                <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
-                  {{ service.category }}
-                </span>
+                <!-- Info bottom -->
+                <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2 max-w-[120px] sm:max-w-none truncate">
+                    {{ service.category }}
+                  </span>
+                  <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug line-clamp-2">
+                    {{ service.title }}
+                  </h3>
+                  <p class="text-[10px] sm:text-xs text-white/60 mt-0.5 sm:mt-1 font-mono">{{ t('Selengkapnya') }} →</p>
+                </div>
               </div>
 
-              <h3 class="text-2xl font-heading font-semibold mb-3 text-foreground leading-snug">
-                {{ service.title }}
-              </h3>
-              <p class="text-sm font-light text-muted-foreground leading-relaxed mb-8">
-                {{ service.description }}
-              </p>
+              <!-- ── Default content layer (hidden on hover) ── -->
+              <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                <div>
+                  <div class="flex items-start justify-between gap-1 mb-2 sm:mb-4 md:mb-6">
+                    <div class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/20 group-hover:to-orange-500/20 shrink-0">
+                      <Icon :name="service.icon || 'lucide:layers'" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
+                    </div>
+                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-wider truncate max-w-[90px] sm:max-w-none">
+                      {{ service.category }}
+                    </span>
+                  </div>
 
-              <div class="flex flex-wrap gap-2 mb-8">
-                <span
-                  v-for="tag in service.tags?.slice(0, 4)"
-                  :key="tag"
-                  class="inline-flex items-center px-2 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-background/50 border border-border/40 text-foreground"
-                >
-                  {{ tag }}
-                </span>
-              </div>
+                  <h3 class="text-xs sm:text-lg md:text-xl font-heading font-semibold mb-1.5 sm:mb-3 text-foreground leading-snug line-clamp-2">
+                    {{ service.title }}
+                  </h3>
+                  <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed mb-3 sm:mb-6 line-clamp-2 sm:line-clamp-3">
+                    {{ service.description }}
+                  </p>
 
-              <div class="flex items-center justify-between mt-auto text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                <span>{{ service.duration }}</span>
-                <span class="inline-flex items-center gap-2 text-amber-400 group-hover:translate-x-1 transition-transform">
-                  {{ t('Selengkapnya') }}
-                  <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
-                </span>
+                  <div class="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
+                    <span
+                      v-for="tag in service.tags?.slice(0, 3)"
+                      :key="tag"
+                      class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-background/50 border border-border/40 text-foreground"
+                    >
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between mt-auto pt-2 border-t border-border/10 text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  <span class="truncate">{{ service.duration }}</span>
+                  <span class="inline-flex items-center gap-1 sm:gap-2 text-amber-400 group-hover:translate-x-1 transition-transform shrink-0">
+                    <span class="hidden sm:inline">{{ t('Selengkapnya') }}</span>
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  </span>
+                </div>
               </div>
             </NuxtLink>
           </UiAnimatedCard>
 
           <!-- Custom service suggestion -->
-          <div class="md:col-span-2 mt-6 stagger-item">
+          <div class="col-span-2 md:col-span-2 mt-4 sm:mt-6 stagger-item">
             <div class="relative overflow-hidden rounded-sm border border-dashed border-border/60 hover:border-amber-400/60 bg-background/30 hover:bg-amber-400/[0.02] backdrop-blur-sm p-8 text-center flex flex-col items-center justify-center gap-4 group transition-all duration-500 hover:-translate-y-1">
               <!-- Glow gradient background -->
               <div class="absolute -inset-px bg-linear-to-r from-transparent via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-750 pointer-events-none" />
@@ -243,7 +277,7 @@ useScrollReveal()
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -251,11 +285,11 @@ useScrollReveal()
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

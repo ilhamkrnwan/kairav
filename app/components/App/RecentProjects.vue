@@ -81,11 +81,11 @@ const getTagColor = (tag: string) => {
             </svg>
           </div>
 
-          <div v-if="status === 'pending'" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div v-if="status === 'pending'" class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <UiSkeletonPortfolioCard v-for="i in 3" :key="`recent-project-skeleton-${i}`" />
           </div>
 
-          <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div v-else class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <UiAnimatedCard
               v-for="project in displayedProjects"
               :key="project._path"
@@ -100,7 +100,7 @@ const getTagColor = (tag: string) => {
             >
               <NuxtLink
                 :to="project._path"
-                class="group relative block min-h-[320px] rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
+                class="group relative block min-h-[160px] sm:min-h-[300px] md:min-h-[320px] rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
               >
                 <!-- Image (revealed on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -114,38 +114,38 @@ const getTagColor = (tag: string) => {
                   <!-- Amber gradient overlay on top of image -->
                   <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
                   <!-- Title on image hover state -->
-                  <div class="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 class="text-lg font-heading text-white font-semibold tracking-wide">
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold tracking-wide line-clamp-2">
                       {{ project.title }}
                     </h3>
                   </div>
                 </div>
 
                 <!-- Default Content (hidden on hover) -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
                   <!-- Icon -->
                   <div
-                    class="w-14 h-14 mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300"
+                    class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-2 sm:mb-4 md:mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300 shrink-0"
                   >
-                    <Icon name="lucide:folder-open" class="w-6 h-6 text-amber-400" />
+                    <Icon name="lucide:folder-open" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
                   </div>
 
                   <!-- Title -->
-                  <h3 class="text-xl font-heading font-semibold mb-3 text-foreground tracking-wide">
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-3 text-foreground tracking-wide line-clamp-2">
                     {{ project.title }}
                   </h3>
 
-                  <!-- Description -->
-                  <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm font-light text-muted-foreground mb-3 sm:mb-6 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1">
                     {{ project.description }}
                   </p>
 
                   <!-- Tags / Stack -->
-                  <div class="flex flex-wrap gap-2 mt-auto">
+                  <div class="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                     <span
-                      v-for="tag in project.tags?.slice(0, 3)"
+                      v-for="tag in project.tags?.slice(0, 2)"
                       :key="tag"
-                      class="px-2 py-1 text-[10px] rounded-sm text-white font-mono uppercase tracking-widest transition-colors duration-300"
+                      class="px-1.5 py-0.5 sm:px-2 sm:py-1 text-[8px] sm:text-[10px] rounded-sm text-white font-mono uppercase tracking-wider transition-colors duration-300"
                       :class="getTagColor(tag)"
                     >
                       {{ tag }}
@@ -167,26 +167,26 @@ const getTagColor = (tag: string) => {
             >
               <NuxtLink
                 to="/portofolio"
-                class="group relative flex h-full min-h-[320px] flex-col rounded-sm border border-amber-400/30 bg-amber-400/5 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-amber-400/50 hover:bg-amber-400/10"
+                class="group relative flex h-full min-h-[160px] sm:min-h-[300px] md:min-h-[320px] flex-col rounded-sm border border-amber-400/30 bg-amber-400/5 p-3 sm:p-5 md:p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-amber-400/50 hover:bg-amber-400/10"
               >
                 <div
-                  class="w-14 h-14 mb-6 rounded-sm bg-linear-to-br from-amber-400/15 to-orange-500/15 border border-amber-400/25 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/25 group-hover:to-orange-500/25"
+                  class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-2 sm:mb-4 md:mb-6 rounded-sm bg-linear-to-br from-amber-400/15 to-orange-500/15 border border-amber-400/25 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/25 group-hover:to-orange-500/25 shrink-0"
                 >
-                  <Icon name="lucide:folder-search" class="w-6 h-6 text-amber-400" />
+                  <Icon name="lucide:folder-search" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
                 </div>
 
-                <h3 class="text-xl font-heading font-semibold mb-3 text-foreground tracking-wide">
+                <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-1 sm:mb-2 md:mb-3 text-foreground tracking-wide line-clamp-2">
                   {{ t('View All Projects') }}
                 </h3>
 
-                <p class="text-sm font-light text-muted-foreground leading-relaxed">
+                <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
                   {{ t('Lihat kumpulan project lain yang pernah saya kerjakan, mulai dari website bisnis, sistem dashboard, aplikasi web, hingga platform digital.') }}
                 </p>
 
-                <div class="mt-auto pt-6">
-                  <span class="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-amber-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber-300">
+                <div class="mt-auto pt-2 sm:pt-4 md:pt-6">
+                  <span class="inline-flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber-300">
                     {{ t('Explore Projects') }}
-                    <Icon name="lucide:arrow-right" class="w-3.5 h-3.5" />
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </span>
                 </div>
               </NuxtLink>
@@ -202,7 +202,7 @@ const getTagColor = (tag: string) => {
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -210,11 +210,11 @@ const getTagColor = (tag: string) => {
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

@@ -186,7 +186,7 @@ useScrollReveal()
           <!-- Search Bar -->
           <div class="max-w-2xl mx-auto">
             <div class="relative group/search">
-              <div class="absolute inset-0 rounded-xl bg-amber-400/5 opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-300 -m-0.5 blur-sm" />
+              <div class="absolute inset-0 rounded-sm sm:rounded-xl bg-amber-400/5 opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-300 -m-0.5 blur-sm" />
               <Icon
                 name="lucide:search"
                 class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within/search:text-amber-400 transition-colors duration-300 z-10"
@@ -195,7 +195,7 @@ useScrollReveal()
                 v-model="searchQuery"
                 type="text"
                 :placeholder="t('Search projects by name, description, or tags...')"
-                class="relative w-full pl-11 pr-10 py-3 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition-all duration-300 text-foreground placeholder:text-muted-foreground text-sm z-10"
+                class="relative w-full pl-11 pr-10 py-2.5 sm:py-3 rounded-sm sm:rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/20 transition-all duration-300 text-foreground placeholder:text-muted-foreground text-xs sm:text-sm z-10"
               />
               <!-- Clear button -->
               <button
@@ -209,15 +209,15 @@ useScrollReveal()
           </div>
 
           <!-- Category Pills -->
-          <div class="flex flex-wrap items-center justify-center gap-2">
+          <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
             <button
               v-for="category in categories"
               :key="category"
-              class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300"
+              class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-sm sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
               :class="
                 selectedCategory === category
-                  ? 'bg-amber-400 text-gray-900 shadow-lg shadow-amber-400/25 scale-105'
-                  : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-105'
+                  ? 'bg-amber-400 text-gray-900 shadow-md sm:shadow-lg shadow-amber-400/25 scale-102 sm:scale-105'
+                  : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-102 sm:hover:scale-105'
               "
               @click="selectedCategory = category"
             >
@@ -228,7 +228,7 @@ useScrollReveal()
         </div>
 
         <!-- Project Cards Grid Skeleton -->
-        <div v-if="status === 'pending'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-if="status === 'pending'" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiSkeletonPortfolioCard v-for="i in 6" :key="`portfolio-skeleton-${i}`" />
         </div>
 
@@ -245,7 +245,7 @@ useScrollReveal()
             </svg>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <UiAnimatedCard
             v-for="project in filteredPortfolios"
             :key="project.path"
@@ -260,7 +260,7 @@ useScrollReveal()
           >
             <NuxtLink
               :to="getPortofolioLink(project)"
-              class="group relative block rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-64"
+              class="group relative block rounded-sm sm:rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/50 hover:bg-background/80 transition-all duration-300 h-full min-h-[160px] sm:min-h-64"
             >
               <!-- ── Image layer (visible on hover) ── -->
               <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -272,58 +272,58 @@ useScrollReveal()
                 <!-- Gradient overlay -->
                 <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
                 <!-- Arrow icon top-right -->
-                <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 flex items-center justify-center translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
-                  <Icon name="lucide:arrow-up-right" class="w-4 h-4 text-amber-300" />
+                <div class="absolute top-2 right-2 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 flex items-center justify-center translate-x-1 -translate-y-1 sm:translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
+                  <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
                 </div>
                 <!-- Info bottom -->
-                <div class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-2">
+                <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2 max-w-[120px] sm:max-w-none truncate">
                     {{ project.category }}
                   </span>
-                  <h3 class="text-lg font-heading text-white font-semibold leading-snug">
+                  <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug line-clamp-2">
                     {{ project.title }}
                   </h3>
-                  <p class="text-xs text-white/60 mt-1 font-mono">{{ t('View Details') }} →</p>
+                  <p class="text-[10px] sm:text-xs text-white/60 mt-0.5 sm:mt-1 font-mono">{{ t('View Details') }} →</p>
                 </div>
               </div>
 
               <!-- ── Default content layer (hidden on hover) ── -->
-              <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+              <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
                 <!-- Icon + category -->
-                <div class="flex items-start justify-between mb-4">
-                  <div class="w-14 h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300">
-                    <Icon name="lucide:folder-open" class="w-6 h-6 text-amber-400" />
+                <div class="flex items-start justify-between gap-1 mb-2 sm:mb-4">
+                  <div class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300 shrink-0">
+                    <Icon name="lucide:folder-open" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
                   </div>
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+                  <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-wider truncate max-w-[75px] sm:max-w-none">
                     {{ project.category }}
                   </span>
                 </div>
 
                 <!-- Title -->
-                <h3 class="text-xl font-heading font-semibold mb-3 text-foreground leading-snug tracking-wide group-hover:text-amber-400 transition-colors duration-300">
+                <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-1.5 sm:mb-3 text-foreground leading-snug tracking-wide group-hover:text-amber-400 transition-colors duration-300 line-clamp-2">
                   {{ project.title }}
                 </h3>
 
-                <!-- Description -->
-                <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
+                <!-- Description (visible on both mobile and desktop) -->
+                <p class="text-[11px] sm:text-sm font-light text-muted-foreground mb-3 sm:mb-6 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1">
                   {{ project.description }}
                 </p>
 
                 <!-- Tags -->
-                <div class="flex flex-wrap gap-2 mt-auto">
+                <div class="flex flex-wrap gap-1 sm:gap-2 mt-auto">
                   <span
-                    v-for="tag in project.tags?.slice(0, 3)"
+                    v-for="tag in project.tags?.slice(0, 2)"
                     :key="tag"
-                    class="px-2 py-1 text-[10px] rounded-sm text-white font-mono uppercase tracking-widest transition-colors duration-300"
+                    class="px-1.5 py-0.5 sm:px-2 sm:py-1 text-[8px] sm:text-[10px] rounded-sm text-white font-mono uppercase tracking-wider transition-colors duration-300"
                     :class="getTagColor(tag)"
                   >
                     {{ tag }}
                   </span>
                   <span
-                    v-if="project.tags && project.tags.length > 3"
-                    class="px-2 py-1 text-[10px] rounded-sm text-muted-foreground font-mono uppercase tracking-widest bg-background/80 border border-border/50"
+                    v-if="project.tags && project.tags.length > 2"
+                    class="px-1.5 py-0.5 sm:px-2 sm:py-1 text-[8px] sm:text-[10px] rounded-sm text-muted-foreground font-mono uppercase tracking-wider bg-background/80 border border-border/50"
                   >
-                    +{{ project.tags.length - 3 }}
+                    +{{ project.tags.length - 2 }}
                   </span>
                 </div>
               </div>
@@ -367,7 +367,7 @@ useScrollReveal()
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -375,11 +375,11 @@ useScrollReveal()
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

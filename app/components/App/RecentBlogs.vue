@@ -7,23 +7,12 @@ const { data: blogs, status } = await useAsyncData(
     queryCollection('blog')
       .where('stem', 'LIKE', `blog/${locale.value}/%`)
       .order('date', 'DESC')
-      .limit(4)
+      .limit(3)
       .all(),
   { watch: [locale] }
 )
 
 const displayedBlogs = computed(() => blogs?.value || [])
-
-const placeholderBlogCards = computed(() => {
-  if (displayedBlogs.value.length >= 1 && displayedBlogs.value.length <= 3) return 1
-  return 0
-})
-
-const workInProgressText = computed(() => {
-  return locale.value === 'id'
-    ? 'Sedang dikerjakan oleh penulis'
-    : 'Currently being worked on by the author'
-})
 
 const formatDate = (dateString?: string) => {
   if (!dateString) return ''
@@ -57,24 +46,14 @@ const getBlogLink = (path?: string) => {
               {{ t('blog') }}
             </UiTextGradient>
           </p>
-          <div class="mt-8 hidden lg:block">
-            <NuxtLink
-              v-if="displayedBlogs.length > 0"
-              to="/blogs"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
-            >
-              <span>{{ t('View All Articles') }}</span>
-              <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
-            </NuxtLink>
-          </div>
         </div>
 
         <!-- Blogs Grid (kanan) -->
         <div class="lg:col-span-8 relative z-10">
-          <div v-if="status === 'pending'" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <UiSkeletonBlogCard v-for="i in 4" :key="`recent-blog-skeleton-${i}`" />
+          <div v-if="status === 'pending'" class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+            <UiSkeletonBlogCard v-for="i in 3" :key="`recent-blog-skeleton-${i}`" />
           </div>
-          <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div v-else class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <UiAnimatedCard
               v-for="blog in displayedBlogs"
               :key="blog.path"
@@ -89,7 +68,7 @@ const getBlogLink = (path?: string) => {
             >
               <NuxtLink
                 :to="getBlogLink(blog.path)"
-                class="group relative block rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full shadow-lg"
+                class="group relative block rounded-sm overflow-hidden bg-background/40 backdrop-blur-md border border-border/30 hover:bg-background/60 transition-all duration-300 h-full min-h-[160px] sm:min-h-[300px] shadow-lg"
               >
                 <!-- Image (revealed on hover) -->
                 <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -105,81 +84,83 @@ const getBlogLink = (path?: string) => {
                   />
                   <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
                   <!-- Title on image hover state -->
-                  <div class="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 class="text-lg font-heading text-white font-semibold tracking-wide">
+                  <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
+                    <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold tracking-wide line-clamp-2">
                       {{ blog.title }}
                     </h3>
                   </div>
                 </div>
 
                 <!-- Default Content (hidden on hover) -->
-                <div class="relative z-20 p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
+                <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
                   <!-- Icon -->
-                  <div class="w-14 h-14 mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300">
-                    <Icon name="lucide:newspaper" class="w-6 h-6 text-amber-400" />
+                  <div class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-2 sm:mb-4 md:mb-6 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300 shrink-0">
+                    <Icon name="lucide:newspaper" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
                   </div>
 
                   <!-- Meta: Category & Date -->
-                  <div class="flex items-center justify-between gap-2 text-xs font-mono text-muted-foreground mb-3">
-                    <span class="inline-flex items-center px-2 py-0.5 rounded-sm bg-amber-400/10 text-amber-500 border border-amber-400/20">
+                  <div class="flex items-center justify-between gap-1 text-[8px] sm:text-xs font-mono text-muted-foreground mb-1.5 sm:mb-3">
+                    <span class="inline-flex items-center px-1.5 py-0.5 rounded-sm bg-amber-400/10 text-amber-500 border border-amber-400/20 truncate max-w-[75px] sm:max-w-none">
                       {{ blog.category || 'Tech' }}
                     </span>
-                    <span>{{ formatDate(blog.date) }}</span>
+                    <span class="truncate">{{ formatDate(blog.date) }}</span>
                   </div>
 
                   <!-- Title -->
-                  <h3 class="text-xl font-heading font-semibold mb-3 text-foreground tracking-wide">
+                  <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-2 sm:mb-3 text-foreground tracking-wide line-clamp-2">
                     {{ blog.title }}
                   </h3>
 
-                  <!-- Description -->
-                  <p class="text-sm font-light text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
+                  <!-- Description (visible on both mobile and desktop) -->
+                  <p class="text-[11px] sm:text-sm font-light text-muted-foreground mb-3 sm:mb-6 leading-relaxed line-clamp-2 sm:line-clamp-3 flex-1">
                     {{ blog.description }}
                   </p>
 
                   <!-- Footer: Read Time -->
-                  <div class="flex items-center gap-1.5 mt-auto text-xs text-muted-foreground">
-                    <Icon name="lucide:clock" class="w-3.5 h-3.5" />
-                    <span>{{ blog.readTime || '5 min read' }}</span>
+                  <div class="flex items-center gap-1 sm:gap-1.5 mt-auto text-[8px] sm:text-xs text-muted-foreground">
+                    <Icon name="lucide:clock" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span>{{ blog.readTime || '5 min' }}</span>
                   </div>
                 </div>
               </NuxtLink>
             </UiAnimatedCard>
 
-            <!-- Placeholder Card -->
+            <!-- Explore More Articles Card -->
             <UiAnimatedCard
-              v-for="index in placeholderBlogCards"
-              :key="`blog-placeholder-${index}`"
-              class="scroll-section will-change-[transform,opacity]"
               :glow-color="'251, 191, 36'"
-              :particle-count="5"
-              :enable-particles="false"
+              :particle-count="8"
+              :enable-particles="true"
               :enable-tilt="false"
               :enable-magnetism="false"
               :enable-border-glow="false"
-              :click-effect="false"
+              :click-effect="true"
             >
-              <div class="h-full min-h-[280px] rounded-sm border border-dashed border-amber-400/30 bg-amber-400/5 backdrop-blur-sm p-6 flex flex-col items-center justify-center text-center shadow-lg">
-                <div class="inline-flex items-center justify-center w-12 h-12 rounded-sm bg-amber-400/10 border border-amber-400/20 mb-4">
-                  <Icon name="lucide:pen-square" class="w-5 h-5 text-amber-400" />
+              <NuxtLink
+                to="/blogs"
+                class="group relative flex h-full min-h-[160px] sm:min-h-[300px] md:min-h-[320px] flex-col rounded-sm border border-amber-400/30 bg-amber-400/5 p-3 sm:p-5 md:p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-amber-400/50 hover:bg-amber-400/10"
+              >
+                <div
+                  class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-2 sm:mb-4 md:mb-6 rounded-sm bg-linear-to-br from-amber-400/15 to-orange-500/15 border border-amber-400/25 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/25 group-hover:to-orange-500/25 shrink-0"
+                >
+                  <Icon name="lucide:book-open" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
                 </div>
-                <p class="text-sm font-mono tracking-widest uppercase text-amber-500/70 leading-relaxed">
-                  {{ workInProgressText }}
-                </p>
-              </div>
-            </UiAnimatedCard>
-          </div>
 
-          <!-- Mobile Button -->
-          <div class="mt-8 lg:hidden block text-center">
-            <NuxtLink
-              v-if="displayedBlogs.length > 0"
-              to="/blogs"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
-            >
-              <span>{{ t('View All Articles') }}</span>
-              <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
-            </NuxtLink>
+                <h3 class="text-xs sm:text-base md:text-xl font-heading font-semibold mb-1 sm:mb-2 md:mb-3 text-foreground tracking-wide line-clamp-2">
+                  {{ t('View All Articles') }}
+                </h3>
+
+                <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
+                  {{ t('Baca tulisan, opini, panduan teknis, dan refleksi mindset lainnya di halaman artikel lengkap.') }}
+                </p>
+
+                <div class="mt-auto pt-2 sm:pt-4 md:pt-6">
+                  <span class="inline-flex items-center gap-1 sm:gap-2 text-[8px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber-300">
+                    {{ t('Explore Articles') }}
+                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  </span>
+                </div>
+              </NuxtLink>
+            </UiAnimatedCard>
           </div>
         </div>
 
@@ -192,7 +173,7 @@ const getBlogLink = (path?: string) => {
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -200,11 +181,11 @@ const getBlogLink = (path?: string) => {
 .section-title-outline {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke: 1.5px currentColor;
   opacity: 0.85;
 }
 </style>

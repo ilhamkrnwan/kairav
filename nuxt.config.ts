@@ -44,6 +44,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
+      meta: [
+        { name: 'google-site-verification', content: '0JJPBbnbnJ4BRvS9nEsGzOe3OEWbdGvgrLkOAnTSBK8' }
+      ],
       link: [
         // Ganti '/favicon.png' dengan nama file gambar Anda di folder 'public'
         { rel: 'icon', type: 'image/png', href: '/favicon.ico' }

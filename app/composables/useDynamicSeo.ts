@@ -195,6 +195,7 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
     author: 'Ilham Kurniawan',
     creator: 'Ilham Kurniawan',
     publisher: siteName,
+    googleSiteVerification: '0JJPBbnbnJ4BRvS9nEsGzOe3OEWbdGvgrLkOAnTSBK8',
   })
   
   // Set canonical link

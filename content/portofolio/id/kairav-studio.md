@@ -20,6 +20,10 @@ tags:
   - SEO
   - Generative Engine Optimization
   - Vercel
+gallery:
+  - /portofolio/kairav-studio/1.avif
+  - /portofolio/kairav-studio/2.avif
+  - /portofolio/kairav-studio/3.avif
 _path: /portofolio/kairav-studio
 url: https://kairav.studio
 ---

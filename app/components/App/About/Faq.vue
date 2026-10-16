@@ -49,17 +49,16 @@ const toggle = (index: number) => {
           <p class="text-sm font-mono tracking-wider uppercase text-muted-foreground">{{ t('Things people usually ask about working with me') }}</p>
           
           <div class="mt-8 hidden lg:block">
-            <NuxtLink
+            <UiArrowButton
               to="#contact"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+              variant="primary"
+              icon="lucide:arrow-right"
             >
-              <span class="relative z-10 flex items-center gap-2">
-                {{ t('Get In Touch') }}
-              </span>
-              <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
-                <Icon name="lucide:message-circle" class="w-4 h-4" />
-              </span>
-            </NuxtLink>
+              <template #leading>
+                <Icon name="lucide:message-circle" class="w-4 h-4 text-neutral-950" />
+              </template>
+              {{ t('Get In Touch') }}
+            </UiArrowButton>
           </div>
         </div>
         
@@ -123,18 +122,17 @@ const toggle = (index: number) => {
             </div>
           </div>
           
-          <div class="mt-8 lg:hidden block text-center">
-            <NuxtLink
+          <div class="mt-8 lg:hidden flex justify-center">
+            <UiArrowButton
               to="#contact"
-              class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+              variant="primary"
+              icon="lucide:arrow-right"
             >
-              <span class="relative z-10 flex items-center gap-2">
-                {{ t('Get In Touch') }}
-              </span>
-              <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
-                <Icon name="lucide:message-circle" class="w-4 h-4" />
-              </span>
-            </NuxtLink>
+              <template #leading>
+                <Icon name="lucide:message-circle" class="w-4 h-4 text-neutral-950" />
+              </template>
+              {{ t('Get In Touch') }}
+            </UiArrowButton>
           </div>
         </div>
       </div>

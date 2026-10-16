@@ -181,13 +181,25 @@ const breadcrumbItems = computed(() => [
                   </span>
                 </div>
 
-                <NuxtLink
-                  to="/contact"
-                  class="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-amber-400 px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-widest text-black transition-all hover:bg-amber-500 shadow-md shadow-amber-400/20 mb-5"
-                >
-                  {{ t('Discuss This Service') }}
-                  <Icon name="lucide:send" class="w-3.5 h-3.5" />
-                </NuxtLink>
+                <div class="space-y-3 mb-5">
+                  <UiArrowButton
+                    to="/contact"
+                    variant="primary"
+                    icon="lucide:send"
+                    class="w-full"
+                  >
+                    {{ t('Discuss This Service') }}
+                  </UiArrowButton>
+
+                  <UiArrowButton
+                    to="/services"
+                    variant="secondary"
+                    icon="lucide:arrow-left"
+                    class="w-full"
+                  >
+                    {{ t('Back to Services') }}
+                  </UiArrowButton>
+                </div>
 
                 <!-- Share Service -->
                 <div class="pt-4 border-t border-border/40">

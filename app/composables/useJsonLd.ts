@@ -132,7 +132,7 @@ const getPersonData = (siteUrl: string) => ({
     {
       '@type': 'Organization',
       name: 'Indotech',
-      description: 'WordPress Development Experience',
+      description: 'IT Staff & Digital Systems',
     },
     {
       '@type': 'Organization',

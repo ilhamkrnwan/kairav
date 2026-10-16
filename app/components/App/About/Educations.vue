@@ -102,7 +102,7 @@ const hasMore = computed(() => allEducationItems.value.length > 3)
           <!-- Expand Toggle -->
           <div v-if="hasMore" class="flex justify-center mt-2">
             <button
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm text-xs font-mono uppercase tracking-widest text-muted-foreground hover:border-amber-400/40 hover:text-foreground transition-all duration-300"
+              class="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-border/40 bg-background/50 backdrop-blur-sm text-xs font-mono uppercase tracking-widest text-muted-foreground hover:border-amber-400/40 hover:text-foreground transition-all duration-300 cursor-pointer"
               @click="showAll = !showAll"
             >
               <Icon

@@ -313,47 +313,29 @@ const breadcrumbItems = computed(() => [
                       </div>
                     </UiAnimatedCard>
 
-                    <!-- Visit Website -->
-                    <UiAnimatedCard
-                      v-if="current.url"
-                      :glow-color="'251, 191, 36'"
-                      :particle-count="8"
-                      :enable-particles="true"
-                      :enable-tilt="false"
-                      :enable-magnetism="false"
-                      :enable-border-glow="false"
-                      :click-effect="true"
-                    >
-                      <a
+                    <!-- Action Buttons -->
+                    <div class="space-y-3">
+                      <UiArrowButton
+                        v-if="current.url"
                         :href="current.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="block p-4 rounded-sm bg-amber-400 text-[#141009] hover:bg-amber-500 transition-all group text-center border border-amber-500/20"
+                        variant="primary"
+                        icon="lucide:external-link"
+                        class="w-full"
                       >
-                        <span class="text-[10px] font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2">
-                          {{ t('Visit Website') }}
-                          <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
-                        </span>
-                      </a>
-                    </UiAnimatedCard>
+                        {{ t('Visit Website') }}
+                      </UiArrowButton>
 
-                    <!-- Back to Projects -->
-                    <UiAnimatedCard
-                      :glow-color="'251, 191, 36'"
-                      :particle-count="8"
-                      :enable-particles="true"
-                      :enable-tilt="false"
-                      :enable-magnetism="false"
-                      :enable-border-glow="false"
-                      :click-effect="true"
-                    >
-                      <NuxtLink
+                      <UiArrowButton
                         to="/portofolio"
-                        class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
+                        variant="secondary"
+                        icon="lucide:arrow-left"
+                        class="w-full"
                       >
-                        <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Projects') }}</span>
-                      </NuxtLink>
-                    </UiAnimatedCard>
+                        {{ t('Back to Projects') }}
+                      </UiArrowButton>
+                    </div>
                   </div>
                 </div>
               </aside>

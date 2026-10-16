@@ -3,9 +3,14 @@
     <NuxtLink to="/" class="logo-link">
       <!-- Logo Image -->
       <img 
-        src="/kairav.avif" 
+        src="/logo/kairav.avif" 
         alt="Kairav Logo" 
-        class="logo-image"
+        class="logo-image dark:hidden"
+      />
+      <img 
+        src="/logo/kairav-dark.avif" 
+        alt="Kairav Logo" 
+        class="logo-image hidden dark:block"
       />
       
       <!-- Text - Hidden on mobile, visible on desktop -->

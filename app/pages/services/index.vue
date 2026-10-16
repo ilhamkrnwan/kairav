@@ -96,20 +96,20 @@ useScrollReveal()
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <NuxtLink
+          <UiArrowButton
             to="#services-list"
-            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
+            variant="primary"
+            icon="lucide:arrow-down"
           >
-            <span class="relative z-10 flex items-center gap-2">{{ t('Explore Services') }}</span>
-            <Icon name="lucide:arrow-down" class="w-4 h-4 ml-2 relative z-10" />
-          </NuxtLink>
-          <NuxtLink
+            {{ t('Explore Services') }}
+          </UiArrowButton>
+          <UiArrowButton
             to="/contact"
-            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+            variant="secondary"
+            icon="lucide:arrow-right"
           >
-            <span class="relative z-10 flex items-center gap-2">{{ t('Start a Project') }}</span>
-            <Icon name="lucide:send" class="w-4 h-4 ml-2 relative z-10" />
-          </NuxtLink>
+            {{ t('Start a Project') }}
+          </UiArrowButton>
         </div>
       </div>
 
@@ -354,15 +354,16 @@ useScrollReveal()
                 <p class="text-sm font-light text-muted-foreground leading-relaxed mb-6">
                   {{ t('Jangan ragu untuk mendiskusikan kebutuhan unik bisnis Anda. Saya siap membantu merancang solusi kustom.') }}
                 </p>
-                <NuxtLink
+                <UiArrowButton
                   to="/contact"
-                  class="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-sm px-6 py-2.5 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_10px_rgba(251,191,36,0.2)] hover:shadow-[0_0_20px_rgba(251,191,36,0.4)]"
+                  variant="primary"
+                  icon="lucide:arrow-right"
                 >
-                  <span class="relative z-10 flex items-center gap-2">
-                    {{ t('Bisa kontak saya aja langsung') }}
-                    <Icon name="lucide:message-square" class="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-0.5" />
-                  </span>
-                </NuxtLink>
+                  <template #leading>
+                    <Icon name="lucide:message-square" class="w-4 h-4 text-neutral-950" />
+                  </template>
+                  {{ t('Bisa kontak saya aja langsung') }}
+                </UiArrowButton>
               </div>
             </div>
           </div>

@@ -12,14 +12,14 @@ const allWorkItems = computed(() => [
   {
     logo: '/logo/sekeco.avif',
     type: t('Part of'),
-    title: t('Junior Developer at Sekeco'),
+    title: t('Frontend Developer at Sekeco'),
     date: t('January 2025 - Present'),
     description: t('Gained hands-on experience with Nuxt.js and its ecosystem, Composition API, and server-side rendering (SSR). Worked with Nuxt modules and plugins to enhance application functionality. Collaborated with the development team to implement responsive designs and ensure cross-browser compatibility.')
   },
   {
     logo: '/logo/indotech.avif',
     type: t('Professional Experience'),
-    title: t('WordPress Developer at Indotech'),
+    title: t('IT Staff at Indotech'),
     date: t('May 2026 - Present'),
     description: t('Developed and maintained WordPress websites with a focus on responsive layouts, theme customization, content structure, and performance-minded implementation. Worked with reusable components, page templates, and client-facing website requirements to deliver polished digital experiences.')
   },
@@ -115,7 +115,7 @@ const hasMore = computed(() => allWorkItems.value.length > 3)
           <!-- Expand Toggle -->
           <div v-if="hasMore" class="flex justify-center mt-2">
             <button
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-sm border border-border/40 bg-background/50 backdrop-blur-sm text-xs font-mono uppercase tracking-widest text-muted-foreground hover:border-amber-400/40 hover:text-foreground transition-all duration-300"
+              class="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-border/40 bg-background/50 backdrop-blur-sm text-xs font-mono uppercase tracking-widest text-muted-foreground hover:border-amber-400/40 hover:text-foreground transition-all duration-300 cursor-pointer"
               @click="showAll = !showAll"
             >
               <Icon

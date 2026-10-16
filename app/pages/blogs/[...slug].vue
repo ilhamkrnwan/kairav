@@ -317,22 +317,14 @@ const breadcrumbItems = computed(() => [
                     </UiAnimatedCard>
 
                     <!-- Back to Articles Button -->
-                    <UiAnimatedCard
-                      :glow-color="'251, 191, 36'"
-                      :particle-count="8"
-                      :enable-particles="true"
-                      :enable-tilt="false"
-                      :enable-magnetism="false"
-                      :enable-border-glow="false"
-                      :click-effect="true"
+                    <UiArrowButton
+                      to="/blogs"
+                      variant="secondary"
+                      icon="lucide:arrow-left"
+                      class="w-full"
                     >
-                      <NuxtLink
-                        to="/blogs"
-                        class="block p-4 rounded-sm bg-background/80 backdrop-blur-md border border-border/40 hover:border-amber-400/50 transition-all group text-center"
-                      >
-                        <span class="text-[10px] font-mono tracking-widest uppercase text-foreground group-hover:text-amber-500 transition-colors">{{ t('Back to Articles') }}</span>
-                      </NuxtLink>
-                    </UiAnimatedCard>
+                      {{ t('Back to Articles') }}
+                    </UiArrowButton>
                   </div>
                 </div>
               </aside>

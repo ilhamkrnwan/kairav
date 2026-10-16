@@ -207,22 +207,25 @@ useScrollReveal()
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a
+            <UiArrowButton
               href="https://wa.me/6287761296676?text=Halo%20Ilham%2C%20saya%20ingin%20konsultasi%20project."
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 rounded-sm bg-amber-400 px-5 py-3 text-xs font-mono font-bold uppercase tracking-widest text-black transition-colors hover:bg-amber-500"
+              variant="primary"
+              icon="lucide:arrow-up-right"
             >
+              <template #leading>
+                <Icon name="simple-icons:whatsapp" class="w-4 h-4 text-neutral-950" />
+              </template>
               {{ t('Konsultasi via WhatsApp') }}
-              <Icon name="lucide:message-circle" class="w-4 h-4" />
-            </a>
-            <a
+            </UiArrowButton>
+            <UiArrowButton
               href="mailto:ilhamkurniawanjateng@gmail.com"
-              class="inline-flex items-center justify-center gap-2 rounded-sm border border-border/40 bg-background/70 px-5 py-3 text-xs font-mono font-bold uppercase tracking-widest text-foreground transition-colors hover:border-amber-400/50 hover:text-amber-400"
+              variant="secondary"
+              icon="lucide:mail"
             >
               {{ t('Kirim Email') }}
-              <Icon name="lucide:mail" class="w-4 h-4" />
-            </a>
+            </UiArrowButton>
           </div>
         </div>
       </div>

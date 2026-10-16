@@ -141,10 +141,11 @@ const allGalleryItems = computed<GalleryItem[]>(() => {
   return list
 })
 
-// Dynamic Bento Grid Pattern Spans
+// Dynamic Bento Grid Pattern Spans (Tiling without gaps on 4-column layout)
 const getBentoSpanClass = (index: number) => {
-  const mod = index % 7
+  const mod = index % 14
   switch (mod) {
+    // ── Block 1 (Rows 1 & 2): Big Left (2x2), 2 Small Middle (1x1 each), Tall Right (1x2) ──
     case 0:
       return 'md:col-span-2 md:row-span-2 min-h-[160px] md:min-h-[460px]'
     case 1:
@@ -152,13 +153,35 @@ const getBentoSpanClass = (index: number) => {
     case 2:
       return 'md:col-span-1 md:row-span-2 min-h-[160px] md:min-h-[460px]'
     case 3:
-      return 'md:col-span-2 md:row-span-1 min-h-[160px] md:min-h-[220px]'
-    case 4:
+      // Fills the 1x1 hole under Item 1 in Column 3, Row 2!
       return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+
+    // ── Block 2 (Row 3): Wide Left (2x1), 2 Small Right (1x1 each) ──
+    case 4:
+      return 'md:col-span-2 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 5:
       return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
     case 6:
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+
+    // ── Block 3 (Rows 4 & 5): Tall Left (1x2), 2 Small Middle (1x1 each), Big Right (2x2) ──
+    case 7:
+      return 'md:col-span-1 md:row-span-2 min-h-[160px] md:min-h-[460px]'
+    case 8:
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+    case 9:
+      return 'md:col-span-2 md:row-span-2 min-h-[160px] md:min-h-[460px]'
+    case 10:
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+
+    // ── Block 4 (Row 6): 2 Small Left (1x1 each), Wide Right (2x1) ──
+    case 11:
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+    case 12:
+      return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+    case 13:
       return 'md:col-span-2 md:row-span-1 min-h-[160px] md:min-h-[220px]'
+
     default:
       return 'md:col-span-1 md:row-span-1 min-h-[160px] md:min-h-[220px]'
   }
@@ -266,31 +289,21 @@ useScrollReveal()
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <NuxtLink
+          <UiArrowButton
             to="#gallery-grid"
-            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:-translate-y-0.5"
+            variant="primary"
+            icon="lucide:arrow-down"
           >
-            <div class="absolute inset-0 z-0 overflow-hidden rounded-sm">
-              <div class="absolute top-0 -left-full h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-700 group-hover:left-[200%]"></div>
-            </div>
-            <span class="relative z-10 flex items-center gap-2">
-              {{ t('Explore Gallery') }}
-            </span>
-            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
-              <Icon name="lucide:arrow-down" class="w-4 h-4" />
-            </span>
-          </NuxtLink>
-          <NuxtLink
+            {{ t('Explore Gallery') }}
+          </UiArrowButton>
+
+          <UiArrowButton
             to="/"
-            class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm px-8 py-3 font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 border bg-background/50 backdrop-blur-sm text-foreground border-border/40 hover:border-amber-400/50 hover:text-amber-400 hover:bg-background/80 hover:-translate-y-0.5"
+            variant="secondary"
+            icon="lucide:home"
           >
-            <span class="relative z-10 flex items-center gap-2">
-              {{ t('Back to Home') }}
-            </span>
-            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1 relative z-10">
-              <Icon name="lucide:home" class="w-4 h-4" />
-            </span>
-          </NuxtLink>
+            {{ t('Back to Home') }}
+          </UiArrowButton>
         </div>
       </div>
 
@@ -315,8 +328,8 @@ useScrollReveal()
           </p>
         </div>
 
-        <!-- Pure Bento Grid - Loads All Items Immediately (2 Columns on Mobile) -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
+        <!-- Pure Bento Grid - Loads All Items Immediately (Dense packing, no holes) -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
           <div
             v-for="(item, index) in allGalleryItems"
             :key="item.id"
@@ -465,17 +478,18 @@ useScrollReveal()
 
               <!-- Action Link CTA Button -->
               <div class="pt-6 border-t border-zinc-800/80">
-                <NuxtLink
+                <UiArrowButton
                   v-if="activeItem.link"
                   :to="activeItem.link"
                   :target="activeItem.isExternal ? '_blank' : '_self'"
                   :rel="activeItem.isExternal ? 'noopener noreferrer' : undefined"
+                  variant="primary"
+                  icon="lucide:arrow-right"
+                  class="w-full"
                   @click="closeModal"
-                  class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm sm:rounded-lg font-mono tracking-widest uppercase text-xs font-bold transition-all duration-300 bg-amber-400 text-black border border-amber-400 hover:bg-amber-500 hover:border-amber-500 shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:shadow-[0_0_30px_rgba(251,191,36,0.5)] text-center"
                 >
-                  <span>{{ activeItem.linkText || (t('View Details') || 'Buka Halaman Lengkap') }}</span>
-                  <Icon name="lucide:arrow-right" class="w-4 h-4" />
-                </NuxtLink>
+                  {{ activeItem.linkText || (t('View Details') || 'Buka Halaman Lengkap') }}
+                </UiArrowButton>
               </div>
             </div>
           </div>

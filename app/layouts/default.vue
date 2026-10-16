@@ -18,7 +18,7 @@ const isDesktop = useMediaQuery('(min-width: 768px) and (pointer: fine)')
     <!-- Full Screen Menu - Right Side -->
     <LazyAppFullScreenMenu :hydrate-on-idle="800" />
 
-    <UMain class="relative min-h-screen">
+    <UMain class="relative min-h-screen flex flex-col justify-between">
       <!-- Fixed background pattern dengan opacity lebih tinggi -->
       <div data-aurora-bg class="fixed inset-0 -z-10 overflow-hidden bg-neutral-light dark:bg-neutral-dark">
         <ClientOnly>
@@ -34,7 +34,12 @@ const isDesktop = useMediaQuery('(min-width: 768px) and (pointer: fine)')
       </div>
 
       <!-- Content -->
-      <slot />
+      <div class="flex-1 w-full">
+        <slot />
+      </div>
+
+      <!-- Professional Site Footer -->
+      <AppFooter />
     </UMain>
 
     <LazyAppButtonSosmed :hydrate-on-idle="1200" />

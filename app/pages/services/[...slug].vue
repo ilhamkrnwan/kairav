@@ -88,40 +88,133 @@ const breadcrumbItems = computed(() => [
       <UiSkeletonDetail type="service" />
     </template>
     <template v-else-if="current">
-      <section class="py-10 sm:py-16 md:py-24 px-4 border-b border-border/40">
-        <div class="container mx-auto max-w-6xl text-center">
-          <div class="mb-4 sm:mb-6">
-            <span class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm text-[9px] sm:text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-400 border border-amber-400/30">
-              {{ current.category }}
-            </span>
-          </div>
+      <!-- ─── Dynamic 2-Column Hero Section ─── -->
+      <section class="relative pt-32 sm:pt-36 md:pt-24 lg:pt-28 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-6 md:pl-28 md:pr-12 lg:px-20 border-b border-border/40 overflow-hidden bg-radial from-amber-400/[0.04] via-transparent to-transparent">
+        <!-- Ambient Background Glows -->
+        <div aria-hidden="true" class="absolute top-1/4 right-10 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div aria-hidden="true" class="absolute -bottom-20 left-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div class="mx-auto mb-6 sm:mb-8 w-12 h-12 sm:w-16 sm:h-16 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center">
-            <Icon :name="current.icon || 'lucide:layers'" class="w-5 h-5 sm:w-7 sm:h-7 text-amber-400" />
-          </div>
+        <div class="container mx-auto max-w-7xl relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            <!-- Left Column: Rich Hero Content (7 Cols) -->
+            <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+              
+              <!-- Top Breadcrumb & Category Meta Bar -->
+              <div class="flex flex-wrap items-center gap-3">
+                <UiBreadcrumb :items="breadcrumbItems" class="!justify-start text-xs" />
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm text-[10px] font-mono tracking-widest uppercase bg-amber-400/10 text-amber-500 dark:text-amber-400 border border-amber-400/30 font-semibold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  {{ current.category }}
+                </span>
+              </div>
 
-          <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight mb-4 sm:mb-6 md:mb-8 leading-snug sm:leading-tight uppercase">
-            {{ current.title }}
-          </h1>
+              <!-- Main Heading with Service Icon Badge -->
+              <div class="space-y-4">
+                <div class="inline-flex items-center gap-3">
+                  <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-sm bg-linear-to-br from-amber-400/15 to-orange-500/15 border border-amber-400/30 flex items-center justify-center shrink-0">
+                    <Icon :name="current.icon || 'lucide:layers'" class="w-6 h-6 text-amber-400" />
+                  </div>
+                  <span class="text-xs font-mono uppercase tracking-widest text-muted-foreground font-semibold">
+                    {{ t('Layanan Terpercaya') }}
+                  </span>
+                </div>
 
-          <p class="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto font-medium leading-relaxed">
-            {{ current.description }}
-          </p>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.08] text-foreground uppercase">
+                  {{ current.title }}<span class="text-amber-400">.</span>
+                </h1>
+              </div>
 
-          <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-muted-foreground">
-            <div v-if="current.duration" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:calendar-clock" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
-              <span>{{ current.duration }}</span>
+              <!-- Description -->
+              <p class="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl">
+                {{ current.description }}
+              </p>
+
+              <!-- Meta Badges: Timeline, Featured, Tags -->
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] font-mono tracking-widest uppercase text-muted-foreground pt-1">
+                <div v-if="current.duration" class="flex items-center gap-1.5 bg-background/60 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/50 text-foreground/80">
+                  <Icon name="lucide:calendar-clock" class="w-3.5 h-3.5 text-amber-400" />
+                  <span>{{ current.duration }}</span>
+                </div>
+                <div v-if="current.featured" class="flex items-center gap-1.5 bg-background/60 backdrop-blur-md px-3 py-1.5 rounded-sm border border-amber-400/30 text-amber-400 font-semibold">
+                  <Icon name="lucide:sparkles" class="w-3.5 h-3.5 text-amber-400" />
+                  <span>{{ t('Layanan Utama') }}</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-background/60 backdrop-blur-md px-3 py-1.5 rounded-sm border border-border/50 text-foreground/80">
+                  <Icon name="lucide:shield-check" class="w-3.5 h-3.5 text-emerald-400" />
+                  <span>100% Custom Code</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <UiArrowButton
+                  :href="`https://wa.me/6287761296676?text=${encodeURIComponent(`Halo Ilham, saya tertarik konsultasi layanan ${current.title}.`)}`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="primary"
+                  icon="lucide:arrow-up-right"
+                >
+                  <template #leading>
+                    <Icon name="simple-icons:whatsapp" class="w-4 h-4 text-neutral-950" />
+                  </template>
+                  {{ t('Konsultasi via WhatsApp') }}
+                </UiArrowButton>
+
+                <UiArrowButton
+                  to="#service-content"
+                  variant="secondary"
+                  icon="lucide:arrow-down"
+                >
+                  {{ t('Lihat Rincian') }}
+                </UiArrowButton>
+              </div>
+
             </div>
-            <div v-if="current.featured" class="flex items-center gap-1.5 sm:gap-2 bg-background/50 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border border-border/40">
-              <Icon name="lucide:sparkles" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
-              <span>{{ t('Featured Service') }}</span>
-            </div>
-          </div>
 
-          <!-- Breadcrumbs at the bottom of hero above section border -->
-          <div class="mt-6 sm:mt-8 flex justify-center">
-            <UiBreadcrumb :items="breadcrumbItems" />
+            <!-- Right Column: 3D Developer Avatar with Interactive Floating Accents (5 Cols) -->
+            <div class="lg:col-span-5 flex items-center justify-center relative mt-8 lg:mt-0">
+              <div class="relative w-full max-w-md flex items-center justify-center group">
+                <!-- Multi-layer Ambient Halo Backdrops -->
+                <div class="absolute inset-0 rounded-full bg-linear-to-tr from-amber-500/20 via-orange-500/15 to-transparent blur-3xl transform scale-90 group-hover:scale-105 transition-transform duration-700" />
+                <div class="absolute -inset-4 rounded-full bg-amber-400/10 blur-2xl animate-pulse" />
+
+                <!-- The 3D Developer Avatar Image with Floating Animation -->
+                <NuxtImg
+                  src="/developer-service-avatar.avif"
+                  :alt="`${current.title} - Ilham Kurniawan`"
+                  width="440"
+                  height="420"
+                  format="webp"
+                  loading="eager"
+                  class="relative z-10 w-64 sm:w-76 md:w-88 lg:w-96 max-h-96 sm:max-h-[420px] object-contain filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] avatar-floating transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <!-- Top Floating Glass Badge -->
+                <div class="absolute top-4 right-2 sm:right-6 z-20 px-3 py-1.5 rounded-lg border border-amber-400/40 bg-background/80 dark:bg-black/80 backdrop-blur-md shadow-xl flex items-center gap-2 transform -rotate-2 hover:rotate-0 transition-transform">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span class="text-[11px] font-mono font-medium text-foreground">
+                    Ready to Build
+                  </span>
+                </div>
+
+                <!-- Bottom Floating Glass Badge -->
+                <div class="absolute bottom-4 left-2 sm:left-4 z-20 px-3.5 py-2 rounded-lg border border-border/60 bg-background/80 dark:bg-black/80 backdrop-blur-md shadow-xl flex items-center gap-2.5 transform rotate-1 hover:rotate-0 transition-transform">
+                  <div class="w-6 h-6 rounded-md bg-amber-400/10 border border-amber-400/30 flex items-center justify-center">
+                    <Icon name="lucide:code-2" class="w-3.5 h-3.5 text-amber-400" />
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Kualitas Kode</span>
+                    <span class="text-xs font-heading font-bold text-foreground">Modern & Responsif</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -145,7 +238,7 @@ const breadcrumbItems = computed(() => [
         </div>
       </section>
 
-      <section class="py-12 md:py-16">
+      <section id="service-content" class="py-12 md:py-16 scroll-mt-20">
         <div class="container mx-auto px-4">
           <div class="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-10">
             <article class="lg:col-span-8">
@@ -398,6 +491,19 @@ const breadcrumbItems = computed(() => [
 </template>
 
 <style scoped>
+@keyframes avatarFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.avatar-floating {
+  animation: avatarFloat 5s ease-in-out infinite;
+}
+
 .section-title-filled {
   font-family: var(--font-heading, 'Inter', sans-serif);
   font-weight: 900;

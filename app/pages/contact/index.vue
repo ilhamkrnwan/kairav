@@ -197,37 +197,8 @@ useScrollReveal()
           </div>
         </div>
 
-        <div class="mt-6 rounded-sm border border-amber-400/30 bg-amber-400/10 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5 stagger-item">
-          <div>
-            <p class="text-sm font-mono uppercase tracking-widest text-amber-400 mb-2">
-              {{ t('Online meeting ready') }}
-            </p>
-            <p class="text-sm md:text-base text-foreground/80 leading-relaxed">
-              {{ t('Meeting bisa dilakukan online untuk discovery, review progress, dan handover project tanpa perlu bertemu langsung.') }}
-            </p>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <UiArrowButton
-              href="https://wa.me/6287761296676?text=Halo%20Ilham%2C%20saya%20ingin%20konsultasi%20project."
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="primary"
-              icon="lucide:arrow-up-right"
-            >
-              <template #leading>
-                <Icon name="simple-icons:whatsapp" class="w-4 h-4 text-neutral-950" />
-              </template>
-              {{ t('Konsultasi via WhatsApp') }}
-            </UiArrowButton>
-            <UiArrowButton
-              href="mailto:ilhamkurniawanjateng@gmail.com"
-              variant="secondary"
-              icon="lucide:mail"
-            >
-              {{ t('Kirim Email') }}
-            </UiArrowButton>
-          </div>
-        </div>
+        <!-- Interactive 3-Step WhatsApp Consultation Wizard -->
+        <AppContactConsultationQuiz class="mt-8 stagger-item" />
       </div>
     </section>
   </main>

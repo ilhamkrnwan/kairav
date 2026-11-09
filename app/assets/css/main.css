@@ -1,6 +1,302 @@
-@import "@nuxt/ui";
 @import "tailwindcss";
-@import "./utilities.css";
-@import "./tailwind.css";
+@import "@nuxt/ui";
 
+/* ===================================================================
+   Sticker & doodle: white page, ink outlines, lemon / cobalt / pink
+   =================================================================== */
 
+@theme static {
+  --font-heading: 'Bagel Fat One', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-handwriting: 'Caveat', cursive;
+
+  /* action colour: lemon (always paired with ink text) */
+  --color-lemon-50: #fffbe6;
+  --color-lemon-100: #fff4b8;
+  --color-lemon-200: #ffec85;
+  --color-lemon-300: #ffe35c;
+  --color-lemon-400: #ffd83d;
+  --color-lemon-500: #f5c400;
+  --color-lemon-600: #c79a00;
+
+  /* structure colour: cobalt (links, focus, selection, UI primary) */
+  --color-cobalt-50: #eef1ff;
+  --color-cobalt-100: #dde3ff;
+  --color-cobalt-200: #bcc8ff;
+  --color-cobalt-300: #94a6ff;
+  --color-cobalt-400: #7b93ff;
+  --color-cobalt-500: #4a63f5;
+  --color-cobalt-600: #2a45e6;
+  --color-cobalt-700: #2336c0;
+  --color-cobalt-800: #1f2e98;
+  --color-cobalt-900: #1b2878;
+  --color-cobalt-950: #111848;
+
+  /* delight colour: pink (stickers, squiggles, tags) */
+  --color-pink-sticker: #ff7ab8;
+  --color-pink-deep: #e0338a;
+
+  --color-lemon: #ffd83d;
+  --color-paper: #fbfaff;
+  --color-ink: #14122b;
+}
+
+/* Nuxt UI semantic tokens, re-tinted. Unlayered so they win. */
+:root {
+  --ui-radius: 0.25rem;
+
+  --ui-bg: #fbfaff;
+  --ui-bg-muted: #f1eefc;
+  --ui-bg-elevated: #ffffff;
+  --ui-bg-accented: #e4defa;
+  --ui-bg-inverted: #14122b;
+
+  --ui-border: #14122b;
+  --ui-border-muted: #d9d3f3;
+  --ui-border-accented: #8d84c9;
+  --ui-border-inverted: #14122b;
+
+  --ui-text-dimmed: #6f6a9f;
+  --ui-text-muted: #5a5688;
+  --ui-text-toned: #3c3870;
+  --ui-text: #2a2750;
+  --ui-text-highlighted: #14122b;
+  --ui-text-inverted: #ffffff;
+
+  --ui-primary: var(--color-cobalt-600);
+}
+
+.dark {
+  --ui-bg: #12102a;
+  --ui-bg-muted: #1a1740;
+  --ui-bg-elevated: #211e4e;
+  --ui-bg-accented: #2d2a66;
+  --ui-bg-inverted: #fffdf0;
+
+  --ui-border: #fffdf0;
+  --ui-border-muted: #38337a;
+  --ui-border-accented: #5a53b0;
+  --ui-border-inverted: #fffdf0;
+
+  --ui-text-dimmed: #8a85bf;
+  --ui-text-muted: #a9a4d9;
+  --ui-text-toned: #cfcaf5;
+  --ui-text: #e8e5ff;
+  --ui-text-highlighted: #fffdf0;
+  --ui-text-inverted: #12102a;
+
+  --ui-primary: var(--color-cobalt-400);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-lemon-400);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-cobalt-500) transparent;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background-color: var(--color-cobalt-500); border-radius: 999px; border: 2px solid var(--ui-bg); }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--color-pink-deep); }
+}
+
+/* ---------- Display type ---------- */
+
+.section-title-filled,
+.section-title-outline {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ui-text-highlighted);
+}
+
+/* The heading itself carries the display size and spans inherit it, so wrappers that
+   SplitText inserts (and the trailing full stop) keep the size however the DOM is reshuffled. */
+:is(h1, h2):has(.section-title-filled, .section-title-outline) {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  letter-spacing: -0.01em;
+}
+
+:is(h1, h2) :is(.section-title-filled, .section-title-outline) {
+  font-size: inherit;
+}
+
+/* Direct children of a heading stack as lines; nested ones (trailing full stop) stay inline. */
+:is(h1, h2) > .section-title-filled,
+:is(h1, h2) > .section-title-outline {
+  display: block;
+}
+
+/* Second line: cobalt. */
+.section-title-outline {
+  color: var(--ui-primary);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* ---------- Sticker ---------- */
+
+/* A peeled-sticker card: ink outline, generous radius, soft real shadow, small tilt on hover. */
+.sticker {
+  background: var(--ui-bg-elevated);
+  border: 1px solid var(--ui-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgb(20 18 43 / 0.12);
+  transition: transform 360ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dark .sticker {
+  box-shadow: none;
+}
+
+a.sticker:hover,
+.sticker-hover:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 10px 18px -10px rgb(20 18 43 / 0.4);
+}
+
+a.sticker:active,
+.sticker-hover:active {
+  transform: scale(0.96);
+}
+
+/* Highlighter stroke; width is animated by GSAP via background-size. */
+.highlighter {
+  padding-inline: 0.125rem;
+  background-image: linear-gradient(to top, color-mix(in oklab, var(--color-lemon) 80%, transparent) 45%, transparent 45%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.dark .highlighter {
+  background-image: linear-gradient(to top, color-mix(in oklab, var(--color-lemon) 30%, transparent) 45%, transparent 45%);
+}
+
+/* Tilted reveals and parallax briefly poke past the viewport; clip (unlike hidden) keeps sticky working. */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* ---------- Transitions ---------- */
+
+@keyframes faq-open {
+  from { height: 0; opacity: 0; }
+  to { height: var(--reka-accordion-content-height); opacity: 1; }
+}
+
+@keyframes faq-close {
+  from { height: var(--reka-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+}
+
+/* Quiz steps slide sideways, direction follows forward / back */
+.step-fwd-enter-active,
+.step-fwd-leave-active,
+.step-back-enter-active,
+.step-back-leave-active {
+  transition: opacity 0.28s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.step-fwd-enter-from,
+.step-back-leave-to { opacity: 0; transform: translateX(36px); }
+
+.step-fwd-leave-to,
+.step-back-enter-from { opacity: 0; transform: translateX(-36px); }
+
+.quiz-options > * { animation: pop-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.quiz-options > :nth-child(2) { animation-delay: 70ms; }
+.quiz-options > :nth-child(3) { animation-delay: 140ms; }
+.quiz-options > :nth-child(4) { animation-delay: 210ms; }
+.quiz-options > :nth-child(5) { animation-delay: 280ms; }
+.quiz-options > :nth-child(6) { animation-delay: 350ms; }
+
+/* Filtered lists: cards pop in, fade out, and the rest slide into place */
+.filter-enter-active { transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.filter-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
+.filter-move { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.filter-enter-from { opacity: 0; transform: translateY(20px) scale(0.95); }
+.filter-leave-to { opacity: 0; transform: scale(0.95); }
+
+/* Small text swaps (titles, counters) */
+.swap-enter-active,
+.swap-leave-active { transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.swap-enter-from { opacity: 0; transform: translateY(10px); }
+.swap-leave-to { opacity: 0; transform: translateY(-10px); }
+
+/* ---------- Motion ---------- */
+
+/* Reduced motion keeps state changes (colour, opacity) and drops travel and loops. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    animation-duration: 1ms !important;
+    transition-property: color, background-color, border-color, opacity !important;
+    transition-duration: 150ms !important;
+  }
+
+  .scroll-section,
+  .stagger-item {
+    transform: none !important;
+  }
+
+  .quiz-options > * { animation: none; }
+
+  a.sticker:hover,
+  .sticker-hover:hover {
+    transform: none;
+  }
+}
+
+/* GSAP reveal wrappers use will-change; as a permanent hint it creates a backdrop root. */
+[class*="will-change-["] {
+  will-change: auto !important;
+}

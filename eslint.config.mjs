@@ -1,7 +1,7 @@
 // @ts-check
 import withNuxt from "./.nuxt/eslint.config.mjs";
 
-export default withNuxt({
+export default withNuxt({ ignores: ['dist/'] }, {
   rules: {
     "@typescript-eslint/unified-signatures": "off",
     "@typescript-eslint/no-unused-vars": "warn",

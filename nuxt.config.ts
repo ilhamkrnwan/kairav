@@ -1,36 +1,4 @@
-// Polyfill new ECMAScript Set methods for older Node environments (< 22.0.0) used by PostCSS
-if (typeof Set !== 'undefined') {
-  if (!Set.prototype.difference) {
-    Set.prototype.difference = function (other: any) {
-      const result = new Set(this)
-      for (const elem of other) {
-        result.delete(elem)
-      }
-      return result
-    }
-  }
-  if (!Set.prototype.intersection) {
-    Set.prototype.intersection = function (other: any) {
-      const result = new Set()
-      for (const elem of other) {
-        if (this.has(elem)) result.add(elem)
-      }
-      return result
-    }
-  }
-  if (!Set.prototype.union) {
-    Set.prototype.union = function (other: any) {
-      const result = new Set(this)
-      for (const elem of other) {
-        result.add(elem)
-      }
-      return result
-    }
-  }
-}
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
 
 // Resolusi URL yang dinamis: prioritaskan domain kustom produksi,
 // lalu VERCEL_URL (preview/branch), lalu fallback ke domain default.
@@ -115,7 +83,6 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/ui",
     "@nuxt/content",
-    '@nuxtjs/google-fonts',
     '@vueuse/motion/nuxt',
     '@nuxtjs/sitemap',
   ],
@@ -136,7 +103,9 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Inter', weights: [400, 500, 600, 700, 800, 900], global: true },
+      { name: 'Bagel Fat One', weights: [400], global: true },
+      { name: 'Figtree', weights: [400, 500, 600, 700, 800], global: true },
+      { name: 'Caveat', weights: [600, 700], global: true },
       { name: 'Segoe UI', provider: 'none' },
       { name: 'Helvetica Neue', provider: 'none' },
       { name: 'Arial', provider: 'none' },
@@ -159,25 +128,5 @@ export default defineNuxtConfig({
       lastmod: new Date().toISOString(),
     },
   },
-  googleFonts: {
-    families: {
-      Inter: [300, 400, 500, 600, 700],
-      'JetBrains Mono': [400, 500, 600], // untuk code snippets
-      Caveat: [400, 600, 700], // untuk hand-drawn doodle annotations
-    },
-    display: 'swap',
-    download: true, // self-host font agar tidak ada koneksi pihak ketiga
-    preload: true,
-    prefetch: true,
-  },
-  colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
-    classSuffix: '', // class will be 'dark' instead of 'dark-mode'
-    storageKey: 'nuxt-color-mode', // localStorage key
-  },
   css: ["~/assets/css/main.css"],
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });

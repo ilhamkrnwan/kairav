@@ -1,169 +1,98 @@
 <script setup lang="ts">
-import type { NuxtError } from "#app";
+import type { NuxtError } from '#app'
 
-const props = defineProps<{ error: NuxtError }>();
+const props = defineProps<{ error: NuxtError }>()
 const { t } = useI18n()
+const router = useRouter()
 
-const errorMessages: Record<number, { firstPart: string; secondPart: string; description: string; icon: string }> = {
+const errorMessages: Record<number, { firstPart: string, secondPart: string, description: string }> = {
   404: {
     firstPart: t('Page Not'),
     secondPart: t('Found'),
-    description: t('Sorry, the page you\'re looking for doesn\'t exist.'),
-    icon: "lucide:search-x"
+    description: t('Sorry, the page you\'re looking for doesn\'t exist.')
   },
   500: {
     firstPart: t('Server'),
     secondPart: t('Error'),
-    description: t('Something went wrong on our end. Please try again later.'),
-    icon: "lucide:server-crash"
+    description: t('Something went wrong on our end. Please try again later.')
   },
   403: {
     firstPart: t('Access'),
     secondPart: t('Forbidden'),
-    description: t('You don\'t have permission to access this resource.'),
-    icon: "lucide:shield-alert"
-  },
-};
+    description: t('You don\'t have permission to access this resource.')
+  }
+}
 
 const errorInfo = computed(() => {
-  const statusCode = props.error.statusCode || 500;
+  const statusCode = props.error.statusCode || 500
   return (
     errorMessages[statusCode] || {
       firstPart: t('Error'),
       secondPart: String(statusCode),
-      description: props.error.message || t('An unexpected error occurred.'),
-      icon: "lucide:alert-triangle"
+      description: props.error.message || t('An unexpected error occurred.')
     }
-  );
-});
+  )
+})
 
-const handleClearError = () => clearError({ redirect: '/' });
+const handleClearError = () => clearError({ redirect: '/' })
+
 </script>
 
 <template>
-  <div class="min-h-screen w-full flex items-center justify-center px-4 relative overflow-hidden bg-neutral-light dark:bg-neutral-dark text-foreground">
-    <!-- Splash Cursor Effect -->
-    <ClientOnly>
-      <LazyUiSplashCursor
-        :hydrate-on-interaction="['mousemove', 'touchstart']"
-        :SIM_RESOLUTION="128"
-        :DYE_RESOLUTION="1440"
-        :CAPTURE_RESOLUTION="512"
-        :DENSITY_DISSIPATION="3.5"
-        :VELOCITY_DISSIPATION="2"
-        :PRESSURE="0.1"
-        :PRESSURE_ITERATIONS="20"
-        :CURL="3"
-        :SPLAT_RADIUS="0.2"
-        :SPLAT_FORCE="6000"
-        :SHADING="true"
-        :COLOR_UPDATE_SPEED="10"
-        :BACK_COLOR="{ r: 0.5, g: 0, b: 0 }"
-        :TRANSPARENT="true"
-      />
-    </ClientOnly>
+  <UApp>
+    <div class="min-h-screen w-full flex items-center justify-center px-4 relative overflow-hidden bg-default text-highlighted">
+      <AppHeader />
 
-    <!-- Theme Switcher - Left Side -->
-    <LazyAppThemeSwitcher :hydrate-on-idle="800" />
+      <!-- Fixed background pattern -->
+      <div class="absolute inset-0 -z-10 bg-default" />
 
-    <!-- Language Switcher - Left Side -->
-    <LazyAppLangSwitcher :hydrate-on-idle="1000" />
-
-    <!-- Full Screen Menu - Right Side -->
-    <LazyAppFullScreenMenu :hydrate-on-idle="800" />
-
-    <!-- Fixed background pattern -->
-    <div class="absolute inset-0 -z-10 overflow-hidden bg-neutral-light dark:bg-neutral-dark">
-      <ClientOnly>
-        <LazyUiAnimatedGridPattern
-          :hydrate-on-idle="1500"
-          :num-squares="30"
-          :max-opacity="0.3"
-          :duration="3"
-          :repeat-delay="1"
-          class="mask-[radial-gradient(500px_circle_at_center,white,transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
-        />
-      </ClientOnly>
-    </div>
-
-    <!-- Ambient Glows -->
-    <div class="absolute inset-0 -z-10 overflow-hidden">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-    </div>
-
-    <div class="text-center max-w-2xl w-full z-10 py-16">
-      <!-- Error Illustration -->
-      <div class="mb-8 relative flex flex-col items-center justify-center">
-        <!-- Decorative blobs -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-linear-to-tr from-amber-400/10 to-orange-500/10 blur-3xl -z-10 animate-pulse"></div>
+      <div class="text-center max-w-2xl w-full z-10 py-16">
+        <!-- Error Illustration -->
+        <div class="mb-8 relative flex flex-col items-center justify-center">
+          <!-- Decorative blobs -->
         
-        <!-- Illustration Image (No card container, no code badge) -->
-        <div class="relative max-w-xs md:max-w-md flex items-center justify-center">
-          <img src="/error.avif" alt="Error Illustration" class="w-full h-auto object-cover" />
+          <div class="relative max-w-xs md:max-w-md flex items-center justify-center">
+            <NuxtImg src="/error.avif" alt="Error Illustration" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <!-- Error Title (Hero Stretched Style) -->
+        <h1 :key="$i18n.locale" class="leading-[0.88] tracking-tight mb-6">
+          <span class="section-title-filled">{{ errorInfo.firstPart }}</span>
+          <span class="section-title-outline">{{ errorInfo.secondPart }}<span class="text-primary">.</span></span>
+        </h1>
+
+        <!-- Error Description -->
+        <p class="text-lg md:text-xl text-muted mb-8 max-w-lg mx-auto leading-relaxed">
+          {{ errorInfo.description }}
+        </p>
+
+        <!-- Decorative Line -->
+        <div class="flex items-center justify-center gap-2 mb-8">
+          <div class="w-12 h-0.5 bg-linear-to-r from-transparent to-primary rounded-full"></div>
+          <UIcon name="lucide:sparkles" class="size-4 text-primary" />
+          <div class="w-12 h-0.5 bg-linear-to-l from-transparent to-primary rounded-full"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <UiArrowButton
+            variant="primary"
+            icon="lucide:home"
+            @click="handleClearError"
+          >
+            {{ t('Go to Home') }}
+          </UiArrowButton>
+
+          <UiArrowButton
+            variant="secondary"
+            icon="lucide:arrow-left"
+            @click="router.back()"
+          >
+            {{ t('Go Back') }}
+          </UiArrowButton>
         </div>
       </div>
-
-      <!-- Error Title (Hero Stretched Style) -->
-      <h1 class="leading-[0.88] tracking-tight mb-6">
-        <span class="section-title-filled block">{{ errorInfo.firstPart }}</span>
-        <span class="section-title-outline text-foreground block">{{ errorInfo.secondPart }}<span class="text-amber-400 !important">.</span></span>
-      </h1>
-
-      <!-- Error Description -->
-      <p class="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg mx-auto leading-relaxed">
-        {{ errorInfo.description }}
-      </p>
-
-      <!-- Decorative Line -->
-      <div class="flex items-center justify-center gap-2 mb-8">
-        <div class="w-12 h-0.5 bg-linear-to-r from-transparent to-amber-400 rounded-full"></div>
-        <Icon name="lucide:sparkles" class="w-4 h-4 text-amber-400" />
-        <div class="w-12 h-0.5 bg-linear-to-l from-transparent to-amber-400 rounded-full"></div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <UiArrowButton
-          variant="primary"
-          icon="lucide:home"
-          @click="handleClearError"
-        >
-          {{ t('Go to Home') }}
-        </UiArrowButton>
-
-        <UiArrowButton
-          variant="secondary"
-          icon="lucide:arrow-left"
-          @click="() => $router.back()"
-        >
-          {{ t('Go Back') }}
-        </UiArrowButton>
-      </div>
     </div>
-
-    <!-- Social Media Buttons -->
-    <LazyAppButtonSosmed :hydrate-on-idle="1200" />
-  </div>
+  </UApp>
 </template>
-
-<style scoped>
-.section-title-filled {
-  font-family: var(--font-heading, 'Inter', sans-serif);
-  font-weight: 900;
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-}
-
-.section-title-outline {
-  font-family: var(--font-heading, 'Inter', sans-serif);
-  font-weight: 900;
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px currentColor;
-  opacity: 0.85;
-}
-</style>

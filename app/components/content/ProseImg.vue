@@ -28,6 +28,6 @@ defineProps({
     format="avif"
     loading="lazy"
     decoding="async"
-    class="rounded-sm border border-border/40 my-6 max-w-full h-auto shadow-md"
+    class="rounded-lg border border-default my-6 max-w-full h-auto shadow-md"
   />
 </template>

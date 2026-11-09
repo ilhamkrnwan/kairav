@@ -1,4 +1,6 @@
 {
+  "2021": "2021",
+  "2024": "2024",
   "Home": "Beranda",
   "About": "Tentang",
   "Me": "Saya",
@@ -11,7 +13,6 @@
   "Fullstack": "Fullstack",
   "Developer": "Developer",
   "Download CV": "Download CV",
-
   "seo.default.title": "Ilham Kurniawan — Fullstack Developer & Solusi Digital",
   "seo.default.description": "Portofolio, esai, dan layanan digital Ilham Kurniawan: website bisnis, sistem custom, integrasi API/AI, dan SEO/GEO.",
   "seo.home.title": "Ilham Kurniawan — Fullstack Developer & Solusi Digital",
@@ -30,7 +31,6 @@
   "seo.contact.description": "Hubungi Ilham Kurniawan untuk konsultasi pembuatan website, sistem informasi, dashboard, mobile app, atau integrasi AI.",
   "seo.cv.title": "Curriculum Vitae — Ilham Kurniawan",
   "seo.cv.description": "Lihat dan unduh CV Ilham Kurniawan: Fullstack Developer spesialis Nuxt.js, Vue.js, Laravel, Flutter, dan integrasi AI.",
-
   "Hello my name is Ilham Kurniawan": "Halo, saya Ilham Kurniawan",
   "Career": "Perjalanan",
   "Journey": "Karir",
@@ -59,12 +59,10 @@
   "opportunities.": "peluang.",
   "IT Student": "Mahasiswa IT",
   "Web3 & AI Enthusiast": "Antusias Web3 dan AI",
-
   "See More": "Lihat Lebih",
   "About Me": "Tentang Saya",
   "Pelajari profil lengkap, filosofi engineering, dan pengalaman Ilham Kurniawan": "Pelajari profil lengkap, filosofi engineering, dan pengalaman Ilham Kurniawan",
   "2026 | Copyright © KAIRAV": "2026 | Hak Cipta © KAIRAV",
-
   "Welcome to my gallery": "Selamat datang di galeri saya",
   "Explore My Journey": "Jelajahi Perjalanan Saya",
   "Through": "Melalui",
@@ -85,7 +83,6 @@
   "digital solutions.": "solusi digital.",
   "Bento": "Bento",
   "Showcase": "Showcase",
-
   "Backend Development": "Pengembangan Backend",
   "Integrating data and APIs to build robust and scalable backend systems.": "Mengintegrasikan data dan API untuk membangun sistem backend yang tangguh dan scalable.",
   "Frontend Development": "Pengembangan Frontend",
@@ -114,7 +111,6 @@
   "Specialized expertise across the full development spectrum": "Keahlian spesialis di seluruh spektrum pengembangan",
   "Specialized expertise across the": "Keahlian spesialis di seluruh",
   "full development spectrum": "spektrum pengembangan",
-
   "Skills &": "Keahlian dan",
   "Skills and": "Keahlian dan",
   "Modern tech stack for building scalable and performant applications": "Tech stack modern untuk membangun aplikasi yang scalable dan performant",
@@ -124,7 +120,6 @@
   "execute ideas.": "mengeksekusi ide.",
   "As a tech-agnostic developer, I am always ready to adapt to": "Sebagai developer tech-agnostic, saya selalu siap beradaptasi dengan",
   "any ecosystem required.": "ekosistem apapun yang dibutuhkan.",
-
   "Education": "Pendidikan",
   "Education &": "Pendidikan &",
   "Training": "Pelatihan",
@@ -142,7 +137,6 @@
   "Graphic Design Training - DINPERINAKER Blora": "Pelatihan Desain Grafis - DINPERINAKER Blora",
   "2022 | Graduated": "2022 | Lulus",
   "Participated in a graphic design training program using CorelDRAW, learning design techniques, image manipulation, and the creation of visual materials. Completed various design projects and developed a strong portfolio.": "Berpartisipasi dalam program pelatihan desain grafis menggunakan CorelDRAW, mempelajari teknik desain, manipulasi gambar, dan pembuatan materi visual. Menyelesaikan berbagai proyek desain dan mengembangkan portofolio yang kuat.",
-
   "Work &": "Kerja &",
   "Experience": "Pengalaman",
   "Professional Journey": "Perjalanan Profesional",
@@ -166,20 +160,15 @@
   "Developed and maintained web and Android applications for clients using modern technologies. Built responsive and user-friendly interfaces with Vue.js and Nuxt.js for web applications. Created Android applications using Kotlin, ensuring optimal performance and user experience. Collaborated with clients to gather requirements and deliver tailored solutions.": "Mengembangkan dan memaintain aplikasi web dan Android untuk klien menggunakan teknologi modern. Membangun interface yang responsif dan user-friendly dengan Vue.js dan Nuxt.js untuk aplikasi web. Membuat aplikasi Android menggunakan Kotlin, memastikan performa optimal dan user experience. Berkolaborasi dengan klien untuk mengumpulkan requirement dan memberikan solusi yang disesuaikan.",
   "Volunteer": "Relawan",
   "Ramadhan Volunteer at Baznas Yogyakarta": "Relawan Ramadhan di Baznas Yogyakarta",
-  "2024": "2024",
   "Participated as a volunteer during the holy month of Ramadhan at Baznas Yogyakarta. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.": "Berpartisipasi sebagai relawan selama bulan suci Ramadhan di Baznas Yogyakarta. Membantu mengorganisir dan mengelola berbagai aktivitas dan acara Ramadhan, menunjukkan kerjasama tim, dedikasi, dan pelayanan masyarakat.",
   "Ramadhan Volunteer at LAZ Al-Azhar Surabaya": "Relawan Ramadhan di LAZ Al-Azhar Surabaya",
-  "2021": "2021",
   "Participated as a volunteer during the holy month of Ramadhan at LAZ Al-Azhar Surabaya. Assisted in organizing and managing various Ramadhan activities and events, demonstrating teamwork, dedication, and community service.": "Berpartisipasi sebagai relawan selama bulan suci Ramadhan di LAZ Al-Azhar Surabaya. Membantu mengorganisir dan mengelola berbagai aktivitas dan acara Ramadhan, menunjukkan kerjasama tim, dedikasi, dan pelayanan masyarakat.",
-
   "Interested in collaborating?": "Tertarik untuk berkolaborasi?",
   "Get In Touch": "Hubungi Saya",
   "View works": "Lihat Karya",
-
   "Portfolio not found": "Portofolio tidak ditemukan",
   "View project details and portfolio": "Lihat detail proyek dan portofolio",
   "Visit Website": "Kunjungi Website",
-
   "Featured": "Unggulan",
   "Work": "Karya",
   "Recent": "Terbaru",
@@ -203,7 +192,6 @@
   "Commercial and editorial photography": "Fotografi komersial dan editorial",
   "Creative Experiments": "Eksperimen Kreatif",
   "Pushing boundaries with new techniques": "Mendorong batas dengan teknik baru",
-
   "Welcome to my projects": "Selamat datang di proyek saya",
   "Welcome to my blog": "Selamat datang di blog saya",
   "Innovative": "Inovatif",
@@ -232,7 +220,6 @@
   "Try adjusting your search or filter criteria": "Coba sesuaikan pencarian atau kriteria filter Anda",
   "Clear Filters": "Hapus Filter",
   "Delivering excellence across all aspects of software development": "Memberikan keunggulan di semua aspek pengembangan software",
-
   "Project Info": "Info Proyek",
   "Client": "Klien",
   "Status": "Status",
@@ -244,17 +231,14 @@
   "More Projects": "Proyek Lainnya",
   "Previous Project": "Proyek Sebelumnya",
   "Next Project": "Proyek Selanjutnya",
-
   "Year": "Tahun",
   "Role": "Peran",
   "Duration": "Durasi",
   "Live Preview": "Lihat Demo",
-
   "CURRICULUM": "CURRICULUM",
   "VITAE": "VITAE",
   "Ilham Kurniawan · Software Developer": "Ilham Kurniawan · Software Developer",
   "© 2026 KAIRAV Portfolio": "© 2026 KAIRAV Portfolio",
-
   "Page Not Found": "Halaman Tidak Ditemukan",
   "Sorry, the page you're looking for doesn't exist.": "Maaf, halaman yang Anda cari tidak ada.",
   "Server Error": "Error Server",
@@ -304,7 +288,6 @@
   "scalable, accessible, and user-centric applications.": "aplikasi yang scalable, aksesibel, dan berpusat pada pengguna.",
   "Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a": "Baik saat membangun antarmuka responsif maupun backend yang tangguh, tujuan saya adalah memberikan produk yang membawa",
   "meaningful impact.": "dampak nyata.",
-
   "FAQ": "FAQ",
   "Frequently Asked": "Pertanyaan yang",
   "Questions": "Sering Diajukan",
@@ -312,22 +295,16 @@
   "Things people usually ask about working with me": "Hal yang biasa ditanyakan tentang bekerja sama dengan saya",
   "working with me": "bekerja sama dengan saya",
   "Still have questions?": "Masih ada pertanyaan?",
-
   "Are you available for freelance projects?": "Apakah kamu tersedia untuk proyek freelance?",
   "Yes! I'm actively open to freelance collaborations — whether it's a full web app, landing page, or API integration. Feel free to reach out via the contact section below and we can discuss your needs.": "Ya! Saya aktif terbuka untuk kolaborasi freelance — baik itu web app penuh, landing page, maupun integrasi API. Silakan hubungi saya melalui bagian kontak di bawah dan kita bisa diskusikan kebutuhan Anda.",
-
   "What is your preferred tech stack?": "Apa tech stack pilihan kamu?",
   "My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.": "Stack utama saya adalah Vue.js / Nuxt.js untuk frontend dan Node.js / Laravel untuk backend. Untuk database saya menggunakan Supabase, PostgreSQL, dan MongoDB. Namun saya tech-agnostic — saya beradaptasi dengan stack apapun yang paling cocok untuk proyek.",
-
   "Are you open to full-time employment?": "Apakah kamu terbuka untuk pekerjaan full-time?",
   "Absolutely. I'm open to full-time positions as a Fullstack or Frontend Developer. I value collaborative teams, clear communication, and meaningful products. Let's connect and see if we're a good fit!": "Tentu saja. Saya terbuka untuk posisi full-time sebagai Fullstack atau Frontend Developer. Saya menghargai tim yang kolaboratif, komunikasi yang jelas, dan produk yang bermakna. Mari terhubung dan lihat apakah kita cocok!",
-
   "How long does it typically take to build a project?": "Berapa lama biasanya membangun sebuah proyek?",
   "It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.": "Tergantung scopenya. Sebuah landing page bisa memakan waktu 3–7 hari, sedangkan web app lengkap biasanya 2–6 minggu. Saya selalu memberikan estimasi timeline setelah memahami kebutuhan proyek.",
-
   "What industries have you worked in?": "Industri apa saja yang pernah kamu tangani?",
   "I've worked in agritech (Jurutani), general software services (Sekeco), and delivered freelance projects across e-commerce, company profiles, dashboards, and educational platforms.": "Saya pernah bekerja di agritech (Jurutani), layanan software umum (Sekeco), serta mengerjakan proyek freelance di e-commerce, company profile, dashboard, dan platform edukasi.",
-
   "How can I contact you?": "Bagaimana cara menghubungi kamu?",
   "You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.": "Kamu bisa menghubungi saya melalui bagian 'Hubungi Saya' di bagian bawah halaman ini, atau terhubung melalui LinkedIn dan GitHub. Saya biasanya merespons dalam 1–2 hari kerja.",
   "Digital services": "Layanan digital",
@@ -403,10 +380,10 @@
   "Lihat kumpulan project lain yang pernah saya kerjakan, mulai dari website bisnis, sistem dashboard, aplikasi web, hingga platform digital.": "Lihat kumpulan project lain yang pernah saya kerjakan, mulai dari website bisnis, sistem dashboard, aplikasi web, hingga platform digital.",
   "Explore Projects": "Jelajahi Proyek",
   "Selengkapnya": "Selengkapnya",
-  "View Details": "Lihat Detail",
+  "View Details": "Buka Halaman Lengkap",
   "Service not found": "Layanan tidak ditemukan",
   "View service details": "Lihat detail layanan",
-  "Featured Service": "Layanan Unggulan",
+  "Featured Service": "Layanan Utama",
   "Deliverables": "Output Pengerjaan",
   "Discuss This Service": "Diskusikan Layanan Ini",
   "Back to Services": "Kembali ke Layanan",
@@ -489,10 +466,8 @@
   "View Service Details": "Lihat Detail Layanan",
   "Read Full Article": "Baca Artikel Lengkap",
   "View Case Study": "Lihat Studi Kasus",
-  "View Details": "Buka Halaman Lengkap",
   "View on Instagram": "Kunjungi Instagram",
   "Photography": "Fotografi",
-  "2021 - Present": "2021 - Sekarang",
   "UNUYO · Informatics": "UNUYO · S1 Informatika",
   "Freelance Developer": "Developer Freelance",
   "Remote & Contract": "Remote & Proyek",
@@ -508,7 +483,6 @@
   "More Articles": "Artikel Lainnya",
   "Read Full Essay": "Baca Selengkapnya",
   "Featured Project": "Proyek Unggulan",
-  "Featured Service": "Layanan Utama",
   "More Services": "Layanan Lainnya",
   "footer.tagline": "Membangun aplikasi web berkinerja tinggi, sistem skalabel, dan pengalaman digital interaktif dengan presisi teknis.",
   "footer.status_available": "Tersedia untuk proyek freelance & kolaborasi",
@@ -546,14 +520,18 @@
   "footer.personal_bio": "Fullstack Developer yang berfokus pada pengembangan website modern berkinerja tinggi, aplikasi mobile lintas platform, dashboard custom, dan integrasi AI. Terbuka untuk kolaborasi mandiri maupun dalam tim.",
   "Layanan Terpercaya": "Layanan Terpercaya",
   "Layanan Utama": "Layanan Utama",
-  "Konsultasi via WhatsApp": "Konsultasi via WhatsApp",
   "Lihat Rincian": "Lihat Rincian",
   "Artikel & Wawasan": "Artikel & Wawasan",
   "Baca Artikel": "Baca Artikel",
   "Salin Tautan": "Salin Tautan",
   "Tersalin!": "Tersalin!",
   "Studi Kasus & Proyek": "Studi Kasus & Proyek",
-  "Kembali ke Portofolio": "Kembali ke Portofolio"
+  "Kembali ke Portofolio": "Kembali ke Portofolio",
+  "Hover to reveal": "Arahkan untuk melihat",
+  "Search": "Cari",
+  "All": "Semua",
+  "Pages": "Halaman",
+  "Clear": "Hapus",
+  "Search everything on this site": "Cari apa saja di situs ini",
+  "Nothing matches that yet": "Belum ada yang cocok"
 }
-
-

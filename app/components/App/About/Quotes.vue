@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const { t } = useI18n()
 
 const quotes = computed(() => [
@@ -16,29 +16,23 @@ const quotes = computed(() => [
   { text: t('The best way to understand the universe is to build a maximum truth-seeking AI.'), author: t('Elon Musk (xAI Founder)') }
 ])
 
-const currentQuote = ref(quotes.value[0])
-
-const getRandomQuote = () => {
-  const randomIndex = Math.floor(Math.random() * quotes.value.length)
-  currentQuote.value = quotes.value[randomIndex]
-}
-
+// Pick randomly on mount only (SSR renders the first quote, avoiding hydration mismatch)
+const index = ref(0)
 onMounted(() => {
-  getRandomQuote()
+  index.value = Math.floor(Math.random() * quotes.value.length)
 })
+const currentQuote = computed(() => quotes.value[index.value]!)
 </script>
 
 <template>
-  <section class="w-full flex flex-col items-center justify-center py-32 px-6 md:px-12 lg:px-20 text-gray-800 dark:text-white">
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <div class="absolute -top-12 -left-12 opacity-10 pointer-events-none">
-        <Icon name="lucide:quote" class="w-32 h-32 text-amber-400" />
-      </div>
-      <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-8 stagger-item will-change-[transform,opacity]">
+  <section class="flex w-full flex-col items-center justify-center px-6 py-32 md:px-12 lg:px-20">
+    <div class="relative z-10 mx-auto max-w-4xl text-center">
+      <UIcon name="lucide:quote" class="pointer-events-none absolute -top-12 -left-12 size-32 text-primary opacity-10" />
+      <h2 :key="$i18n.locale" class="stagger-item mb-8 font-heading text-3xl leading-tight tracking-tight text-highlighted will-change-[transform,opacity] md:text-5xl lg:text-6xl">
         "{{ currentQuote.text }}"
       </h2>
-      <div class="w-16 h-1 bg-amber-400 mx-auto mb-6 stagger-item will-change-[transform,opacity]"></div>
-      <p class="text-sm font-mono tracking-widest uppercase text-muted-foreground stagger-item will-change-[transform,opacity]">
+      <div class="stagger-item mx-auto mb-6 h-1 w-16 bg-primary will-change-[transform,opacity]" />
+      <p class="stagger-item text-sm text-muted will-change-[transform,opacity] font-medium">
         — {{ currentQuote.author }}
       </p>
     </div>

@@ -93,6 +93,7 @@ function bytes(value) {
 
 function log(message) {
   console.log(message);
+  // eslint-disable-next-line no-control-regex -- strip ANSI colors
   logLines.push(message.replace(/\u001b\[[0-9;]*m/g, ''));
 }
 
@@ -142,6 +143,7 @@ async function assertCloudinaryCredentials() {
   } catch (error) {
     throw new Error(
       `Cloudinary auth check failed before upload. Check that CLOUDINARY_CLOUD_NAME is the product environment/cloud name and CLOUDINARY_API_SECRET is the actual API secret for the same API key. Detail: ${formatErrorDetail(error)}`,
+      { cause: error },
     );
   }
 }

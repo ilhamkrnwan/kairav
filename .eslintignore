@@ -1,7 +1,0 @@
-nuxt.config.ts
-eslint.config.mjs
-
-
-node_modules/
-.nuxt/
-dist/

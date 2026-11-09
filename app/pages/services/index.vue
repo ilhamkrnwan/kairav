@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import type { ServiceCollectionItem } from '~/types'
 
 const { t, locale } = useI18n()
 
-const { data: services, status } = await useAsyncData<ServiceCollectionItem[]>(
+const { data: services, status } = await useAsyncData(
   `services-${locale.value}`,
   () =>
     queryCollection('services')
@@ -13,38 +12,33 @@ const { data: services, status } = await useAsyncData<ServiceCollectionItem[]>(
   { watch: [locale] }
 )
 
-const getServiceLink = (path?: string) => {
-  return path?.replace(/^\/services\/[^/]+/, '/services') || '#'
-}
+const getServiceLink = (path?: string) => path?.replace(/^\/services\/[^/]+/, '/services') || '#'
+const getServiceImage = (service: { coverImage?: string, image?: string }) => service.coverImage || service.image || '/placeholder.avif'
+
 
 const selectedCategory = ref('All')
 
 const categories = computed(() => {
   const uniqueCategories = new Set<string>(['All'])
-  services.value?.forEach(item => {
+  services.value?.forEach((item) => {
     if (item.category) uniqueCategories.add(item.category)
   })
   return Array.from(uniqueCategories)
 })
 
-const filteredServices = computed(() => {
-  if (selectedCategory.value === 'All') return services.value || []
-  return (services.value || []).filter(item => item.category === selectedCategory.value)
-})
+const filteredServices = computed(() =>
+  selectedCategory.value === 'All'
+    ? services.value || []
+    : (services.value || []).filter(item => item.category === selectedCategory.value)
+)
 
-const featuredService = computed(() => {
-  if (selectedCategory.value === 'All' && filteredServices.value.length > 0) {
-    return filteredServices.value[0]
-  }
-  return null
-})
+const featuredService = computed(() =>
+  selectedCategory.value === 'All' ? filteredServices.value[0] : undefined
+)
 
-const regularServices = computed(() => {
-  if (featuredService.value) {
-    return filteredServices.value.slice(1)
-  }
-  return filteredServices.value
-})
+const regularServices = computed(() =>
+  featuredService.value ? filteredServices.value.slice(1) : filteredServices.value
+)
 
 useDynamicSeo({
   titleKey: 'seo.services.title',
@@ -59,319 +53,250 @@ useServiceCatalogSchema({
     duration: service.duration,
     deliverables: service.deliverables,
     tags: service.tags,
-    url: getServiceLink(service.path),
-  })),
+    url: getServiceLink(service.path)
+  }))
 })
+
 // Initialize Scroll Reveal Animations
 useScrollReveal()
 </script>
 
 <template>
   <main class="min-h-screen">
-    <section class="relative w-full flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-12 overflow-hidden">
-      <div class="max-w-4xl mx-auto text-center relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm border border-border/40 bg-background/60 backdrop-blur-sm mb-8 animate-fade-in-up">
-          <span class="relative flex h-1.5 w-1.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400" />
-          </span>
-          <span class="text-xs font-mono text-muted-foreground uppercase tracking-widest">{{ t('Digital services') }}</span>
-        </div>
-
-        <h1 class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
+    <!-- Hero -->
+    <section class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-4 md:px-8 lg:px-12">
+      <div class="relative z-10 mx-auto max-w-4xl text-center">
+        <h1 :key="$i18n.locale" class="animate-fade-in-up delay-100 mb-8 leading-[0.88] tracking-tight">
           <span class="section-title-filled block">{{ t('Services') }}</span>
-          <span class="section-title-outline text-foreground block">{{ t('Built For Impact') }}<span class="text-amber-400 !important">.</span></span>
+          <span class="section-title-outline block">{{ t('Built For Impact') }}<span class="text-primary">.</span></span>
         </h1>
 
-        <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-light">
+        <p class="animate-fade-in-up delay-200 mx-auto mb-12 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
           {{ t('Ilham Kurniawan menyediakan layanan pengembangan') }}
-          <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
+          <UiTextGradient class="font-medium">
             {{ t('website bisnis, dashboard, aplikasi web,') }}
           </UiTextGradient>
           {{ t('REST API, dan integrasi sistem untuk') }}
-          <UiTextGradient :colors="['#22D3EE', '#06B6D4', '#22D3EE']" :animation-speed="3" class="font-medium">
+          <UiTextGradient class="font-medium">
             {{ t('bisnis, UMKM, startup,') }}
           </UiTextGradient>
           {{ t('dan organisasi di Indonesia.') }}
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <UiArrowButton
-            to="#services-list"
-            variant="primary"
-            icon="lucide:arrow-down"
-          >
+        <div class="animate-fade-in-up delay-300 mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <UiArrowButton to="#services-list" variant="primary" icon="lucide:arrow-down">
             {{ t('Explore Services') }}
           </UiArrowButton>
-          <UiArrowButton
-            to="/contact"
-            variant="secondary"
-            icon="lucide:arrow-right"
-          >
+          <UiArrowButton to="/contact" variant="secondary" icon="lucide:arrow-right">
             {{ t('Start a Project') }}
           </UiArrowButton>
         </div>
       </div>
-
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span class="text-xs text-muted-foreground font-mono">{{ t('scroll') }}</span>
-        <Icon name="chevrons-down" class="w-4 h-4 text-amber-400/60" />
-      </div>
     </section>
 
-    <section id="services-list" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 stagger-item">
-          <h2 class="leading-[0.88] tracking-tight mb-4">
+    <!-- Services list -->
+    <section id="services-list" class="scroll-section section py-20 will-change-[transform,opacity]">
+      <div class="container mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="stagger-item mb-16 text-center">
+          <h2 :key="$i18n.locale" class="mb-4 leading-[0.88] tracking-tight">
             <span class="section-title-filled block">{{ t('Solusi Digital') }}</span>
-            <span class="section-title-outline text-foreground block">{{ t('Untuk Bisnis') }}<span class="text-amber-400 !important">.</span></span>
+            <span class="section-title-outline block">{{ t('Untuk Bisnis') }}<span class="text-primary">.</span></span>
           </h2>
-          <p class="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed font-light">
+          <p class="mx-auto max-w-2xl text-lg font-normal leading-relaxed text-muted">
             {{ t('Saya membantu bisnis, UMKM, startup, dan organisasi membangun') }}
-            <UiTextGradient :colors="['#FBBF24', '#F59E0B', '#FBBF24']" :animation-speed="3" class="font-medium">
+            <UiTextGradient class="font-medium">
               {{ t('website, dashboard, sistem custom,') }}
             </UiTextGradient>
             {{ t('dan integrasi digital yang') }}
-            <UiTextGradient :colors="['#34D399', '#10B981', '#34D399']" :animation-speed="3" class="font-medium">
+            <UiTextGradient class="font-medium">
               {{ t('cepat, rapi, scalable,') }}
             </UiTextGradient>
             {{ t('dan siap digunakan.') }}
           </p>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-12 stagger-item">
-          <button
+        <!-- Category filter -->
+        <div class="stagger-item mb-12 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          <UButton
             v-for="category in categories"
             :key="category"
-            class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-sm sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-300"
-            :class="selectedCategory === category
-              ? 'bg-amber-400 text-gray-900 shadow-md sm:shadow-lg shadow-amber-400/25 scale-102 sm:scale-105'
-              : 'bg-background/50 backdrop-blur-sm border border-border/50 text-muted-foreground hover:border-amber-400/40 hover:text-foreground hover:scale-102 sm:hover:scale-105'"
+            size="sm"
+            :color="selectedCategory === category ? 'primary' : 'neutral'"
+            :variant="selectedCategory === category ? 'solid' : 'outline'"
+            class="rounded-lg transition-all duration-300 sm:rounded-lg"
+            :class="selectedCategory === category ? 'scale-102 shadow-md shadow-primary/25 sm:scale-105 sm:shadow-lg' : 'bg-elevated hover:scale-102 sm:hover:scale-105'"
             @click="selectedCategory = category"
           >
             {{ category }}
-          </button>
+          </UButton>
         </div>
 
-        <!-- Featured / Highlight Service (Borderless Editorial Style) -->
-        <div v-if="featuredService" class="mb-14 sm:mb-20 stagger-item">
-          <NuxtLink
-            :to="getServiceLink(featuredService.path)"
-            class="group block"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
-              <!-- Cover Image Area (Left) -->
-              <div class="lg:col-span-7 relative aspect-[16/9] overflow-hidden rounded-sm sm:rounded-2xl border border-border/30 bg-muted/20 shadow-2xl shadow-black/10 group-hover:border-amber-400/50 transition-all duration-500">
+        <!-- Featured service (borderless editorial style) -->
+        <div v-if="featuredService" class="stagger-item mb-14 sm:mb-20">
+          <ULink :to="getServiceLink(featuredService.path)" raw class="group block">
+            <div class="grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12">
+              <div class="relative aspect-video overflow-hidden rounded-lg border border-default bg-muted/20 transition-all duration-500 group-hover:border-primary/50 sm:rounded-lg lg:col-span-7">
                 <NuxtImg
-                  :src="featuredService.coverImage || featuredService.image || '/placeholder.avif'"
+                  :src="getServiceImage(featuredService)"
                   :alt="featuredService.title"
                   width="1280"
                   height="720"
                   format="avif"
                   loading="eager"
-                  class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  class="size-full scale-100 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                
-                <!-- Category Badge on Image -->
-                <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/85 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold shadow-lg">
-                    <Icon :name="featuredService.icon || 'lucide:layers'" class="w-3.5 h-3.5" />
-                    {{ featuredService.category }}
-                  </span>
-                </div>
               </div>
 
-              <!-- Content / Editorial Info (Right - Borderless) -->
-              <div class="lg:col-span-5 flex flex-col justify-center">
-                <!-- Highlight Indicator -->
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+              <div class="flex flex-col justify-center lg:col-span-5">
+                <div class="mb-3 flex items-center gap-2">
+                  <span class="relative flex size-2">
+                    <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />
+                    <span class="relative inline-flex size-2 rounded-full bg-primary" />
                   </span>
-                  <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
+                  <span class="text-xs font-bold text-primary sm:text-xs">
                     {{ t('Featured Service') }}
                   </span>
                 </div>
 
-                <!-- Meta Info: Duration -->
-                <div v-if="featuredService.duration" class="flex items-center gap-3 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4">
-                  <span class="flex items-center gap-1 text-muted-foreground">
-                    <Icon name="lucide:clock" class="w-3 h-3 text-amber-400" />
-                    {{ featuredService.duration }}
-                  </span>
+                <p class="mb-3 text-sm font-semibold text-toned">{{ featuredService.category }}</p>
+
+                <div v-if="featuredService.duration" class="mb-3 flex items-center gap-1 text-xs text-muted sm:mb-4 sm:text-xs font-medium">
+                  <UIcon name="lucide:clock" class="size-3 text-primary" />
+                  {{ featuredService.duration }}
                 </div>
 
-                <!-- Title -->
-                <h3 class="text-lg sm:text-2xl md:text-3xl font-heading font-black text-foreground leading-[1.15] mb-3 sm:mb-4 tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                <h3 class="mb-3 font-heading text-lg leading-[1.15] tracking-tight text-highlighted transition-colors duration-300 group-hover:text-primary sm:mb-4 sm:text-2xl md:text-3xl">
                   {{ featuredService.title }}
                 </h3>
 
-                <!-- Description -->
-                <p class="text-xs sm:text-sm md:text-base font-light text-muted-foreground leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-4">
+                <p class="mb-4 line-clamp-3 text-xs font-normal leading-relaxed text-muted sm:mb-6 sm:line-clamp-4 sm:text-sm md:text-base">
                   {{ featuredService.description }}
                 </p>
 
-                <!-- Deliverables / Tags -->
-                <div v-if="featuredService.deliverables && featuredService.deliverables.length > 0" class="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
-                  <span
+                <div v-if="featuredService.deliverables?.length" class="mb-6 flex flex-wrap gap-1.5 sm:gap-2">
+                  <UBadge
                     v-for="item in featuredService.deliverables.slice(0, 4)"
                     :key="item"
-                    class="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm text-[9px] sm:text-[10px] font-mono uppercase tracking-wider bg-background/60 border border-border/40 text-foreground/80"
+                    color="neutral"
+                    variant="outline"
+                    class="rounded-lg border-default/40 bg-elevated text-xs sm:text-xs font-medium"
                   >
                     {{ item }}
-                  </span>
+                  </UBadge>
                 </div>
 
-                <!-- CTA Action Link -->
-                <div class="flex items-center gap-3">
-                  <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-amber-400 group-hover:text-amber-300 transition-colors">
-                    {{ t('View Service Details') }}
-                    <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                  </span>
-                </div>
+                <span class="inline-flex items-center gap-2 text-xs font-bold text-primary transition-colors group-hover:text-primary/85 sm:text-sm">
+                  {{ t('View Service Details') }}
+                  <UIcon name="lucide:arrow-right" class="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </span>
               </div>
             </div>
-          </NuxtLink>
+          </ULink>
         </div>
 
-        <!-- Section Label when featured is shown -->
-        <div v-if="featuredService && regularServices.length > 0" class="flex items-center justify-between mb-6 stagger-item border-t border-border/20 pt-8">
-          <h3 class="text-xs sm:text-sm font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-            <Icon name="lucide:layers" class="w-3.5 h-3.5 text-amber-400" />
-            <span>{{ t('More Services') }}</span>
-          </h3>
-          <span class="text-[10px] sm:text-xs font-mono text-muted-foreground">{{ regularServices.length }} {{ t('services') }}</span>
+        <!-- Section label when featured is shown -->
+        <div v-if="featuredService && regularServices.length" class="stagger-item mb-6">
+          <div class="flex items-center justify-between">
+            <h3 class="flex items-center gap-2 text-xs text-muted sm:text-sm font-medium">
+              <UIcon name="lucide:layers" class="size-3.5 text-primary" />
+              <span>{{ t('More Services') }}</span>
+            </h3>
+            <span class="text-xs text-muted sm:text-xs">{{ regularServices.length }} {{ t('services') }}</span>
+          </div>
         </div>
 
-        <!-- Services Grid Skeleton -->
-        <div v-if="status === 'pending'" class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-          <UiSkeletonServiceCard v-for="i in 4" :key="`service-skeleton-${i}`" />
-        </div>
-
-        <div v-else-if="regularServices.length > 0" class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-          <UiAnimatedCard
-            v-for="service in regularServices"
-            :key="service.path"
-            :glow-color="'251, 191, 36'"
-            :particle-count="8"
-            :enable-particles="true"
-            :enable-tilt="false"
-            :enable-magnetism="false"
-            :enable-border-glow="false"
-            :click-effect="true"
-            class="stagger-item"
+        <!-- Services grid skeleton -->
+        <div v-if="status === 'pending'" class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+          <div
+            v-for="i in 4"
+            :key="`service-skeleton-${i}`"
+            class="flex h-full min-h-40 flex-col justify-between rounded-lg border border-default bg-elevated p-3 sm:min-h-64 sm:p-5 md:p-6"
           >
-            <NuxtLink
-              :to="getServiceLink(service.path)"
-              class="group relative block rounded-sm sm:rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm border border-border/40 hover:border-amber-400/50 hover:bg-background/80 transition-all duration-300 h-full min-h-[160px] sm:min-h-64 shadow-lg"
-            >
-              <!-- ── Image layer (visible on hover) ── -->
-              <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <NuxtImg
-                  :src="service.coverImage || service.image || '/placeholder.avif'"
-                  :alt="service.title"
-                  width="600"
-                  height="337"
-                  format="avif"
-                  loading="lazy"
-                  class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
-                />
-                <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
-                <!-- Arrow icon top-right -->
-                <div class="absolute top-2 right-2 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-400/20 backdrop-blur-sm border border-amber-400/30 flex items-center justify-center translate-x-1 -translate-y-1 sm:translate-x-2 sm:-translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500">
-                  <Icon name="lucide:arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
-                </div>
-                <!-- Info bottom -->
-                <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-xs font-mono font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1 sm:mb-2 max-w-[120px] sm:max-w-none truncate">
-                    {{ service.category }}
-                  </span>
-                  <h3 class="text-xs sm:text-base md:text-lg font-heading text-white font-semibold leading-snug line-clamp-2">
-                    {{ service.title }}
-                  </h3>
-                  <p class="text-[10px] sm:text-xs text-white/60 mt-0.5 sm:mt-1 font-mono">{{ t('Selengkapnya') }} →</p>
-                </div>
+            <div>
+              <div class="mb-2 flex items-start justify-between gap-1 sm:mb-4 md:mb-8">
+                <USkeleton class="size-8 rounded-lg sm:size-12 md:size-14" />
+                <USkeleton class="h-4 w-14 rounded-lg sm:h-5 sm:w-20 md:w-24" />
               </div>
-
-              <!-- ── Default content layer (hidden on hover) ── -->
-              <div class="relative z-20 p-3 sm:p-5 md:p-6 flex flex-col h-full group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300">
-                <div>
-                  <div class="flex items-start justify-between gap-1 mb-2 sm:mb-4 md:mb-6">
-                    <div class="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center transition-all duration-300 group-hover:from-amber-400/20 group-hover:to-orange-500/20 shrink-0">
-                      <Icon :name="service.icon || 'lucide:layers'" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400" />
-                    </div>
-                    <span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-sm bg-background border border-border/30 text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase tracking-wider truncate max-w-[90px] sm:max-w-none">
-                      {{ service.category }}
-                    </span>
-                  </div>
-
-                  <h3 class="text-xs sm:text-lg md:text-xl font-heading font-semibold mb-1.5 sm:mb-3 text-foreground leading-snug line-clamp-2">
-                    {{ service.title }}
-                  </h3>
-                  <p class="text-[11px] sm:text-sm font-light text-muted-foreground leading-relaxed mb-3 sm:mb-6 line-clamp-2 sm:line-clamp-3">
-                    {{ service.description }}
-                  </p>
-
-                  <div class="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
-                    <span
-                      v-for="tag in service.tags?.slice(0, 3)"
-                      :key="tag"
-                      class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-sm text-[8px] sm:text-[10px] font-mono tracking-wider uppercase bg-background/50 border border-border/40 text-foreground"
-                    >
-                      {{ tag }}
-                    </span>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between mt-auto pt-2 border-t border-border/10 text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  <span class="truncate">{{ service.duration }}</span>
-                  <span class="inline-flex items-center gap-1 sm:gap-2 text-amber-400 group-hover:translate-x-1 transition-transform shrink-0">
-                    <span class="hidden sm:inline">{{ t('Selengkapnya') }}</span>
-                    <Icon name="lucide:arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                  </span>
-                </div>
+              <div class="mb-2 space-y-1.5 sm:mb-3 sm:space-y-2">
+                <USkeleton class="h-5 w-3/4 rounded-lg sm:h-6 md:h-7" />
+                <USkeleton class="h-5 w-1/2 rounded-lg sm:h-6 md:h-7" />
               </div>
-            </NuxtLink>
-          </UiAnimatedCard>
-
-          <!-- Custom service suggestion -->
-          <div class="col-span-2 md:col-span-2 mt-4 sm:mt-6 stagger-item">
-            <div class="relative overflow-hidden rounded-sm border border-dashed border-border/60 hover:border-amber-400/60 bg-background/30 hover:bg-amber-400/[0.02] backdrop-blur-sm p-8 text-center flex flex-col items-center justify-center gap-4 group transition-all duration-500 hover:-translate-y-1">
-              <!-- Glow gradient background -->
-              <div class="absolute -inset-px bg-linear-to-r from-transparent via-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-750 pointer-events-none" />
-
-              <div class="w-12 h-12 rounded-sm bg-linear-to-br from-amber-400/10 to-orange-500/10 border border-amber-400/20 flex items-center justify-center group-hover:from-amber-400/20 group-hover:to-orange-500/20 transition-all duration-300 shadow-inner">
-                <Icon name="lucide:sparkles" class="w-5 h-5 text-amber-400 animate-pulse" />
+              <div class="mb-3 space-y-1.5 sm:mb-6 sm:space-y-2 md:mb-8">
+                <USkeleton class="h-3 w-full rounded-lg sm:h-3.5" />
+                <USkeleton class="h-3 w-11/12 rounded-lg sm:h-3.5" />
               </div>
-              <div class="max-w-xl relative z-10">
-                <h3 class="text-lg md:text-xl font-heading font-semibold mb-2 text-foreground tracking-wide uppercase">
-                  {{ t('Ingin service custom tertentu yang belum ada di daftar?') }}
-                </h3>
-                <p class="text-sm font-light text-muted-foreground leading-relaxed mb-6">
-                  {{ t('Jangan ragu untuk mendiskusikan kebutuhan unik bisnis Anda. Saya siap membantu merancang solusi kustom.') }}
-                </p>
-                <UiArrowButton
-                  to="/contact"
-                  variant="primary"
-                  icon="lucide:arrow-right"
-                >
-                  <template #leading>
-                    <Icon name="lucide:message-square" class="w-4 h-4 text-neutral-950" />
-                  </template>
-                  {{ t('Bisa kontak saya aja langsung') }}
-                </UiArrowButton>
+              <div class="mb-2 flex flex-wrap gap-1 sm:mb-6 sm:gap-2 md:mb-8">
+                <USkeleton class="h-3.5 w-10 rounded-lg sm:h-5 sm:w-16" />
+                <USkeleton class="h-3.5 w-12 rounded-lg sm:h-5 sm:w-20" />
               </div>
+            </div>
+            <div class="flex items-center justify-between border-t border-default/20 pt-2 sm:pt-4">
+              <USkeleton class="h-3 w-12 rounded-lg sm:h-3.5 sm:w-20" />
+              <USkeleton class="h-3 w-14 rounded-lg sm:h-3.5 sm:w-28" />
             </div>
           </div>
+        </div>
+
+        <div v-else-if="regularServices.length">
+          <TransitionGroup tag="ul" name="filter" class="space-y-2">
+            <li v-for="service in regularServices" :key="service.path" class="stagger-item">
+              <ULink :to="getServiceLink(service.path)" raw class="group grid gap-4 py-6 sm:grid-cols-[11rem_1fr_auto] sm:items-start sm:gap-6">
+                <NuxtImg
+                  :src="getServiceImage(service)"
+                  :alt="service.title"
+                  width="352"
+                  height="234"
+                  format="avif"
+                  loading="lazy"
+                  class="aspect-3/2 w-full rounded-lg border border-default object-cover transition-transform duration-200 ease-out group-hover:-rotate-2 group-hover:scale-[1.03]"
+                />
+                <div>
+                  <h3 class="font-heading text-2xl leading-tight text-highlighted transition-colors group-hover:text-primary">
+                    {{ service.title }}
+                  </h3>
+                  <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{{ service.description }}</p>
+                  <p class="mt-3 text-sm font-semibold text-toned">{{ [service.category, ...(service.tags?.slice(0, 3) ?? [])].filter(Boolean).join(' · ') }}</p>
+                </div>
+                <p class="inline-flex items-center gap-1 text-sm font-medium text-primary sm:pt-1">
+                  {{ service.duration }}
+                  <UIcon name="lucide:arrow-right" class="size-4 transition-transform group-hover:translate-x-1" />
+                </p>
+              </ULink>
+            </li>
+          </TransitionGroup>
+
+          <!-- Custom service suggestion -->
+          <UCard
+            class="stagger-item group mt-10"
+            :ui="{
+              root: 'relative overflow-hidden rounded-lg border border-dashed border-default/60 bg-elevated ring-0 hover:border-primary/60 hover:bg-primary/2',
+              body: 'flex flex-col items-center justify-center gap-4 p-8 text-center sm:p-8'
+            }"
+          >
+
+            <div class="flex size-12 items-center justify-center rounded-lg border border-default bg-primary/10 shadow-inner transition-all duration-300 group-hover:from-primary/20 group-hover:to-primary/20">
+              <UIcon name="lucide:sparkles" class="size-5 text-primary" />
+            </div>
+            <div class="relative z-10 max-w-xl">
+              <h3 class="mb-2 font-heading text-xl text-highlighted md:text-2xl">
+                {{ t('Ingin service custom tertentu yang belum ada di daftar?') }}
+              </h3>
+              <p class="mb-6 text-sm font-normal leading-relaxed text-muted">
+                {{ t('Jangan ragu untuk mendiskusikan kebutuhan unik bisnis Anda. Saya siap membantu merancang solusi kustom.') }}
+              </p>
+              <UiArrowButton to="/contact" variant="primary" icon="lucide:arrow-right">
+                <template #leading>
+                  <UIcon name="lucide:message-square" class="size-4" />
+                </template>
+                {{ t('Bisa kontak saya aja langsung') }}
+              </UiArrowButton>
+            </div>
+          </UCard>
         </div>
       </div>
     </section>
 
-    <div class="scroll-section will-change-[transform,opacity] w-full">
+    <div class="scroll-section w-full will-change-[transform,opacity]">
       <GetinTouch />
     </div>
   </main>
@@ -382,22 +307,5 @@ useScrollReveal()
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 
-.section-title-filled {
-  font-family: var(--font-heading, 'Inter', sans-serif);
-  font-weight: 900;
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-}
 
-.section-title-outline {
-  font-family: var(--font-heading, 'Inter', sans-serif);
-  font-weight: 900;
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px currentColor;
-  opacity: 0.85;
-}
 </style>

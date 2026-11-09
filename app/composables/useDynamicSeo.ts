@@ -76,15 +76,9 @@ export const useDynamicSeo = (options: SeoOptions = {}) => {
   
   // Resolve title
   const getTitle = () => {
-    let title = ''
-    
-    if (options.titleKey) {
-      title = t(options.titleKey)
-    } else if (options.title) {
-      title = options.title
-    } else {
-      title = t('seo.default.title')
-    }
+    const title = options.titleKey
+      ? t(options.titleKey)
+      : options.title || t('seo.default.title')
     
     // Add site name suffix only when explicitly enabled with noSuffix: false
     if (options.noSuffix === false && !title.includes(siteName)) {

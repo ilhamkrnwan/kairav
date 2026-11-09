@@ -1,25 +1,67 @@
-# Nuxt dev/build outputs
+# Nuxt dev / build outputs
 .output
 .data
 .nuxt
 .nitro
 .cache
 dist
+*.tsbuildinfo
 
-# Node dependencies
+# Dependencies
 node_modules
+.pnpm-store
 
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Caches
+.eslintcache
+.stylelintcache
+.prettiercache
 .asset-conversion
+.asset-conversion/
 
-# Misc
-.DS_Store
-.fleet
-.idea
-
-# Local env files
+# Local environment files
 .env
 .env.*
 !.env.example
+!.env.test
+
+# System & OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs & Editors
+.idea
+.fleet
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# AI agents & assistant caches
+.agents/
+skills-lock.json
+.impeccable/
+.gemini/
+.claude/
+.qwen/
+.sixth/
+
+# Testing & Coverage
+coverage
+*.lcov
+.nyc_output

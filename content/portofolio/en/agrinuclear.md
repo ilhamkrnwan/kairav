@@ -1,71 +1,39 @@
 ---
-title: AgriNuclear
-description: An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content
-image: /portofolio/agrinuklir/thumbnails-agrinuclear.avif
+title: AgriNuklir
+description: An educational platform about applications of nuclear technology in agriculture, with learning modules, simulations, and interactive quizzes.
+image: /portofolio/agrinuklir/studio-cover.avif
 category: Website
 services:
-  - Web Development
-  - UI/UX Design
-  - Educational Content Platform
-client: Academic Project
-date: 2026-01-15
-status: Live
+  - Frontend Development
+contributionRole: Frontend Developer
+date: '2025-08'
+status: Completed
 industry: Agriculture & Education
 tags:
   - React
-  - Tailwind CSS
-  - Static Site
-  - Educational Platform
+  - Vite
+  - Supabase
 gallery:
   - /portofolio/agrinuklir/galeri_agrinuclear_1.avif
   - /portofolio/agrinuklir/galeri_agrinuclear_2.avif
   - /portofolio/agrinuklir/galeri_agrinuclear_3.avif
 _path: /portofolio/agrinuclear
+url: https://agrinuklir.netlify.app/
 ---
 
-# AgriNuclear — Nuclear Agriculture Education Platform
+## Agricultural education through modules and simulations
 
-An educational web platform bridging the gap between nuclear agriculture science and everyday farming innovation through visual, accessible content.
+AgriNuklir introduces peaceful uses of nuclear technology in agriculture. Learners can explore topics such as crop breeding and food preservation through modules, simulations, and quizzes.
 
-![AgriNuclear Platform Preview](/portofolio/agrinuklir/thumbnails-agrinuclear.avif)
+## My contribution
 
-## Problem
+I contributed to the development of the platform’s interface. Fauzan Arisanto managed the project, Khoirul Anam developed the backend, and Fathul Khozin researched the content.
 
-Nuclear agriculture sounds intimidating to the general public. Students and educators need accessible resources about nuclear technology for crops (such as mutation breeding and radiation applications), but most available content is too academic and difficult to understand without a scientific background.
+## Project outcome
 
-## Solution
+The project documentation records AgriNuklir as one of 13 national finalists at Global Hackatom Indonesia 2025.
 
-AgriNuclear transforms complex scientific content into digestible educational material:
+## References
 
-- **Visual-First Learning** — Interactive infographics and diagrams that make complex processes easy to understand
-- **Educational Articles** — Mutation breeding, radiation applications, and nuclear techniques explained in simple language
-- **Structured Content** — Material organized by difficulty level, suitable for self-study or classroom use
-- **Academic References** — Properly cited sources for deeper academic exploration
-- **Static Site Architecture** — Super-fast loading with built-in SEO optimization
-
-## My Role
-
-As **Web Developer and UI/UX Designer**, I was responsible for:
-- Designing and developing the entire website using React and Tailwind CSS
-- Creating visual-first layouts prioritizing infographics and diagrams
-- Implementing static site architecture for optimal performance and SEO
-- Collaborating with the academic team for educational content validation
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React, Tailwind CSS |
-| Architecture | Static Site Generation (SSG) |
-| Deployment | Static hosting |
-
-## Impact and Results
-
-- Made nuclear agriculture science accessible to students, educators, and the general public
-- Fast-loading website with intuitive navigation thanks to static site architecture
-- Structured content supporting progressive learning
-- Properly cited academic references ensuring content credibility
-
-![AgriNuclear Gallery 1](/portofolio/agrinuklir/galeri_agrinuclear_1.avif)
-![AgriNuclear Gallery 2](/portofolio/agrinuklir/galeri_agrinuclear_2.avif)
-![AgriNuclear Gallery 3](/portofolio/agrinuklir/galeri_agrinuclear_3.avif)
+- [Fauzan Arisanto’s AgriNuklir case study](https://www.fauzanarisanto.my.id/projects/agrinuklir)
+- [Team credits on Fauzan Arisanto’s LinkedIn profile](https://id.linkedin.com/in/fauzanarisanto)

@@ -1,71 +1,39 @@
 ---
-title: AgriNuclear
-description: Platform web edukatif yang menjembatani sains pertanian nuklir dengan inovasi pertanian sehari-hari melalui konten visual yang mudah dipahami
-image: /portofolio/agrinuklir/thumbnails-agrinuclear.avif
+title: AgriNuklir
+description: Platform edukasi tentang pemanfaatan teknologi nuklir di bidang pertanian melalui modul, simulasi, dan kuis interaktif.
+image: /portofolio/agrinuklir/studio-cover.avif
 category: Website
 services:
-  - Web Development
-  - UI/UX Design
-  - Platform Konten Edukatif
-client: Proyek Akademik
-date: 2026-01-15
-status: Live
+  - Frontend Development
+contributionRole: Frontend Developer
+date: '2025-08'
+status: Selesai
 industry: Pertanian & Edukasi
 tags:
   - React
-  - Tailwind CSS
-  - Static Site
-  - Platform Edukatif
+  - Vite
+  - Supabase
 gallery:
   - /portofolio/agrinuklir/galeri_agrinuclear_1.avif
   - /portofolio/agrinuklir/galeri_agrinuclear_2.avif
   - /portofolio/agrinuklir/galeri_agrinuclear_3.avif
 _path: /portofolio/agrinuclear
+url: https://agrinuklir.netlify.app/
 ---
 
-# AgriNuclear — Platform Edukasi Pertanian Nuklir
+## Edukasi pertanian melalui modul dan simulasi
 
-Platform web edukatif yang menjembatani konsep pertanian nuklir yang kompleks dengan inovasi pertanian sehari-hari melalui konten visual yang mudah dipahami.
+AgriNuklir memperkenalkan pemanfaatan teknologi nuklir untuk tujuan damai di bidang pertanian. Pengguna dapat mempelajari topik seperti pemuliaan varietas dan pengawetan pangan lewat modul, simulasi, dan kuis.
 
-![Interface Platform AgriNuclear](/portofolio/agrinuklir/thumbnails-agrinuclear.avif)
+## Kontribusi saya
 
-## Masalah
+Saya berkontribusi pada pengembangan antarmuka platform. Fauzan Arisanto mengelola proyek, Khoirul Anam mengembangkan backend, dan Fathul Khozin menangani riset konten.
 
-Pertanian nuklir terdengar menakutkan bagi masyarakat umum. Pelajar dan pendidik membutuhkan sumber belajar yang mudah diakses tentang teknologi nuklir untuk pertanian (seperti mutation breeding dan aplikasi radiasi), tetapi kebanyakan konten yang tersedia terlalu akademis dan sulit dipahami tanpa latar belakang ilmiah.
+## Hasil proyek
 
-## Solusi
+AgriNuklir masuk 13 finalis nasional Global Hackatom Indonesia 2025, sebagaimana dicatat dalam dokumentasi proyek.
 
-AgriNuclear mengubah konten ilmiah kompleks menjadi materi edukasi yang mudah dicerna:
+## Referensi
 
-- **Visual-First Learning** — Infografis dan diagram interaktif yang membuat proses kompleks mudah dipahami
-- **Artikel Edukatif** — Mutation breeding, aplikasi radiasi, dan teknik nuklir dijelaskan dengan bahasa sederhana
-- **Konten Terstruktur** — Materi diorganisir berdasarkan tingkat kesulitan, cocok untuk belajar mandiri atau di kelas
-- **Referensi Akademik** — Sumber yang tercantum dengan benar untuk eksplorasi akademik lebih lanjut
-- **Static Site Architecture** — Loading super cepat dengan optimasi SEO bawaan
-
-## Peran Saya
-
-Sebagai **Web Developer dan UI/UX Designer**, saya bertanggung jawab atas:
-- Desain dan pengembangan seluruh website menggunakan React dan Tailwind CSS
-- Pembuatan layout visual-first yang memprioritaskan infografis dan diagram
-- Implementasi arsitektur static site untuk performa dan SEO optimal
-- Kolaborasi dengan tim akademik untuk validasi konten edukasi
-
-## Tech Stack
-
-| Layer | Teknologi |
-|-------|-----------|
-| Frontend | React, Tailwind CSS |
-| Arsitektur | Static Site Generation (SSG) |
-| Deployment | Hosting statis |
-
-## Dampak dan Hasil
-
-- Membuat sains pertanian nuklir menjadi mudah diakses untuk pelajar, pendidik, dan masyarakat umum
-- Website dengan loading cepat dan navigasi intuitif berkat arsitektur static site
-- Konten terstruktur yang mendukung proses pembelajaran bertahap
-- Referensi akademik yang properly cited untuk kredibilitas konten
-
-![AgriNuclear Galeri 1](/portofolio/agrinuklir/galeri_agrinuclear_1.avif)
-![AgriNuclear Galeri 2](/portofolio/agrinuklir/galeri_agrinuclear_2.avif)
-![AgriNuclear Galeri 3](/portofolio/agrinuklir/galeri_agrinuclear_3.avif)
+- [Studi kasus AgriNuklir oleh Fauzan Arisanto](https://www.fauzanarisanto.my.id/projects/agrinuklir)
+- [Kredit tim pada profil LinkedIn Fauzan Arisanto](https://id.linkedin.com/in/fauzanarisanto)

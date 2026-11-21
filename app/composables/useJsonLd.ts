@@ -35,6 +35,7 @@ interface CreativeWorkOptions {
   category?: string
   tags?: string[]
   client?: string
+  contributionRole?: string
   url?: string
 }
 
@@ -67,7 +68,7 @@ const toAbsoluteUrl = (url: string | undefined, siteUrl: string) => {
 const getPersonData = (siteUrl: string) => ({
   '@type': 'Person',
   name: 'Ilham Kurniawan',
-  alternateName: 'ilhamkrnwan',
+  alternateName: 'Kairav',
   url: siteUrl,
   image: `${siteUrl}/ilham-hero.avif`,
   jobTitle: 'Fullstack Developer',
@@ -92,24 +93,11 @@ const getPersonData = (siteUrl: string) => ({
     'Nuxt.js',
     'Laravel',
     'Flutter',
-    'React',
-    'Next.js',
-    'Node.js',
-    'TypeScript',
     'Tailwind CSS',
-    'UI/UX Design',
     'REST API',
     'Supabase',
     'PostgreSQL',
-    'MongoDB',
-    'MySQL',
-    'Cloudinary',
-    'OpenAI',
-    'Google Gemini',
-    'Claude',
-    'Qwen',
-    'DeepSeek',
-    'Docker',
+    'Capacitor',
     'Git',
   ],
   sameAs: [
@@ -363,6 +351,12 @@ export const useCreativeWorkSchema = (project: CreativeWorkOptions = {}) => {
 
   if (!project.title) return
 
+  const developer = {
+    '@type': 'Person',
+    name: 'Ilham Kurniawan',
+    url: siteUrl,
+  }
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -372,16 +366,9 @@ export const useCreativeWorkSchema = (project: CreativeWorkOptions = {}) => {
     image: toAbsoluteUrl(project.image, siteUrl),
     datePublished: project.datePublished,
     applicationCategory: project.category || 'WebApplication',
-    author: {
-      '@type': 'Person',
-      name: 'Ilham Kurniawan',
-      url: siteUrl,
-    },
-    creator: {
-      '@type': 'Person',
-      name: 'Ilham Kurniawan',
-      url: siteUrl,
-    },
+    ...(project.contributionRole
+      ? { contributor: { ...developer, jobTitle: project.contributionRole } }
+      : { author: developer, creator: developer }),
     ...(project.tags && project.tags.length > 0
       ? { keywords: project.tags.join(', ') }
       : {}),

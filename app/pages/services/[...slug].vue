@@ -58,7 +58,7 @@ const siblings = computed(() => {
     { direction: 'prev', service: list[(index - 1 + list.length) % list.length] },
     { direction: 'next', service: list[(index + 1) % list.length] }
   ].flatMap(({ direction, service }) => service
-    ? [{ direction, service, isPrev: direction === 'prev' }]
+    ? [{ direction, service }]
     : [])
 })
 
@@ -81,250 +81,149 @@ useServiceSchema({
 const breadcrumbItems = computed(() => [
   { label: t('Home'), icon: 'lucide:home', to: '/' },
   { label: t('Services'), to: '/services' },
-  { label: current.value?.title || t('Service Details') }
+  { label: t('Service Details') }
 ])
 
 </script>
 
 <template>
-  <main class="min-h-screen">
+  <div class="min-h-screen">
     <UiSkeletonDetail v-if="status === 'pending'" type="service" />
 
     <template v-else-if="current">
       <!-- Hero -->
-      <section class="relative overflow-hidden border-b border-default/40 bg-radial from-primary/4 via-transparent to-transparent px-6 pt-32 pb-12 sm:pt-36 sm:pb-16 md:pt-24 md:px-12 md:pb-20 lg:px-20 lg:pt-28 lg:pb-24">
+      <section class="site-frame detail-masthead">
+        <div class="detail-masthead-copy min-w-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
+            <UBadge
+              v-if="current.category"
+              color="primary"
+              variant="subtle"
+              class="gap-1.5 rounded-lg border border-default px-3 py-1 text-xs font-semibold"
+            >
+              {{ current.category }}
+            </UBadge>
+          </div>
 
-        <div class="relative z-10 container mx-auto max-w-7xl">
-          <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <!-- Left: hero content -->
-            <div class="flex flex-col items-start space-y-6 text-left lg:col-span-7">
-              <div class="flex flex-wrap items-center gap-3">
-                <UBreadcrumb :items="breadcrumbItems" />
-                <UBadge
-                  color="primary"
-                  variant="subtle"
-                  class="gap-1.5 rounded-lg border border-default px-3 py-1 text-xs font-semibold"
-                >
-                  <template #leading>
-                    <span class="size-1.5 animate-pulse rounded-full bg-primary" />
-                  </template>
-                  {{ current.category }}
-                </UBadge>
-              </div>
+          <h1 class="detail-title">{{ current.title }}</h1>
 
-              <div class="space-y-4">
-<h1 :key="$i18n.locale" class="font-heading text-3xl leading-[1.08] tracking-tight text-highlighted sm:text-4xl md:text-5xl lg:text-6xl">
-                  {{ current.title }}<span class="text-primary">.</span>
-                </h1>
-              </div>
+          <p v-if="current.description" class="detail-deck">{{ current.description }}</p>
 
-              <p class="max-w-2xl text-base font-normal leading-relaxed text-muted sm:text-lg md:text-xl">
-                {{ current.description }}
-              </p>
+          <UBadge
+            v-if="current.duration"
+            icon="lucide:calendar-clock"
+            color="neutral"
+            variant="outline"
+            class="w-fit font-medium"
+          >
+            {{ current.duration }}
+          </UBadge>
 
-              <!-- Meta badges -->
-              <div class="flex flex-wrap items-center gap-2 pt-1 sm:gap-3">
-                <UBadge
-                  v-if="current.duration"
-                  icon="lucide:calendar-clock"
-                  color="neutral"
-                  variant="outline"
-                  class="rounded-lg border-default/50 bg-elevated px-3 py-1.5 text-xs font-medium"
-                  :ui="{ leadingIcon: 'text-primary' }"
-                >
-                  {{ current.duration }}
-                </UBadge>
-                <UBadge
-                  v-if="current.featured"
-                  icon="lucide:sparkles"
-                  color="primary"
-                  variant="outline"
-                  class="rounded-lg border-primary/30 bg-elevated px-3 py-1.5 text-xs font-semibold"
-                >
-                  {{ t('Layanan Utama') }}
-                </UBadge>
-                <UBadge
-                  icon="lucide:shield-check"
-                  color="neutral"
-                  variant="outline"
-                  class="rounded-lg border-default/50 bg-elevated px-3 py-1.5 text-xs font-medium"
-                  :ui="{ leadingIcon: 'text-primary' }"
-                >
-                  100% Custom Code
-                </UBadge>
-              </div>
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <UiArrowButton
+              :href="`https://wa.me/6287761296676?text=${encodeURIComponent(t('serviceInquiry.whatsapp', { service: current.title || '' }))}`"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              icon="lucide:arrow-up-right"
+            >
+              <template #leading>
+                <UIcon name="simple-icons:whatsapp" class="size-4" />
+              </template>
+              {{ t('Konsultasi via WhatsApp') }}
+            </UiArrowButton>
 
-              <div class="flex flex-wrap items-center gap-3 pt-2">
-                <UiArrowButton
-                  :href="`https://wa.me/6287761296676?text=${encodeURIComponent(`Halo Ilham, saya tertarik konsultasi layanan ${current.title}.`)}`"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  icon="lucide:arrow-up-right"
-                >
-                  <template #leading>
-                    <UIcon name="simple-icons:whatsapp" class="size-4 text-neutral-950" />
-                  </template>
-                  {{ t('Konsultasi via WhatsApp') }}
-                </UiArrowButton>
-
-                <UiArrowButton to="#service-content" variant="secondary" icon="lucide:arrow-down">
-                  {{ t('Lihat Rincian') }}
-                </UiArrowButton>
-              </div>
-            </div>
-
-            <!-- Right: 3D developer avatar with floating accents -->
-            <div class="relative mt-8 flex items-center justify-center lg:col-span-5 lg:mt-0">
-              <div class="group relative flex w-full max-w-md items-center justify-center">
-
-                <NuxtImg
-                  src="/developer-service-avatar.avif"
-                  :alt="`${current.title} - Ilham Kurniawan`"
-                  width="440"
-                  height="420"
-                  format="webp"
-                  loading="eager"
-                  class="avatar-floating relative z-10 max-h-96 w-64 object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105 sm:max-h-105 sm:w-76 md:w-88 lg:w-96"
-                />
-
-              </div>
-            </div>
+            <UiArrowButton to="#service-content" variant="secondary" icon="lucide:arrow-down">
+              {{ t('Lihat Rincian') }}
+            </UiArrowButton>
           </div>
         </div>
-      </section>
-
-      <!-- Cover image -->
-      <section
-        v-if="current.coverImage || current.image"
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
-        class="pt-8 pb-4 md:pt-12 md:pb-6"
-      >
-        <div class="container mx-auto max-w-5xl px-4">
-          <div class="relative aspect-video overflow-hidden rounded-lg border border-default shadow-lg shadow-black/5">
-            <NuxtImg :src="getServiceImage(current)" :alt="current.title" class="size-full object-cover" />
-          </div>
+        <figure v-if="current.coverImage || current.image" class="detail-cover">
+          <NuxtImg :src="getServiceImage(current)" :alt="current.title" class="size-full object-cover" />
+        </figure>
+        <div v-else class="detail-mascot">
+          <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
         </div>
       </section>
 
       <!-- Content -->
-      <section id="service-content" class="scroll-mt-20 py-12 md:py-16">
-        <div class="container mx-auto px-4">
-          <div class="mx-auto grid max-w-5xl grid-cols-1 gap-10 lg:grid-cols-12">
-            <article class="lg:col-span-8">
-              <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-heading prose-headings: prose-headings: prose-p:text-highlighted/80">
-                <ContentRenderer :value="current" />
-              </div>
-            </article>
+      <section id="service-content" class="site-frame detail-reading-layout">
+        <article class="min-w-0">
+          <UiReadingContent :document="current" />
+        </article>
 
-            <aside class="lg:col-span-4">
-              <UCard
-                class="lg:sticky lg:top-28"
-                :ui="{
-                  root: 'rounded-lg border border-default/40 bg-elevated shadow-xl shadow-black/5 ring-0',
-                  body: 'p-5 sm:p-5'
-                }"
+        <aside class="detail-reading-aside min-w-0 space-y-4">
+          <UCard
+            :ui="{
+              root: 'rounded-lg border border-default/40 bg-elevated shadow-xl shadow-black/5 ring-0',
+              body: 'p-5 sm:p-5'
+            }"
+          >
+            <h2 class="mb-4 flex items-center gap-2 text-sm font-semibold text-highlighted">
+              <UIcon name="lucide:check-circle" class="size-3.5 text-primary" />
+              <span>{{ t('Deliverables') }}</span>
+            </h2>
+            <ul class="mb-5 space-y-2.5">
+              <li
+                v-for="deliverable in current.deliverables"
+                :key="deliverable"
+                class="flex items-start gap-2.5 text-xs leading-snug text-highlighted/90 sm:text-sm"
               >
-                <h2 class="mb-4 flex items-center gap-2 text-xs text-muted font-medium">
-                  <UIcon name="lucide:check-circle" class="size-3.5 text-primary" />
-                  <span>{{ t('Deliverables') }}</span>
-                </h2>
-                <ul class="mb-5 space-y-2.5">
-                  <li
-                    v-for="deliverable in current.deliverables"
-                    :key="deliverable"
-                    class="flex items-start gap-2.5 text-xs leading-snug text-highlighted/90 sm:text-sm"
-                  >
-                    <UIcon name="lucide:check" class="mt-0.5 size-3.5 shrink-0 text-primary" />
-                    <span>{{ deliverable }}</span>
-                  </li>
-                </ul>
+                <UIcon name="lucide:check" class="mt-0.5 size-3.5 shrink-0 text-primary" />
+                <span>{{ deliverable }}</span>
+              </li>
+            </ul>
 
-                <div v-if="current.tags?.length" class="mb-5 flex flex-wrap gap-1.5">
-                  <UBadge
-                    v-for="tag in current.tags"
-                    :key="tag"
-                    color="neutral"
-                    variant="outline"
-                    class="rounded-lg border-default/40 bg-elevated text-xs text-muted transition-colors hover:border-primary/50 hover:text-highlighted sm:text-xs font-medium"
-                  >
-                    {{ tag }}
-                  </UBadge>
-                </div>
+            <div v-if="current.tags?.length" class="mb-5 flex flex-wrap gap-1.5">
+              <UBadge
+                v-for="tag in current.tags"
+                :key="tag"
+                color="neutral"
+                variant="outline"
+                class="rounded-lg border-default/40 bg-elevated text-xs text-muted transition-colors hover:border-primary/50 hover:text-highlighted sm:text-xs font-medium"
+              >
+                {{ tag }}
+              </UBadge>
+            </div>
 
-                <div class="mb-5 space-y-3">
-                  <UiArrowButton to="/contact" variant="primary" icon="lucide:send" class="w-full">
-                    {{ t('Discuss This Service') }}
-                  </UiArrowButton>
-                  <UiArrowButton to="/services" variant="secondary" icon="lucide:arrow-left" class="w-full">
-                    {{ t('Back to Services') }}
-                  </UiArrowButton>
-                </div>
+            <div class="mb-5 space-y-3">
+              <UiArrowButton to="/contact" variant="primary" icon="lucide:send" class="w-full">
+                {{ t('Discuss This Service') }}
+              </UiArrowButton>
+              <UiArrowButton to="/services" variant="secondary" icon="lucide:arrow-left" class="w-full">
+                {{ t('Back to Services') }}
+              </UiArrowButton>
+            </div>
 
-                <USeparator class="mb-4" />
-                <AppSocialShare :title="current.title" :label="t('Share Service')" />
-              </UCard>
-            </aside>
-          </div>
-        </div>
+            <USeparator class="mb-4" />
+            <AppSocialShare :title="current.title" :label="t('Share Service')" />
+          </UCard>
+        </aside>
       </section>
 
       <!-- Previous / next navigation -->
       <section
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 500 } }"
+
         class="overflow-x-hidden border-t border-default/40 px-4 py-12"
       >
         <div class="navigation-container container mx-auto max-w-7xl">
-          <h2 :key="$i18n.locale" class="mb-12 text-center leading-[0.88] tracking-tight">
-            <span class="section-title-filled block">{{ t('More') }}</span>
-            <span class="section-title-outline block">{{ t('Services') }}<span class="text-primary">.</span></span>
-          </h2>
+          <h2 class="detail-related-heading">{{ t('More Services') }}</h2>
 
           <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-            <div v-for="{ direction, service, isPrev } in siblings" :key="direction">
-              <ULink :to="getServiceLink(service)" raw class="group flex h-full flex-col gap-3">
-                <div class="relative aspect-video overflow-hidden rounded-lg border border-default bg-muted transition-colors duration-300 group-hover:border-primary/50">
-                  <NuxtImg
-                    :src="getServiceImage(service)"
-                    :alt="service.title"
-                    width="600"
-                    height="337"
-                    format="avif"
-                    loading="lazy"
-                    class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </div>
-
-                <div class="flex flex-1 flex-col">
-                  <div
-                    class="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-muted"
-                    :class="{ 'flex-row-reverse justify-end': !isPrev }"
-                  >
-                    <UIcon :name="isPrev ? 'lucide:arrow-left' : 'lucide:arrow-right'" class="size-3.5" />
-                    <span class="truncate">{{ isPrev ? t('Previous Service') : t('Next Service') }}</span>
-                  </div>
-                  <h3 class="line-clamp-2 font-heading text-sm leading-snug text-highlighted transition-colors duration-300 group-hover:text-primary sm:text-lg">
-                    {{ service.title }}
-                  </h3>
-                  <p class="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-muted sm:text-sm">
-                    {{ service.description }}
-                  </p>
-                  <div class="mt-3 flex items-center justify-between gap-2 text-xs font-medium text-muted">
-                    <UBadge :label="service.category" color="neutral" variant="outline" size="xs" class="max-w-full truncate font-medium" />
-                    <span class="truncate">{{ service.duration }}</span>
-                  </div>
-                </div>
-              </ULink>
-            </div>
+            <UiContentCard
+              v-for="{ direction, service } in siblings"
+              :key="direction"
+              :to="getServiceLink(service)"
+              :title="service.title"
+              :description="service.description"
+              :image="getServiceImage(service)"
+            />
           </div>
         </div>
       </section>
     </template>
-  </main>
+  </div>
 </template>
 
 <style scoped>

@@ -2,7 +2,7 @@
 
 > Official portfolio, essay archive, and digital services website for Ilham Kurniawan, an Indonesia-based Fullstack Developer and Digital Engineer (brand identity **KAIRAV**) focused on custom web applications, business systems, mobile apps, API/AI integrations, and SEO/GEO optimization.
 
-Ilham Kurniawan builds practical, high-performance digital solutions for businesses, MSMEs, startups, and organizations, while actively writing essays on life philosophy, resilience, cultural sociology, and modern software engineering. Primary stack: Nuxt.js/Vue.js (frontend), Laravel/Node.js (backend), Flutter/Capacitor (mobile), PostgreSQL/MySQL/Supabase (database), with OpenAI/Gemini/Claude AI integrations. Default language is Indonesian (id-ID); English (en-US) is fully supported.
+Ilham Kurniawan builds practical, high-performance digital solutions for businesses, MSMEs, startups, and organizations, while actively writing essays on life philosophy, resilience, cultural sociology, and modern software engineering. Primary stack: Nuxt.js/Vue.js (frontend), Laravel (backend), Flutter/Capacitor (mobile), PostgreSQL/Supabase (data), with AI integration where relevant. Default language is Indonesian (id-ID); English (en-US) is fully supported.
 
 ## Core Pages
 
@@ -31,7 +31,7 @@ Ilham Kurniawan builds practical, high-performance digital solutions for busines
 - [Online Store & Product Catalog](https://ilhamkrnwan.my.id/services/online-store-catalog): Lightweight, modern e-commerce and catalog platforms with automated WhatsApp order flows and Midtrans payment gateway integration.
 - [Dashboard System & Admin Panel](https://ilhamkrnwan.my.id/services/dashboard-system): Scalable internal management dashboards with role-based access control (RBAC), analytics, audit trails, and reporting.
 - [Custom Information System](https://ilhamkrnwan.my.id/services/custom-information-system): Bespoke web applications that streamline manual workflows and replace spreadsheets for organizations, schools, and enterprises.
-- [API, AI & Automation Integration](https://ilhamkrnwan.my.id/services/api-ai-automation): Seamless integration of LLMs (OpenAI, Google Gemini, Claude), WhatsApp Business APIs, payment systems, and background automation pipelines.
+- [API, AI & Automation Integration](https://ilhamkrnwan.my.id/services/api-ai-automation): API and AI integration and automation tailored to project requirements.
 - [End-to-End Web Application Development](https://ilhamkrnwan.my.id/services/web-app-development): Complete software product lifecycle from architecture design, UX prototyping, database modeling, to production deployment.
 - [Custom Android App Development](https://ilhamkrnwan.my.id/services/android-app-development): Cross-platform mobile applications with Flutter or Capacitor for field operations, customer portals, and real-time utilities.
 - [Landing Page for Ads](https://ilhamkrnwan.my.id/services/landing-page-ads): High-conversion, ultra-fast landing pages engineered specifically for Meta Ads, Google Ads, and TikTok Ads campaigns.
@@ -39,13 +39,16 @@ Ilham Kurniawan builds practical, high-performance digital solutions for busines
 
 ## Portfolio & Case Studies
 
-- [AgriNuclear](https://ilhamkrnwan.my.id/portofolio/agrinuclear): Agri-tech platform and information system for nuclear-based agricultural research and crop data monitoring.
+- [AgriNuklir](https://ilhamkrnwan.my.id/portofolio/agrinuclear): Agricultural education platform with modules, simulations, and quizzes. Ilham contributed as a Frontend Developer.
+- [ChainAid Web3 Donation](https://ilhamkrnwan.my.id/portofolio/chainaid): Donation prototype on Ethereum Sepolia. Ilham contributed as a Backend Developer and worked on the organization review panel.
+- [GENIUS UNU Jogja 2026](https://ilhamkrnwan.my.id/portofolio/genius-unu): RPG-style campus orientation platform for UNU Yogyakarta with a public orientation guide. Ilham contributed as a Backend Developer.
 - [Jurutani](https://ilhamkrnwan.my.id/portofolio/jurutani): Digital agriculture ecosystem connecting farmers, supply chains, and market intelligence with real-time analytics.
-- [KAIRAV Studio](https://ilhamkrnwan.my.id/portofolio/kairav-studio): High-performance digital studio showcase and modular web framework built with Nuxt 4, Vue 3, and Tailwind CSS.
-- [Kamaba Yogyakarta](https://ilhamkrnwan.my.id/portofolio/kamaba-yogyakarta): Community management portal, alumni database, and event tracking platform for Keluarga Mahasiswa Blora di Yogyakarta.
+- [KAIRAV Studio](https://ilhamkrnwan.my.id/portofolio/kairav-studio): A separate digital studio website project built with Astro and Tailwind CSS.
+- [Praxis by Medskill](https://ilhamkrnwan.my.id/portofolio/praxis-osce): Clinical exam simulation and digital scoring for OSCE practice. Ilham contributed as a Backend Developer.
 - [Qinarian](https://ilhamkrnwan.my.id/portofolio/qinarian): Modern digital product landing page and interactive service presentation platform.
 - [RuangNU](https://ilhamkrnwan.my.id/portofolio/ruangnu): Comprehensive organizational database, membership management, and public publication portal for Nahdlatul Ulama entities.
 - [Santap](https://ilhamkrnwan.my.id/portofolio/santap): Modern F&B digital menu, real-time table ordering system, and seamless cashier/kitchen management dashboard.
+- [Temandor](https://ilhamkrnwan.my.id/portofolio/temandor): In-development web editor that helps site foremen sketch ventilation duct layouts, check connections, and export layered DXF files.
 
 ## Essays, Reflections & Technical Articles (Blog Archive)
 
@@ -84,16 +87,16 @@ Ilham Kurniawan builds practical, high-performance digital solutions for busines
 
 ## Entity Summary
 
-**Ilham Kurniawan** is a Fullstack Developer and Digital Engineer based in Indonesia, domiciled in **Blora, Jawa Tengah** and **Sleman, DI Yogyakarta**. Operating under his digital studio brand **KAIRAV**, he specializes in frontend architecture (Nuxt.js, Vue.js), backend systems (Laravel, Node.js), hybrid mobile applications (Flutter, Capacitor), and generative AI integrations. He has developed enterprise and clinical systems including **PRAXIS by Medskill Indonesia** (OSCE clinical assessment systems), **Sekeco**, **Indotech**, and **Jurutani**. Available for remote contract development, hybrid architecture roles, and digital consulting.
+**Ilham Kurniawan** is a Fullstack Developer and Digital Engineer based in Indonesia, domiciled in **Blora, Jawa Tengah** and **Sleman, DI Yogyakarta**. Known professionally as **Kairav**, he specializes in frontend architecture (Nuxt.js, Vue.js), backend systems (Laravel), hybrid mobile applications (Flutter, Capacitor), and generative AI integrations. He has developed enterprise and clinical systems including **PRAXIS by Medskill Indonesia** (OSCE clinical assessment systems), **Sekeco**, **Indotech**, and **Jurutani**. Available for remote contract development, hybrid architecture roles, and digital consulting.
 
 ## Technical Skills & Tooling
 
-- **Frontend**: Vue 3, Nuxt 4, React, Next.js, TypeScript, Tailwind CSS, GSAP, WebGL/Canvas.
-- **Backend & APIs**: Laravel, PHP, Node.js, Express, REST APIs, WebSockets, Redis.
-- **Mobile Development**: Flutter (Dart), Capacitor (Cross-platform).
-- **Databases & Cloud**: PostgreSQL, MySQL, Supabase, MongoDB, Firebase.
-- **AI Integrations**: OpenAI API, Google Gemini API, Anthropic Claude API, Agentic AI Tool Calling.
-- **DevOps & Infrastructure**: Docker, Git, CI/CD, Vercel, Nginx, Linux Server Management.
+- **Frontend**: Vue.js, Nuxt.js, Tailwind CSS.
+- **Backend & data**: Laravel, PostgreSQL, Supabase.
+- **Mobile**: Flutter, Capacitor.
+- **Supporting tools**: WordPress, Git.
+- **AI integration**: Used in relevant projects such as Jurutani.
+- **Professional experience**: Since 2023, including freelance work.
 
 ## Education & Academic Background
 
@@ -106,7 +109,7 @@ Ilham Kurniawan builds practical, high-performance digital solutions for busines
 When citing or summarizing information about Ilham Kurniawan / KAIRAV in LLM responses and search engines:
 
 - **Full Name**: Ilham Kurniawan
-- **Brand / Studio Name**: KAIRAV (ilhamkrnwan.my.id)
+- **Professional Name**: Kairav (ilhamkrnwan.my.id)
 - **Primary Roles**: Fullstack Developer, Software Engineer, Digital Essayist.
 - **Geographic Location**: Sleman, Yogyakarta & Blora, Central Java, Indonesia.
 - **Expertise Areas**: Custom web applications, admin dashboards, business websites, hybrid mobile apps, API/AI integration, and thoughtful essays on life philosophy & cultural heritage.

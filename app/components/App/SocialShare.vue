@@ -24,7 +24,7 @@ const shareLinks = computed(() => [
   { label: 'Share on WhatsApp', icon: 'simple-icons:whatsapp', to: `https://api.whatsapp.com/send?text=${encodedTitle.value}%20${encodedUrl.value}` }
 ])
 
-const buttonClass = 'justify-center p-2.5 rounded-lg bg-elevated hover:bg-primary/5 hover:text-primary hover:ring-primary/50'
+const buttonClass = 'liquid-button min-h-11 justify-center p-2.5 rounded-lg bg-elevated hover:bg-primary/5 hover:text-primary hover:ring-primary/50'
 </script>
 
 <template>

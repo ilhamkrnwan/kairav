@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// Inline emphasis in the sticker voice: a lemon highlighter stroke behind the words,
-// swept in left to right when it scrolls into view (see useScrollReveal).
+// Inline emphasis uses the shared cobalt marker.
 // colors / animationSpeed are accepted for call-site compatibility and ignored.
 defineProps<{
   colors?: string[]
@@ -9,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <span data-highlight class="highlighter font-bold text-highlighted">
+  <span class="font-semibold text-highlighted">
     <slot />
   </span>
 </template>

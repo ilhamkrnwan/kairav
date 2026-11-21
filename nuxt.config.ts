@@ -92,6 +92,11 @@ export default defineNuxtConfig({
     format: ['avif', 'webp'],
   },
 
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+  },
+
   icon: {
     serverBundle: {
       collections: ['lucide', 'simple-icons', 'logos', 'skill-icons'],
@@ -103,9 +108,8 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Bagel Fat One', weights: [400], global: true },
-      { name: 'Figtree', weights: [400, 500, 600, 700, 800], global: true },
-      { name: 'Caveat', weights: [600, 700], global: true },
+      { name: 'Barlow Condensed', weights: [600, 700, 800], global: true },
+      { name: 'Inter', weights: [400, 500, 600, 700, 800], global: true },
       { name: 'Segoe UI', provider: 'none' },
       { name: 'Helvetica Neue', provider: 'none' },
       { name: 'Arial', provider: 'none' },

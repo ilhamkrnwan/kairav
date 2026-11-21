@@ -5,16 +5,16 @@ export default defineAppConfig({
       neutral: 'slate',
     },
     button: {
-      slots: { base: 'rounded-md font-semibold' },
+      slots: { base: 'rounded-lg font-semibold' },
     },
     badge: {
       slots: { base: 'rounded-md font-semibold' },
     },
     pageCard: {
-      slots: { root: 'rounded-lg border border-default ring-0 shadow-sm dark:shadow-none' },
+      slots: { root: 'rounded-xl border border-default ring-0 shadow-none' },
     },
     card: {
-      slots: { root: 'rounded-lg border border-default shadow-sm dark:shadow-none' },
+      slots: { root: 'rounded-xl border border-default shadow-none' },
     },
   },
 })

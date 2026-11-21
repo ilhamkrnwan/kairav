@@ -1,7 +1,7 @@
 ---
 title: Jurutani
 description: Platform pertanian digital all-in-one yang mendukung petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan akses marketplace terpadu
-image: /portofolio/jurutani/thumbnails-jurutani.avif
+image: /portofolio/jurutani/studio-cover.avif
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -27,54 +27,19 @@ _path: /portofolio/jurutani
 url: https://jurutani.com
 ---
 
-# Jurutani — Platform Pertanian Digital All-in-One
-
-Platform pertanian digital all-in-one yang mendukung petani Indonesia dengan data real-time, AI insights, konsultasi ahli, dan akses marketplace terpadu.
-
-![Interface Platform Jurutani](/portofolio/jurutani/thumbnails-jurutani.avif)
-
-## Masalah
-
-Petani Indonesia menghadapi tantangan cuaca yang tidak dapat diprediksi, harga pasar yang fluktuatif, akses terbatas ke ahli pertanian, dan teknik bertani yang belum diperbarui. Solusi digital yang tersedia umumnya terlalu rumit atau tidak memahami kebutuhan harian petani di lapangan.
-
 ## Solusi
 
-Jurutani dibangun sebagai platform mobile-first yang menyatukan semua kebutuhan pertanian dalam satu aplikasi:
-
-- **Real-Time Intelligence** — Update cuaca live, harga komoditas terkini, tren pasar, dan kalender tanam otomatis
-- **Konsultasi AI** — Integrasi Google Gemini AI untuk saran pertanian instan dan diagnosa penyakit tanaman dari foto
-- **Expert Network** — Chat langsung dengan petugas pertanian dan sesi Q&A terjadwal dengan ahli
-- **Community Forum** — Platform diskusi interaktif untuk berbagi pengalaman antar petani
-- **Educational Library** — Tutorial pertanian step-by-step, best practices, dan panduan musiman
-- **Integrated Marketplace** — Platform jual-beli hasil tani langsung, mengurangi ketergantungan pada perantara
-- **Mobile-First Design** — Kemampuan offline untuk wilayah dengan koneksi terbatas
+Jurutani membantu petani Indonesia mendapatkan informasi cuaca, harga komoditas, dan panduan tanam dalam satu platform. Petani juga bisa berkonsultasi dengan ahli, bertanya lewat AI, mendapatkan saran awal dari foto tanaman, dan menawarkan hasil panen melalui marketplace.
 
 ## Peran Saya
 
-Sebagai **Fullstack Web & Android Developer**, saya bertanggung jawab atas:
-- Arsitektur dan pengembangan seluruh frontend menggunakan Nuxt.js dan Capacitor untuk deployment mobile
-- Integrasi Google Gemini AI untuk fitur konsultasi cerdas dan diagnosa tanaman
-- Desain dan implementasi database menggunakan Supabase (PostgreSQL)
-- Pengembangan REST API untuk komunikasi real-time antara web dan mobile
-- Implementasi desain UI/UX responsive dan mobile-first
-
-## Tech Stack
-
-| Layer | Teknologi |
-|-------|-----------|
-| Frontend | Nuxt.js, Vue 3, Tailwind CSS |
-| Mobile | Capacitor (Android & iOS) |
-| AI | Google Gemini AI API |
-| Backend | Supabase (PostgreSQL, Auth, Storage, Realtime) |
-| Deployment | Vercel (Web), Google Play Store (Mobile) |
+Sebagai **Fullstack Web & Android Developer**, saya merancang dan mengembangkan antarmuka web dan aplikasi Android, membangun basis data serta layanan penghubung keduanya, dan mengintegrasikan konsultasi AI berbasis foto.
 
 ## Dampak dan Hasil
 
-- Platform mobile-first komprehensif yang memberikan akses teknologi modern ke tangan petani
-- Memungkinkan keputusan berbasis data untuk meningkatkan produktivitas dan profitabilitas pertanian
-- Mengurangi ketergantungan pada perantara melalui marketplace langsung
-- Menyediakan akses konsultasi AI 24/7 di wilayah dengan akses ahli terbatas
+Petani dapat memeriksa informasi sebelum mengambil keputusan di lapangan dan menawarkan hasil panen langsung kepada pembeli. Desain untuk ponsel dan dukungan akses offline membantu di wilayah dengan koneksi terbatas.
 
+![Interface Platform Jurutani](/portofolio/jurutani/studio-cover.avif)
 ![Jurutani Galeri 1](/portofolio/jurutani/galeri_jurutani_1.avif)
 ![Jurutani Galeri 2](/portofolio/jurutani/galeri_jurutani_2.avif)
 ![Jurutani Galeri 3](/portofolio/jurutani/galeri_jurutani_3.avif)

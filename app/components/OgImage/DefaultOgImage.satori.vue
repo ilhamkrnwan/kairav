@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// Satori renders inline styles only, so the sticker palette is spelled out in hex here
-// (lemon #ffd83d, cobalt #2a45e6, pink #ff7ab8, ink #14122b, paper #fbfaff).
+// Satori renders inline styles only, so the iOS palette is spelled out in hex here
+// (blue #007aff, label #000000, grouped background #f2f2f7).
 interface Props {
   title?: string
   description?: string
@@ -34,26 +34,26 @@ const titleHighlight = words.slice(words.length > 1 ? words.length - highlightCo
 </script>
 
 <template>
-  <div style="position: relative; display: flex; width: 1200px; height: 630px; overflow: hidden; background-color: #fbfaff; color: #14122b; font-family: 'Figtree', sans-serif;">
-    <!-- lemon blob + pink dot, drawn as plain boxes -->
-    <div style="position: absolute; top: -140px; right: -120px; width: 560px; height: 560px; border-radius: 9999px; background-color: #ffd83d; border: 4px solid #14122b; display: flex;" />
-    <div style="position: absolute; bottom: 70px; right: 130px; width: 120px; height: 120px; border-radius: 9999px; background-color: #ff7ab8; border: 4px solid #14122b; display: flex;" />
+  <div style="position: relative; display: flex; width: 1200px; height: 630px; overflow: hidden; background-color: #f2f2f7; color: #000000; font-family: 'Inter', sans-serif;">
+    <!-- blue blob, drawn as a plain box -->
+    <div style="position: absolute; top: -140px; right: -120px; width: 560px; height: 560px; border-radius: 9999px; background-color: #007aff; display: flex;" />
+    <div style="position: absolute; bottom: 70px; right: 130px; width: 120px; height: 120px; border-radius: 9999px; background-color: #ffffff; border: 2px solid #d8d8dc; display: flex;" />
 
     <div style="position: relative; display: flex; flex-direction: column; justify-content: center; width: 800px; padding: 72px 80px;">
-      <div style="display: flex; flex-wrap: wrap; font-family: 'Bagel Fat One', 'Figtree', sans-serif; font-size: 78px; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 28px;">
-        <span v-if="titlePrefix" style="color: #14122b; margin-right: 18px; display: flex;">{{ titlePrefix }}</span>
-        <span style="color: #2a45e6; display: flex;">{{ titleHighlight }}</span>
+      <div style="display: flex; flex-wrap: wrap; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 78px; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 28px;">
+        <span v-if="titlePrefix" style="color: #000000; margin-right: 18px; display: flex;">{{ titlePrefix }}</span>
+        <span style="color: #007aff; display: flex;">{{ titleHighlight }}</span>
       </div>
 
-      <div style="font-size: 28px; font-weight: 500; color: #3c3870; line-height: 1.4; max-width: 640px; display: flex;">
+      <div style="font-size: 28px; font-weight: 500; color: #48484a; line-height: 1.4; max-width: 640px; display: flex;">
         {{ displayDescription }}
       </div>
 
       <div style="display: flex; align-items: center; margin-top: 44px;">
-        <div style="display: flex; align-items: center; padding: 12px 26px; border-radius: 9999px; background-color: #ffd83d; border: 4px solid #14122b; font-size: 26px; font-weight: 700;">
+        <div style="display: flex; align-items: center; padding: 12px 26px; border-radius: 14px; background-color: #007aff; color: #ffffff; font-size: 26px; font-weight: 700;">
           {{ siteName }}
         </div>
-        <div style="display: flex; margin-left: 22px; font-size: 24px; font-weight: 500; color: #5a5688;">
+        <div style="display: flex; margin-left: 22px; font-size: 24px; font-weight: 500; color: #6c6c70;">
           {{ siteUrl }}
         </div>
       </div>

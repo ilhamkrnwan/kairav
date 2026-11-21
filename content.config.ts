@@ -12,6 +12,7 @@ export default defineContentConfig({
         category: z.string().optional(),
         services: z.array(z.string()).optional(),
         client: z.string().optional(),
+        contributionRole: z.string().optional(),
         date: z.string().optional(),
         status: z.string().optional(),
         industry: z.string().optional(),

@@ -29,6 +29,7 @@
     "vue-demi"
   ],
   "dependencies": {
+    "@bible-strong/avatar-core": "^0.2.0",
     "@nuxt/content": "^3.16.2",
     "@nuxt/fonts": "^1.2.0",
     "@nuxt/image": "^2.2.1",

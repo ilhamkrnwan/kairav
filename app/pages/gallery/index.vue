@@ -99,7 +99,7 @@ const allGalleryItems = computed<GalleryItem[]>(() => [
       id: `portfolio-${slug}`,
       title: p.title || '',
       description: p.description || '',
-      image: p.image || `/portofolio/${slug}/preview.avif`,
+      image: p.image || '/placeholder.avif',
       categoryLabel: t('Portfolio'),
       link: `/portofolio/${slug}`,
       linkText: t('View Case Study'),
@@ -163,69 +163,57 @@ const activeDetails = computed(() => {
 
 const navButtonClass = 'fixed z-50 justify-center rounded-md text-white ring ring-white/20 shadow-2xl shrink-0 aspect-square'
 
-useScrollReveal()
+
+const galleryGrid = useTemplateRef<HTMLElement>('galleryGrid')
+const galleryDialog = useTemplateRef<HTMLElement>('galleryDialog')
+useArtworkMotion(galleryGrid)
+
+useEditorialMotion(galleryDialog, ({ root, gsap }) => {
+  const media = root.querySelector('[data-gallery-media]')
+  if (!media) return
+
+  gsap.fromTo(root, { y: 22, opacity: 0.72 }, {
+    y: 0, opacity: 1, duration: 0.42, ease: 'expo.out', clearProps: 'transform,opacity',
+  })
+
+  const page = gsap.fromTo(media, { clipPath: 'inset(0% 0% 0% 19%)' }, {
+    clipPath: 'inset(0% 0% 0% 0%)', duration: 0.52, ease: 'expo.out', paused: true, immediateRender: false,
+  })
+  return watch(activeIndex, (current, previous) => {
+    if (current !== null && previous !== null) page.restart()
+  }, { flush: 'post' })
+})
 </script>
 
 <template>
   <div class="min-h-screen">
     <!-- Hero -->
-    <section class="relative w-full flex flex-col items-center justify-center min-h-screen px-4 md:px-8 lg:px-12 overflow-hidden">
+    <UiEditorialIntro :title="t('Gallery')">
+      {{ t('Explore a curated collection of visual works, digital services, and project documentation across') }}
+      {{ t('architecture, design,') }}
+      {{ t('and') }}
+      {{ t('digital solutions.') }}
+    </UiEditorialIntro>
 
-      <div class="max-w-4xl mx-auto text-center relative z-10">
-        <h1 :key="$i18n.locale" class="leading-[0.88] tracking-tight mb-8 animate-fade-in-up delay-100">
-          <span class="section-title-filled block">{{ t('Visual') }}</span>
-          <span class="section-title-outline block">& {{ t('Gallery') }}<span class="text-primary">.</span></span>
-        </h1>
-
-        <p class="text-base md:text-lg text-muted mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 font-normal">
-          {{ t('Explore a curated collection of visual works, digital services, and project documentation across') }}
-          <UiTextGradient class="font-medium">
-            {{ t('architecture, design,') }}
-          </UiTextGradient>
-          {{ t('and') }}
-          <UiTextGradient class="font-medium">
-            {{ t('digital solutions.') }}
-          </UiTextGradient>
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <UiArrowButton to="#gallery-grid" variant="primary" icon="lucide:arrow-down">
-            {{ t('Explore Gallery') }}
-          </UiArrowButton>
-
-          <UiArrowButton to="/" variant="secondary" icon="lucide:home">
-            {{ t('Back to Home') }}
-          </UiArrowButton>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bento gallery grid -->
-    <section id="gallery-grid" class="scroll-section will-change-[transform,opacity] section py-20">
-      <div class="container max-w-7xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-16 stagger-item">
-          <h2 :key="$i18n.locale" class="leading-[0.88] tracking-tight mb-4">
-            <span class="section-title-filled block">{{ t('Bento') }}</span>
-            <span class="section-title-outline block">{{ t('Showcase') }}<span class="text-primary">.</span></span>
-          </h2>
-          <p class="text-muted text-lg max-w-2xl mx-auto font-normal">
-            {{ t('Click any image to inspect details, read descriptions, and open the full project page.') }}
-          </p>
-        </div>
+    <!-- Gallery grid -->
+    <section id="gallery-grid" class="site-frame editorial-section catalogue">
+      <div>
+        <h2 class="catalogue-heading">{{ t('Showcase') }}</h2>
 
         <!-- All items load immediately (dense packing, no holes) -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
+        <div ref="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row-dense gap-3 sm:gap-4 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
           <UButton
             v-for="(item, index) in allGalleryItems"
             :key="item.id"
             color="neutral"
             variant="ghost"
             :aria-label="item.title"
-            class="group relative block p-0 rounded-lg sm:rounded-lg overflow-hidden bg-muted/20 border border-default hover:border-primary/60 shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 stagger-item"
+            class="group relative block p-0 rounded-none overflow-hidden bg-muted border border-default hover:border-primary transition-all duration-500 "
             :class="getBentoSpanClass(index)"
             @click="openModal(item)"
           >
             <NuxtImg
+              data-artwork
               :src="item.image"
               :alt="item.title"
               loading="lazy"
@@ -255,7 +243,7 @@ useScrollReveal()
             size="xl"
             title="Close (Esc)"
             aria-label="Close"
-            class="top-4 right-4 size-11 bg-white/10 hover:bg-white/20 transition-all duration-200 hover:rotate-90"
+            class="liquid-button top-4 right-4 size-11 bg-white/10 hover:bg-white/20 transition-all duration-200 hover:rotate-90"
             :class="navButtonClass"
             @click="closeModal"
           />
@@ -266,7 +254,7 @@ useScrollReveal()
             size="xl"
             title="Previous (Left Arrow)"
             aria-label="Previous"
-            class="left-3 sm:left-6 top-1/2 -translate-y-1/2 size-12 bg-black/60 hover:bg-primary hover:text-inverted transition-all duration-300 hover:scale-110"
+            class="liquid-button left-3 sm:left-6 top-1/2 -translate-y-1/2 size-12 bg-black/60 hover:bg-primary hover:text-inverted transition-all duration-300 hover:scale-110"
             :class="navButtonClass"
             @click.stop="step(-1)"
           />
@@ -277,15 +265,16 @@ useScrollReveal()
             size="xl"
             title="Next (Right Arrow)"
             aria-label="Next"
-            class="right-3 sm:right-6 top-1/2 -translate-y-1/2 size-12 bg-black/60 hover:bg-primary hover:text-inverted transition-all duration-300 hover:scale-110"
+            class="liquid-button right-3 sm:right-6 top-1/2 -translate-y-1/2 size-12 bg-black/60 hover:bg-primary hover:text-inverted transition-all duration-300 hover:scale-110"
             :class="navButtonClass"
             @click.stop="step(1)"
           />
 
-          <div class="relative w-full max-w-5xl rounded-lg sm:rounded-lg overflow-hidden bg-neutral-950 border border-neutral-800 shadow-2xl shadow-black/90 flex flex-col lg:flex-row max-h-[90vh]">
+          <div ref="galleryDialog" class="relative w-full max-w-5xl rounded-lg sm:rounded-lg overflow-hidden bg-neutral-950 border border-neutral-800 shadow-2xl shadow-black/90 flex flex-col lg:flex-row max-h-[90vh]">
             <!-- Media -->
             <div class="lg:w-7/12 bg-black/80 flex items-center justify-center p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-neutral-800/80 relative min-h-[300px] sm:min-h-[420px]">
               <NuxtImg
+                data-gallery-media
                 :src="activeItem.image"
                 :alt="activeItem.title"
                 class="max-h-[65vh] w-auto max-w-full object-contain rounded-lg sm:rounded-lg shadow-2xl"
@@ -344,7 +333,7 @@ useScrollReveal()
       </template>
     </UModal>
 
-    <div class="scroll-section will-change-[transform,opacity] w-full">
+    <div class="w-full">
       <GetinTouch />
     </div>
   </div>

@@ -14,27 +14,27 @@ Secondary (not the lead audience): recruiters looking for a Fullstack/Frontend d
 
 ## Product Purpose
 
-Personal portfolio and services site of Ilham Kurniawan, a Fullstack Developer (Nuxt/Vue, Laravel, Flutter, AI/API integration) based in Yogyakarta/Blora. It presents services, case studies, essays and a CV, and converts visitors into consultation conversations. Success: a business visitor clicks the WhatsApp consultation, fills the consultation quiz, or sends a message.
+Personal portfolio and services site of Ilham Kurniawan, a Fullstack Developer (Nuxt/Vue, Laravel, Flutter, AI/API integration) based in Yogyakarta/Blora. It presents services, case studies, essays and a CV, and converts visitors into consultation conversations. Success: a business visitor opens a WhatsApp or email draft through the consultation form or contacts Ilham directly.
 
 ## Positioning
 
-One person who plans, builds, deploys and maintains the whole product (web, Android, backend, AI/API, SEO/GEO), with a personal voice shown through essays and real shipped projects (Kairav Studio, Jurutani, Santap, Qinarian, Ruangnu, Kamaba Yogyakarta, Agrinuclear).
+An individual developer who plans, builds, deploys and maintains digital products (web, Android, backend, AI/API, SEO/GEO), with a personal voice shown through essays and real shipped projects (Kairav Studio, Jurutani, Santap, Qinarian, Ruangnu, Agrinuclear).
 
 ## Operating Context
 
-Bilingual site (Indonesian default, English), light and dark theme toggle already in use. Content lives in Nuxt Content markdown (blog, portofolio, services, id/en). Hosted on Vercel at ilhamkrnwan.my.id. Primary conversion channels: WhatsApp (wa.me link), email, the consultation quiz on /contact.
+Bilingual site (Indonesian default, English), light and dark theme toggle already in use. Content lives in Nuxt Content markdown (blog, portofolio, services, id/en). Hosted on Vercel at ilhamkrnwan.my.id. Primary conversion channels are WhatsApp, email and the consultation form on /contact.
 
 ## Capabilities and Constraints
 
 - Stack: Nuxt 4, Nuxt UI 4, Tailwind 4, GSAP, @nuxt/content, @nuxtjs/i18n, nuxt-og-image.
 - Routes: /, /about, /services(/slug), /portofolio(/slug), /blogs(/slug), /gallery, /contact, /cv.
 - All UI strings go through i18n keys; both locales must keep working.
-- Existing behaviour (consultation quiz, copy link, theme and language switch, menu, SEO and JSON-LD) must be preserved.
-- Undecided: whether to keep the 3D avatar illustrations in the new visual world.
+- Existing behaviour (consultation by WhatsApp or email, copy link, theme and language switch, menu, SEO and JSON-LD) must be preserved.
+- Preserve the Kairav mascot as an interactive character and as the shared menu mark.
 
 ## Brand Commitments
 
-- Personal name leads: "Ilham Kurniawan". "Kairav" is the studio/service name under it.
+- Personal identity leads: "Kairav" is Ilham Kurniawan’s professional name. Kairav Studio is a separate project.
 - Existing logo/favicon/OG assets remain until the user supplies replacements.
 
 ## Evidence on Hand

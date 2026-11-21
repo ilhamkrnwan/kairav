@@ -6,7 +6,6 @@ useDynamicSeo({
   descriptionKey: 'seo.about.description'
 })
 useProfilePageSchema()
-useScrollReveal()
 
 /* ── Recent blogs ── */
 const { data: recentBlogs, status: recentBlogsStatus } = await useAsyncData(
@@ -22,28 +21,20 @@ const { data: recentBlogs, status: recentBlogsStatus } = await useAsyncData(
 
 const recentBlogsList = computed(() => recentBlogs?.value || [])
 
-const formatBlogDate = (dateString?: string) => {
-  if (!dateString) return ''
-  return new Date(dateString).toLocaleDateString(locale.value, { year: 'numeric', month: 'short', day: 'numeric' })
-}
-
 const toBlogLink = (path?: string) => {
   return path?.replace(/^\/blog\/[^/]+/, '/blogs') || '#'
 }
-
-const reveal = 'scroll-section will-change-[transform,opacity]'
 
 // Shared sticker look for UCard: ink outline, generous radius
 const glassCard = 'rounded-lg ring-0 border border-default bg-elevated shadow-sm'
 
 /* ── Hero data ── */
-const roles = computed(() => [t('Fullstack Developer'), t('IT Student'), t('Web3 & AI Enthusiast'), t('Yogyakarta / Blora, ID')])
+const roles = computed(() => [t('Fullstack Developer'), t('IT Student'), t('Yogyakarta / Blora, ID')])
 
 const careerBadges = computed(() => [
-  { label: t('Fullstack Developer'), sub: t('2021 - Present') },
+  { label: t('Fullstack Developer'), sub: t('2023 - Present') },
   { label: t('IT Student'), sub: t('UNUYO · Informatics') },
-  { label: t('Freelance Developer'), sub: t('Remote & Contract') },
-  { label: t('AI & Web3 Enthusiast'), sub: t('Tech & Automation') }
+  { label: t('Freelance Developer'), sub: t('Remote & Contract') }
 ])
 
 /* ── Education + Work timelines ── */
@@ -96,7 +87,7 @@ const timelines = computed(() => [
         logo: '/logo/kairav.avif',
         type: t('Open for Work'),
         title: t('Fullstack Developer'),
-        date: t('2021 - Present'),
+        date: t('2023 - Present'),
         description: t('Experienced full-stack developer with a strong foundation in programming concepts, data structures, and algorithms. Currently working as a freelance developer, successfully delivering various projects for clients. Open to both full-time positions and project-based collaborations.')
       },
       {
@@ -194,7 +185,7 @@ const faqs = computed(() => [
   },
   {
     label: t('What is your preferred tech stack?'),
-    content: t("My primary stack is Vue.js / Nuxt.js for frontend and Node.js / Laravel for backend. For databases I work with Supabase, PostgreSQL, and MongoDB. That said, I'm tech-agnostic — I adapt to whatever stack best fits the project.")
+    content: t('skills.faq')
   },
   {
     label: t('Are you open to full-time employment?'),
@@ -202,7 +193,7 @@ const faqs = computed(() => [
   },
   {
     label: t('How long does it typically take to build a project?'),
-    content: t('It depends on the scope. A landing page can take 3–7 days, while a full-featured web app typically takes 2–6 weeks. I always provide a timeline estimate after understanding the project requirements.')
+    content: t('faq.timeline')
   },
   {
     label: t('What industries have you worked in?'),
@@ -217,75 +208,41 @@ const faqs = computed(() => [
 
 <template>
   <div class="min-h-screen">
-    <!-- ═══ HERO ═══ -->
-    <section :class="['relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 md:px-12 lg:px-20', reveal]">
-
-      <div class="relative z-10 mx-auto w-full max-w-7xl py-28 lg:py-32">
-        <!-- Greeting -->
-        <p class="entry-1 mb-4 -rotate-1 font-handwriting text-2xl font-bold text-primary">
-          {{ t('Hello my name is Ilham Kurniawan') }}
-        </p>
-
-        <!-- Giant title -->
-        <h1 :key="$i18n.locale" class="entry-2 mb-8 leading-[0.88] tracking-tight [--title-size:clamp(2.25rem,11vw,8rem)]">
-          <span class="section-title-filled block break-words">{{ t('Career') }}</span>
-          <span class="block break-words text-highlighted">
-            <span class="section-title-outline">{{ t('Journey') }}</span><span class="text-primary">.</span>
-          </span>
-        </h1>
-
-        <!-- Roles -->
-        <div class="entry-3 mb-14 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-normal tracking-wide text-muted md:text-base">
-          <template v-for="(role, i) in roles" :key="role">
-            <span v-if="i" class="text-sm text-dimmed/40">·</span>
-            <span>{{ role }}</span>
-          </template>
-        </div>
-
-        <!-- Main grid -->
-        <div class="relative z-10 grid grid-cols-1 items-end gap-10 lg:grid-cols-2 lg:gap-16">
-          <!-- Career focus -->
-          <ul class="entry-4 space-y-1">
-            <li v-for="badge in careerBadges" :key="badge.label" class="flex items-baseline justify-between gap-4 py-4">
-              <span class="font-heading text-xl text-highlighted sm:text-2xl">{{ badge.label }}</span>
-              <span class="text-sm font-medium text-muted">{{ badge.sub }}</span>
+    <section class="site-frame about-masthead" aria-labelledby="about-title">
+      <h1 id="about-title" class="editorial-title">{{ t('About') }}</h1>
+      <div class="editorial-split">
+        <figure class="about-portrait">
+          <NuxtImg src="/ilham-hero-2.avif" alt="Ilham Kurniawan" width="640" height="640" sizes="100vw md:45vw" class="size-full object-cover" />
+        </figure>
+        <div>
+          <p class="editorial-label">{{ t('intro.greeting') }}</p>
+          <p class="my-4 max-w-[45ch] text-lg text-muted">{{ t('intro.description') }}</p>
+          <p class="mb-6 text-sm text-muted">{{ roles.join(' · ') }}</p>
+          <ul class="editorial-list">
+            <li v-for="badge in careerBadges" :key="badge.label" class="flex flex-wrap items-baseline justify-between gap-2 py-3">
+              <span class="font-semibold text-highlighted">{{ badge.label }}</span>
+              <span class="text-sm text-muted">{{ badge.sub }}</span>
             </li>
           </ul>
-
-          <!-- Stats + CTA -->
-          <div class="entry-5">
-            <p class="mb-8 text-sm leading-relaxed font-normal text-muted">
-              {{ t('Agnostic in tools, precise in execution.') }}
-              <br>
-              {{ t('Designed for users,') }}
-              <span class="font-medium text-highlighted">{{ t('built for impact.') }}</span>
-            </p>
-
-            <div class="flex flex-wrap gap-3">
-              <UiArrowButton to="/cv" variant="primary" icon="lucide:arrow-right">
-                {{ t('Download CV') }}
-              </UiArrowButton>
-              <UiArrowButton to="/portofolio" variant="secondary" icon="lucide:arrow-right">
-                {{ t('View works') }}
-              </UiArrowButton>
-            </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <UiArrowButton to="/cv">{{ t('Download CV') }}</UiArrowButton>
+            <UiArrowButton to="/portofolio" variant="secondary">{{ t('View works') }}</UiArrowButton>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ═══ ABOUT ME ═══ -->
-    <section :class="['overflow-hidden px-6 py-20 md:px-12 lg:px-20', reveal]">
+    <section class="site-frame editorial-section">
       <div class="about-me-container mx-auto max-w-7xl">
         <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <div class="relative z-0 lg:col-span-4">
-            <h2 :key="$i18n.locale" class="mb-6 leading-[0.88] tracking-tight">
+            <h2 class="mb-6 leading-[0.88] tracking-tight">
               <span class="section-title-filled block">{{ t('About') }}</span>
               <span class="block text-highlighted">
                 <span class="section-title-outline">{{ t('Me') }}</span><span class="text-primary">.</span>
               </span>
             </h2>
-            <div class="h-1 w-12 bg-primary" />
           </div>
 
           <div class="relative z-10 lg:col-span-8">
@@ -316,24 +273,23 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <AppAboutSkills :class="reveal" />
+    <AppAboutSkills />
 
     <!-- ═══ EDUCATION + WORK ═══ -->
     <section
       v-for="tl in timelines"
       :key="tl.key"
-      class="overflow-hidden px-6 py-20 md:px-12 lg:px-20"
+      class="site-frame editorial-section"
     >
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div :class="['z-0 h-fit lg:sticky lg:top-32 lg:col-span-4', reveal]">
-            <h2 :key="$i18n.locale" class="mb-6 leading-[0.88] tracking-tight">
+          <div class="z-0 h-fit lg:sticky lg:top-32 lg:col-span-4">
+            <h2 class="mb-6 leading-[0.88] tracking-tight">
               <span class="section-title-filled block">{{ tl.title }}</span>
               <span class="block text-highlighted">
                 <span class="section-title-outline">{{ tl.accent }}</span><span class="text-primary">.</span>
               </span>
             </h2>
-            <div class="mb-6 h-1 w-12 bg-primary" />
             <p class="text-sm text-muted font-medium">{{ tl.subtitle }}</p>
           </div>
 
@@ -342,27 +298,12 @@ const faqs = computed(() => [
               :ref="(el: any) => (timelineEls[tl.key] = el)"
               :items="visibleItems(tl)"
               :ui="{
-                item: reveal,
                 indicator: 'bg-primary text-inverted',
                 separator: 'bg-primary/30',
                 wrapper: 'mt-0 pb-8'
               }"
             >
               <template #wrapper="{ item }">
-                <UBadge
-                  color="neutral"
-                  variant="outline"
-                  class="mb-3 gap-2 rounded-lg ring-default/30 bg-elevated px-3 py-1 text-xs font-medium"
-                >
-                  <template #leading>
-                    <span class="relative flex size-1.5">
-                      <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />
-                      <span class="relative inline-flex size-1.5 rounded-full bg-primary" />
-                    </span>
-                  </template>
-                  <span class="font-medium text-highlighted">{{ item.type }}</span>
-                </UBadge>
-
                 <UCard :ui="{ root: `${glassCard} transition-colors hover:bg-elevated`, body: 'p-6 sm:p-6' }">
                   <div class="mb-4 flex items-center gap-4">
                     <UAvatar
@@ -373,7 +314,6 @@ const faqs = computed(() => [
                     />
                     <div class="min-w-0 flex-1">
                       <h3 class="font-heading text-lg leading-snug text-highlighted md:text-xl">{{ item.title }}</h3>
-                      <time class="text-xs text-muted font-medium">{{ item.date }}</time>
                     </div>
                   </div>
                   <p class="text-sm leading-relaxed font-normal text-muted md:text-base">{{ item.description }}</p>
@@ -385,7 +325,7 @@ const faqs = computed(() => [
               <UButton
                 color="neutral"
                 variant="outline"
-                class="rounded-xl ring-default/40 bg-elevated px-5 text-xs hover:ring-primary/40 font-medium"
+                class="liquid-button min-h-11 rounded-xl ring-default/40 bg-elevated px-5 text-xs hover:ring-primary/40 font-medium"
                 @click="toggleTimeline(tl.key)"
               >
                 <UIcon name="lucide:chevron-down" class="size-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]" :class="expanded[tl.key] ? 'rotate-180' : ''" />
@@ -399,15 +339,15 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <section class="section py-20 px-6 md:px-12 lg:px-20 overflow-hidden text-gray-800 dark:text-white">
+    <section class="site-frame editorial-section">
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
             <!-- Section Header (sticky, kiri) -->
-            <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit scroll-section will-change-[transform,opacity] z-0">
-              <h2 :key="$i18n.locale" class="leading-[0.88] tracking-tight mb-6">
-                <span class="section-title-filled block">{{ t('Latest') }}</span>
-                <span class="section-title-outline block">{{ t('Articles') }}<span class="text-primary">.</span></span>
+            <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit z-0">
+              <h2 :aria-label="t('articles.title')" class="leading-[0.88] tracking-tight mb-6">
+                <span class="section-title-filled block">{{ t('articles.titleFirst') }}</span>
+                <span class="section-title-outline block">{{ t('articles.titleSecond') }}<span class="text-primary">.</span></span>
               </h2>
               <div class="w-12 h-1 bg-primary mb-6"></div>
               <p class="text-sm text-muted leading-relaxed">
@@ -425,53 +365,24 @@ const faqs = computed(() => [
             <!-- Blogs Grid (kanan) -->
             <div class="lg:col-span-8 relative z-10">
               <div v-if="recentBlogsStatus === 'pending'" class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-                <UiSkeletonBlogCard v-for="i in 3" :key="`recent-blog-skeleton-${i}`" />
+                <UiSkeletonContentCard v-for="i in 3" :key="i" />
               </div>
               <div v-else class="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-                <div
+                <UiContentCard
                   v-for="blog in recentBlogsList"
                   :key="blog.path"
-                  class="scroll-section will-change-[transform,opacity]"
-                >
-                  <NuxtLink :to="toBlogLink(blog.path)" class="group flex h-full flex-col gap-3">
-                    <div class="relative aspect-video overflow-hidden rounded-lg border border-default bg-muted transition-colors duration-300 group-hover:border-primary/50">
-                      <NuxtImg
-                        :src="blog.coverImage || '/placeholder.avif'"
-                        :alt="blog.title"
-                        width="600"
-                        height="337"
-                        format="avif"
-                        loading="lazy"
-                        decoding="async"
-                        class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      />
-                    </div>
-
-                    <div class="flex flex-1 flex-col">
-                      <div class="mb-2 flex items-center justify-between gap-2 text-xs text-muted">
-                        <UBadge :label="blog.category || 'Tech'" color="neutral" variant="outline" size="xs" class="max-w-35 truncate font-medium" />
-                        <span class="truncate">{{ formatBlogDate(blog.date) }}</span>
-                      </div>
-                      <h3 class="line-clamp-2 font-heading text-sm leading-snug text-highlighted transition-colors duration-300 group-hover:text-primary sm:text-lg">
-                        {{ blog.title }}
-                      </h3>
-                      <p class="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-muted sm:text-sm">
-                        {{ blog.description }}
-                      </p>
-                      <div class="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted">
-                        <UIcon name="lucide:clock" class="size-3.5" />
-                        <span>{{ blog.readTime || '5 min' }}</span>
-                      </div>
-                    </div>
-                  </NuxtLink>
-                </div>
+                  :to="toBlogLink(blog.path)"
+                  :title="blog.title"
+                  :description="blog.description"
+                  :image="blog.coverImage"
+                />
 
                 <!-- Explore More Articles Card -->
                 <div
                 >
                   <NuxtLink
                     to="/blogs"
-                    class="group flex h-full min-h-40 flex-col justify-between gap-4 rounded-lg border border-default bg-lemon p-5 text-ink transition duration-300 ease-out hover:-translate-y-0.5"
+                    class="flex h-full min-h-40 flex-col rounded-lg border border-default bg-primary p-5 text-inverted transition duration-300 ease-out hover:-translate-y-0.5"
                   >
                     <div>
                       <h3 class="font-heading text-xl leading-tight sm:text-2xl">
@@ -481,10 +392,6 @@ const faqs = computed(() => [
                         {{ t('Baca tulisan, opini, panduan teknis, dan refleksi mindset lainnya di halaman artikel lengkap.') }}
                       </p>
                     </div>
-                    <span class="inline-flex items-center gap-2 text-sm font-semibold">
-                      {{ t('Explore Articles') }}
-                      <UIcon name="lucide:arrow-right" class="size-4 transition-transform group-hover:translate-x-1" />
-                    </span>
                   </NuxtLink>
                 </div>
               </div>
@@ -495,23 +402,22 @@ const faqs = computed(() => [
       </section>
 
     <!-- ═══ FAQ ═══ -->
-    <section :class="['overflow-hidden px-6 py-20 md:px-12 lg:px-20', reveal]">
+    <section class="site-frame editorial-section">
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div class="z-0 h-fit lg:sticky lg:top-32 lg:col-span-4">
-            <h2 :key="$i18n.locale" class="mb-6 leading-[0.88] tracking-tight">
+            <h2 class="mb-6 leading-[0.88] tracking-tight">
               <span class="section-title-filled block">{{ t('FAQ') }}</span>
               <span class="block text-highlighted">
                 <span class="section-title-outline">{{ t('Questions') }}</span><span class="text-primary">.</span>
               </span>
             </h2>
-            <div class="mb-6 h-1 w-12 bg-primary" />
             <p class="text-sm text-muted font-medium">{{ t('Things people usually ask about working with me') }}</p>
 
             <div class="mt-8 hidden lg:block">
               <UiArrowButton to="#contact" variant="primary" icon="lucide:arrow-right">
                 <template #leading>
-                  <UIcon name="lucide:message-circle" class="size-4 text-neutral-950" />
+                  <UIcon name="lucide:message-circle" class="size-4 text-current" />
                 </template>
                 {{ t('Get In Touch') }}
               </UiArrowButton>
@@ -543,7 +449,7 @@ const faqs = computed(() => [
             <div class="mt-8 flex justify-center lg:hidden">
               <UiArrowButton to="#contact" variant="primary" icon="lucide:arrow-right">
                 <template #leading>
-                  <UIcon name="lucide:message-circle" class="size-4 text-neutral-950" />
+                  <UIcon name="lucide:message-circle" class="size-4 text-current" />
                 </template>
                 {{ t('Get In Touch') }}
               </UiArrowButton>
@@ -553,22 +459,7 @@ const faqs = computed(() => [
       </div>
     </section>
 
-    <AppAboutQuotes :class="reveal" />
-    <GetinTouch :class="reveal" />
+    <AppAboutQuotes />
+    <GetinTouch />
   </div>
 </template>
-
-<style scoped>
-/* Hero entry animations */
-.entry-1 { animation: entry 0.6s ease-out 0ms both; }
-.entry-2 { animation: entry 0.6s ease-out 80ms both; }
-.entry-3 { animation: entry 0.6s ease-out 160ms both; }
-.entry-4 { animation: entry 0.6s ease-out 240ms both; }
-.entry-5 { animation: entry 0.6s ease-out 320ms both; }
-.entry-6 { animation: entry 0.6s ease-out 500ms both; }
-
-@keyframes entry {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>

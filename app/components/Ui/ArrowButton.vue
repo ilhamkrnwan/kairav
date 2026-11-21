@@ -13,18 +13,9 @@ withDefaults(defineProps<{
 })
 
 const styles = {
-  primary: {
-    base: 'bg-lemon text-ink border border-ink hover:bg-lemon-300 hover:text-ink dark:hover:text-ink',
-    pill: 'bg-ink text-lemon'
-  },
-  ink: {
-    base: 'bg-ink text-white border border-ink hover:bg-cobalt-700 hover:border-cobalt-700 hover:text-white dark:hover:text-white',
-    pill: 'bg-lemon text-ink'
-  },
-  secondary: {
-    base: 'bg-elevated text-highlighted border border-default hover:bg-muted hover:text-highlighted dark:hover:text-highlighted',
-    pill: 'bg-primary text-inverted'
-  }
+  primary: 'border-highlighted bg-inverted text-inverted hover:border-primary hover:bg-primary hover:text-inverted',
+  ink: 'border-transparent bg-neutral-950 text-white hover:bg-neutral-800 hover:text-white',
+  secondary: 'border-accented bg-transparent text-highlighted hover:border-primary hover:bg-muted hover:text-highlighted'
 }
 </script>
 
@@ -36,16 +27,13 @@ const styles = {
     :type="type"
     color="neutral"
     variant="link"
-    :ui="{ base: ['group justify-between gap-4 pl-6 pr-2 py-2 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]', styles[variant].base] }"
+    :ui="{ base: ['group min-h-11 justify-between gap-4 rounded-none border px-3.5 py-2.5 text-sm font-semibold transition-colors', styles[variant]] }"
   >
     <span class="flex items-center gap-2.5">
       <slot name="leading" />
       <slot />
     </span>
-    <span
-      class="size-9 sm:size-10 rounded-md flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-0.5"
-      :class="styles[variant].pill"
-    >
+    <span class="flex size-4 shrink-0 items-center justify-center" aria-hidden="true">
       <slot name="icon">
         <UIcon :name="icon" class="size-4" />
       </slot>

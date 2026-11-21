@@ -51,11 +51,10 @@ const currentIndex = computed(() => {
 const prevBlog = computed(() => (currentIndex.value > 0 ? blogs.value?.[currentIndex.value - 1] : undefined))
 const nextBlog = computed(() => (currentIndex.value >= 0 ? blogs.value?.[currentIndex.value + 1] : undefined))
 
-// Prev / next navigation cards share a single template
 const navCards = computed(() => [
-  { dir: 'prev', blog: prevBlog.value, badge: t('Previous Article'), label: t('Previous Article'), icon: 'lucide:arrow-left' },
-  { dir: 'next', blog: nextBlog.value, badge: t('Next Article'), label: t('Next Article'), icon: 'lucide:arrow-right' }
-].filter(card => card.blog))
+  { dir: 'prev', blog: prevBlog.value },
+  { dir: 'next', blog: nextBlog.value }
+].flatMap(({ dir, blog }) => blog ? [{ dir, blog }] : []))
 
 const relatedBlogs = computed(() => {
   if (!blogs.value || !current.value) return []
@@ -94,265 +93,162 @@ const formatDate = (dateString?: string) => {
 const breadcrumbItems = computed(() => [
   { label: t('Home'), icon: 'lucide:home', to: '/' },
   { label: t('Articles'), to: '/blogs' },
-  { label: current.value?.title || t('Article Details') }
+  { label: t('Article Details') }
 ])
 
 const heroMeta = computed(() => [
   { icon: 'lucide:user', label: current.value?.author, iconClass: 'text-primary' },
   { icon: 'lucide:calendar', label: formatDate(current.value?.date), iconClass: 'text-primary' },
-  { icon: 'lucide:clock', label: current.value?.readTime, iconClass: 'text-primary', highlight: true },
-  { icon: 'lucide:sparkles', label: 'Tech Insights', iconClass: 'text-primary' }
+  { icon: 'lucide:clock', label: current.value?.readTime, iconClass: 'text-primary', highlight: true }
 ].filter(item => item.label))
 
 const cardUi = { root: 'rounded-lg bg-elevated ring-default/40 shadow-xl shadow-black/5', body: 'p-5' }
 </script>
 
 <template>
-  <main class="min-h-screen">
+  <div class="min-h-screen">
     <UiSkeletonDetail v-if="status === 'pending'" type="blog" />
     <template v-else-if="current">
       <!-- Hero -->
-      <section class="relative pt-32 sm:pt-36 md:pt-24 lg:pt-28 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-6 md:px-12 lg:px-20 border-b border-default/40 overflow-hidden bg-radial from-primary/[0.04] via-transparent to-transparent">
-
-        <div class="container mx-auto max-w-7xl relative z-10">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-              <div class="flex flex-wrap items-center gap-3">
-                <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
-                <UBadge color="primary" variant="subtle" size="md" class="font-semibold text-xs">
-                  <template #leading>
-                    <span class="size-1.5 rounded-full bg-primary animate-pulse" />
-                  </template>
-                  {{ current.category || 'Tech Article' }}
-                </UBadge>
-              </div>
-
-              <div class="space-y-4">
-<h1 :key="$i18n.locale" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading tracking-tight leading-[1.08] text-highlighted">
-                  {{ current.title }}<span class="text-primary">.</span>
-                </h1>
-              </div>
-
-              <p class="text-base sm:text-lg md:text-xl text-muted font-normal leading-relaxed max-w-2xl">
-                {{ current.description }}
-              </p>
-
-              <!-- Meta: author, date, read time -->
-              <div class="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
-                <UBadge
-                  v-for="item in heroMeta"
-                  :key="item.icon"
-                  :icon="item.icon"
-                  :label="item.label"
-                  color="neutral"
-                  variant="outline"
-                  size="md"
-                  :ui="{ leadingIcon: item.iconClass }"
-                  class="text-xs bg-elevated font-medium"
-                  :class="item.highlight && 'ring-primary/30 text-primary font-semibold'"
-                />
-              </div>
-
-              <div class="flex flex-wrap items-center gap-3 pt-2">
-                <UiArrowButton to="#blog-content" variant="primary" icon="lucide:arrow-down">
-                  {{ t('Baca Artikel') }}
-                </UiArrowButton>
-
-                <UiArrowButton
-                  variant="secondary"
-                  :icon="copied ? 'lucide:check' : 'lucide:copy'"
-                  @click="copy(requestUrl.href)"
-                >
-                  {{ copied ? t('Tersalin!') : t('Salin Tautan') }}
-                </UiArrowButton>
-              </div>
-            </div>
-
-            <!-- 3D avatar with floating accents -->
-            <div class="lg:col-span-5 flex items-center justify-center relative mt-8 lg:mt-0">
-              <div class="relative w-full max-w-md flex items-center justify-center group">
-
-                <NuxtImg
-                  src="/developer-blog-avatar.avif"
-                  :alt="`${current.title} - Ilham Kurniawan`"
-                  width="440"
-                  height="420"
-                  format="webp"
-                  loading="eager"
-                  class="relative z-10 w-64 sm:w-76 md:w-88 lg:w-96 max-h-96 sm:max-h-[420px] object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] avatar-floating transition-transform duration-500 group-hover:scale-105"
-                />
-
-              </div>
-            </div>
+      <section class="site-frame detail-masthead">
+        <div class="detail-masthead-copy min-w-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
+            <UBadge v-if="current.category" color="primary" variant="subtle" size="md" class="font-semibold text-xs">
+              {{ current.category }}
+            </UBadge>
           </div>
-        </div>
-      </section>
 
-      <!-- Cover image -->
-      <section
-        v-if="current.coverImage"
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 100 } }"
-        class="pt-8 pb-4 md:pt-12 md:pb-6"
-      >
-        <div class="container mx-auto px-4 max-w-5xl">
-          <div class="relative aspect-video rounded-lg overflow-hidden border border-default shadow-lg shadow-black/5">
-            <NuxtImg
-              :src="current.coverImage"
-              :alt="current.title"
-              width="1280"
-              height="720"
-              format="avif"
-              loading="eager"
-              class="size-full object-cover"
+          <h1 class="detail-title">{{ current.title }}</h1>
+
+          <p v-if="current.description" class="detail-deck">{{ current.description }}</p>
+
+          <!-- Meta: author, date, read time -->
+          <div v-if="heroMeta.length" class="flex flex-wrap items-center gap-2 pt-1 sm:gap-3">
+            <UBadge
+              v-for="item in heroMeta"
+              :key="item.icon"
+              :icon="item.icon"
+              :label="item.label"
+              color="neutral"
+              variant="outline"
+              size="md"
+              :ui="{ leadingIcon: item.iconClass }"
+              class="text-xs bg-elevated font-medium"
+              :class="item.highlight && 'ring-primary/30 text-primary font-semibold'"
             />
           </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <UiArrowButton to="#blog-content" variant="primary" icon="lucide:arrow-down">
+              {{ t('Baca Artikel') }}
+            </UiArrowButton>
+
+            <UiArrowButton
+              variant="secondary"
+              :icon="copied ? 'lucide:check' : 'lucide:copy'"
+              @click="copy(requestUrl.href)"
+            >
+              {{ copied ? t('Tersalin!') : t('Salin Tautan') }}
+            </UiArrowButton>
+          </div>
+        </div>
+        <figure v-if="current.coverImage" class="detail-cover">
+          <NuxtImg
+          :src="current.coverImage"
+          :alt="current.title"
+          width="1280"
+          height="720"
+          format="avif"
+          fetchpriority="high"
+          sizes="100vw lg:45vw"
+          class="size-full object-cover"
+            />
+        </figure>
+        <div v-else class="detail-mascot">
+          <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
         </div>
       </section>
 
       <!-- Content -->
-      <section id="blog-content" class="py-8 md:py-12 scroll-mt-20 overflow-x-hidden">
-        <div class="container mx-auto px-4">
-          <div class="mx-auto max-w-7xl content-container">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
-              <div
-                v-motion
-                :initial="{ opacity: 0, y: 30 }"
-                :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
-                class="lg:col-span-8"
-              >
-                <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-headings: prose-headings: prose-p:text-highlighted/80">
-                  <ContentRenderer :value="current" />
-                </div>
+      <section id="blog-content" class="site-frame detail-reading-layout">
+        <article class="min-w-0">
+          <UiReadingContent :document="current" />
 
-                <div v-if="current.tags?.length" class="mt-12">
-                  <USeparator class="mb-8" />
-                  <h3 class="text-xs text-muted mb-4 font-medium">{{ t('Tags:') }}</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <UBadge
-                      v-for="tag in current.tags"
-                      :key="tag"
-                      :label="tag"
-                      color="neutral"
-                      variant="outline"
-                      class="px-3 py-1.5 text-xs bg-elevated hover:ring-primary/50 transition-colors font-medium"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <aside class="lg:col-span-4">
-                <div class="sticky top-28">
-                  <div
-                    v-motion
-                    :initial="{ opacity: 0, y: 30 }"
-                    :enter="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 300 } }"
-                    class="space-y-4"
-                  >
-                    <!-- Author & share -->
-                    <div>
-                      <UCard :ui="cardUi">
-                        <h3 class="text-xs text-muted mb-4 font-medium">{{ t('Written by') }}</h3>
-                        <div class="flex items-center gap-3 mb-6">
-                          <UAvatar icon="lucide:user" size="lg" :ui="{ root: 'bg-primary/10 ring ring-primary/20', icon: 'text-primary' }" />
-                          <div class="text-left">
-                            <p class="text-sm font-semibold text-highlighted">{{ t('Ilham Kurniawan') }}</p>
-                            <p class="text-xs text-muted font-medium">{{ t('Software Developer') }}</p>
-                          </div>
-                        </div>
-                        <AppSocialShare :title="current.title" :label="t('Share Article')" />
-                      </UCard>
-                    </div>
-
-                    <!-- Related articles -->
-                    <div v-if="relatedBlogs.length">
-                      <UCard :ui="{ ...cardUi, body: 'p-6' }">
-                        <h3 class="text-xs text-muted mb-4 text-left font-medium">{{ t('Related Articles') }}</h3>
-                        <div class="space-y-4">
-                          <template v-for="blog in relatedBlogs" :key="blog.path">
-                            <ULink :to="getBlogLink(blog)" raw class="group/related block text-left">
-                              <span class="inline-flex items-center text-xs text-primary/80 mb-1 group-hover/related:text-primary font-medium">
-                                {{ blog.category || 'Tech' }}
-                              </span>
-                              <h4 class="text-xs font-semibold leading-snug line-clamp-2 text-highlighted group-hover/related:text-primary transition-colors">
-                                {{ blog.title }}
-                              </h4>
-                              <p class="text-xs text-muted mt-1 font-medium">
-                                {{ formatDate(blog.date) }}
-                              </p>
-                            </ULink>
-                          </template>
-                        </div>
-                      </UCard>
-                    </div>
-
-                    <UiArrowButton to="/blogs" variant="secondary" icon="lucide:arrow-left" class="w-full">
-                      {{ t('Back to Articles') }}
-                    </UiArrowButton>
-                  </div>
-                </div>
-              </aside>
+          <div v-if="current.tags?.length" class="mt-12">
+            <USeparator class="mb-8" />
+            <h2 class="text-xs text-muted mb-4 font-medium">{{ t('Tags:') }}</h2>
+            <div class="flex flex-wrap gap-2">
+              <UBadge
+                v-for="tag in current.tags"
+                :key="tag"
+                :label="tag"
+                color="neutral"
+                variant="outline"
+                class="px-3 py-1.5 text-xs bg-elevated hover:ring-primary/50 transition-colors font-medium"
+              />
             </div>
           </div>
-        </div>
+        </article>
+
+        <aside class="detail-reading-aside min-w-0 space-y-4">
+          <!-- Author & share -->
+          <div>
+            <UCard :ui="cardUi">
+              <div v-if="current.author" class="mb-5">
+                <h2 class="text-sm font-semibold text-highlighted">{{ t('Written by') }}</h2>
+                <p class="mt-1 text-sm text-muted">{{ current.author }}</p>
+              </div>
+              <AppSocialShare :title="current.title" :label="t('Share Article')" />
+            </UCard>
+          </div>
+
+          <!-- Related articles -->
+          <div v-if="relatedBlogs.length">
+            <UCard :ui="{ ...cardUi, body: 'p-6' }">
+              <h2 class="mb-4 text-sm font-semibold text-highlighted">{{ t('Related Articles') }}</h2>
+              <div class="space-y-4">
+                <template v-for="blog in relatedBlogs" :key="blog.path">
+                  <ULink :to="getBlogLink(blog)" raw class="group/related block text-left">
+                    <h3 class="text-sm font-semibold leading-snug text-highlighted group-hover/related:text-primary transition-colors">
+                      {{ blog.title }}
+                    </h3>
+                    <p v-if="blog.description" class="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">
+                      {{ blog.description }}
+                    </p>
+                  </ULink>
+                </template>
+              </div>
+            </UCard>
+          </div>
+
+          <UiArrowButton to="/blogs" variant="secondary" icon="lucide:arrow-left" class="w-full">
+            {{ t('Back to Articles') }}
+          </UiArrowButton>
+        </aside>
       </section>
 
       <!-- Previous / next -->
       <section
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 500 } }"
+
         class="py-12 px-4 border-t border-default/40 overflow-x-hidden"
       >
         <div class="container mx-auto max-w-7xl navigation-container">
-          <h2 :key="$i18n.locale" class="leading-[0.88] tracking-tight mb-12 text-center">
-            <span class="section-title-filled block">{{ t('Next') }}</span>
-            <span class="section-title-outline block">{{ t('To Read') }}<span class="text-primary">.</span></span>
-          </h2>
+          <h2 class="detail-related-heading">{{ t('More Articles') }}</h2>
           <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-            <div v-for="card in navCards" :key="card.dir">
-              <ULink
-                v-if="card.blog"
-                :to="getBlogLink(card.blog)"
-                raw
-                class="group flex h-full flex-col gap-3"
-              >
-                <div class="relative aspect-video overflow-hidden rounded-lg border border-default bg-muted transition-colors duration-300 group-hover:border-primary/50">
-                  <NuxtImg
-                    :src="card.blog.coverImage || '/placeholder.avif'"
-                    :alt="card.blog.title"
-                    width="600"
-                    height="337"
-                    format="avif"
-                    loading="lazy"
-                    class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </div>
-
-                <div class="flex flex-1 flex-col">
-                  <div
-                    class="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-muted"
-                    :class="card.dir === 'next' && 'flex-row-reverse justify-end'"
-                  >
-                    <UIcon :name="card.icon" class="size-3.5" />
-                    <span class="truncate">{{ card.label }}</span>
-                  </div>
-                  <h3 class="line-clamp-2 font-heading text-sm leading-snug text-highlighted transition-colors duration-300 group-hover:text-primary sm:text-lg">
-                    {{ card.blog.title }}
-                  </h3>
-                  <p class="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-muted sm:text-sm">
-                    {{ card.blog.description }}
-                  </p>
-                  <UBadge :label="card.blog.category" color="neutral" variant="outline" size="xs" class="mt-3 w-fit font-medium" />
-                </div>
-              </ULink>
-            </div>
+            <UiContentCard
+              v-for="card in navCards"
+              :key="card.dir"
+              :to="getBlogLink(card.blog)"
+              :title="card.blog.title"
+              :description="card.blog.description"
+              :image="card.blog.coverImage"
+            />
           </div>
         </div>
       </section>
     </template>
-  </main>
+  </div>
 </template>
 
 <style scoped>

@@ -1,7 +1,8 @@
 ---
 title: Kairav Studio
 description: A creative digital studio helping brands build modern, fast, SEO-ready websites prepared for the generative engine optimization era
-image: /portofolio/kairav-studio/studio-cover.avif
+image: /portofolio/kairav-studio/kairav-studio.jpg
+panoramicHero: true
 category: Company Website
 services:
   - Web Design & Development
@@ -40,7 +41,7 @@ As the **Initiator, Designer, and Web Developer**, I defined the identity and vi
 
 The site gives the studio an official place to present its services and project work. Its structure makes it easy to add case studies and services as the studio grows.
 
-![Interface Kairav Studio](/portofolio/kairav-studio/studio-cover.avif)
+![Interface Kairav Studio](/portofolio/kairav-studio/kairav-studio.jpg)
 ![Kairav Studio Mockup 1](/portofolio/kairav-studio/1.avif)
 ![Kairav Studio Mockup 2](/portofolio/kairav-studio/2.avif)
 ![Kairav Studio Mockup 3](/portofolio/kairav-studio/3.avif)

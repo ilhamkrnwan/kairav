@@ -1,7 +1,8 @@
 ---
 title: Qinarian
 description: Platform komunitas teknologi untuk innovators yang menggabungkan kolaborasi open-source dengan solusi digital cutting-edge
-image: /portofolio/qinarian/studio-cover.avif
+image: /portofolio/qinarian/qinarian.jpg
+panoramicHero: true
 category: Website & Platform Komunitas
 services:
   - Web Development

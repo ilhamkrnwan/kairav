@@ -1,7 +1,8 @@
 ---
 title: Temandor
 description: Editor sketsa 2D untuk membantu mandor membuat denah dan jalur ducting ventilasi, mengecek sambungan, dan mengekspor gambar ke DXF.
-image: /portofolio/temandor/studio-cover.avif
+image: /portofolio/temandor/temandor.jpg
+panoramicHero: true
 gallery:
   - /portofolio/temandor/warnings.avif
   - /portofolio/temandor/export.avif

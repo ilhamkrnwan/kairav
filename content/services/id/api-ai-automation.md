@@ -23,37 +23,10 @@ seo:
   description: "Integrasi API pihak ketiga dan fitur kecerdasan buatan (AI) untuk meningkatkan efisiensi operasional dan otomatisasi sistem bisnis Anda."
 ---
 
-## Gambaran Layanan
+Kecerdasan buatan (AI) dan API memberi peluang besar untuk menghemat waktu pada tugas operasional berulang, tetapi pemilik bisnis sering bingung memanfaatkan AI secara praktis tanpa merombak seluruh aplikasi yang sedang berjalan. Layanan ini membantu **menghubungkan berbagai sistem serta menyuntikkan kemampuan cerdas berbasis AI** ke dalam alur kerja Anda, misalnya notifikasi dan konfirmasi pembayaran atau status pesanan otomatis via WhatsApp/Email, pengolahan dokumen dan ringkasan catatan dengan OpenAI / Gemini API, asisten percakapan cerdas, serta integrasi payment gateway seperti Midtrans, Xendit, atau Stripe.
 
-Kemajuan teknologi kecerdasan buatan (AI) dan API memberikan peluang besar untuk menghemat waktu pengerjaan tugas-tugas operasional berulang. Kendala yang sering dihadapi pemilik bisnis adalah kebingungan dalam memanfaatkan AI secara praktis tanpa harus merombak seluruh aplikasi yang sedang berjalan.
+Pengerjaan diawali dengan analisis alur data untuk memetakan sistem yang akan dihubungkan dan mengidentifikasi peluang otomatisasi. Berikutnya, integrasi API dan Webhook dibangun sebagai saluran data yang aman, cepat, dan handal antar platform, lalu prompt AI dirancang secara presisi agar luaran relevan dengan konteks bisnis Anda. Tahap akhir adalah pengujian kestabilan agar proses transaksi dan aliran data otomatis berjalan tanpa gangguan.
 
-Layanan ini membantu **menghubungkan berbagai sistem serta menyuntikkan kemampuan cerdas berbasis AI** ke dalam alur kerja bisnis Anda—mulai dari otomatisasi notifikasi, pengolahan dokumen, hingga asisten percakapan cerdas.
-
----
-
-## Contoh Penerapan Layanan
-
-- **Otomatisasi Notifikasi & WhatsApp:** Mengirimkan konfirmasi pembayaran atau pembaruan status pesanan secara otomatis via WhatsApp/Email.
-- **Asisten AI & Pengolahan Teks:** Memproses data dokumen panjang, merangkum catatan, atau menggenerasi respons otomatis berbasis AI (OpenAI / Gemini API).
-- **Integrasi Payment Gateway:** Menghubungkan website dengan sistem pembayaran otomatis (seperti Midtrans, Xendit, atau Stripe).
-
----
-
-## Tahapan Pengerjaan
-
-1. **Analisis Alur Data:** Memetakan sistem yang akan dihubungkan dan mengidentifikasi peluang otomatisasi.
-2. **Pengembangan Integrasi API & Webhook:** Membangun saluran komunikasi data yang aman, cepat, dan handal antar platform.
-3. **Pengondisian Prompt AI (AI Engineering):** Merancang instruksi prompt yang presisi agar luaran AI relevan dan sesuai konteks bisnis.
-4. **Pengujian Kestabilan:** Memastikan proses transaksi dan aliran data otomatis berjalan stabil tanpa gangguan.
-
----
-
-## Alokasi Teknologi
-
-Integrasi dibangun menggunakan **RESTful API, Webhooks, Node.js, Python, Nuxt/Vue, OpenAI API, Google Gemini API, Supabase, dan Cloudflare Workers**. Sistem dirancang bersih, aman, dan terdokumentasi dengan baik.
-
----
-
-## Mulai Diskusi Proyek
+Anda menerima integrasi API pihak ketiga (Payment, WA, AI), alur otomatisasi data dan Webhook, fitur cerdas berbasis LLM / AI Prompting, serta pengujian keamanan dan dokumentasi integrasi. Integrasi dibangun dengan **RESTful API, Webhooks, Node.js, Python, Nuxt/Vue, OpenAI API, Google Gemini API, Supabase, dan Cloudflare Workers**, dengan sistem yang bersih, aman, dan terdokumentasi dengan baik.
 
 Punya proses operasional berulang yang ingin diotomatiskan dengan AI atau API? Diskusikan ide dan solusinya melalui [halaman kontak](/contact).

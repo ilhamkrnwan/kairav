@@ -69,6 +69,26 @@ const message = computed(() => [
   }),
 ].join('\n'))
 
+// Three quick steps: service (required), timeline, budget. Picking an option moves on by itself.
+const step = ref(0)
+const last = contactFields.length - 1
+const current = computed(() => contactFields[step.value]!)
+const selections = computed(() => contactFields.flatMap(({ key }) =>
+  answers[key] ? [t(`contactForm.${key}.${answers[key]}`)] : [],
+))
+let advanceTimer: ReturnType<typeof setTimeout> | undefined
+const pick = () => {
+  clearTimeout(advanceTimer)
+  if (step.value < last) advanceTimer = setTimeout(() => { step.value++ }, 220)
+}
+const next = () => { if (step.value < last && (step.value > 0 || answers.service)) step.value++ }
+const goTo = (index: number) => { if (index <= step.value || answers.service) step.value = index }
+const onSubmit = (event: Event) => {
+  if (!answers.service) { event.preventDefault(); step.value = 0; return }
+  if (step.value < last) { event.preventDefault(); next() }
+}
+onBeforeUnmount(() => clearTimeout(advanceTimer))
+
 const emailUrl = computed(() =>
   `mailto:ilhamkurniawanjateng@gmail.com?subject=${encodeURIComponent(t('contactForm.subject'))}&body=${encodeURIComponent(message.value)}`,
 )
@@ -89,12 +109,12 @@ const emailUrl = computed(() =>
         </div>
         <div class="min-w-0">
           <ul class="editorial-list">
-            <li v-for="method in contactMethods" :key="method.label">
+            <li v-for="method in contactMethods" :key="method.label" data-reveal>
               <ULink :to="method.href" target="_blank" rel="noopener noreferrer" raw class="contact-method">
                 <UIcon :name="method.icon" class="size-5 text-primary" aria-hidden="true" />
                 <span class="min-w-0">
                   <span class="editorial-label block text-muted">{{ method.label }}</span>
-                  <span class="block wrap-anywhere text-base font-semibold text-highlighted sm:text-lg">{{ method.value }}</span>
+                  <span class="block wrap-anywhere text-lg font-medium tracking-tight text-highlighted sm:text-2xl">{{ method.value }}</span>
                 </span>
                 <UIcon name="lucide:arrow-up-right" class="size-4" aria-hidden="true" />
               </ULink>
@@ -104,6 +124,7 @@ const emailUrl = computed(() =>
       </div>
     </section>
 
+    <div class="inverse-band">
     <section id="consultation-quiz" class="site-frame editorial-section editorial-split" aria-labelledby="consultation-title">
       <div>
         <h2 id="consultation-title" class="editorial-title">{{ t('contactForm.title') }}</h2>
@@ -117,45 +138,71 @@ const emailUrl = computed(() =>
         rel="noopener noreferrer"
         class="min-w-0"
         aria-labelledby="consultation-title"
+        @submit="onSubmit"
       >
         <input type="hidden" name="text" :value="message">
-        <div class="grid gap-x-5 gap-y-5 sm:grid-cols-2">
-          <div
-            v-for="field in contactFields"
-            :key="field.key"
-            class="min-w-0"
-            :class="field.required && 'sm:col-span-2'"
-          >
-            <label :for="`consultation-${field.key}`" class="mb-2 block text-sm font-semibold text-highlighted">
-              {{ t(`contactForm.${field.key}.label`) }}
-              <span v-if="!field.required" class="ms-1 font-normal text-muted">{{ t('contactForm.optional') }}</span>
-            </label>
-            <select
-              :id="`consultation-${field.key}`"
-              v-model="answers[field.key]"
-              :required="field.required"
-              class="min-h-11 w-full rounded-lg border border-accented bg-default px-3 py-2 text-base text-highlighted sm:text-sm"
-            >
-              <option value="" :disabled="field.required">
-                {{ t(field.required ? 'contactForm.choose' : 'contactForm.undecided') }}
-              </option>
-              <option v-for="value in field.options" :key="value" :value="value">
-                {{ t(`contactForm.${field.key}.${value}`) }}
-              </option>
-            </select>
-          </div>
-        </div>
 
-        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-default pt-5">
-          <UiArrowButton type="submit" icon="lucide:arrow-up-right">
-            {{ t('contactForm.whatsapp') }}
+        <ol class="quiz-track">
+          <li
+            v-for="(field, index) in contactFields"
+            :key="field.key"
+            :class="{ 'is-done': index < step, 'is-current': index === step }"
+            :aria-current="index === step ? 'step' : undefined"
+          >
+            <button type="button" :disabled="index > step && !answers.service" @click="goTo(index)">
+              {{ t(`contactForm.${field.key}.label`) }}
+            </button>
+          </li>
+        </ol>
+
+        <fieldset :key="current.key" class="quiz-step">
+          <legend class="quiz-question">
+            {{ t(`contactForm.${current.key}.label`) }}
+            <span v-if="!current.required" class="ms-1 text-base font-normal text-muted">{{ t('contactForm.optional') }}</span>
+          </legend>
+          <div class="quiz-options">
+            <label v-if="!current.required" class="quiz-option">
+              <input v-model="answers[current.key]" type="radio" :name="current.key" value="" @change="pick">
+              <span>{{ t('contactForm.undecided') }}</span>
+            </label>
+            <label v-for="value in current.options" :key="value" class="quiz-option">
+              <input
+                v-model="answers[current.key]"
+                type="radio"
+                :name="current.key"
+                :value="value"
+                :required="current.required"
+                @change="pick"
+              >
+              <span>{{ t(`contactForm.${current.key}.${value}`) }}</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <p v-if="step === last && selections.length" class="quiz-summary">
+          <span class="editorial-label">{{ t('contactForm.summary') }}</span>
+          {{ selections.join(' · ') }}
+        </p>
+
+        <div class="quiz-actions">
+          <UiArrowButton v-if="step > 0" type="button" variant="secondary" icon="lucide:arrow-left" @click="step--">
+            {{ t('contactForm.back') }}
           </UiArrowButton>
-          <ULink :to="emailUrl" raw class="inline-flex min-h-11 items-center text-sm font-medium text-muted underline underline-offset-4 hover:text-primary">
-            {{ t('contactForm.email') }}
-          </ULink>
+          <UiArrowButton v-if="step < last" type="button" :disabled="step === 0 && !answers.service" @click="next">
+            {{ t('contactForm.next') }}
+          </UiArrowButton>
+          <template v-else>
+            <UiArrowButton type="submit" icon="lucide:arrow-up-right">
+              {{ t('contactForm.whatsapp') }}
+            </UiArrowButton>
+            <ULink :to="emailUrl" raw class="inline-flex min-h-11 items-center text-sm font-medium text-muted underline underline-offset-4 hover:text-primary">
+              {{ t('contactForm.email') }}
+            </ULink>
+          </template>
         </div>
       </form>
     </section>
+    </div>
 
     <section class="site-frame editorial-section">
       <div>
@@ -172,10 +219,11 @@ const emailUrl = computed(() =>
           <UCard
             v-for="location in locations"
             :key="location.city"
+            data-reveal
             :ui="{
-              root: 'overflow-hidden rounded-lg border border-default/40 bg-elevated ring-0',
-              body: 'p-6 sm:p-6',
-              footer: 'border-t border-default/40 bg-elevated p-3 sm:p-3'
+              root: 'overflow-hidden rounded-none border-0 border-t border-default bg-transparent shadow-none ring-0',
+              body: 'px-0 py-6 sm:px-0',
+              footer: 'border-0 bg-transparent px-0 pb-0 pt-0 sm:px-0'
             }"
           >
             <h3 class="mb-2 font-heading text-2xl text-highlighted">
@@ -186,7 +234,7 @@ const emailUrl = computed(() =>
             </p>
 
             <template #footer>
-              <div class="aspect-video overflow-hidden rounded-lg border border-default">
+              <div class="map-frame aspect-video overflow-hidden">
                 <iframe
                   :src="location.mapSrc"
                   :title="location.mapLabel"

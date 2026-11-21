@@ -1,7 +1,8 @@
 ---
 title: Temandor
 description: A 2D sketch editor that helps site foremen draw floor plans and ventilation ducts, check connections, and export drawings to DXF.
-image: /portofolio/temandor/studio-cover.avif
+image: /portofolio/temandor/temandor.jpg
+panoramicHero: true
 gallery:
   - /portofolio/temandor/warnings.avif
   - /portofolio/temandor/export.avif

@@ -1,7 +1,9 @@
 ---
 title: GENIUS UNU Jogja 2026
-image: /portofolio/genius-unu/landing-page.avif
+image: /portofolio/genius-unu/genius-unu.jpg
+panoramicHero: true
 gallery:
+  - /portofolio/genius-unu/landing-page.avif
   - /portofolio/genius-unu/mission-workflow.avif
   - /portofolio/genius-unu/orientation-guide.avif
 description: Platform orientasi mahasiswa baru UNU Yogyakarta dengan eksplorasi kampus bergaya RPG, tantangan interaktif, dan papan peringkat.

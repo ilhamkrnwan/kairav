@@ -16,7 +16,6 @@ const { data: portofolios, status } = await useAsyncData(
 const getPortofolioLink = (item: { path?: string, _path?: string }) =>
   item._path || item.path?.replace(`/portofolio/${locale.value}`, '/portofolio') || '#'
 
-const searchQuery = ref('')
 const selectedCategory = ref('All')
 
 const categories = computed(() => [
@@ -29,20 +28,12 @@ const filteredPortfolios = computed(() => {
   if (selectedCategory.value !== 'All') {
     filtered = filtered.filter(item => item.category === selectedCategory.value)
   }
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(item =>
-      item.title?.toLowerCase().includes(query)
-      || item.description?.toLowerCase().includes(query)
-      || item.tags?.some(tag => tag.toLowerCase().includes(query))
-    )
-  }
   return filtered
 })
 
-// Featured project: only when not searching and on the "All" category
+// Featured project: only when on the "All" category
 const featuredPortfolio = computed(() =>
-  selectedCategory.value === 'All' && !searchQuery.value ? filteredPortfolios.value[0] : undefined
+  selectedCategory.value === 'All' ? filteredPortfolios.value[0] : undefined
 )
 
 const regularPortfolios = computed(() =>
@@ -56,7 +47,6 @@ useDynamicSeo({
 
 
 const clearFilters = () => {
-  searchQuery.value = ''
   selectedCategory.value = 'All'
 }
 
@@ -83,28 +73,6 @@ useArtworkMotion(featuredMedia)
 
         <!-- Filters -->
         <div class="catalogue-filters">
-          <UInput
-            v-model="searchQuery"
-            icon="lucide:search"
-            size="xl"
-            :placeholder="t('Search')"
-            :aria-label="t('Search projects by name, description, or tags...')"
-            class="w-full max-w-md"
-            :ui="{ base: 'rounded-lg sm:rounded-xl bg-elevated' }"
-          >
-            <template v-if="searchQuery" #trailing>
-              <UButton
-                icon="lucide:x"
-                color="neutral"
-                variant="link"
-                size="sm"
-                class="size-11 justify-center"
-                :aria-label="t('Clear Filters')"
-                @click="searchQuery = ''"
-              />
-            </template>
-          </UInput>
-
           <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <UButton
               v-for="category in categories"

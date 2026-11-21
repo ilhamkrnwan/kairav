@@ -15,9 +15,12 @@ const props = withDefaults(defineProps<{
   label?: string
   lines?: Line[]
   greet?: string
+  hoverGreeting?: string
+  followPointer?: boolean
   side?: 'top' | 'left' | 'right'
-}>(), { size: 160, animation: 'idle', label: 'Maskot Kairav', side: 'top' })
+}>(), { size: 160, animation: 'idle', label: 'Maskot Kairav', followPointer: true, side: 'top' })
 
+const emit = defineEmits<{ speakingChange: [active: boolean] }>()
 
 const { locale } = useI18n()
 const definitions = import.meta.glob('~/assets/avatars/*.avatar.json', { import: 'default' })
@@ -63,6 +66,7 @@ const host = ref<HTMLElement | null>(null)
 const bubble = ref('')
 const bubbleOpen = ref(false)
 const announcement = ref('')
+watch(bubbleOpen, active => emit('speakingChange', active))
 let avatar: SmoothAvatar | undefined
 let speaking = false
 let hover = false
@@ -75,7 +79,12 @@ let typer: ReturnType<typeof setInterval> | undefined
 const later = (fn: () => void, ms: number) => timers.push(setTimeout(fn, ms))
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 // Back to rest: neutral face while the cursor is being followed, otherwise the idle loop.
-const resume = () => { speaking = false; if (tracking) avatar?.setExpression('neutral'); else avatar?.play(props.animation) }
+const resume = () => {
+  speaking = false
+  if (!props.animation) avatar?.setExpression(hover ? 'happy' : 'neutral')
+  else if (tracking) avatar?.setExpression('neutral')
+  else avatar?.play(props.animation)
+}
 
 const say = (text: string, expression = 'happy', holdMs = 3800) => {
   if (!avatar) return
@@ -85,10 +94,9 @@ const say = (text: string, expression = 'happy', holdMs = 3800) => {
   bubbleOpen.value = true
   bubble.value = ''
   announcement.value = text
-  avatar.play('talk')
-
   const talkMs = reduced() ? 0 : Math.min(text.length * 38, 2400)
   if (talkMs) {
+    avatar.play('talk')
     let i = 0
     typer = setInterval(() => {
       bubble.value = text.slice(0, ++i)
@@ -96,8 +104,9 @@ const say = (text: string, expression = 'happy', holdMs = 3800) => {
     }, talkMs / text.length)
   } else {
     bubble.value = text
+    avatar.setExpression(expression)
   }
-  later(() => avatar?.setExpression(expression), talkMs)
+  if (talkMs) later(() => avatar?.setExpression(expression), talkMs)
   later(() => {
     bubbleOpen.value = false
     announcement.value = ''
@@ -120,7 +129,13 @@ const onClick = (e: MouseEvent) => {
   say(locale.value === 'en' ? poke.en : poke.text, poke.expression, 2600)
 }
 
-const onEnter = () => { hover = true; if (!speaking) avatar?.setExpression('happy') }
+const onEnter = (event: PointerEvent) => {
+  if (props.hoverGreeting && event.pointerType === 'touch') return
+  hover = true
+  if (speaking) return
+  if (props.hoverGreeting) say(props.hoverGreeting, 'happy', 1800)
+  else avatar?.setExpression('happy')
+}
 const onLeave = () => { hover = false; if (!speaking) resume() }
 
 // Head follows the cursor; the engine eases toward it every frame. Idle loop returns after 4s of stillness.
@@ -150,7 +165,8 @@ onMounted(async () => {
   if (!host.value) return
   avatar = createSmoothAvatar(host.value, { definition, size: props.size, ariaLabel: props.label, animation: props.animation })
 
-  if (!reduced()) window.addEventListener('pointermove', onMove, { passive: true })
+  if (props.followPointer && !reduced()) window.addEventListener('pointermove', onMove, { passive: true })
+  if (hover && props.hoverGreeting) say(props.hoverGreeting, 'happy', 1800)
 
   if (props.greet && !sessionStorage.getItem(`mascot-greeted-${props.name}`)) {
     sessionStorage.setItem(`mascot-greeted-${props.name}`, '1')

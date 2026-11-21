@@ -1,7 +1,8 @@
 ---
 title: Jurutani
 description: The all-in-one digital agriculture platform empowering Indonesian farmers with real-time data, AI-powered insights, expert consultation, and integrated marketplace access
-image: /portofolio/jurutani/studio-cover.avif
+image: /portofolio/jurutani/jurutani.jpg
+panoramicHero: true
 category: Web & Mobile App
 services:
   - Full-Stack Development
@@ -39,7 +40,7 @@ As **Fullstack Web & Android Developer**, I designed and built the web and Andro
 
 Farmers can check information before making decisions in the field and offer their harvest directly to buyers. The mobile-first design and offline access support use in areas with limited connectivity.
 
-![Jurutani Preview](/portofolio/jurutani/studio-cover.avif)
+![Jurutani Preview](/portofolio/jurutani/jurutani.jpg)
 ![Jurutani Gallery 1](/portofolio/jurutani/galeri_jurutani_1.avif)
 ![Jurutani Gallery 2](/portofolio/jurutani/galeri_jurutani_2.avif)
 ![Jurutani Gallery 3](/portofolio/jurutani/galeri_jurutani_3.avif)

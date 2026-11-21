@@ -1,7 +1,8 @@
 ---
 title: AgriNuklir
 description: Platform edukasi tentang pemanfaatan teknologi nuklir di bidang pertanian melalui modul, simulasi, dan kuis interaktif.
-image: /portofolio/agrinuklir/studio-cover.avif
+image: /portofolio/agrinuklir/agrinuclear.jpg
+panoramicHero: true
 category: Website
 services:
   - Frontend Development

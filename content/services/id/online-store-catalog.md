@@ -23,37 +23,10 @@ seo:
   description: "Toko online dan katalog produk interaktif yang cepat, ramah pengguna di ponsel, dan terintegrasi langsung dengan pesanan WhatsApp."
 ---
 
-## Gambaran Layanan
+Penjual online dan pemilik merek sering kerepotan karena calon pembeli menanyakan stok atau harga satu per satu lewat obrolan, sementara katalog dalam PDF yang berat atau unggahan media sosial membuat pembeli enggan menjelajah. Pembeli juga bingung cara memesan, dan toko online lama terasa berat di seluler karena foto produk yang besar. Layanan ini **menghadirkan toko online atau katalog produk yang ringan dan menawan**, tempat pembeli menjelajahi katalog, memilih variasi produk, dan mengirim rincian pesanan yang rapi langsung ke WhatsApp toko Anda.
 
-Penjual online dan pemilik merek sering kerepotan saat calon pembeli harus menanyakan stok atau harga barang satu per satu via obrolan. Menampilkan seluruh katalog dalam dokumen PDF yang berat atau unggahan media sosial sering kali membuat calon pembeli enggan menjelajah lebih lanjut.
+Fitur dibangun berurutan, dimulai dari pencarian dan filter produk yang cepat agar pembeli menemukan kategori atau barang dalam hitungan detik. Berikutnya halaman detail produk menampilkan foto berkualitas, deskripsi jelas, serta pilihan ukuran atau warna, dan keranjang belanja interaktif memungkinkan pembeli mengumpulkan beberapa item sebelum checkout. Saat checkout diklik, sistem otomatis menyusun daftar rincian pesanan dan total harga ke WhatsApp Anda.
 
-Layanan ini membantu **menghadirkan toko online atau katalog produk yang ringan dan menawan**. Pembeli dapat menjelajahi katalog, memilih variasi produk, dan mengirimkan rincian pesanan yang rapi langsung ke WhatsApp toko Anda.
-
----
-
-## Masalah yang Sering Dihadapi
-
-- **Katalog Produk Sulit Dijelajahi:** Pelanggan kesulitan melihat daftar produk dan harga secara terstruktur.
-- **Format Pesanan Berantakan:** Pembeli bingung cara memesan sehingga admin toko harus memandu dari awal secara berulang.
-- **Website Toko Lama Lambat:** Pemuatan foto produk yang berat membuat toko online lama terasa berat di seluler.
-
----
-
-## Fitur Utama
-
-1. **Pencarian & Filter Produk Cepat:** Memudahkan pembeli menemukan kategori atau barang yang dicari dalam hitungan detik.
-2. **Detail Produk & Variasi:** Menampilkan foto produk berkualitas, deskripsi jelas, serta pilihan ukuran atau warna.
-3. **Keranjang Belanja Interaktif:** Pembeli dapat mengumpulkan beberapa item sekaligus sebelum checkout.
-4. **Format Order WhatsApp Otomatis:** Saat checkout diklik, sistem secara otomatis menyusun daftar rincian pesanan dan total harga ke WhatsApp Anda.
-
----
-
-## Alokasi Teknologi
-
-Toko online dibangun menggunakan **Nuxt 4 / Vue 3 dipadukan dengan Tailwind CSS dan Headless CMS atau Laravel/Supabase**. Pendekatan ini menghasilkan toko online yang super cepat di smartphone dan efisien mengelola foto produk.
-
----
-
-## Mulai Diskusi Proyek
+Anda menerima tampilan katalog produk interaktif dengan pencarian, keranjang belanja dan format pemesanan WhatsApp, halaman detail produk dengan variasi (ukuran/warna), serta panel admin untuk mengelola produk dan pesanan. Toko dibangun dengan **Nuxt 4 / Vue 3 dipadukan dengan Tailwind CSS dan Headless CMS atau Laravel/Supabase**, sehingga toko super cepat di smartphone dan efisien mengelola foto produk.
 
 Siap memberikan pengalaman berbelanja yang lebih nyaman bagi calon pembeli Anda? Diskusikan rencana toko online Anda melalui [halaman kontak](/contact).

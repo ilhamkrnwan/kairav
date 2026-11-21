@@ -16,7 +16,6 @@ useEditorialMotion(contact, ({ root, gsap, ScrollTrigger }) => {
       invalidateOnRefresh: true,
     },
   })
-    .fromTo(root, { '--contact-wash': 0 }, { '--contact-wash': 1, duration: 0.82 }, 0)
     .fromTo(root.children, {
       y: () => window.matchMedia('(max-width: 47.99rem)').matches ? 12 : 24,
     }, { y: 0, duration: 0.57, stagger: 0.06 }, 0.18)
@@ -26,6 +25,7 @@ useEditorialMotion(contact, ({ root, gsap, ScrollTrigger }) => {
 </script>
 
 <template>
+  <div class="inverse-band">
   <section id="contact" ref="contact" class="site-frame editorial-section contact-strip">
     <div>
       <h2 class="editorial-title">{{ t('cta.title') }}</h2>
@@ -40,22 +40,5 @@ useEditorialMotion(contact, ({ root, gsap, ScrollTrigger }) => {
       </UiArrowButton>
     </div>
   </section>
+  </div>
 </template>
-
-<style scoped>
-.contact-strip {
-  position: relative;
-  isolation: isolate;
-}
-
-.contact-strip::before {
-  content: '';
-  position: absolute;
-  inset: 0 calc(var(--site-gutter) * -1);
-  z-index: -1;
-  background: color-mix(in srgb, var(--mascot-color) 13%, var(--ui-bg));
-  pointer-events: none;
-  transform: scaleX(var(--contact-wash, 0));
-  transform-origin: left center;
-}
-</style>

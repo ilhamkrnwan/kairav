@@ -25,8 +25,8 @@ const toBlogLink = (path?: string) => {
   return path?.replace(/^\/blog\/[^/]+/, '/blogs') || '#'
 }
 
-// Shared sticker look for UCard: ink outline, generous radius
-const glassCard = 'rounded-lg ring-0 border border-default bg-elevated shadow-sm'
+// Flat, hairline-ruled surface for UCard: structure comes from rules, not boxes
+const glassCard = 'rounded-none ring-0 border-0 border-t border-default bg-transparent shadow-none'
 
 /* ── Hero data ── */
 const roles = computed(() => [t('Fullstack Developer'), t('IT Student'), t('Yogyakarta / Blora, ID')])
@@ -203,7 +203,7 @@ const faqs = computed(() => [
     label: t('How can I contact you?'),
     content: t("You can reach me through the 'Get in Touch' section at the bottom of this page, or connect with me on LinkedIn and GitHub. I usually respond within 1–2 business days.")
   }
-].map((faq, i) => ({ ...faq, value: String(i), num: String(i + 1).padStart(2, '0') })))
+].map((faq, i) => ({ ...faq, value: String(i) })))
 </script>
 
 <template>
@@ -211,7 +211,7 @@ const faqs = computed(() => [
     <section class="site-frame about-masthead" aria-labelledby="about-title">
       <h1 id="about-title" class="editorial-title">{{ t('About') }}</h1>
       <div class="editorial-split">
-        <figure class="about-portrait">
+        <figure class="about-portrait" data-reveal>
           <NuxtImg src="/ilham-hero-2.avif" alt="Ilham Kurniawan" width="640" height="640" sizes="100vw md:45vw" class="size-full object-cover" />
         </figure>
         <div>
@@ -219,7 +219,7 @@ const faqs = computed(() => [
           <p class="my-4 max-w-[45ch] text-lg text-muted">{{ t('intro.description') }}</p>
           <p class="mb-6 text-sm text-muted">{{ roles.join(' · ') }}</p>
           <ul class="editorial-list">
-            <li v-for="badge in careerBadges" :key="badge.label" class="flex flex-wrap items-baseline justify-between gap-2 py-3">
+            <li v-for="badge in careerBadges" :key="badge.label" data-reveal class="flex flex-wrap items-baseline justify-between gap-2 py-3">
               <span class="font-semibold text-highlighted">{{ badge.label }}</span>
               <span class="text-sm text-muted">{{ badge.sub }}</span>
             </li>
@@ -234,41 +234,23 @@ const faqs = computed(() => [
 
     <!-- ═══ ABOUT ME ═══ -->
     <section class="site-frame editorial-section">
-      <div class="about-me-container mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-          <div class="relative z-0 lg:col-span-4">
-            <h2 class="mb-6 leading-[0.88] tracking-tight">
-              <span class="section-title-filled block">{{ t('About') }}</span>
-              <span class="block text-highlighted">
-                <span class="section-title-outline">{{ t('Me') }}</span><span class="text-primary">.</span>
-              </span>
-            </h2>
-          </div>
-
-          <div class="relative z-10 lg:col-span-8">
-            <div
-            >
-              <UCard :ui="{ root: `${glassCard} group relative`, body: 'p-8 sm:p-8 md:p-12' }">
-                <UIcon name="lucide:quote" class="absolute top-6 right-6 size-12 text-dimmed/20 transition-colors duration-500 group-hover:text-primary/10" />
-                <div class="relative z-10 space-y-6 text-left text-base leading-relaxed font-normal text-muted md:text-lg">
-                  <p>
-                    {{ t('I am an enthusiastic developer who thrives on') }}
-                    <span class="font-medium text-highlighted">{{ t('transforming complex problems') }}</span>
-                    {{ t('into') }}
-                    <span class="font-medium text-highlighted">{{ t('elegant digital solutions.') }}</span>
-                  </p>
-                  <p>
-                    {{ t('With a passion for continuous learning and a strong foundation in modern web technologies, I focus on crafting') }}
-                    <span class="font-medium text-highlighted">{{ t('scalable, accessible, and user-centric applications.') }}</span>
-                  </p>
-                  <p>
-                    {{ t('Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a') }}
-                    <span class="font-medium text-highlighted">{{ t('meaningful impact.') }}</span>
-                  </p>
-                </div>
-              </UCard>
-            </div>
-          </div>
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+        <h2 class="editorial-title editorial-title--side lg:col-span-4">{{ t('About') }} {{ t('Me') }}</h2>
+        <div class="about-lead space-y-6 lg:col-span-8" data-scrub-text>
+          <p>
+            {{ t('I am an enthusiastic developer who thrives on') }}
+            {{ t('transforming complex problems') }}
+            {{ t('into') }}
+            {{ t('elegant digital solutions.') }}
+          </p>
+          <p>
+            {{ t('With a passion for continuous learning and a strong foundation in modern web technologies, I focus on crafting') }}
+            {{ t('scalable, accessible, and user-centric applications.') }}
+          </p>
+          <p>
+            {{ t('Whether building responsive interfaces or resilient backends, my goal is to deliver products that have a') }}
+            {{ t('meaningful impact.') }}
+          </p>
         </div>
       </div>
     </section>
@@ -284,12 +266,7 @@ const faqs = computed(() => [
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div class="z-0 h-fit lg:sticky lg:top-32 lg:col-span-4">
-            <h2 class="mb-6 leading-[0.88] tracking-tight">
-              <span class="section-title-filled block">{{ tl.title }}</span>
-              <span class="block text-highlighted">
-                <span class="section-title-outline">{{ tl.accent }}</span><span class="text-primary">.</span>
-              </span>
-            </h2>
+            <h2 class="editorial-title editorial-title--side mb-6">{{ tl.title }} {{ tl.accent }}</h2>
             <p class="text-sm text-muted font-medium">{{ tl.subtitle }}</p>
           </div>
 
@@ -304,7 +281,7 @@ const faqs = computed(() => [
               }"
             >
               <template #wrapper="{ item }">
-                <UCard :ui="{ root: `${glassCard} transition-colors hover:bg-elevated`, body: 'p-6 sm:p-6' }">
+                <UCard data-reveal :ui="{ root: `${glassCard} transition-colors`, body: 'px-0 py-6 sm:px-0 sm:py-6' }">
                   <div class="mb-4 flex items-center gap-4">
                     <UAvatar
                       :src="item.logo"
@@ -328,7 +305,7 @@ const faqs = computed(() => [
                 class="liquid-button min-h-11 rounded-xl ring-default/40 bg-elevated px-5 text-xs hover:ring-primary/40 font-medium"
                 @click="toggleTimeline(tl.key)"
               >
-                <UIcon name="lucide:chevron-down" class="size-4 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]" :class="expanded[tl.key] ? 'rotate-180' : ''" />
+                <UIcon name="lucide:chevron-down" class="size-4 transition-transform duration-500 ease-out" :class="expanded[tl.key] ? 'rotate-180' : ''" />
                 <Transition name="swap" mode="out-in">
                   <span :key="String(expanded[tl.key])">{{ expanded[tl.key] ? t('Show Less') : t('Show More') }}</span>
                 </Transition>
@@ -345,11 +322,7 @@ const faqs = computed(() => [
 
             <!-- Section Header (sticky, kiri) -->
             <div class="lg:col-span-4 lg:sticky lg:top-32 h-fit z-0">
-              <h2 :aria-label="t('articles.title')" class="leading-[0.88] tracking-tight mb-6">
-                <span class="section-title-filled block">{{ t('articles.titleFirst') }}</span>
-                <span class="section-title-outline block">{{ t('articles.titleSecond') }}<span class="text-primary">.</span></span>
-              </h2>
-              <div class="w-12 h-1 bg-primary mb-6"></div>
+              <h2 class="editorial-title editorial-title--side mb-6">{{ t('articles.titleFirst') }} {{ t('articles.titleSecond') }}</h2>
               <p class="text-sm text-muted leading-relaxed">
                 {{ t('My recent') }}
                 <UiTextGradient>
@@ -406,12 +379,7 @@ const faqs = computed(() => [
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div class="z-0 h-fit lg:sticky lg:top-32 lg:col-span-4">
-            <h2 class="mb-6 leading-[0.88] tracking-tight">
-              <span class="section-title-filled block">{{ t('FAQ') }}</span>
-              <span class="block text-highlighted">
-                <span class="section-title-outline">{{ t('Questions') }}</span><span class="text-primary">.</span>
-              </span>
-            </h2>
+            <h2 class="editorial-title editorial-title--side mb-6">{{ t('FAQ') }} {{ t('Questions') }}</h2>
             <p class="text-sm text-muted font-medium">{{ t('Things people usually ask about working with me') }}</p>
 
             <div class="mt-8 hidden lg:block">
@@ -430,21 +398,15 @@ const faqs = computed(() => [
               type="single"
               collapsible
               :ui="{
-                root: 'space-y-4',
+                root: 'border-b border-default',
                 content: 'data-[state=open]:animate-[faq-open_420ms_cubic-bezier(0.22,1,0.36,1)] data-[state=closed]:animate-[faq-close_260ms_cubic-bezier(0.4,0,1,1)]',
-                item: 'overflow-hidden rounded-lg border border-default/30 bg-elevated transition-all duration-300 last:border-b hover:border-default/60 hover:bg-elevated data-[state=open]:border-primary/50 data-[state=open]:shadow-lg',
-                trigger: 'items-center gap-4 p-6',
-                label: 'text-sm font-semibold tracking-wide text-highlighted/80 transition-colors duration-300 group-data-[state=open]:text-highlighted md:text-base',
-                trailingIcon: 'size-4 text-muted duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-data-[state=open]:text-primary',
-                body: 'mr-6 mb-6 ml-10 border-l border-primary/30 pb-0 pl-4 font-normal leading-relaxed text-muted starting:translate-y-2 starting:opacity-0'
+                item: 'border-t border-default',
+                trigger: 'items-center gap-4 py-5',
+                label: 'text-base font-medium tracking-tight text-highlighted transition-colors duration-300 group-hover:text-primary md:text-lg',
+                trailingIcon: 'size-5 text-muted duration-500 ease-out group-data-[state=open]:text-primary',
+                body: 'mb-6 max-w-[62ch] pb-0 pr-8 font-normal leading-relaxed text-muted starting:translate-y-2 starting:opacity-0'
               }"
-            >
-              <template #leading="{ item }">
-                <span class="flex size-8 shrink-0 items-center justify-center rounded-lg border border-default bg-elevated text-xs font-bold text-muted transition-all duration-300 group-hover:border-primary/30 group-data-[state=open]:border-primary/50 group-data-[state=open]:bg-primary/20 group-data-[state=open]:text-primary">
-                  {{ item.num }}
-                </span>
-              </template>
-            </UAccordion>
+            />
 
             <div class="mt-8 flex justify-center lg:hidden">
               <UiArrowButton to="#contact" variant="primary" icon="lucide:arrow-right">

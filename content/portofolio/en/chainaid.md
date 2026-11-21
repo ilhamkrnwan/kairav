@@ -1,6 +1,7 @@
 ---
 title: ChainAid Web3 Donation
-image: /portofolio/chainaid/studio-cover.avif
+image: /portofolio/chainaid/chainaid.jpg
+panoramicHero: true
 gallery: []
 description: A Web3 donation prototype with campaign management, organization review, and transaction tracking on Ethereum Sepolia.
 category: Web Platform

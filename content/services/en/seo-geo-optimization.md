@@ -23,41 +23,10 @@ seo:
   description: "Technical SEO and structured data optimization ensuring your website is indexed and recommended by Google and AI search engines."
 ---
 
-## Service Overview
+A visually appealing website reaches its full potential when target visitors discover it easily. Search behavior now extends beyond Google to AI-driven search engines (*Generative Engine Optimization / GEO*) such as ChatGPT, Perplexity, and Gemini, yet many sites have been live for months without appearing for relevant searches, share badly on WhatsApp or LinkedIn, or score low on Google PageSpeed. This service **optimizes your website's technical foundation and structured data** so your content is clearly understood, indexed, and recommended organically.
 
-A visually appealing website reaches its full potential when discovered easily by target visitors. Search behaviors today extend beyond conventional engines like Google to include AI-driven search engines (*Generative Engine Optimization / GEO*) such as ChatGPT, Perplexity, and Gemini.
+It starts with a technical SEO audit that inspects HTML structure, title tags, meta descriptions, sitemap files, and page loading performance. Next, JSON-LD structured data is embedded using global schema standards so search algorithms recognize your business type and products, and Open Graph optimization ensures every page shares with an attractive cover image and description. The last step is AI-friendly content structuring (GEO), organizing page syntax so AI search tools can accurately quote your business as a primary recommendation.
 
-This service focuses on **optimizing your website's technical foundation and structured data**, ensuring your content is clearly understood, indexed, and recommended organically.
-
----
-
-## Common Challenges Addressed
-
-- **Low Search Visibility:** Your website has been live for months but fails to appear when prospective clients search for relevant services.
-- **Broken Social Media Sharing:** Shared links on WhatsApp or LinkedIn display missing thumbnails or generic text (*Open Graph issues*).
-- **Subpar Page Speeds:** Low Google PageSpeed scores negatively impact search rankings and user retention.
-
----
-
-## Process & Workflow
-
-1. **Technical SEO Audit:** Inspecting HTML structure, title tags, meta descriptions, sitemap files, and page loading performance.
-2. **Structured Data Implementation (JSON-LD):** Embedding global schema standards so search algorithms clearly recognize your business type and products.
-3. **Social Media Preview Optimization (Open Graph):** Ensuring every page shares with attractive cover images and descriptions.
-4. **AI-Friendly Content Structuring (GEO):** Organizing page syntax so AI search tools can accurately quote your business as a primary recommendation.
-
----
-
-## What You Receive
-
-- Comprehensive technical SEO audit & performance fixes.
-- Global JSON-LD Schema implementation (Article/CreativeWork/Business).
-- Complete Open Graph & Twitter Card setup.
-- Clean XML Sitemap & Robots.txt configurations.
-- Actionable report & ongoing content recommendations.
-
----
-
-## Start a Discussion
+You receive a comprehensive technical SEO audit with performance fixes, global JSON-LD Schema implementation (Article/CreativeWork/Business), a complete Open Graph and Twitter Card setup, and clean XML Sitemap and Robots.txt configurations. The work also comes with an actionable report and ongoing content recommendations.
 
 Looking to increase organic search traffic and search visibility for your site? Explore technical SEO options via the [contact page](/contact).

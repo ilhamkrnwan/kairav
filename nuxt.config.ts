@@ -83,7 +83,6 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/ui",
     "@nuxt/content",
-    '@vueuse/motion/nuxt',
     '@nuxtjs/sitemap',
   ],
 
@@ -108,7 +107,6 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Barlow Condensed', weights: [600, 700, 800], global: true },
       { name: 'Inter', weights: [400, 500, 600, 700, 800], global: true },
       { name: 'Segoe UI', provider: 'none' },
       { name: 'Helvetica Neue', provider: 'none' },

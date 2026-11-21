@@ -13,7 +13,7 @@ withDefaults(defineProps<{
 })
 
 const styles = {
-  primary: 'border-highlighted bg-inverted text-inverted hover:border-primary hover:bg-primary hover:text-inverted',
+  primary: 'border-primary bg-primary text-inverted hover:border-highlighted hover:bg-inverted hover:text-inverted',
   ink: 'border-transparent bg-neutral-950 text-white hover:bg-neutral-800 hover:text-white',
   secondary: 'border-accented bg-transparent text-highlighted hover:border-primary hover:bg-muted hover:text-highlighted'
 }

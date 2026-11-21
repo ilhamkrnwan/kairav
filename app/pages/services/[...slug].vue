@@ -92,7 +92,7 @@ const breadcrumbItems = computed(() => [
 
     <template v-else-if="current">
       <!-- Hero -->
-      <section class="site-frame detail-masthead">
+      <UiDetailHero :image="current.coverImage || current.image">
         <div class="detail-masthead-copy min-w-0">
           <div class="flex flex-wrap items-center gap-3">
             <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
@@ -139,13 +139,12 @@ const breadcrumbItems = computed(() => [
             </UiArrowButton>
           </div>
         </div>
-        <figure v-if="current.coverImage || current.image" class="detail-cover">
-          <NuxtImg :src="getServiceImage(current)" :alt="current.title" class="size-full object-cover" />
-        </figure>
-        <div v-else class="detail-mascot">
-          <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
-        </div>
-      </section>
+        <template #fallback>
+          <div class="detail-mascot">
+            <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
+          </div>
+        </template>
+      </UiDetailHero>
 
       <!-- Content -->
       <section id="service-content" class="site-frame detail-reading-layout">

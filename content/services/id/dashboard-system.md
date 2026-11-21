@@ -24,37 +24,10 @@ seo:
   description: "Pembuatan sistem dashboard admin dan visualisasi data yang rapi, real-time, dan mudah dipahami untuk pemantauan bisnis Anda."
 ---
 
-## Gambaran Layanan
+Meninjau performa penjualan atau operasional sering menyita waktu bila data tersebar di banyak dokumen terpisah, tren sulit ditangkap dari tabel angka yang panjang, atau rekapitulasi baru tersedia manual di akhir bulan. Layanan ini **merangkum data penting bisnis ke dalam satu layar dashboard yang jernih dan interaktif**, sehingga angka penjualan, grafik pertumbuhan, hingga indikator kinerja utama (*KPI*) dapat dipantau dalam hitungan detik, dan ringkasan data bisa dibagikan ke manajer tanpa membuka seluruh database rahasia perusahaan.
 
-Meninjau ringkasan performa penjualan atau operasional sering kali menyita waktu apabila data masih tersebar di puluhan dokumen terpisah atau menunggu rekapitulasi manual di akhir bulan.
+Pengerjaan dimulai dengan memetakan indikator utama (KPI), yaitu angka kunci yang paling krusial bagi pemantauan bisnis Anda. Antarmuka grafik dan kartu ringkasan lalu dirancang agar nyaman dibaca tanpa distraksi, dilengkapi fitur interaktif berupa filter rentang tanggal, pencarian cepat, dan ekspor laporan (PDF/Excel). Terakhir, batasan akses data diatur berdasarkan peran pengguna di perusahaan.
 
-Layanan ini membantu **merangkum data penting bisnis ke dalam satu layar dashboard yang jernih dan interaktif**. Angka penjualan, grafik pertumbuhan, hingga indikator kinerja utama (*KPI*) dapat dipantau secara transparan dalam hitungan detik.
-
----
-
-## Masalah yang Sering Dihadapi
-
-- **Data Terfragmentasi:** Laporan keuangan, penjualan, dan stok barang tersimpan di berbagai tempat terpisah.
-- **Kesulitan Membaca Tren:** Data berbentuk tabel angka yang panjang membuat grafik peningkatan atau penurunan bisnis sulit ditangkap secara cepat.
-- **Akses Tim Kurang Teratur:** Kebutuhan membagikan ringkasan data kepada manajer tanpa harus membuka seluruh database rahasia perusahaan.
-
----
-
-## Tahapan Pengerjaan
-
-1. **Pemetaan Indikator Utama (KPI):** Menentukan angka-angka kunci yang paling krusial bagi pemantauan bisnis.
-2. **Perancangan Antarmuka Data (Clean UI):** Merancang antarmuka grafik dan kartu ringkasan yang nyaman dibaca tanpa distraksi.
-3. **Pengembangan Fitur Interaktif:** Menyediakan filter rentang tanggal, pencarian cepat, serta ekspor laporan (PDF/Excel).
-4. **Pengaturan Hak Akses:** Menyiapkan batasan akses data berdasarkan peran pengguna di perusahaan.
-
----
-
-## Alokasi Teknologi
-
-Pengembangan dashboard admin biasa menggunakan **Vue 3 / Nuxt 4 dipadukan dengan Tailwind CSS, Chart.js / ApexCharts, serta backend PostgreSQL, MySQL, atau Supabase**. Hasilnya adalah sistem yang cepat saat memuat ribuan baris data dan aman.
-
----
-
-## Mulai Diskusi Proyek
+Anda menerima antarmuka dashboard admin dengan grafik visual, integrasi sumber data dan kalkulasi otomatis, fitur filter, pencarian, dan ekspor laporan, serta keamanan peran pengguna (Role-Based Access). Pengembangan biasa menggunakan **Vue 3 / Nuxt 4 dipadukan dengan Tailwind CSS, Chart.js / ApexCharts, serta backend PostgreSQL, MySQL, atau Supabase**, sehingga sistem cepat memuat ribuan baris data dan aman.
 
 Ingin memantau indikator bisnis Anda secara lebih jernih dan terukur? Diskusikan rencana kebutuhan dashboard Anda melalui [halaman kontak](/contact).

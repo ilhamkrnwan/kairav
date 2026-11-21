@@ -23,41 +23,10 @@ seo:
   description: "Optimasi aspek teknis SEO dan ketersediaan data website agar mudah diindeks serta direkomendasikan oleh Google dan AI Search Engine."
 ---
 
-## Gambaran Layanan
+Website yang indah perlu diimbangi data teknis yang baik agar ditemukan calon pengunjung yang tepat, apalagi pencarian informasi kini meluas dari Google ke mesin pencari berbasis AI (*Generative Engine Optimization / GEO*) seperti ChatGPT, Perplexity, atau Gemini. Masalah yang sering muncul: website sudah lama tayang tetapi tidak muncul untuk nama produk atau kata kunci terkait, gambar sampul dan deskripsi tidak tampil rapi saat tautan dibagikan ke WhatsApp atau LinkedIn (*Open Graph issue*), dan nilai kecepatan di Google PageSpeed Insights rendah sehingga merugikan peringkat. Layanan ini **merapikan fondasi teknis dan struktur data website Anda** agar konten mudah dipahami, diindeks, dan direkomendasikan secara organik.
 
-Memiliki website yang indah perlu diimbangi dengan ketersediaan data teknis yang baik agar dapat ditemukan oleh calon pengunjung yang tepat. Perilaku pencarian informasi saat ini tidak lagi hanya terbatas pada mesin pencari konvensional seperti Google, melainkan juga mulai meluas ke mesin pencari berbasis AI (*Generative Engine Optimization / GEO*) seperti ChatGPT, Perplexity, atau Gemini.
+Pengerjaan dimulai dengan audit teknis SEO yang memeriksa struktur HTML, meta tag, sitemap, dan kecepatan akses website. Berikutnya data terstruktur (JSON-LD) diimplementasikan dengan kode skema standar global agar mesin pencari dan AI memahami jenis bisnis dan produk Anda secara presisi, lalu Open Graph dioptimalkan agar setiap halaman punya foto sampul dan deskripsi yang menawan saat dibagikan. Terakhir, sintaksis konten ditata ramah AI (GEO) agar mesin pencari AI dapat mengutip bisnis Anda sebagai jawaban utama.
 
-Layanan ini dirancang untuk **merapikan fondasi teknis dan struktur data website Anda**, sehingga konten Anda mudah dipahami, diindeks, dan direkomendasikan secara organik.
-
----
-
-## Masalah yang Sering Dihadapi
-
-- **Website Sulit Ditemukan:** Website sudah tayang lama, tetapi tidak muncul ketika calon pembeli mengetikkan nama produk atau kata kunci terkait.
-- **Tampilan Berbagi Media Sosial Rusak:** Saat tautan dibagikan ke WhatsApp atau LinkedIn, gambar sampul atau deskripsinya tidak muncul secara rapi (*Open Graph issue*).
-- **Kinerja Teknis Lambat:** Nilai kecepatan website rendah di Google PageSpeed Insights yang berdampak buruk pada peringkat pencarian.
-
----
-
-## Tahapan Pengerjaan
-
-1. **Audit Teknis SEO:** Memeriksa struktur HTML, meta tag, sitemap, serta kecepatan akses website.
-2. **Implementasi Data Terstruktur (JSON-LD):** Menyuntikkan kode skema standar global agar mesin pencari dan AI memahami jenis bisnis dan produk Anda secara presisi.
-3. **Optimasi Pratinjau Media Sosial (Open Graph):** Memastikan setiap halaman memiliki foto sampul dan deskripsi yang menawan saat dibagikan.
-4. **Struktur Konten Ramah AI (GEO):** Menata sintaksis agar sistem mesin pencari AI dapat mengutip bisnis Anda sebagai jawaban utama.
-
----
-
-## Output yang Didapatkan
-
-- Audit & perbaikan aspek teknis SEO.
-- Pemasangan JSON-LD Schema (Article/CreativeWork/Business).
-- Pemasangan Open Graph & Twitter Card metadata.
-- Peta situs XML (Sitemap) & konfigurasi Robots.txt.
-- Laporan perbaikan dan rekomendasi berkelanjutan.
-
----
-
-## Mulai Diskusi Proyek
+Anda menerima audit dan perbaikan aspek teknis SEO, pemasangan JSON-LD Schema (Article/CreativeWork/Business), serta pemasangan metadata Open Graph dan Twitter Card. Selain itu tersedia peta situs XML (Sitemap) dengan konfigurasi Robots.txt, serta laporan perbaikan dan rekomendasi berkelanjutan.
 
 Ingin membuat website Anda bekerja lebih efektif mendatangkan pengunjung secara organik? Periksa kesehatan teknis website Anda melalui [halaman kontak](/contact).

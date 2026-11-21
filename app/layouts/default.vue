@@ -26,18 +26,28 @@ const serviceLinks: FooterLink[] = [
 ]
 
 const contactLinks = [
-  { name: 'WhatsApp', to: 'https://wa.me/6287761296676?text=Halo%20Ilham%2C%20saya%20ingin%20konsultasi%20proyek.' },
-  { name: 'Email', to: `mailto:${email}` },
-  { name: 'Instagram', to: 'https://www.instagram.com/ilhamkrnwan__' },
-  { name: 'LinkedIn', to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/' },
-  { name: 'GitHub', to: 'https://github.com/ilhamkrnwan' }
+  { name: 'WhatsApp', icon: 'simple-icons:whatsapp', to: 'https://wa.me/6287761296676?text=Halo%20Ilham%2C%20saya%20ingin%20konsultasi%20proyek.' },
+  { name: 'Email', icon: 'lucide:mail', to: `mailto:${email}` },
+  { name: 'Instagram', icon: 'simple-icons:instagram', to: 'https://www.instagram.com/ilhamkrnwan__' },
+  { name: 'LinkedIn', icon: 'simple-icons:linkedin', to: 'https://www.linkedin.com/in/ilham-kurniawan-9667891b7/' },
+  { name: 'GitHub', icon: 'simple-icons:github', to: 'https://github.com/ilhamkrnwan' }
 ]
 
 const localized = (item: FooterLink) => (locale.value === 'id' ? item.label : item.enLabel)
-const scrollToTop = () => window.scrollTo({
-  top: 0,
-  behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+const { $lenis } = useNuxtApp()
+// Bottom WhatsApp bar (phones) appears once the hero is behind the visitor.
+const showBar = ref(false)
+const whatsappUrl = contactLinks[0]!.to
+onMounted(() => {
+  const update = () => { showBar.value = window.scrollY > 480 }
+  update()
+  window.addEventListener('scroll', update, { passive: true })
+  onBeforeUnmount(() => window.removeEventListener('scroll', update))
 })
+const scrollToTop = () => {
+  if ($lenis.instance) $lenis.instance.scrollTo(0, { duration: 1.4 })
+  else window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+}
 </script>
 
 <template>
@@ -47,6 +57,19 @@ const scrollToTop = () => window.scrollTo({
     <UMain id="main-content" tabindex="-1">
       <slot />
     </UMain>
+
+    <a
+      :href="whatsappUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="wa-bar"
+      :data-visible="showBar || undefined"
+      :tabindex="showBar ? 0 : -1"
+      :aria-hidden="!showBar"
+    >
+      <UIcon name="simple-icons:whatsapp" class="size-5" aria-hidden="true" />
+      {{ t('cta.button_consult') }}
+    </a>
 
     <footer id="site-footer" class="site-footer">
       <div class="site-frame">
@@ -78,16 +101,17 @@ const scrollToTop = () => window.scrollTo({
 
           <nav :aria-label="t('footer.social')">
             <p class="editorial-label text-muted">{{ t('footer.social') }}</p>
-            <ul class="footer-links">
+            <ul class="footer-social">
               <li v-for="item in contactLinks" :key="item.name">
-                <ULink :to="item.to" target="_blank" rel="noopener noreferrer" raw>
-                  {{ item.name }}
-                  <UIcon name="lucide:arrow-up-right" class="size-3" aria-hidden="true" />
+                <ULink :to="item.to" target="_blank" rel="noopener noreferrer" raw class="footer-social-link" :aria-label="item.name" :title="item.name">
+                  <UIcon :name="item.icon" class="size-5" aria-hidden="true" />
                 </ULink>
               </li>
             </ul>
           </nav>
         </div>
+
+        <AppFooterMascot />
 
         <div class="footer-signoff">
           <span class="footer-wordmark" aria-hidden="true">Kairav</span>

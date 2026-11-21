@@ -159,7 +159,7 @@ const infoRows = computed(() => {
     <UiSkeletonDetail v-if="status === 'pending'" type="portfolio" />
     <template v-else-if="current">
       <!-- Hero -->
-      <section class="site-frame detail-masthead">
+      <UiDetailHero :image="current.image" :panoramic="current.panoramicHero">
         <div class="detail-masthead-copy min-w-0">
           <div class="flex flex-wrap items-center gap-3">
             <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
@@ -218,24 +218,23 @@ const infoRows = computed(() => {
             </UiArrowButton>
           </div>
         </div>
-        <figure v-if="current.image" class="detail-cover">
+        <template v-if="current.image" #action>
           <button
             type="button"
             :aria-label="t('projectImage.openCover', { title: current.title })"
             aria-haspopup="dialog"
-            class="relative block size-full cursor-zoom-in focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+            class="detail-hero-zoom"
             @click="openImagePreview(current.image, current.title ?? '', $event)"
           >
-            <NuxtImg :src="current.image" alt="" class="size-full object-cover" />
-            <span aria-hidden="true" class="pointer-events-none absolute end-3 top-3 grid size-9 place-items-center bg-black/75 text-white">
-              <UIcon name="lucide:zoom-in" class="size-4" />
-            </span>
+            <UIcon name="lucide:zoom-in" class="size-4" aria-hidden="true" />
           </button>
-        </figure>
-        <div v-else class="detail-mascot">
-          <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
-        </div>
-      </section>
+        </template>
+        <template #fallback>
+          <div class="detail-mascot">
+            <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
+          </div>
+        </template>
+      </UiDetailHero>
 
       <!-- Content -->
       <section id="project-content" class="site-frame detail-reading-layout">

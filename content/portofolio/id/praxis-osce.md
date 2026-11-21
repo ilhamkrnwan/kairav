@@ -1,8 +1,10 @@
 ---
 title: Praxis by Medskill
 description: Simulasi ujian klinis dengan timer stasiun, rubrik penilaian digital, dan rekap hasil untuk latihan OSCE.
-image: /portofolio/praxis-osce/landing-page.avif
+image: /portofolio/praxis-osce/praxis-osce.jpg
+panoramicHero: true
 gallery:
+  - /portofolio/praxis-osce/landing-page.avif
   - /portofolio/praxis-osce/anamnesis.avif
   - /portofolio/praxis-osce/platform-overview.avif
 category: Platform Web

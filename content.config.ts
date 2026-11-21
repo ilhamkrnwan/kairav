@@ -9,6 +9,7 @@ export default defineContentConfig({
         title: z.string().optional(),
         description: z.string().optional(),
         image: z.string().optional(),
+        panoramicHero: z.boolean().optional(),
         category: z.string().optional(),
         services: z.array(z.string()).optional(),
         client: z.string().optional(),

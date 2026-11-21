@@ -110,7 +110,7 @@ const cardUi = { root: 'rounded-lg bg-elevated ring-default/40 shadow-xl shadow-
     <UiSkeletonDetail v-if="status === 'pending'" type="blog" />
     <template v-else-if="current">
       <!-- Hero -->
-      <section class="site-frame detail-masthead">
+      <UiDetailHero :image="current.coverImage">
         <div class="detail-masthead-copy min-w-0">
           <div class="flex flex-wrap items-center gap-3">
             <UBreadcrumb :items="breadcrumbItems" :ui="{ link: 'text-xs' }" />
@@ -153,22 +153,12 @@ const cardUi = { root: 'rounded-lg bg-elevated ring-default/40 shadow-xl shadow-
             </UiArrowButton>
           </div>
         </div>
-        <figure v-if="current.coverImage" class="detail-cover">
-          <NuxtImg
-          :src="current.coverImage"
-          :alt="current.title"
-          width="1280"
-          height="720"
-          format="avif"
-          fetchpriority="high"
-          sizes="100vw lg:45vw"
-          class="size-full object-cover"
-            />
-        </figure>
-        <div v-else class="detail-mascot">
-          <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
-        </div>
-      </section>
+        <template #fallback>
+          <div class="detail-mascot">
+            <LazyUiMascot name="kairav" size="180" label="Kairav" hydrate-on-visible />
+          </div>
+        </template>
+      </UiDetailHero>
 
       <!-- Content -->
       <section id="blog-content" class="site-frame detail-reading-layout">

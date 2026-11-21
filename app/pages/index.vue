@@ -53,6 +53,11 @@ function stepProject(direction: number) {
   selectProject((activeIndex.value + direction + count) % count, direction)
 }
 
+// Decorative backdrop for the statement band; hidden from assistive tech.
+const statementWords = Array.from({ length: 5 }, () => [
+  'Build', 'Design', 'Ship', 'Refine', 'Systems', 'Interface', 'Detail', 'Scale',
+]).flat()
+
 const drag = useWorkDrag(stepProject)
 useHomeMotion(hero, work, { activeSlug, previewDirection, showAlternativePortrait })
 useHomeSectionMotion(home)
@@ -84,6 +89,12 @@ const features = computed(() => [
 <template>
   <div ref="home" class="home-page">
     <section ref="hero" class="site-frame home-hero" aria-labelledby="home-title">
+      <div class="home-meta editorial-label">
+        <span>{{ t('footer.location_studio') }}</span>
+        <span class="home-meta-status"><i aria-hidden="true" />{{ t('footer.status_available') }}</span>
+        <span aria-hidden="true">&copy; {{ new Date().getFullYear() }}</span>
+      </div>
+
       <h1 id="home-title" class="home-name" aria-label="Ilham Kurniawan">
         <span class="home-name-mask"><span data-name-word><span data-name-ink>Ilham</span></span></span>
         <span class="home-name-mask"><span data-name-word><span data-name-ink>Kurniawan</span></span></span>
@@ -151,6 +162,22 @@ const features = computed(() => [
       </div>
     </section>
 
+    <section class="home-statement inverse-band" aria-labelledby="home-statement-title">
+      <div class="statement-stage">
+        <div class="statement-field" aria-hidden="true">
+          <span v-for="(word, index) in statementWords" :key="index">{{ word }}</span>
+        </div>
+        <h2 id="home-statement-title" class="statement-title">
+          <span>{{ t('statement.first') }}</span>
+          <span>{{ t('statement.second') }}</span>
+          <span>{{ t('statement.third') }}</span>
+        </h2>
+      </div>
+    </section>
+
+    <div class="statement-run" aria-hidden="true" />
+
+    <div class="home-cover">
     <section id="selected-work" class="site-frame editorial-section" aria-labelledby="selected-work-title">
       <div class="editorial-section-heading">
         <div>
@@ -249,6 +276,7 @@ const features = computed(() => [
       </div>
     </section>
 
+    <div class="inverse-band" data-inverse-band>
     <section id="features" class="site-frame editorial-section editorial-split" aria-labelledby="home-services-title">
       <div>
         <h2 id="home-services-title" class="editorial-title">{{ t('Solusi Digital') }} {{ t('Untuk Bisnis') }}</h2>
@@ -276,8 +304,10 @@ const features = computed(() => [
         </li>
       </ul>
     </section>
+    </div>
 
     <AppAboutSkills />
     <GetinTouch />
+    </div>
   </div>
 </template>

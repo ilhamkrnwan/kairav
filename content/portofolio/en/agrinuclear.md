@@ -1,7 +1,8 @@
 ---
 title: AgriNuklir
 description: An educational platform about applications of nuclear technology in agriculture, with learning modules, simulations, and interactive quizzes.
-image: /portofolio/agrinuklir/studio-cover.avif
+image: /portofolio/agrinuklir/agrinuclear.jpg
+panoramicHero: true
 category: Website
 services:
   - Frontend Development

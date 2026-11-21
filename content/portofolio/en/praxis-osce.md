@@ -1,8 +1,10 @@
 ---
 title: Praxis by Medskill
 description: Clinical exam simulation with synchronized station timers, digital scoring rubrics, and results review for OSCE practice.
-image: /portofolio/praxis-osce/landing-page.avif
+image: /portofolio/praxis-osce/praxis-osce.jpg
+panoramicHero: true
 gallery:
+  - /portofolio/praxis-osce/landing-page.avif
   - /portofolio/praxis-osce/anamnesis.avif
   - /portofolio/praxis-osce/platform-overview.avif
 category: Web Platform

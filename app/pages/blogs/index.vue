@@ -14,7 +14,6 @@ const { data: blogs, status } = await useAsyncData(
 
 const getBlogLink = (path?: string) => path?.replace(/^\/blog\/[^/]+/, '/blogs') || '#'
 
-const searchQuery = ref('')
 const selectedCategory = ref('All')
 
 const categories = computed(() => [
@@ -27,20 +26,12 @@ const filteredBlogs = computed(() => {
   if (selectedCategory.value !== 'All') {
     filtered = filtered.filter(item => item.category === selectedCategory.value)
   }
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(item =>
-      item.title?.toLowerCase().includes(query)
-      || item.description?.toLowerCase().includes(query)
-      || item.tags?.some(tag => tag.toLowerCase().includes(query))
-    )
-  }
   return filtered
 })
 
-// Featured article: only when not searching and on the "All" category
+// Featured article: only when on the "All" category
 const featuredBlog = computed(() =>
-  selectedCategory.value === 'All' && !searchQuery.value ? filteredBlogs.value[0] : undefined
+  selectedCategory.value === 'All' ? filteredBlogs.value[0] : undefined
 )
 
 const regularBlogs = computed(() => (featuredBlog.value ? filteredBlogs.value.slice(1) : filteredBlogs.value))
@@ -51,7 +42,6 @@ useDynamicSeo({
 })
 
 const clearFilters = () => {
-  searchQuery.value = ''
   selectedCategory.value = 'All'
 }
 
@@ -76,28 +66,6 @@ const clearFilters = () => {
 
         <!-- Filters -->
         <div class="catalogue-filters">
-          <UInput
-            v-model="searchQuery"
-            icon="lucide:search"
-            size="xl"
-            :placeholder="t('Search')"
-            :aria-label="t('Search articles by title, description, or tags...')"
-            class="w-full max-w-md"
-            :ui="{ base: 'rounded-lg sm:rounded-xl bg-elevated' }"
-          >
-            <template v-if="searchQuery" #trailing>
-              <UButton
-                icon="lucide:x"
-                color="neutral"
-                variant="link"
-                size="sm"
-                class="size-11 justify-center"
-                :aria-label="t('Clear Filters')"
-                @click="searchQuery = ''"
-              />
-            </template>
-          </UInput>
-
           <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <UButton
               v-for="category in categories"

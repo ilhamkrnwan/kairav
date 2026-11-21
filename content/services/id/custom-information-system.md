@@ -23,46 +23,10 @@ seo:
   description: "Perancangan sistem informasi internal dan manajemen data custom yang rapi, terstruktur, dan sesuai alur bisnis organisasi."
 ---
 
-## Gambaran Layanan
+Organisasi, sekolah, klinik, atau perusahaan sering kesulitan ketika pendataan anggota, inventaris barang, atau dokumen kerja masih dikelola manual, sehingga pencarian berkas lambat, data ganda dan arsip hilang mudah terjadi, dan pelaporan internal tidak akurat atau tidak *real-time* bagi pimpinan. Layanan ini **merapikan sistem pendataan dan manajemen internal secara terstruktur** lewat sistem informasi kustom yang mudah dioperasikan staf tanpa pelatihan teknis yang rumit. Contohnya sistem manajemen anggota dan komunitas, inventaris dan stok barang internal, pendataan administrasi dan arsip dokumen, serta portal layanan dan pengajuan internal.
 
-Organisasi, sekolah, klinik, atau perusahaan sering menghadapi kendala ketika pendataan anggota, inventaris barang, atau dokumen kerja masih dikelola secara manual. Akibatnya, pencarian berkas membutuhkan waktu lama, risiko penumpukan data ganda tinggi, dan pelaporan internal menjadi tidak akurat.
+Pengerjaan dimulai dengan analisis kebutuhan pendataan untuk memahami struktur data yang dikelola dan siapa penggunanya. Selanjutnya alur kerja disusun, mulai dari input, pengeditan, verifikasi, hingga pencetakan dokumen, lalu antarmuka yang bersih dan basis data yang aman serta cepat dibangun. Terakhir, sistem diuji bersama staf Anda dan dilengkapi petunjuk penggunaan.
 
-Layanan ini dirancang untuk **merapikan sistem pendataan dan manajemen internal secara terstruktur**. Sistem informasi kustom dibangun agar mudah dioperasikan oleh staf tanpa memerlukan pelatihan teknis yang rumit.
-
----
-
-## Masalah yang Sering Dihadapi
-
-- **Pencarian Data Lambat:** Membutuhkan waktu lama hanya untuk menemukan riwayat transaksi, data anggota, atau status dokumen.
-- **Risiko Kesalahan Pendataan:** Penginputan manual sering menimbulkan data ganda (*duplicate entries*) atau arsip hilang.
-- **Pelaporan Kurang Akurat:** Pimpinan kesulitan mendapatkan rekapitulasi data internal yang transparan dan *real-time*.
-
----
-
-## Tahapan Pengerjaan
-
-1. **Analisis Kebutuhan Pendataan:** Memahami struktur data apa saja yang dikelola serta siapa pengguna sistemnya.
-2. **Penyusunan Alur Kerja (Workflow):** Menata proses input, pengeditan, verifikasi, hingga pencetakan dokumen secara alami.
-3. **Pengembangan UI & Database:** Membangun antarmuka yang bersih serta sistem basis data yang aman dan cepat.
-4. **Pengujian & Pelatihan Penggunaan:** Menguji keandalan sistem bersama staf serta menyediakan petunjuk penggunaan.
-
----
-
-## Contoh Sistem Informasi yang Dikembangkan
-
-- Sistem Informasi Manajemen Anggota & Komunitas.
-- Sistem Inventaris & Stok Barang Internal.
-- Sistem Pendataan Administrasi & Arsip Dokumen.
-- Portal Layanan & Pengajuan Internal Organisasi.
-
----
-
-## Alokasi Teknologi
-
-Sistem dikembangkan menggunakan **Nuxt 4 / Vue 3, Laravel, Node.js, PostgreSQL, MySQL, dan Tailwind CSS**. Arsitektur dirancang agar aman, tahan lama, dan mudah dikembangkan seiring pertumbuhan organisasi.
-
----
-
-## Mulai Diskusi Proyek
+Anda menerima perancangan skema basis data dan alur kerja, fitur manajemen data (CRUD) dengan validasi, pencarian cepat, filter, dan pencetakan dokumen, serta hak akses bertingkat dengan otentikasi aman. Sistem dikembangkan dengan **Nuxt 4 / Vue 3, Laravel, Node.js, PostgreSQL, MySQL, dan Tailwind CSS**, dengan arsitektur yang aman, tahan lama, dan mudah dikembangkan seiring pertumbuhan organisasi.
 
 Ingin membuat operasional internal organisasi Anda lebih teratur dan efisien? Diskusikan alur kebutuhan sistem Anda melalui [halaman kontak](/contact).
